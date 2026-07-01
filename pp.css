@@ -280,8 +280,8 @@
 /* ----- Single hero ----- */
 .hero-single{background:var(--pp-grad-bg);color:#fff}
 .hero-single-inner{padding:60px 0 52px;max-width:900px}
-.hero-single h1{text-transform:uppercase;font-weight:800;font-size:clamp(2.2rem,6vw,4rem);line-height:1.04;margin-bottom:1.2rem}
-.hero-sub{font-size:clamp(1.05rem,1.8vw,1.35rem);color:#f0f0f0;max-width:700px;margin:0 auto 2rem}
+.hero-single h1{text-transform:uppercase;font-weight:800;font-size:clamp(1.9rem,4.6vw,3.1rem);line-height:1.08;margin-bottom:1.1rem}
+.hero-sub{font-size:clamp(1rem,1.4vw,1.15rem);color:#f0f0f0;max-width:640px;margin:0 auto 2rem}
 .hero-single .hero-ctas{margin-bottom:0;justify-content:center}
 .hero-manifesto{font-size:.98rem;color:rgba(255,255,255,.8);max-width:700px;margin:0 auto;line-height:1.6}
 
