@@ -72,21 +72,30 @@
     return /talk to our experts|book a[n]? .*demo|book a demo|submit rfp|contact us/.test(txt);
   }
 
+  // Real lead-conversion tracker — called by pp-crm.js when the capture form is
+  // actually submitted (a click is only intent). One place owns the tag IDs.
+  window.ppTrackLead = function (label, page) {
+    try {
+      if (window.gtag && gaOn) {
+        gtag("event", "generate_lead", { cta: label, page_path: page || location.pathname });
+      }
+      if (window.gtag && adsOn && isSet(CONFIG.GOOGLE_ADS_CONVERSION_LABEL)) {
+        gtag("event", "conversion", {
+          send_to: CONFIG.GOOGLE_ADS_ID + "/" + CONFIG.GOOGLE_ADS_CONVERSION_LABEL
+        });
+      }
+      if (window.uetq && uetOn) {
+        window.uetq.push("event", "submit_lead_form", { event_category: "cta", event_label: label });
+      }
+    } catch (e) { /* no-op */ }
+  };
+
+  // A CTA click is an intent signal only (the lead/conversion fires on form submit).
   document.addEventListener("click", function (e) {
     var a = e.target && e.target.closest ? e.target.closest("a") : null;
     if (!a || !isLeadClick(a)) return;
-    var label = (a.textContent || "").trim().slice(0, 80);
-
     if (window.gtag && gaOn) {
-      gtag("event", "generate_lead", { cta: label, page_path: location.pathname });
-    }
-    if (window.gtag && adsOn && isSet(CONFIG.GOOGLE_ADS_CONVERSION_LABEL)) {
-      gtag("event", "conversion", {
-        send_to: CONFIG.GOOGLE_ADS_ID + "/" + CONFIG.GOOGLE_ADS_CONVERSION_LABEL
-      });
-    }
-    if (window.uetq && uetOn) {
-      window.uetq.push("event", "submit_lead_form", { event_category: "cta", event_label: label });
+      gtag("event", "cta_click", { cta: (a.textContent || "").trim().slice(0, 80), page_path: location.pathname });
     }
   }, true);
 })();
