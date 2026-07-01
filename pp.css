@@ -46,9 +46,14 @@
 
     /* Sticky in-page anchor nav */
     .anchor-nav{position:sticky;top:0;z-index:1020;background:#fff;border-bottom:1px solid var(--pp-line)}
-    .anchor-nav .inner{display:flex;gap:1.4rem;overflow-x:auto;padding:.85rem 0;white-space:nowrap}
+    .anchor-nav .inner{display:flex;align-items:center;gap:1.4rem;overflow-x:auto;padding:.85rem 0;white-space:nowrap}
     .anchor-nav a{font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--pp-muted);text-decoration:none;padding-bottom:2px}
     .anchor-nav a:hover,.anchor-nav a.active{color:#000;border-bottom:2px solid #000}
+    /* Persistent product-name chip pinned to the left of the sticky anchor nav */
+    .anchor-brand{position:sticky;left:0;z-index:2;flex:none;display:inline-flex;align-items:center;gap:.55rem;font-size:.82rem;font-weight:800;letter-spacing:.01em;color:var(--pp-ink);background:#fff;padding-right:1.2rem;text-transform:none}
+    .anchor-brand::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:var(--pp-grad)}
+    .anchor-brand::after{content:"";position:absolute;right:0;top:50%;transform:translateY(-50%);height:15px;width:1px;background:var(--pp-line)}
+    @media (max-width:575.98px){.anchor-brand{font-size:.78rem;padding-right:.9rem}}
 
     /* Highlights inline */
     .hl{border-left:3px solid #000;padding-left:16px}
