@@ -64,6 +64,7 @@
   function openModal(label) {
     if (!modal) modal = build();
     ctx = { cta: label, page: location.pathname + location.search, title: document.title };
+    fmEvent("CTA Clicked", { "cta": ctx.cta, "page": ctx.page, "page title": ctx.title });
     var title = /book a[n]? .*demo/i.test(label) ? "Book a demo"
               : /submit rfp/i.test(label) ? "Submit an RFP" : "Talk to our experts";
     modal.querySelector("#pp-lead-title").textContent = title;
@@ -89,6 +90,14 @@
     } catch (e) { /* no-op */ }
   }
 
+  // Freshmarketer behavioural custom event (timeline / journeys / segmentation).
+  // No-op if FM isn't present. Works for anonymous visitors too (no email yet).
+  function fmEvent(name, props) {
+    try {
+      if (typeof FM !== "undefined" && FM.trackCustomEvent) FM.trackCustomEvent(name, props || {});
+    } catch (e) { /* no-op */ }
+  }
+
   function onSubmit(e) {
     e.preventDefault();
     var f = e.target;
@@ -105,6 +114,8 @@
     if (phone) props["Mobile"] = phone;
 
     pushToCrm(email, contact, props);
+    fmEvent("Lead Captured", { "email": email, "cta": ctx.cta, "page": ctx.page,
+                               "page title": ctx.title, "company": company });
     if (window.ppTrackLead) window.ppTrackLead(ctx.cta, ctx.page);   // GA4 / Ads / Bing conversion
 
     f.hidden = true;
@@ -125,6 +136,7 @@
       if (email && isEmail(email)) {
         pushToCrm(email, { "Email": email },
                   { "Last CTA clicked": "Newsletter subscribe", "CTA source page": location.pathname });
+        fmEvent("Newsletter Subscribed", { "email": email, "page": location.pathname });
         if (window.ppTrackLead) window.ppTrackLead("Newsletter subscribe", location.pathname);
         inp.value = ""; inp.placeholder = "Subscribed ✓";
       } else if (inp) { inp.focus(); }
