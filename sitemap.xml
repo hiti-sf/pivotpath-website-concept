@@ -84,4 +84,48 @@
     <loc>https://pivotpath.com/pivotpath-zero-touch-it.html</loc>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://pivotpath.com/pivotpath-svc-clinical-operations.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pivotpath.com/pivotpath-svc-ip-consulting.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pivotpath.com/pivotpath-svc-mobile-clinical.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pivotpath.com/pivotpath-svc-csv.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pivotpath.com/pivotpath-svc-quality-compliance.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pivotpath.com/pivotpath-svc-operational-excellence.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pivotpath.com/pivotpath-svc-digital-manufacturing.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pivotpath.com/pivotpath-svc-track-trace.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pivotpath.com/pivotpath-svc-hc-consulting.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pivotpath.com/pivotpath-svc-hc-digitisation.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pivotpath.com/pivotpath-svc-talent-acquisition.html</loc>
+    <priority>0.8</priority>
+  </url>
 </urlset>
