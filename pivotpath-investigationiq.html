@@ -7,6 +7,99 @@
   <meta name="description" content="InvestigationIQ is Pivot Path's AI assistant for root-cause analysis and CAPA — RAG-grounded on your own investigation history, supporting Fishbone, 5-Why, 6M and Interview methods to cut investigation cycle time." />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="pp.css" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "InvestigationIQ",
+      "description": "InvestigationIQ is Pivot Path's AI assistant for root-cause analysis and CAPA — RAG-grounded on your own investigation history, supporting Fishbone, 5-Why, 6M and Interview methods to cut investigation cycle time.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "provider": {
+        "@type": "Organization",
+        "@id": "https://pivotpath.com/#organization",
+        "name": "Pivot Path",
+        "url": "https://pivotpath.com/"
+      },
+      "url": "https://pivotpath.com/pivotpath-investigationiq.html"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://pivotpath.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Products",
+          "item": "https://pivotpath.com/#platforms"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "InvestigationIQ",
+          "item": "https://pivotpath.com/pivotpath-investigationiq.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is InvestigationIQ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "An AI assistant for RCA and CAPA. It guides analysts through structured RCA grounded in your investigation history."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does RAG work here?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It ingests and chunks past investigations, then runs a similarity search for relevant prior cases — every suggestion anchored in your history."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which methods does it support?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Four RCA methods — Fishbone, 5-Why, 6M and Interviews — a structured, repeatable approach."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is a human still in control?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Human-in-the-loop by design — every output is reviewed before becoming a CAPA, keeping records defensible."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much time does it save?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It targets an estimated 40–60% cut in cycle time — roughly 6–7 hours saved per investigation."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <script src="pp-analytics.js"></script>
+  <!-- Freshworks (Freshmarketer / Freshchat) -->
+  <script src="//in.fw-cdn.com/32228802/1191962.js" chat="true"></script>
+  <script src="pp-crm.js"></script>
 </head>
 <body>
   <div class="pp-topbar"></div>
@@ -23,15 +116,39 @@
       <div class="collapse navbar-collapse" id="nav">
         <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
           <li class="nav-item"><a class="nav-link" href="pivotpath-leadership.html">About</a></li>
-          <li class="nav-item dropdown">
+          <li class="nav-item dropdown position-static">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Services</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="pivotpath-drug-safety.html">Patient Safety</a></li>
-              <li><a class="dropdown-item" href="pivotpath-quality-compliance.html">Quality & Digital Compliance</a></li>
-              <li><a class="dropdown-item" href="pivotpath-digital-innovation.html">Digital Transformation</a></li>
-              <li><a class="dropdown-item" href="pivotpath-ip-clinical.html">Integrated IP & Clinical Operations</a></li>
-              <li><a class="dropdown-item" href="pivotpath-human-capital.html">Human Capital</a></li>
-            </ul>
+            <div class="dropdown-menu mega-menu">
+              <div class="mega-grid">
+                <div class="mega-col">
+                  <a class="mega-head" href="pivotpath-drug-safety.html">Patient Safety</a>
+                  <a class="mega-sub" href="pivotpath-drug-safety.html">Global Pharmacovigilance</a>
+                </div>
+                <div class="mega-col">
+                  <a class="mega-head" href="pivotpath-ip-clinical.html">Integrated IP &amp; Clinical Operations</a>
+                  <a class="mega-sub" href="pivotpath-svc-clinical-operations.html">Clinical Operations</a>
+                  <a class="mega-sub" href="pivotpath-svc-ip-consulting.html">Intellectual Property Consulting</a>
+                  <a class="mega-sub" href="pivotpath-svc-mobile-clinical.html">Mobile Clinical Services</a>
+                </div>
+                <div class="mega-col">
+                  <a class="mega-head" href="pivotpath-quality-compliance.html">Quality &amp; Digital Compliance</a>
+                  <a class="mega-sub" href="pivotpath-svc-csv.html">Computer System Validation</a>
+                  <a class="mega-sub" href="pivotpath-svc-quality-compliance.html">Quality &amp; Compliance Services</a>
+                  <a class="mega-sub" href="pivotpath-svc-operational-excellence.html">Operational Excellence</a>
+                </div>
+                <div class="mega-col">
+                  <a class="mega-head" href="pivotpath-digital-innovation.html">Digital Transformation</a>
+                  <a class="mega-sub" href="pivotpath-svc-digital-manufacturing.html">Digital Manufacturing</a>
+                  <a class="mega-sub" href="pivotpath-svc-track-trace.html">Track &amp; Trace Solutions</a>
+                </div>
+                <div class="mega-col">
+                  <a class="mega-head" href="pivotpath-human-capital.html">Human Capital</a>
+                  <a class="mega-sub" href="pivotpath-svc-hc-consulting.html">Human Capital Consulting</a>
+                  <a class="mega-sub" href="pivotpath-svc-hc-digitisation.html">Human Capital Digitisation</a>
+                  <a class="mega-sub" href="pivotpath-svc-talent-acquisition.html">Talent Acquisition Services</a>
+                </div>
+              </div>
+            </div>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Products</a>
@@ -65,7 +182,7 @@
       <div class="crumb"><a href="pivotpath-home.html">Home</a> &nbsp;/&nbsp; <a href="pivotpath-home.html#platforms">Products</a> &nbsp;/&nbsp; InvestigationIQ</div>
       <div class="mt-3"><span class="product-tag">Quality &amp; Compliance · Platform</span></div>
       <h1>AI-Assisted Root-Cause<br>Analysis &amp; CAPA.</h1>
-      <p class="lead">InvestigationIQ is an AI assistant for RCA and CAPA — grounded on your own investigation history with retrieval-augmented generation. It supports Fishbone, 5-Why, 6M and Interview methods, helping teams cut investigation cycle time by an estimated 40–60%.</p>
+      <p class="lead">An AI assistant for RCA and CAPA, grounded on your investigation history via retrieval-augmented generation. It supports Fishbone, 5-Why, 6M and Interview methods, cutting investigation cycle time an estimated 40–60%.</p>
       <div class="hero-ctas">
         <a href="#contact" class="btns-line">Book an InvestigationIQ demo</a>
         <a href="mailto:info@pivotpath.com" class="btns-line">Talk to our experts</a>
@@ -78,6 +195,7 @@
   <nav class="anchor-nav">
     <div class="container">
       <div class="inner">
+        <span class="anchor-brand">InvestigationIQ</span>
         <a href="#overview" class="active">Overview</a>
         <a href="#preview">Preview</a>
         <a href="#challenge">The Challenge</a>
@@ -190,10 +308,10 @@
         <h2 class="section-title reveal">Investigations Are Slow,<br>and Quality Varies</h2>
       </div>
       <div class="row g-4">
-        <div class="col-md-6 col-lg-3 reveal"><div class="pain"><div class="x">⏱</div><h5>Investigations drag on for days</h5><p>Manual root-cause analysis is slow and repetitive, stretching investigations across days while deadlines mount.</p></div></div>
-        <div class="col-md-6 col-lg-3 reveal"><div class="pain"><div class="x">≠</div><h5>RCA quality is inconsistent</h5><p>Outcomes vary from analyst to analyst, making depth and defensibility hard to guarantee across investigations.</p></div></div>
-        <div class="col-md-6 col-lg-3 reveal"><div class="pain"><div class="x">▢</div><h5>Knowledge stays locked away</h5><p>Lessons from past investigations sit unused in archives, so teams keep re-solving problems they have seen before.</p></div></div>
-        <div class="col-md-6 col-lg-3 reveal"><div class="pain"><div class="x">↻</div><h5>CAPA backlogs &amp; repeat deviations</h5><p>Slow, inconsistent investigations feed CAPA backlogs and let the same deviations recur.</p></div></div>
+        <div class="col-md-6 col-lg-3 reveal"><div class="pain"><div class="x">⏱</div><h5>Investigations drag on for days</h5><p>Manual root-cause analysis is slow and repetitive, dragging on as deadlines loom.</p></div></div>
+        <div class="col-md-6 col-lg-3 reveal"><div class="pain"><div class="x">≠</div><h5>RCA quality is inconsistent</h5><p>Outcomes vary by analyst, making depth and defensibility hard to guarantee.</p></div></div>
+        <div class="col-md-6 col-lg-3 reveal"><div class="pain"><div class="x">▢</div><h5>Knowledge stays locked away</h5><p>Lessons from past investigations sit unused in archives, so teams re-solve known problems.</p></div></div>
+        <div class="col-md-6 col-lg-3 reveal"><div class="pain"><div class="x">↻</div><h5>CAPA backlogs &amp; repeat deviations</h5><p>Slow, inconsistent investigations feed backlogs and let deviations recur.</p></div></div>
       </div>
     </div>
   </section>
@@ -235,37 +353,37 @@
           <div class="pic"><svg viewBox="0 0 24 24"><path d="M12 3v10m0 0l-4-4m4 4l4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg></div>
           <div class="pk">Retrieval</div>
           <h5>Ingest</h5>
-          <p>Your investigation records, deviations and closed CAPAs are pulled in from your quality systems to form the knowledge base each analysis draws on.</p>
+          <p>Records, deviations and closed CAPAs are pulled from your quality systems into a knowledge base.</p>
         </div>
         <div class="tl">
           <div class="pic"><svg viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></svg></div>
           <div class="pk">Retrieval</div>
           <h5>Chunk</h5>
-          <p>Each record is split into passage-sized segments and turned into vector embeddings, so meaning rather than keywords becomes searchable.</p>
+          <p>Each record is split into passages and vector-embedded, so meaning — not keywords — is searchable.</p>
         </div>
         <div class="tl">
           <div class="pic"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="M20 20l-3.5-3.5"/></svg></div>
           <div class="pk">Retrieval</div>
           <h5>Similarity Search</h5>
-          <p>When a new investigation opens, the most semantically similar prior cases are retrieved as grounded context for the analysis ahead.</p>
+          <p>When a new investigation opens, the most similar prior cases surface as context.</p>
         </div>
         <div class="tl">
           <div class="pic"><svg viewBox="0 0 24 24"><path d="M12 3l1.8 4.8L18 9l-4.2 1.2L12 15l-1.8-4.8L6 9l4.2-1.2z"/></svg></div>
           <div class="pk">Generation</div>
           <h5>Generate</h5>
-          <p>The model drafts a structured root-cause analysis and CAPA proposal grounded strictly in the retrieved precedent, with each point traceable to its source.</p>
+          <p>The model drafts a structured RCA and CAPA proposal grounded in precedent — each point traceable.</p>
         </div>
         <div class="tl">
           <div class="pic"><svg viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></div>
           <div class="pk">Human-led</div>
           <h5>Human Review</h5>
-          <p>A quality reviewer interrogates the draft, checks the cited evidence and edits or rejects anything that does not hold before it advances.</p>
+          <p>A reviewer checks the draft and cited evidence, editing or rejecting anything that doesn't hold.</p>
         </div>
         <div class="tl">
           <div class="pic"><svg viewBox="0 0 24 24"><rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 4V3h6v1M9 11h6M9 15h4"/></svg></div>
           <div class="pk">Human-led</div>
           <h5>CAPA</h5>
-          <p>The reviewed, approved corrective and preventive action is recorded back into your quality system, defensible and ready for audit.</p>
+          <p>The approved corrective and preventive action is recorded into your quality system — audit-ready.</p>
         </div>
       </div>
     </div>
@@ -381,8 +499,22 @@
       </div>
     </div>
   </section>
+  <!-- ============ FINAL CTA ============ -->
+  <section class="pad80 final-cta text-center" id="contact">
+    <div class="container">
+      <h2 class="section-title text-white reveal mb-3">Cut Investigation Time with InvestigationIQ.</h2>
+      <p class="text-white-50 reveal mb-4" style="max-width:640px;margin-inline:auto">Book a demo: guided RCA, RAG-grounded suggestions and human-reviewed CAPA.</p>
+      <div class="hero-ctas justify-content-center reveal">
+        <a href="mailto:info@pivotpath.com" class="btns-line">Book an InvestigationIQ demo</a>
+        <a href="mailto:info@pivotpath.com" class="btns-line">Talk to our experts</a>
+        <a href="pivotpath-quality-compliance.html" class="btns-line">Explore Quality &amp; Compliance services</a>
+      </div>
+    </div>
+  </section>
 
-  <!-- ============ FAQ ============ -->
+  <!-- ============ FOOTER ============ -->
+
+    <!-- ============ FAQ ============ -->
   <section class="pad80" id="faq">
     <div class="container">
       <div class="text-center mb-5">
@@ -393,23 +525,23 @@
           <div class="accordion reveal" id="faqAcc">
             <div class="accordion-item">
               <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q1">What is InvestigationIQ?</button></h2>
-              <div id="q1" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">InvestigationIQ is an AI assistant for root-cause analysis and CAPA. It guides analysts through structured RCA and grounds its suggestions in your own investigation history, helping teams investigate faster and more consistently.</div></div>
+              <div id="q1" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">An AI assistant for RCA and CAPA. It guides analysts through structured RCA grounded in your investigation history.</div></div>
             </div>
             <div class="accordion-item">
               <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2">How does RAG work here?</button></h2>
-              <div id="q2" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">InvestigationIQ ingests your past investigations, chunks them, and runs a similarity search to retrieve relevant prior cases. It then generates suggestions grounded in that data — every output is anchored in your own history rather than generic content.</div></div>
+              <div id="q2" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">It ingests and chunks past investigations, then runs a similarity search for relevant prior cases — every suggestion anchored in your history.</div></div>
             </div>
             <div class="accordion-item">
               <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q3">Which methods does it support?</button></h2>
-              <div id="q3" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">InvestigationIQ supports four established root-cause analysis methods: Fishbone, 5-Why, 6M and Interviews — giving analysts a structured, repeatable approach across investigations.</div></div>
+              <div id="q3" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Four RCA methods — Fishbone, 5-Why, 6M and Interviews — a structured, repeatable approach.</div></div>
             </div>
             <div class="accordion-item">
               <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q4">Is a human still in control?</button></h2>
-              <div id="q4" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Yes. InvestigationIQ is human-in-the-loop by design — every output is reviewed and confirmed by a person before it becomes a CAPA, keeping records defensible.</div></div>
+              <div id="q4" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Yes. Human-in-the-loop by design — every output is reviewed before becoming a CAPA, keeping records defensible.</div></div>
             </div>
             <div class="accordion-item">
               <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q5">How much time does it save?</button></h2>
-              <div id="q5" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">By design, InvestigationIQ targets an estimated 40–60% reduction in investigation cycle time, equivalent to roughly 6–7 hours saved per investigation.</div></div>
+              <div id="q5" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">It targets an estimated 40–60% cut in cycle time — roughly 6–7 hours saved per investigation.</div></div>
             </div>
           </div>
         </div>
@@ -417,20 +549,6 @@
     </div>
   </section>
 
-  <!-- ============ FINAL CTA ============ -->
-  <section class="pad80 final-cta text-center" id="contact">
-    <div class="container">
-      <h2 class="section-title text-white reveal mb-3">Cut Investigation Time with InvestigationIQ.</h2>
-      <p class="text-white-50 reveal mb-4" style="max-width:640px;margin-inline:auto">Book a working demo and we'll show you guided RCA, RAG-grounded suggestions and human-reviewed CAPA on investigations like yours.</p>
-      <div class="hero-ctas justify-content-center reveal">
-        <a href="mailto:info@pivotpath.com" class="btns-line">Book an InvestigationIQ demo</a>
-        <a href="mailto:info@pivotpath.com" class="btns-line">Talk to our experts</a>
-        <a href="pivotpath-quality-compliance.html" class="btns-line">Explore Quality &amp; Compliance services</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ FOOTER ============ -->
   <footer class="footer pad60">
     <div class="container">
       <div class="row g-4">
