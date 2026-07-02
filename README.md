@@ -10,10 +10,15 @@ Open `index.html` in any browser.
 
 ## Publish on GitHub Pages
 
-1. Create a new GitHub repo and upload **the contents of this folder** (so `index.html`
-   sits at the repo root).
+This site already deploys to GitHub Pages from repo **`hiti-sf/pivotpath-website-concept`**, branch
+**`lean`**, folder **`/ (root)`** — live at **https://hiti-sf.github.io/pivotpath-website-concept/**.
+Push to `lean` to publish.
+
+To set it up on a fresh repo:
+
+1. Create a GitHub repo and upload **the contents of this folder** (so `index.html` sits at the repo root).
 2. In the repo: **Settings → Pages**.
-3. Under **Build and deployment**, set **Source = Deploy from a branch**, **Branch = `main`**, **Folder = `/ (root)`**, then **Save**.
+3. Under **Build and deployment**, set **Source = Deploy from a branch**, **Branch = `lean`** (or your default), **Folder = `/ (root)`**, then **Save**.
 4. Wait ~1 minute. Your site is live at `https://<your-username>.github.io/<repo-name>/`.
    Share that link with colleagues.
 
