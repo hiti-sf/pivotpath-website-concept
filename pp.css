@@ -80,7 +80,8 @@
     .pain:hover{border-color:var(--pp-accent)}
     .pain h5{font-size:1rem;font-weight:700;text-transform:none;margin-bottom:.4rem}
     .pain p{font-size:.86rem;color:var(--pp-muted);margin:0}
-    .pain .x{font-weight:800;color:#000;font-size:1.1rem}
+    /* #11: drop the recycled placeholder glyphs; pain cards lead with the heading */
+    .pain .x{display:none}
 
     /* Capability cards */
     .cap-card{border:1px solid #ededed;padding:24px;height:100%;background:#fff;border-radius:var(--r-md);transition:border-color .2s ease}
