@@ -14,11 +14,13 @@
     /* #19: two-tier weight scale — display headings 800, content headings 700 */
     h1,h2{font-weight:800;letter-spacing:.01em}
     h3,h4,h5,h6{font-weight:700;letter-spacing:.01em}
-    .pad80{padding-top:96px;padding-bottom:96px}
-    .pad60{padding-top:72px;padding-bottom:72px}
+    /* #14: asymmetric rhythm — more lead-in than trail-out breaks the metronome */
+    .pad80{padding-top:104px;padding-bottom:80px}
+    .pad60{padding-top:72px;padding-bottom:56px}
     .grey{background:var(--pp-grey)}
     .text-uppercase{letter-spacing:.06em}
-    .section-title{text-transform:uppercase;font-weight:800;line-height:1.12}
+    /* #14/#19: section titles in sentence/title case, not shouting uppercase */
+    .section-title{font-weight:800;line-height:1.12;letter-spacing:-.01em}
 
     .btns2{display:inline-block;background:#000;color:#fff;border:1.5px solid #000;padding:.72rem 1.7rem;font-weight:700;text-transform:uppercase;font-size:.8rem;letter-spacing:.08em;text-decoration:none;border-radius:var(--r-pill);transition:transform .2s ease,box-shadow .2s ease,background .2s,color .2s}
     .btns2:hover{background:#fff;color:#000;transform:translateY(-2px);box-shadow:var(--pp-shadow-sm)}
