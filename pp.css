@@ -174,8 +174,9 @@
     .footer .newsletter input{background:#1c1c1c;border:1px solid #333;color:#fff}
     .footer-bottom{border-top:1px solid #2a2a2a;font-size:.78rem;color:#8a8a8a}
 
-    .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
-    .reveal.in{opacity:1;transform:none}
+    /* #17: no blanket AOS-style reveal — content is visible by default.
+       (A scoped, tasteful entrance can be reintroduced on a few key elements later.) */
+    .reveal,.reveal.in{opacity:1;transform:none;transition:none}
     /* ---- Pivot Path brand ---- */
     :root{--pp-grad:linear-gradient(120deg,#71bf44 0%,#20a676 55%,#1b91a3 100%);--pp-accent:#0e8e86}
     .pp-topbar{height:4px;background:var(--pp-grad)}
