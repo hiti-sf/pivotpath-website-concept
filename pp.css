@@ -75,15 +75,16 @@
     .hl .l{font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--pp-muted);margin-top:.3rem}
 
     /* Challenge cards */
-    .pain{border:1px solid #ededed;background:#fff;padding:24px;height:100%;border-radius:var(--r-md);transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
-    .pain:hover{border-color:var(--pp-accent);box-shadow:var(--pp-shadow-sm)}
+    /* #13: static content cards get a quiet border-only hover (no lift/shadow) */
+    .pain{border:1px solid #ededed;background:#fff;padding:24px;height:100%;border-radius:var(--r-md);transition:border-color .2s ease}
+    .pain:hover{border-color:var(--pp-accent)}
     .pain h5{font-size:1rem;font-weight:700;text-transform:none;margin-bottom:.4rem}
     .pain p{font-size:.86rem;color:var(--pp-muted);margin:0}
     .pain .x{font-weight:800;color:#000;font-size:1.1rem}
 
     /* Capability cards */
-    .cap-card{border:1px solid #ededed;padding:24px;height:100%;background:#fff;border-radius:var(--r-md);transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
-    .cap-card:hover{border-color:var(--pp-accent);box-shadow:var(--pp-shadow-sm)}
+    .cap-card{border:1px solid #ededed;padding:24px;height:100%;background:#fff;border-radius:var(--r-md);transition:border-color .2s ease}
+    .cap-card:hover{border-color:var(--pp-accent)}
     .cap-card .kicker{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--pp-muted)}
     .cap-card h4{font-size:1.1rem;text-transform:none;font-weight:700;margin:.5rem 0 .6rem}
     .cap-card ul{padding-left:1.1rem;margin:0;font-size:.86rem;color:var(--pp-muted)}
@@ -142,8 +143,8 @@
     .proc{display:grid;gap:1.25rem;grid-template-columns:repeat(3,1fr)}
     .proc.cols-4{grid-template-columns:repeat(4,1fr)}
     .proc.cols-5{grid-template-columns:repeat(5,1fr)}
-    .proc-step{position:relative;background:#fff;border:1px solid var(--pp-line);border-radius:var(--r-md);padding:24px;transition:.2s}
-    .proc-step:hover{border-color:var(--pp-accent);box-shadow:var(--pp-shadow-sm)}
+    .proc-step{position:relative;background:#fff;border:1px solid var(--pp-line);border-radius:var(--r-md);padding:24px;transition:border-color .2s ease}
+    .proc-step:hover{border-color:var(--pp-accent)}
     .proc-step .pic{width:48px;height:48px;border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;background:var(--pp-accent);margin-bottom:16px}
     .proc-step .pic svg{width:24px;height:24px;fill:none;stroke:#fff;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
     .proc-step .pk{font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--pp-accent)}
@@ -224,9 +225,9 @@
 .exp-col.dark .exp-item{border-color:rgba(255,255,255,.18)}
 /* Service pillars */
     .pillar{
-      border:1px solid #ededed;padding:32px;height:100%;background:#fff;border-radius:var(--r-md);transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease
+      border:1px solid #ededed;padding:32px;height:100%;background:#fff;border-radius:var(--r-md);transition:border-color .2s ease
     }
-.pillar:hover{border-color:var(--pp-accent);box-shadow:var(--pp-shadow-sm)}
+.pillar:hover{border-color:var(--pp-accent)}
 .pillar .kicker{font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;color:var(--pp-accent);font-weight:700}
 .pillar h4{font-size:1.12rem;text-transform:none;margin:.5rem 0 .6rem;font-weight:700}
 .pillar .proof{font-size:.85rem;color:var(--pp-muted);margin-top:.8rem}
