@@ -82,6 +82,8 @@
     .pain p{font-size:.86rem;color:var(--pp-muted);margin:0}
     /* #11: drop the recycled placeholder glyphs; pain cards lead with the heading */
     .pain .x{display:none}
+    /* Review request: remove eyebrow kickers on process / timeline / maturity steps */
+    .pk{display:none}
 
     /* Capability cards */
     .cap-card{border:1px solid #ededed;padding:24px;height:100%;background:#fff;border-radius:var(--r-md);transition:border-color .2s ease}
