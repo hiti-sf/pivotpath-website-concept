@@ -421,17 +421,6 @@
   .btn-pill:hover,.feat-prod:hover,.story-card:hover,.cap-card:hover,.pain:hover,.pillar:hover,.btns2:hover,.btns-line:hover{transform:none}
 }
 
-/* #10/#20: editorial "capability rows" — an alternative to the 3-up card grid.
-   Reusable; demonstrated on the drug-safety "What We Do" section. */
-.cap-rows{max-width:940px;margin-inline:auto;border-top:1px solid var(--pp-line)}
-.cap-row{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.6fr);gap:1rem 2.6rem;padding:1.9rem 0;border-bottom:1px solid var(--pp-line);align-items:baseline}
-.cap-row .cap-num{font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--pp-accent)}
-.cap-row h4{font-size:1.3rem;font-weight:700;text-transform:none;margin:.25rem 0 0;line-height:1.2}
-.cap-row ul{margin:0;padding:0;list-style:none;columns:2;column-gap:2rem;font-size:.9rem;color:var(--pp-muted);line-height:1.5}
-.cap-row ul li{margin-bottom:.4rem;break-inside:avoid;padding-left:1rem;position:relative}
-.cap-row ul li::before{content:"";position:absolute;left:0;top:.6em;width:5px;height:5px;border-radius:var(--r-round);background:var(--pp-accent)}
-@media(max-width:767px){.cap-row{grid-template-columns:1fr;gap:.5rem;padding:1.4rem 0}.cap-row ul{columns:1}}
-
 /* Lead-capture modal (CTA → Freshsales) */
 .pp-lead-modal{position:fixed;inset:0;z-index:2000;display:none;align-items:center;justify-content:center;padding:1rem}
 .pp-lead-modal.open{display:flex}
