@@ -112,8 +112,9 @@
     .proof-card .cap{font-size:.84rem;color:var(--pp-muted)}
 
     /* Certs / systems chips */
-    .chip-dark{display:inline-block;border:1px solid #fff;color:#fff;padding:.45rem 1rem;margin:.3rem;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;border-radius:var(--r-pill)}
-    .chip-light{display:inline-block;border:1px solid var(--pp-line);background:#fff;color:#444;padding:.45rem 1rem;margin:.3rem;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;font-weight:700;border-radius:var(--r-pill)}
+    /* #16: informational chips use a small radius (not full pills); pills reserved for actions/controls */
+    .chip-dark{display:inline-block;border:1px solid #fff;color:#fff;padding:.45rem 1rem;margin:.3rem;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;border-radius:var(--r-sm)}
+    .chip-light{display:inline-block;border:1px solid var(--pp-line);background:#fff;color:#444;padding:.45rem 1rem;margin:.3rem;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;font-weight:700;border-radius:var(--r-sm)}
 
     /* FAQ */
     .accordion-button{font-weight:700;text-transform:none}
@@ -332,7 +333,7 @@
 .cap-stats{display:flex;flex-wrap:wrap;justify-content:center;gap:1.4rem 2.8rem;margin:1.6rem 0 1.6rem;padding-top:1.5rem;border-top:1px solid var(--pp-line)}
 /* Homepage cap-panel sub-pillar chips */
 .cap-sublist{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem .9rem;padding:0;margin:0 0 1.4rem}
-.cap-sublist a{font-size:.82rem;font-weight:600;color:var(--pp-ink);text-decoration:none;padding:.3rem .9rem;border:1px solid var(--pp-line);border-radius:var(--r-pill);transition:.2s}
+.cap-sublist a{font-size:.82rem;font-weight:600;color:var(--pp-ink);text-decoration:none;padding:.3rem .9rem;border:1px solid var(--pp-line);border-radius:var(--r-sm);transition:.2s}
 .cap-sublist a:hover{border-color:var(--pp-accent);color:var(--pp-accent)}
 .cap-stat{text-align:center}
 .cap-stat .v{display:block;font-weight:800;font-size:clamp(1.55rem,2.6vw,2rem);line-height:1;color:var(--pp-accent)}
