@@ -28,6 +28,9 @@
     .btns-line:hover{background:#fff;color:#000;transform:translateY(-2px);box-shadow:var(--pp-shadow-sm)}
     .btns-line.dark{color:#000;border-color:#000}
     .btns-line.dark:hover{background:#000;color:#fff}
+    /* Contact CTA = SOLID; on dark sections use a light (white) fill so it stays solid/visible. */
+    .btns2.solid-light{background:#fff;color:#111;border-color:#fff}
+    .btns2.solid-light:hover{background:transparent;color:#fff;border-color:#fff}
 
     /* Header */
     .grey-header{background:#fff;border-bottom:1px solid var(--pp-line)}
@@ -309,11 +312,14 @@
 .wordmark-strip{padding:46px 0;border-bottom:1px solid var(--pp-line);background:#fff;overflow:hidden}
 .wordmark-eyebrow{text-align:center;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:var(--pp-muted);margin-bottom:1.5rem}
 .wordmark-marquee{position:relative;width:100%;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
-.wordmark-track{display:flex;align-items:center;gap:3rem;width:max-content;animation:wm-scroll 38s linear infinite}
+.wordmark-track{display:flex;align-items:center;gap:3rem;width:max-content;animation:wm-scroll 72s linear infinite}
 .wordmark-marquee:hover .wordmark-track{animation-play-state:paused}
 .wordmark{font-weight:800;font-size:1.05rem;letter-spacing:.02em;color:#9a9a9a;text-transform:uppercase;transition:color .2s;white-space:nowrap}
 .wordmark:hover{color:var(--pp-ink)}
 .wordmark-more{color:var(--pp-accent);font-size:.9rem}
+.wordmark-logo{height:46px;width:auto;max-width:170px;object-fit:contain;opacity:.9;transition:opacity .2s;flex:0 0 auto}
+.wordmark-logo:hover{opacity:1}
+@media(max-width:575px){.wordmark-logo{height:34px;max-width:120px}.wordmark-track{animation-duration:44s}}
 @keyframes wm-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
 /* ----- Capability pill-tabs ----- */
@@ -419,7 +425,7 @@
 }
 @media(prefers-reduced-motion:reduce){
   .cap-panel{animation:none}
-  .wordmark-track{animation:none}
+  /* client logo marquee intentionally keeps scrolling even under reduced-motion (per request) */
   .btn-pill:hover,.feat-prod:hover,.story-card:hover,.cap-card:hover,.pain:hover,.pillar:hover,.btns2:hover,.btns-line:hover{transform:none}
 }
 

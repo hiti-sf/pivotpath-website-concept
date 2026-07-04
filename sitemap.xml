@@ -85,6 +85,10 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://pivotpath.com/pivotpath-identity-user-management.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://pivotpath.com/pivotpath-svc-clinical-operations.html</loc>
     <priority>0.8</priority>
   </url>
@@ -114,6 +118,18 @@
   </url>
   <url>
     <loc>https://pivotpath.com/pivotpath-svc-track-trace.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pivotpath.com/pivotpath-svc-it-operations.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pivotpath.com/pivotpath-svc-quality-apps.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pivotpath.com/pivotpath-svc-sap-coe.html</loc>
     <priority>0.8</priority>
   </url>
   <url>
