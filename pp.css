@@ -438,3 +438,105 @@
 .pp-lead-submit{width:100%;background:var(--pp-grad);color:#fff;border:0;border-radius:var(--r-pill);padding:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:.82rem;cursor:pointer}
 .pp-lead-ctx{color:var(--pp-muted);font-size:.72rem;text-align:center;margin:.7rem 0 0}
 .pp-lead-done{text-align:center}
+
+/* ===================================================================
+   MOBILE VIEW PASS (additive — desktop untouched)
+   All rules gated in @media; see docs/mobile-view-design.md.
+   =================================================================== */
+
+/* Shared horizontal-scroll "more" cue: peek + fade + nudging chevron,
+   self-hiding at the end via .is-end (toggled by pp-mobile.js).
+   Used by the capability pills (.hscroll wrapper) and the anchor-nav. */
+@media(max-width:768px){
+  .hscroll,.anchor-nav{position:relative}
+  .hscroll::after,.anchor-nav::after{content:"";position:absolute;top:0;right:0;bottom:0;width:50px;
+    pointer-events:none;background:linear-gradient(90deg,rgba(255,255,255,0),#fff 72%);z-index:2}
+  .hscroll::before,.anchor-nav::before{content:"\203A";position:absolute;right:13px;top:50%;
+    transform:translateY(-50%);z-index:3;pointer-events:none;color:var(--pp-accent);
+    font-weight:800;font-size:1.25rem;animation:hnudge 1.4s ease-in-out infinite}
+  .hscroll.is-end::before,.hscroll.is-end::after,
+  .anchor-nav.is-end::before,.anchor-nav.is-end::after{opacity:0;transition:opacity .2s}
+}
+@keyframes hnudge{0%,100%{transform:translateY(-50%)}50%{transform:translateY(-50%) translateX(4px)}}
+@media(prefers-reduced-motion:reduce){.hscroll::before,.anchor-nav::before{animation:none}}
+
+@media(max-width:768px){
+  /* Hero: reduce padding, lower title floor (no <br> stripping — see spec §4.1) */
+  .hero-single-inner{padding:36px 0 30px}
+  .hero-inner{padding:52px 0}
+  .page-hero.pad80{padding-top:64px}
+  .hero-single h1,.hero h1,.page-hero h1{font-size:clamp(1.7rem,6vw,2.2rem)}
+  .hero-sub,.page-hero .lead{margin-bottom:1.4rem}
+  /* Hero contrast: deepen overlay so text stays legible over the light gradient end */
+  .hero-single,.page-hero{position:relative}
+  .hero-single::before,.page-hero::before{content:"";position:absolute;inset:0;
+    background:rgba(0,0,0,.30);pointer-events:none}
+  .hero-single-inner,.page-hero .container{position:relative;z-index:1}
+
+  /* Capability pills: single scrolling line (cue from .hscroll above) */
+  .cap-tabs{flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;
+    scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;
+    gap:.5rem;padding:.1rem 2.8rem .85rem 0;scrollbar-width:none}
+  .cap-tabs::-webkit-scrollbar{display:none}
+  .cap-tab{flex:0 0 auto;scroll-snap-align:start;padding:.62rem 1.15rem}
+
+  /* Anchor-nav: snap + room for the chevron (cue from .anchor-nav above) */
+  .anchor-nav .inner{scroll-snap-type:x proximity;padding-right:2.6rem}
+  .anchor-nav a{scroll-snap-align:start;padding-top:.35rem;padding-bottom:.35rem}
+
+  /* "Why us" (service pages): 2-up, left-aligned, no boxes */
+  #whyus .row > [class*="col-"]{flex:0 0 50%;max-width:50%}
+  .valstat{padding:0 .6rem 0 0;text-align:left}
+  .valstat .vt{font-size:1.3rem}
+  .valstat .vl{font-size:.78rem}
+
+  /* Typography: shrink fixed secondary headings; lift smallest body text */
+  .spotlight .pname{font-size:1.5rem}
+  .spot-head .pname{font-size:1.6rem}
+  .cap-panel-p{font-size:1rem}
+  .cap-panels{padding:28px 20px}
+  .pain p,.cap-card ul,.feat-desc,.story-cap{font-size:.9rem}
+
+  /* Tap targets → ~44px */
+  .btns2,.btns-line,.btn-pill{padding-top:.85rem;padding-bottom:.85rem}
+  .footer a{padding:.5rem 0}
+
+  /* Section rhythm */
+  .pad80{padding-top:56px;padding-bottom:44px}
+  .pad60{padding-top:40px;padding-bottom:32px}
+
+  /* Horizontal-overflow fix: FAQ row gutter leak */
+  .row.g-5{--bs-gutter-x:1.5rem}
+
+  /* Platforms logo grid: 2-up on phones (compact cards) */
+}
+@media(min-width:400px) and (max-width:768px){
+  #platforms .row > [class*="col-"]{flex:0 0 50%;max-width:50%}
+}
+
+/* Mobile menu (hamburger is active below the navbar-expand-lg 992px breakpoint) */
+@media(max-width:991.98px){
+  #nav{max-height:66vh;overflow-y:auto;-webkit-overflow-scrolling:touch}
+  .navbar-collapse .nav-link{padding-top:.7rem;padding-bottom:.7rem}
+  .mega-menu .mega-head,.mega-menu .mega-sub{padding-top:.5rem;padding-bottom:.5rem}
+  .navbar-toggler{padding:.55rem .7rem}
+  /* evident "⌄ more" cue, only while the menu is open; hidden at end via .menu-at-end (pp-mobile.js) */
+  .grey-header:has(#nav.show)::after{content:"\2304 more";position:absolute;left:0;right:0;bottom:0;
+    height:36px;display:flex;align-items:flex-end;justify-content:center;padding-bottom:5px;
+    pointer-events:none;font-size:.6rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--pp-accent);background:linear-gradient(180deg,rgba(255,255,255,0),#fff 78%);z-index:1030}
+  .grey-header.menu-at-end::after{opacity:0;transition:opacity .2s}
+}
+
+/* Case-study hero: lift the text so the overlapping result band clears the title */
+@media(max-width:767px){
+  .page-hero.pad80:has(+ .container .result-band){padding-top:48px;padding-bottom:84px}
+}
+
+/* Timeline: shrink the deep left gutter on small phones */
+@media(max-width:575px){
+  .tline .tl{padding-left:52px;padding-bottom:24px}
+  .tline .tl .pic{width:36px;height:36px}
+  .tline .tl .pic svg{width:18px;height:18px}
+  .tline .tl::before{left:17px}
+}

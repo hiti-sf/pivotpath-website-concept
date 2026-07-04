@@ -232,12 +232,14 @@
         <h2 class="section-title reveal">Five Capabilities, One Accountable Partner</h2>
       </div>
 
+      <div class="hscroll">
       <div class="cap-tabs reveal" role="tablist" aria-label="Capabilities">
         <button class="cap-tab" role="tab" id="ct-1" aria-controls="cp-1" aria-selected="true"  tabindex="0">Patient Safety</button>
         <button class="cap-tab" role="tab" id="ct-2" aria-controls="cp-2" aria-selected="false" tabindex="-1">Quality &amp; Digital Compliance</button>
         <button class="cap-tab" role="tab" id="ct-3" aria-controls="cp-3" aria-selected="false" tabindex="-1">Digital Transformation</button>
         <button class="cap-tab" role="tab" id="ct-4" aria-controls="cp-4" aria-selected="false" tabindex="-1">Integrated IP &amp; Clinical Operations</button>
         <button class="cap-tab" role="tab" id="ct-5" aria-controls="cp-5" aria-selected="false" tabindex="-1">Human Capital</button>
+      </div>
       </div>
 
       <div class="cap-panels reveal">
@@ -393,20 +395,6 @@
       </div>
     </div>
   </section>
-  <!-- ============ FINAL CTA ============ -->
-  <section class="pad80 final-cta text-center" id="contact">
-    <div class="container">
-      <h2 class="section-title text-white reveal mb-3">Bring Us the Problem.<br>We’ll Build and Run the Answer.</h2>
-      <p class="text-white-50 reveal mb-4" style="max-width:640px;margin-inline:auto">Whether you’re scoping a partner, comparing vendors, or ready to move, start the conversation the way that fits you.</p>
-      <div class="hero-ctas justify-content-center reveal">
-        <a href="mailto:info@pivotpath.com" class="btn-pill btn-pill-light">Talk to our experts</a>
-        <a href="#platforms" class="btn-pill btn-pill-ghost">Explore our platforms</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ FOOTER ============ -->
-
     <!-- ============ FAQ ============ -->
   <section class="pad80 grey" id="faq">
     <div class="container">
@@ -447,6 +435,20 @@
       </div>
     </div>
   </section>
+
+  <!-- ============ FINAL CTA ============ -->
+  <section class="pad80 final-cta text-center" id="contact">
+    <div class="container">
+      <h2 class="section-title text-white reveal mb-3">Bring Us the Problem.<br>We’ll Build and Run the Answer.</h2>
+      <p class="text-white-50 reveal mb-4" style="max-width:640px;margin-inline:auto">Whether you’re scoping a partner, comparing vendors, or ready to move, start the conversation the way that fits you.</p>
+      <div class="hero-ctas justify-content-center reveal">
+        <a href="mailto:info@pivotpath.com" class="btn-pill btn-pill-light">Talk to our experts</a>
+        <a href="#platforms" class="btn-pill btn-pill-ghost">Explore our platforms</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
 
   <footer class="footer pad60">
     <div class="container">
@@ -566,5 +568,6 @@
       document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
     })();
   </script>
+  <script src="pp-mobile.js" defer></script>
 </body>
 </html>
