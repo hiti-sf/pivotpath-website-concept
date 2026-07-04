@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Platforms — AI-Native Software for Life Sciences | Pivot Path</title>
-  <meta name="description" content="Explore the full Pivot Path suite of AI-native life sciences platforms — NoteIQ, NovaVigil, AnomIQ, InvestigationIQ, GoLanzar, InLumin and Arete.">
+  <title>Insights — Case Studies, Use Cases, Blog & News | Pivot Path</title>
+  <meta name="description" content="Insights from Pivot Path — case studies, use cases, blog articles and news across pharmacovigilance, quality, digital transformation, IP & clinical operations and human capital.">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="pp.css?v=5" />
   <script type="application/ld+json">
@@ -13,9 +13,9 @@
   "@graph": [
     {
       "@type": "CollectionPage",
-      "name": "Platforms — AI-Native Software for Life Sciences",
-      "description": "Explore the full Pivot Path suite of AI-native life sciences platforms — NoteIQ, NovaVigil, AnomIQ, InvestigationIQ, GoLanzar, InLumin and Arete.",
-      "url": "https://pivotpath.com/pivotpath-platforms.html",
+      "name": "Insights — Case Studies, Use Cases, Blog & News",
+      "description": "Insights from Pivot Path — case studies, use cases, blog articles and news across the life sciences value chain.",
+      "url": "https://pivotpath.com/pivotpath-insights.html",
       "isPartOf": {
         "@id": "https://pivotpath.com/#website"
       },
@@ -38,8 +38,8 @@
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "Platforms",
-          "item": "https://pivotpath.com/pivotpath-platforms.html"
+          "name": "Insights",
+          "item": "https://pivotpath.com/pivotpath-insights.html"
         }
       ]
     }
@@ -115,7 +115,7 @@
               <li><a class="dropdown-item" href="pivotpath-investigationiq.html">InvestigationIQ</a></li>
             </ul>
           </li>
-          <li class="nav-item"><a class="nav-link" href="pivotpath-insights.html">Insights</a></li>
+          <li class="nav-item"><a class="nav-link active" href="pivotpath-insights.html">Insights</a></li>
           <li class="nav-item"><a class="nav-link" href="pivotpath-home.html#why">Why Us</a></li>
           <li class="nav-item ms-lg-2"><a class="btns2" href="#contact">Book a demo</a></li>
         </ul>
@@ -126,87 +126,62 @@
   <!-- ============ PAGE HERO ============ -->
   <section class="page-hero pad80">
     <div class="container">
-      <div class="crumb"><a href="pivotpath-home.html">Home</a> &nbsp;/&nbsp; Platforms</div>
-      <h1>AI-Native Software,<br>Built From the Floor Up</h1>
-      <p class="lead">Designed by the teams who run the work, engineered for regulated life sciences.</p>
+      <div class="crumb"><a href="pivotpath-home.html">Home</a> &nbsp;/&nbsp; Insights</div>
+      <h1>Insights</h1>
+      <p class="lead">Case studies, use cases, articles and news from the teams who build and run life sciences operations.</p>
       <div class="hero-ctas">
         <a href="#contact" class="btns2 solid-light">Talk to our experts</a>
       </div>
     </div>
   </section>
 
-  <!-- ============ ALL PLATFORMS ============ -->
-  <section class="pad80" id="platforms">
+  <!-- ============ INSIGHTS INDEX ============ -->
+  <section class="pad80" id="insights">
     <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="section-title reveal">The Full Platform Suite</h2>
+      <div class="hscroll">
+        <div class="cap-tabs" role="tablist" aria-label="Filter insights">
+          <button class="cap-tab active" type="button" data-filter="all">All</button>
+          <button class="cap-tab" type="button" data-filter="case-study">Case Studies</button>
+          <button class="cap-tab" type="button" data-filter="use-case">Use Cases</button>
+          <button class="cap-tab" type="button" data-filter="blog">Blog</button>
+          <button class="cap-tab" type="button" data-filter="news">News</button>
+        </div>
       </div>
-      <div class="row g-4 justify-content-center">
-        <div class="col-md-6 col-lg-4 reveal">
-          <a href="pivotpath-noteiq.html" class="feat-prod">
-            <span class="story-tag">Quality &amp; Compliance</span>
-            <img src="assets/noteiq.png" alt="NoteIQ" class="feat-logo">
-            <span class="feat-desc">Unified GxP platform: validation, document, training management; 21 CFR Part 11 compliant.</span>
-            <span class="feat-go" aria-hidden="true">&rarr;</span>
+      <div class="row g-4" id="insights-grid">
+        <div class="col-md-4 reveal" data-cat="case-study">
+          <a href="pivotpath-zero-touch-it.html" class="story-card">
+            <span class="story-tag">Case Study · Digital Transformation</span>
+            <span class="story-metric">Zero-Touch IT for a leading CDMO</span>
+            <span class="story-cap">A leading Indian CDMO absorbed 2× growth on the same 35-person team — 50+ processes automated across four sites, 7,000+ assets managed.</span>
+            <span class="story-go">Read the story <span aria-hidden="true">→</span></span>
           </a>
         </div>
-        <div class="col-md-6 col-lg-4 reveal">
-          <a href="pivotpath-novavigil.html" class="feat-prod">
-            <span class="story-tag">Patient Safety</span>
-            <img src="assets/novavigil.png" alt="NovaVigil" class="feat-logo">
-            <span class="feat-desc">AI-driven PV literature monitoring: ~3 hours per case to under 1 hour.</span>
-            <span class="feat-go" aria-hidden="true">&rarr;</span>
+        <div class="col-md-4 reveal" data-cat="case-study">
+          <a href="pivotpath-pharma-4-0.html" class="story-card">
+            <span class="story-tag">Case Study · Digital Transformation</span>
+            <span class="story-metric">Pharma 4.0 plant transformation</span>
+            <span class="story-cap">A European injectable plant migrated onto a modern, validated systems stack in 60 days — fully remote, without stopping production.</span>
+            <span class="story-go">Read the story <span aria-hidden="true">→</span></span>
           </a>
         </div>
-        <div class="col-md-6 col-lg-4 reveal">
-          <a href="pivotpath-anomiq.html" class="feat-prod">
-            <span class="story-tag">Digital Transformation</span>
-            <img src="assets/anomiq.png" alt="AnomIQ" class="feat-logo">
-            <span class="feat-desc">Anomaly detection across QC labs and manufacturing.</span>
-            <span class="feat-go" aria-hidden="true">&rarr;</span>
-          </a>
-        </div>
-        <div class="col-md-6 col-lg-4 reveal">
-          <a href="pivotpath-investigationiq.html" class="feat-prod">
-            <span class="story-tag">Quality &amp; Compliance</span>
-            <img src="assets/investigationiq.png" alt="InvestigationIQ" class="feat-logo">
-            <span class="feat-desc">AI assistant for RCA &amp; CAPA that cuts cycle time ~40–60%, ~6–7 hours saved each.</span>
-            <span class="feat-go" aria-hidden="true">&rarr;</span>
-          </a>
-        </div>
-        <div class="col-md-6 col-lg-4 reveal">
-          <a href="pivotpath-golanzar.html" class="feat-prod">
-            <span class="story-tag">IP &amp; Clinical Operations</span>
-            <span class="feat-name">GoLanzar</span>
-            <span class="feat-desc">Launch management that orchestrates pharma launches for faster entry.</span>
-            <span class="feat-go" aria-hidden="true">&rarr;</span>
-          </a>
-        </div>
-        <div class="col-md-6 col-lg-4 reveal">
-          <a href="pivotpath-inlumin.html" class="feat-prod">
-            <span class="story-tag">Finance &amp; Procurement</span>
-            <span class="feat-name">InLumin</span>
-            <span class="feat-desc">Procure-to-pay platform: automated procurement with financial governance.</span>
-            <span class="feat-go" aria-hidden="true">&rarr;</span>
-          </a>
-        </div>
-        <div class="col-md-6 col-lg-4 reveal">
-          <a href="pivotpath-arete.html" class="feat-prod">
-            <span class="story-tag">Human Capital</span>
-            <span class="feat-name">Arete</span>
-            <span class="feat-desc">Unified recruitment: AI sourcing, screening, scheduling, evaluation.</span>
-            <span class="feat-go" aria-hidden="true">&rarr;</span>
+        <div class="col-md-4 reveal" data-cat="case-study">
+          <a href="pivotpath-identity-user-management.html" class="story-card">
+            <span class="story-tag">Case Study · IT Automation</span>
+            <span class="story-metric">Identity &amp; User Management</span>
+            <span class="story-cap">Standardised the identity lifecycle — onboarding, access change and offboarding — HRMS-triggered, ticket-approved and BOT-automated.</span>
+            <span class="story-go">Read the story <span aria-hidden="true">→</span></span>
           </a>
         </div>
       </div>
+      <div class="insights-empty" hidden>New content is coming soon.</div>
     </div>
   </section>
 
   <!-- ============ FINAL CTA ============ -->
   <section class="pad80 final-cta text-center" id="contact">
     <div class="container">
-      <h2 class="section-title text-white reveal mb-3">Not Sure Which Platform Fits?</h2>
-      <p class="text-white-50 reveal mb-4" style="max-width:640px;margin-inline:auto">Bring the problem and we’ll map it to the right platform or team.</p>
+      <h2 class="section-title text-white reveal mb-3">Want to Explore a Topic?</h2>
+      <p class="text-white-50 reveal mb-4" style="max-width:640px;margin-inline:auto">Bring us the problem and we’ll map it to the right capability, platform or story.</p>
       <div class="hero-ctas justify-content-center reveal">
         <a href="mailto:info@pivotpath.com" class="btn-pill btn-pill-light">Talk to our experts</a>
         <a href="pivotpath-home.html#services" class="btn-pill btn-pill-ghost">Explore our services</a>
@@ -311,6 +286,26 @@
         if(cur)cur.a.classList.add('active');
       }
       window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+    })();
+  </script>
+  <script>
+    // Insights category filter
+    (function(){
+      var tabs=[].slice.call(document.querySelectorAll('.cap-tab'));
+      var cards=[].slice.call(document.querySelectorAll('#insights-grid [data-cat]'));
+      var empty=document.querySelector('.insights-empty');
+      var MSG={'use-case':'New use cases are coming soon.','blog':'New articles are coming soon.','news':'News updates are coming soon.','case-study':'New case studies are coming soon.','all':'New content is coming soon.'};
+      function apply(f){
+        var shown=0;
+        cards.forEach(function(c){var m=(f==='all'||c.getAttribute('data-cat')===f);c.style.display=m?'':'none';if(m)shown++;});
+        if(empty){empty.hidden=shown>0;empty.textContent=MSG[f]||'New content is coming soon.';}
+      }
+      tabs.forEach(function(t){t.addEventListener('click',function(){
+        tabs.forEach(function(x){x.classList.remove('active');});
+        t.classList.add('active');
+        apply(t.getAttribute('data-filter'));
+      });});
+      apply('all');
     })();
   </script>
   <script src="pp-mobile.js" defer></script>

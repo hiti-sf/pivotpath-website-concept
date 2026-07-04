@@ -401,7 +401,8 @@
 .story-card{display:flex;flex-direction:column;height:100%;background:#fff;border:1px solid #ededed;border-radius:var(--r-md);border-left:4px solid var(--pp-accent);padding:24px;text-decoration:none;color:var(--pp-ink);transition:transform .2s ease,box-shadow .2s ease}
 .story-card:hover{border-color:var(--pp-accent);box-shadow:var(--pp-shadow-sm)}
 .story-tag{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--pp-muted);margin-bottom:.8rem}
-.story-metric{font-size:clamp(1.5rem,2.6vw,2rem);font-weight:800;line-height:1.1;margin-bottom:.6rem}
+.story-metric{font-size:clamp(1.15rem,1.8vw,1.35rem);font-weight:800;line-height:1.2;margin-bottom:.6rem}
+.insights-empty{text-align:center;color:var(--pp-muted);padding:48px 16px;font-size:1rem}
 .story-cap{font-size:.92rem;color:var(--pp-muted);line-height:1.55;flex-grow:1}
 .story-go{color:var(--pp-accent);font-weight:700;font-size:.86rem;margin-top:1.2rem}
 
