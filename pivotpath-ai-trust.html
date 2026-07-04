@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Trust Centre — Responsible, Validated AI for Regulated Life Sciences | Pivot Path</title>
+  <meta name="description" content="How Pivot Path uses AI in GxP-regulated life sciences: assistive and human-reviewed, grounded in your approved content, fully audit-trailed, tenant-isolated and validated — designed to align with 21 CFR Part 11, EU Annex 11 and GAMP 5." />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="pp.css?v=5" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "name": "AI Trust Centre",
+      "description": "How Pivot Path uses AI in GxP-regulated life sciences: assistive and human-reviewed, grounded in your approved content, fully audit-trailed, tenant-isolated and validated — designed to align with 21 CFR Part 11, EU Annex 11 and GAMP 5.",
+      "url": "https://pivotpath.com/pivotpath-ai-trust.html",
+      "provider": {
+        "@type": "Organization",
+        "@id": "https://pivotpath.com/#organization",
+        "name": "Pivot Path",
+        "url": "https://pivotpath.com/"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://pivotpath.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "AI Trust Centre",
+          "item": "https://pivotpath.com/pivotpath-ai-trust.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Does the AI approve or finalise regulated records?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. AI assists with drafting, summarisation, investigation support, review assistance and knowledge retrieval. It cannot approve records, apply e-signatures, finalise workflows, override business rules or independently commit GxP records. Every regulated decision stays with an authorised person under configured workflow approvals."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do you prevent AI hallucinations and keep outputs accurate?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Layered guardrails: retrieval-augmented generation from customer-approved documents, controlled prompt templates, scope-restricted interactions, confidence scoring and human review checkpoints. Accuracy is assessed with precision, recall and relevance for retrieval, and against source documents and business rules for generated content, with regression testing on AI features."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are AI outputs auditable and traceable?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. AI-assisted activities can be recorded in the application audit-trail framework, capturing the user who initiated the request, timestamp, input or source context, the AI-generated response, the accept or reject action and subsequent workflow status — supporting 21 CFR Part 11, EU Annex 11 and GAMP 5-based validation approaches."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my data used to train AI models, or shared with other customers?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. The platform uses logical multi-tenant isolation; prompts, uploaded documents, embeddings, retrieved context and generated outputs stay within your tenant boundary. Customer content is not used to train foundation models and is not shared across tenants."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which AI models do you use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A model-agnostic architecture that supports leading enterprise providers — OpenAI GPT, Anthropic Claude and AWS Bedrock-hosted models — as well as customer-approved private and local LLM deployments. Model selection aligns with your security, compliance and data-residency requirements."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the AI validated in line with GAMP 5 or CSV guidelines?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The platform is designed following GAMP 5-oriented validation practices for configurable enterprise software: controlled workflows, audit trails, electronic-records controls, role-based access and human-in-the-loop AI. Validation deliverables — URS and functional-spec support, risk-assessment inputs, traceability, IQ/OQ artefacts and supplier assessment — can be provided to support your validation activities. Final validation responsibility depends on your intended use and deployment."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where does my data reside?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "On AWS cloud infrastructure, with deployment regions — US, EU, India or other supported regions — selected to meet your regulatory and data-residency requirements. Data is not moved across regions without appropriate approval and deployment planning, and residency is reviewed during solution design and onboarding."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens if an AI output is incorrect?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "AI outputs are reviewed before being accepted into regulated workflows. If an output is unsuitable, the user can reject, correct or regenerate it; retrieval sources, prompts or model configuration can be reassessed; and changes follow controlled change management with regression testing. Incorrect output does not become part of the final record unless reviewed and accepted by an authorised user."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <script src="pp-analytics.js"></script>
+  <!-- Freshworks (Freshmarketer / Freshchat) -->
+  <script src="//in.fw-cdn.com/32228802/1191962.js" chat="true"></script>
+  <script src="pp-crm.js"></script>
+</head>
+<body>
+  <div class="pp-topbar"></div>
+
+  <!-- ============ HEADER ============ -->
+  <header class="grey-header navbar navbar-expand-lg navbar-light sticky-top py-3">
+    <div class="container">
+      <a class="navbar-brand p-0" href="pivotpath-home.html">
+        <img src="pp-logo-black.svg" alt="Pivot Path" class="pp-logo" />
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item"><a class="nav-link" href="pivotpath-leadership.html">About</a></li>
+          <li class="nav-item dropdown position-static">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Services</a>
+            <div class="dropdown-menu mega-menu">
+              <div class="mega-grid">
+                <div class="mega-col">
+                  <a class="mega-head" href="pivotpath-drug-safety.html">Patient Safety</a>
+                  <a class="mega-sub" href="pivotpath-drug-safety.html">Global Pharmacovigilance</a>
+                </div>
+                <div class="mega-col">
+                  <a class="mega-head" href="pivotpath-ip-clinical.html">Integrated IP &amp; Clinical Operations</a>
+                  <a class="mega-sub" href="pivotpath-svc-clinical-operations.html">Clinical Operations</a>
+                  <a class="mega-sub" href="pivotpath-svc-ip-consulting.html">Intellectual Property Consulting</a>
+                  <a class="mega-sub" href="pivotpath-svc-mobile-clinical.html">Mobile Clinical Services</a>
+                </div>
+                <div class="mega-col">
+                  <a class="mega-head" href="pivotpath-quality-compliance.html">Quality &amp; Digital Compliance</a>
+                  <a class="mega-sub" href="pivotpath-svc-csv.html">Computer System Validation</a>
+                  <a class="mega-sub" href="pivotpath-svc-quality-compliance.html">Quality &amp; Compliance Services</a>
+                  <a class="mega-sub" href="pivotpath-svc-operational-excellence.html">Operational Excellence</a>
+                </div>
+                <div class="mega-col">
+                  <a class="mega-head" href="pivotpath-digital-innovation.html">Digital Transformation</a>
+                  <a class="mega-sub" href="pivotpath-svc-digital-manufacturing.html">Digital Manufacturing</a>
+                  <a class="mega-sub" href="pivotpath-svc-track-trace.html">Track &amp; Trace Solutions</a>
+                  <a class="mega-sub" href="pivotpath-svc-it-operations.html">IT Operations</a>
+                  <a class="mega-sub" href="pivotpath-svc-quality-apps.html">Quality Apps</a>
+                  <a class="mega-sub" href="pivotpath-svc-sap-coe.html">SAP COE</a>
+                </div>
+                <div class="mega-col">
+                  <a class="mega-head" href="pivotpath-human-capital.html">Human Capital</a>
+                  <a class="mega-sub" href="pivotpath-svc-hc-consulting.html">Human Capital Consulting</a>
+                  <a class="mega-sub" href="pivotpath-svc-hc-digitisation.html">Human Capital Digitisation</a>
+                  <a class="mega-sub" href="pivotpath-svc-talent-acquisition.html">Talent Acquisition Services</a>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Products</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="pivotpath-novavigil.html">NovaVigil</a></li>
+              <li><a class="dropdown-item" href="pivotpath-noteiq.html">NoteIQ</a></li>
+              <li><a class="dropdown-item" href="pivotpath-anomiq.html">AnomIQ</a></li>
+              <li><a class="dropdown-item" href="pivotpath-golanzar.html">GoLanzar</a></li>
+              <li><a class="dropdown-item" href="pivotpath-inlumin.html">InLumin</a></li>
+              <li><a class="dropdown-item" href="pivotpath-arete.html">Arete</a></li>
+              <li><a class="dropdown-item" href="pivotpath-investigationiq.html">InvestigationIQ</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="pivotpath-insights.html">Insights</a></li>
+          <li class="nav-item"><a class="nav-link active" href="pivotpath-ai-trust.html">AI Trust</a></li>
+          <li class="nav-item"><a class="nav-link" href="pivotpath-home.html#why">Why Us</a></li>
+          <li class="nav-item ms-lg-2"><a class="btns2" href="#contact">Book a demo</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ PAGE HERO ============ -->
+  <section class="page-hero pad80" id="overview">
+    <div class="container">
+      <div class="crumb"><a href="pivotpath-home.html">Home</a> &nbsp;/&nbsp; AI Trust Centre</div>
+      <div class="mt-3"><span class="product-tag">Responsible AI</span></div>
+      <h1>AI You Can Put<br>in Front of an Inspector.</h1>
+      <p class="lead">Every AI feature across Pivot Path's platforms is assistive, grounded in your approved content, fully audit-trailed and human-reviewed. AI supports your experts — it never approves a regulated record on its own.</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btns2 solid-light">Book a demo</a>
+        <a href="#faq" class="btns-line">Read the FAQ</a>
+        <a href="pivotpath-platforms.html" class="btns-line">See our platforms</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STICKY ANCHOR NAV ============ -->
+  <nav class="anchor-nav">
+    <div class="container">
+      <div class="inner">
+        <span class="anchor-brand">AI Trust Centre</span>
+        <a href="#overview" class="active">Overview</a>
+        <a href="#principles">Principles</a>
+        <a href="#lifecycle">How AI Flows</a>
+        <a href="#guardrails">Guardrails</a>
+        <a href="#frameworks">Compliance</a>
+        <a href="#security">Data &amp; Security</a>
+        <a href="#faq">FAQ</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============ QUICK FACTS ============ -->
+  <section class="pad60">
+    <div class="container">
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-5 reveal">
+          <h2 class="section-title">Assistive by Design, Accountable by Default</h2>
+        </div>
+        <div class="col-lg-7">
+          <div class="row g-4">
+            <div class="col-6 col-md-3 reveal"><div class="hl"><div class="n">Human-Led</div><div class="l">Sign-off on every decision</div></div></div>
+            <div class="col-6 col-md-3 reveal"><div class="hl"><div class="n">Grounded</div><div class="l">In your approved content</div></div></div>
+            <div class="col-6 col-md-3 reveal"><div class="hl"><div class="n">Auditable</div><div class="l">Every AI action traced</div></div></div>
+            <div class="col-6 col-md-3 reveal"><div class="hl"><div class="n">Private</div><div class="l">Never trains foundation models</div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PRINCIPLES ============ -->
+  <section class="pad80 grey" id="principles">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title reveal">Four Principles Behind Every AI Feature</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3 reveal"><div class="cap-card">
+          <h4>Human-in-the-Loop</h4>
+          <ul><li>AI drafts, summarises and assists</li><li>People review, approve and can override</li><li>AI cannot approve, e-sign or finalise records</li><li>Configured workflow approvals stay in force</li></ul>
+        </div></div>
+        <div class="col-md-6 col-lg-3 reveal"><div class="cap-card">
+          <h4>Grounded &amp; Explainable</h4>
+          <ul><li>Retrieval-augmented from approved content</li><li>Controlled, task-specific prompts</li><li>Confidence scoring on responses</li><li>Answers trace back to source context</li></ul>
+        </div></div>
+        <div class="col-md-6 col-lg-3 reveal"><div class="cap-card">
+          <h4>Traceable &amp; Auditable</h4>
+          <ul><li>Every AI action can be logged</li><li>User, timestamp, input and output captured</li><li>Accept and reject decisions recorded</li><li>Aligned to your audit-trail framework</li></ul>
+        </div></div>
+        <div class="col-md-6 col-lg-3 reveal"><div class="cap-card">
+          <h4>Private &amp; Isolated</h4>
+          <ul><li>Logical tenant isolation on every layer</li><li>No data shared across customers</li><li>Customer content never trains models</li><li>Prompts and outputs stay in your boundary</li></ul>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HOW AN AI REQUEST FLOWS ============ -->
+  <section class="pad80" id="lifecycle">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title reveal">How an AI Request Flows</h2>
+      </div>
+      <div class="tline reveal">
+        <div class="tl">
+          <div class="pic"><svg viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg></div>
+          <div class="pk">Request</div>
+          <h5>Request</h5>
+          <p>A user asks the platform to draft, summarise or retrieve — inside a controlled, scope-restricted workflow.</p>
+        </div>
+        <div class="tl">
+          <div class="pic"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="M20 20l-3.5-3.5"/></svg></div>
+          <div class="pk">Retrieval</div>
+          <h5>Retrieve</h5>
+          <p>The platform searches your approved documents, SOPs and records — meaning-based retrieval, not open-web knowledge.</p>
+        </div>
+        <div class="tl">
+          <div class="pic"><svg viewBox="0 0 24 24"><path d="M12 3l1.8 4.8L18 9l-4.2 1.2L12 15l-1.8-4.8L6 9l4.2-1.2z"/></svg></div>
+          <div class="pk">Generation</div>
+          <h5>Generate</h5>
+          <p>A grounded draft is produced with a confidence indicator, citing the approved sources it drew on.</p>
+        </div>
+        <div class="tl">
+          <div class="pic"><svg viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></div>
+          <div class="pk">Human-led</div>
+          <h5>Human Review</h5>
+          <p>A qualified user checks the draft and its evidence, then accepts, edits or rejects it — nothing is automatic.</p>
+        </div>
+        <div class="tl">
+          <div class="pic"><svg viewBox="0 0 24 24"><rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 4V3h6v1M9 11h6M9 15h4"/></svg></div>
+          <div class="pk">Recorded</div>
+          <h5>Record</h5>
+          <p>The approved output enters your workflow under configured approvals, with a full audit-trail entry.</p>
+        </div>
+      </div>
+      <p class="text-center text-muted reveal mt-4">AI supports the decision; the authorised user makes it.</p>
+    </div>
+  </section>
+
+  <!-- ============ GUARDRAILS ============ -->
+  <section class="pad80 grey" id="guardrails">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title reveal">Guardrails Against Hallucination &amp; Error</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
+          <h4>Source Grounding</h4>
+          <ul><li>Retrieval-augmented from customer-approved documents</li><li>Document-grounded responses, not open-ended output</li><li>Prioritises your SOPs, templates and history</li></ul>
+        </div></div>
+        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
+          <h4>Controlled Prompts &amp; Scope</h4>
+          <ul><li>Task-specific, controlled prompt templates</li><li>Scope-restricted AI interactions</li><li>The AI stays inside the task it was given</li></ul>
+        </div></div>
+        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
+          <h4>Confidence &amp; Checkpoints</h4>
+          <ul><li>Confidence scoring and quality indicators</li><li>Human review checkpoints</li><li>Workflow-level approval controls</li></ul>
+        </div></div>
+        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
+          <h4>Accuracy Validation</h4>
+          <ul><li>Retrieval assessed on precision, recall &amp; relevance</li><li>Generated output checked against source &amp; business rules</li><li>Regression testing on AI-enabled features</li></ul>
+        </div></div>
+        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
+          <h4>Ongoing Monitoring</h4>
+          <ul><li>Usage trends and acceptance / rejection patterns</li><li>Prompt-effectiveness and retrieval-quality reviews</li><li>Model-version impact assessments</li></ul>
+        </div></div>
+        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
+          <h4>Correction &amp; Change Control</h4>
+          <ul><li>Reject, correct or regenerate any output</li><li>Sources and configuration can be reassessed</li><li>Controlled change management with impact assessment</li></ul>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ COMPLIANCE FRAMEWORKS ============ -->
+  <section class="pad80 stat-band" id="frameworks">
+    <div class="container text-center">
+      <h2 class="section-title text-white reveal mb-4">Built for Regulated, Validated Use</h2>
+      <p class="text-white-50 reveal mb-4">Designed to align with</p>
+      <div class="reveal mb-5">
+        <span class="chip-dark">21 CFR Part 11</span>
+        <span class="chip-dark">EU Annex 11</span>
+        <span class="chip-dark">GAMP 5</span>
+        <span class="chip-dark">CSV / CSA</span>
+        <span class="chip-dark">ALCOA+</span>
+        <span class="chip-dark">Human-in-the-Loop</span>
+        <span class="chip-dark">Audit Trail</span>
+        <span class="chip-dark">Role-Based Access</span>
+      </div>
+      <p class="text-white-50 reveal mb-4">Validation support we can provide</p>
+      <div class="row text-center g-4 justify-content-center reveal">
+        <div class="col-6 col-lg-2 valstat"><div class="vt">URS</div><div class="vl">User-requirements support</div></div>
+        <div class="col-6 col-lg-2 valstat"><div class="vt">FS</div><div class="vl">Functional-spec support</div></div>
+        <div class="col-6 col-lg-2 valstat"><div class="vt">Risk</div><div class="vl">AI use-case risk inputs</div></div>
+        <div class="col-6 col-lg-2 valstat"><div class="vt">Traceability</div><div class="vl">Requirement-to-test matrix</div></div>
+        <div class="col-6 col-lg-2 valstat"><div class="vt">IQ / OQ</div><div class="vl">Qualification artefacts</div></div>
+        <div class="col-6 col-lg-2 valstat"><div class="vt">Supplier</div><div class="vl">Supplier assessment docs</div></div>
+      </div>
+      <p class="text-white-50 reveal mt-5 mb-0" style="max-width:760px;margin-inline:auto">AI is an assistive function inside controlled workflows. Final validation responsibility depends on your intended use, deployment model and regulated process scope.</p>
+    </div>
+  </section>
+
+  <!-- ============ DATA & SECURITY ============ -->
+  <section class="pad80" id="security">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title reveal">Where Your Data Lives, and How It's Protected</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
+          <h4>Tenant Isolation</h4>
+          <ul><li>Logical isolation across application, data, document, vector &amp; access layers</li><li>No cross-tenant use of prompts, retrieved documents or outputs</li><li>Multi-tenant SaaS by default; dedicated VPC or private options where required</li></ul>
+        </div></div>
+        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
+          <h4>Data Residency</h4>
+          <ul><li>Hosted on AWS cloud infrastructure</li><li>Deployment in US, EU, India or other supported regions</li><li>Data not moved across regions without approval &amp; planning</li></ul>
+        </div></div>
+        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
+          <h4>Encryption &amp; Network</h4>
+          <ul><li>TLS 1.2+ encrypted communication</li><li>Encryption at rest where applicable</li><li>Security-group, firewall &amp; optional IP-allowlisting controls</li></ul>
+        </div></div>
+        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
+          <h4>Access Control</h4>
+          <ul><li>Least-privilege, role-based access</li><li>Time-bound, logged administrative activity</li><li>Periodic access reviews aligned to your SOPs</li></ul>
+        </div></div>
+        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
+          <h4>Resilience</h4>
+          <ul><li>Automated backups &amp; secure retention</li><li>Documented recovery &amp; business-continuity procedures</li><li>Target recovery objectives on the order of ~1 hour, finalised per deployment</li></ul>
+        </div></div>
+        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
+          <h4>Model-Agnostic &amp; Private AI</h4>
+          <ul><li>Supports OpenAI GPT, Anthropic Claude &amp; AWS Bedrock models</li><li>Customer-approved private and local LLM deployments</li><li>Customer data is not used to train foundation models</li></ul>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="pad80 grey" id="faq">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title reveal">AI Assurance — Your Questions, Answered</h2>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-9">
+          <div class="accordion reveal" id="faqAcc">
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q1">Does the AI approve or finalise regulated records?</button></h2>
+              <div id="q1" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">No. AI assists with drafting, summarisation, investigation support, review assistance and knowledge retrieval. It cannot approve records, apply e-signatures, finalise workflows, override business rules or independently commit GxP records. Every regulated decision stays with an authorised person under configured workflow approvals.</div></div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2">How do you prevent AI hallucinations and keep outputs accurate?</button></h2>
+              <div id="q2" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Layered guardrails: retrieval-augmented generation from customer-approved documents, controlled prompt templates, scope-restricted interactions, confidence scoring and human review checkpoints. Accuracy is assessed with precision, recall and relevance for retrieval, and against source documents and business rules for generated content, with regression testing on AI features.</div></div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q3">Are AI outputs auditable and traceable?</button></h2>
+              <div id="q3" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Yes. AI-assisted activities can be recorded in the application audit-trail framework, capturing the user who initiated the request, timestamp, input or source context, the AI-generated response, the accept or reject action and subsequent workflow status — supporting 21 CFR Part 11, EU Annex 11 and GAMP 5-based validation approaches.</div></div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q4">Is my data used to train AI models, or shared with other customers?</button></h2>
+              <div id="q4" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">No. The platform uses logical multi-tenant isolation; prompts, uploaded documents, embeddings, retrieved context and generated outputs stay within your tenant boundary. Customer content is not used to train foundation models and is not shared across tenants.</div></div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q5">Which AI models do you use?</button></h2>
+              <div id="q5" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">A model-agnostic architecture that supports leading enterprise providers — OpenAI GPT, Anthropic Claude and AWS Bedrock-hosted models — as well as customer-approved private and local LLM deployments. Model selection aligns with your security, compliance and data-residency requirements.</div></div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q6">Is the AI validated in line with GAMP 5 or CSV guidelines?</button></h2>
+              <div id="q6" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">The platform is designed following GAMP 5-oriented validation practices for configurable enterprise software: controlled workflows, audit trails, electronic-records controls, role-based access and human-in-the-loop AI. Validation deliverables — URS and functional-spec support, risk-assessment inputs, traceability, IQ/OQ artefacts and supplier assessment — can be provided to support your validation activities. Final validation responsibility depends on your intended use and deployment.</div></div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q7">Where does my data reside?</button></h2>
+              <div id="q7" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">On AWS cloud infrastructure, with deployment regions — US, EU, India or other supported regions — selected to meet your regulatory and data-residency requirements. Data is not moved across regions without appropriate approval and deployment planning, and residency is reviewed during solution design and onboarding.</div></div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q8">What happens if an AI output is incorrect?</button></h2>
+              <div id="q8" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">AI outputs are reviewed before being accepted into regulated workflows. If an output is unsuitable, the user can reject, correct or regenerate it; retrieval sources, prompts or model configuration can be reassessed; and changes follow controlled change management with regression testing. Incorrect output does not become part of the final record unless reviewed and accepted by an authorised user.</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FINAL CTA ============ -->
+  <section class="pad80 final-cta text-center" id="contact">
+    <div class="container">
+      <h2 class="section-title text-white reveal mb-3">Deploy AI in Your Validated Environment.</h2>
+      <p class="text-white-50 reveal mb-4" style="max-width:640px;margin-inline:auto">Talk to us about how Pivot Path's AI assurance model fits your quality, compliance and data-residency requirements.</p>
+      <div class="hero-ctas justify-content-center reveal">
+        <a href="mailto:info@pivotpath.com" class="btns2 solid-light">Book a demo</a>
+        <a href="mailto:info@pivotpath.com" class="btns2 solid-light">Talk to our experts</a>
+        <a href="pivotpath-platforms.html" class="btns-line">See our platforms</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+
+  <footer class="footer pad60">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-3">
+          <img src="pp-logo-white.svg" alt="Pivot Path — Life. Science. Possibilities." class="pp-logo-footer" />
+          <p>Born in Pharma. Built to Run It. The integrated life sciences partner for safety, quality, manufacturing and talent — from molecule to market.</p>
+          <div class="newsletter mt-3">
+            <label class="d-block mb-2" style="font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:#fff">Join our newsletter</label>
+            <div class="input-group" style="max-width:340px">
+              <input type="email" class="form-control" placeholder="Work email" />
+              <button class="btns2" style="border-left:0">Subscribe</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h6>Company</h6>
+          <a href="pivotpath-home.html#about">Overview</a>
+          <a href="pivotpath-home.html#about">Vision & Values</a>
+          <a href="pivotpath-leadership.html">Leadership</a>
+          <a href="pivotpath-ai-trust.html">AI Trust Centre</a>
+          <a href="pivotpath-home.html#clients">Clients</a>
+          <a href="#">Careers</a>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h6>Services</h6>
+          <a href="pivotpath-drug-safety.html">Patient Safety</a>
+          <a href="pivotpath-quality-compliance.html">Quality & Digital Compliance</a>
+          <a href="pivotpath-digital-innovation.html">Digital Transformation</a>
+          <a href="pivotpath-ip-clinical.html">Integrated IP & Clinical Operations</a>
+          <a href="pivotpath-human-capital.html">Human Capital</a>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h6>Products</h6>
+          <a href="pivotpath-novavigil.html">NovaVigil</a>
+          <a href="pivotpath-noteiq.html">NoteIQ</a>
+          <a href="pivotpath-anomiq.html">AnomIQ</a>
+          <a href="pivotpath-golanzar.html">GoLanzar</a>
+          <a href="pivotpath-inlumin.html">InLumin</a>
+          <a href="pivotpath-arete.html">Arete</a>
+          <a href="pivotpath-investigationiq.html">InvestigationIQ</a>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h6>Insights</h6>
+          <a href="pivotpath-insights.html">All Insights</a>
+          <a href="pivotpath-zero-touch-it.html">Zero-Touch IT (CDMO)</a>
+          <a href="pivotpath-pharma-4-0.html">Pharma 4.0 Transformation</a>
+          <a href="pivotpath-identity-user-management.html">Identity &amp; User Management</a>
+          <h6 class="mt-4">Contact</h6>
+          <a href="mailto:info@pivotpath.com">info@pivotpath.com</a>
+          <a href="#">Bengaluru · Hyderabad · Mysuru</a>
+        </div>
+      </div>
+      <div class="footer-bottom mt-5 pt-4 d-flex flex-wrap justify-content-between gap-2">
+        <span>© 2026 Pivot Path Private Limited. Demerged entity of Arcolab.</span>
+        <span>Privacy · Terms · ISO 27001 & 27701 Certified</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // ---- Count-up stat band ----
+    (function(){
+      function run(scope){
+        scope.querySelectorAll('.count').forEach(function(el){
+          if(el.dataset.done)return;el.dataset.done="1";
+          var to=parseFloat(el.dataset.to), dec=parseInt(el.dataset.dec||'0',10);
+          if(to===0){el.textContent="0";return;}
+          var start=null,dur=1600;
+          function step(ts){if(!start)start=ts;var p=Math.min((ts-start)/dur,1);
+            var val=to*(0.5-Math.cos(p*Math.PI)/2);
+            el.textContent=dec?val.toFixed(dec):Math.round(val).toLocaleString();
+            if(p<1)requestAnimationFrame(step);else el.textContent=dec?to.toFixed(dec):to.toLocaleString();}
+          requestAnimationFrame(step);
+        });
+      }
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)run(e.target);});},{threshold:.3});
+      document.querySelectorAll('.stat-band').forEach(function(b){io.observe(b);});
+    })();
+
+    // ---- Reveal on scroll ----
+    (function(){
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+      document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+    })();
+
+    // ---- Active anchor-nav highlight ----
+    (function(){
+      var links=[].slice.call(document.querySelectorAll('.anchor-nav a'));
+      var map=links.map(function(a){return {a:a,el:document.querySelector(a.getAttribute('href'))};}).filter(function(x){return x.el;});
+      function onScroll(){
+        var y=window.scrollY+120,cur=map[0];
+        map.forEach(function(x){if(x.el.offsetTop<=y)cur=x;});
+        links.forEach(function(a){a.classList.remove('active');});
+        if(cur)cur.a.classList.add('active');
+      }
+      window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+    })();
+  </script>
+  <script src="pp-mobile.js" defer></script>
+</body>
+</html>
