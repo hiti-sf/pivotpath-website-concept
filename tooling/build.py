@@ -35,8 +35,10 @@ HEADER_RE = re.compile(r'<div class="pp-topbar"></div>.*?</header>', re.DOTALL)
 FOOTER_RE = re.compile(r'<!-- =+ FOOTER =+ -->.*?</footer>', re.DOTALL)
 
 # ----- Per-page hooks (captured from the current site; see docs / build plan) -----
-# Pages whose nav CTA says "Book a demo" instead of the default "Talk to our experts".
-DEMO_PAGES: Set[str] = {
+# Product-context pages: the "Products" dropdown toggle is a bare "#" opener here (on other
+# sub-pages it points to pivotpath-home.html#platforms). The nav CTA is uniformly
+# "Talk to our experts" on every page — see tooling/partials/header.html.
+PRODUCT_TOGGLE_PAGES: Set[str] = {
     "pivotpath-arete.html", "pivotpath-ai-trust.html", "pivotpath-anomiq.html",
     "pivotpath-golanzar.html", "pivotpath-inlumin.html", "pivotpath-insights.html",
     "pivotpath-investigationiq.html", "pivotpath-leadership.html",
@@ -92,8 +94,8 @@ def render_header(header: str, page: str, head_hrefs: Set[str], sub_to_head: Dic
         # Services toggle is a pure dropdown opener on every sub-page; Why-Us points home.
         h = h.replace('href="#services"', 'href="#"')
         h = h.replace('href="#why"', 'href="pivotpath-home.html#why"')
-        # Products toggle: pure opener on product-context pages (== DEMO_PAGES), else points home.
-        if page in DEMO_PAGES:
+        # Products toggle: pure opener on product-context pages, else points home.
+        if page in PRODUCT_TOGGLE_PAGES:
             h = h.replace('href="#platforms"', 'href="#"')
         else:
             h = h.replace('href="#platforms"', 'href="pivotpath-home.html#platforms"')
@@ -106,10 +108,6 @@ def render_header(header: str, page: str, head_hrefs: Set[str], sub_to_head: Dic
     if active_item:
         h = h.replace(f'<a class="dropdown-item" href="{active_item}">',
                       f'<a class="dropdown-item active" href="{active_item}">')
-    # CTA label
-    if page in DEMO_PAGES:
-        h = h.replace('href="#contact">Talk to our experts</a>',
-                      'href="#contact">Book a demo</a>')
     # Active mega-head (page is a pillar page)
     if page in head_hrefs:
         h = h.replace(f'<a class="mega-head" href="{page}">',
