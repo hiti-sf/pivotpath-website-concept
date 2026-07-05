@@ -18,6 +18,13 @@
       --fs-h5:1.02rem;
       --fs-lead:clamp(1.05rem,1.4vw,1.2rem);
       --fs-body:.95rem;--fs-sm:.86rem;--fs-cap:.8rem;--fs-eyebrow:.72rem;
+      /* ===== Spacing scale — 8pt grid (single source of truth for padding / margins / gaps).
+         Snap all spacing to these; rule: space AROUND a group > space WITHIN it. ===== */
+      --sp-1:4px;--sp-2:8px;--sp-3:16px;--sp-4:24px;--sp-5:32px;
+      --sp-6:48px;--sp-7:64px;--sp-8:80px;--sp-9:96px;--sp-10:128px;
+      /* Section vertical rhythm: SYMMETRIC + fluid (research: ~64px desktop / ~40px mobile). */
+      --section-y:clamp(40px,4.5vw,64px);    /* .pad80 — standard sections */
+      --section-y-sm:clamp(32px,3.4vw,48px); /* .pad60 — tighter sections */
     }
     *{box-sizing:border-box}
     body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--pp-ink);line-height:1.7;letter-spacing:.005em;-webkit-font-smoothing:antialiased}
@@ -25,12 +32,17 @@
     h1,h2{font-weight:800;letter-spacing:.01em}
     h3,h4,h5,h6{font-weight:700;letter-spacing:.01em}
     /* #14: asymmetric rhythm — more lead-in than trail-out breaks the metronome */
-    .pad80{padding-top:104px;padding-bottom:80px}
-    .pad60{padding-top:72px;padding-bottom:56px}
+    /* #14 note retired: section padding is now SYMMETRIC + fluid (was 104/80 top-heavy). */
+    .pad80{padding-top:var(--section-y);padding-bottom:var(--section-y)}
+    .pad60{padding-top:var(--section-y-sm);padding-bottom:var(--section-y-sm)}
     .grey{background:var(--pp-grey)}
     .text-uppercase{letter-spacing:.06em}
     /* #14/#19: section titles in sentence/title case, not shouting uppercase */
     .section-title{font-size:var(--fs-h2);font-weight:800;line-height:1.12;letter-spacing:-.01em}
+    /* Section-header (centred title block) → content gap: retune Bootstrap mb-5 (48px) down to the
+       8pt scale so the within-section gap stays smaller than the section padding (proximity rule).
+       :has() beats Bootstrap's .mb-5 !important via specificity (0,2,0 > 0,1,0). */
+    .text-center:has(> .section-title){margin-bottom:var(--sp-5)!important}
 
     .btns2{display:inline-block;background:#000;color:#fff;border:1.5px solid #000;padding:.72rem 1.7rem;font-weight:700;text-transform:uppercase;font-size:.8rem;letter-spacing:.08em;text-decoration:none;border-radius:var(--r-pill);transition:transform .2s ease,box-shadow .2s ease,background .2s,color .2s}
     .btns2:hover{background:#fff;color:#000;transform:translateY(-2px);box-shadow:var(--pp-shadow-sm)}
@@ -518,9 +530,7 @@
   .btns2,.btns-line,.btn-pill{padding-top:.85rem;padding-bottom:.85rem}
   .footer a{padding:.5rem 0}
 
-  /* Section rhythm */
-  .pad80{padding-top:56px;padding-bottom:44px}
-  .pad60{padding-top:40px;padding-bottom:32px}
+  /* Section rhythm now handled by the fluid --section-y clamp() tokens (desktop+mobile). */
 
   /* Horizontal-overflow fix: FAQ row gutter leak */
   .row.g-5{--bs-gutter-x:1.5rem}
