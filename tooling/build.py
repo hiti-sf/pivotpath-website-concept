@@ -139,8 +139,24 @@ def render_footer(footer: str, page: str) -> str:
     return f
 
 
+# Pages that live in a sub-directory (their asset/link paths need a `../` prefix — see _reroot()).
+SUBDIR_PAGES = ("eu/index.html",)
+
+
 def pages() -> List[Path]:
-    return sorted(p for p in ROOT.glob("*.html"))
+    root = sorted(ROOT.glob("*.html"))
+    sub = [ROOT / p for p in SUBDIR_PAGES if (ROOT / p).exists()]
+    return root + sub
+
+
+def _reroot(html: str, prefix: str) -> str:
+    """Prefix root-relative internal links/assets (pivotpath-*, pp-*, assets/) with `prefix`
+    (e.g. `../`) so the shared root-relative partials work for pages in a sub-directory.
+    No-op for root pages (prefix == '')."""
+    if not prefix:
+        return html
+    return re.sub(r'(href|src)="(pivotpath-|pp-|assets/)',
+                  lambda m: f'{m.group(1)}="{prefix}{m.group(2)}', html)
 
 
 def build(check: bool, limit: int | None) -> int:
@@ -156,14 +172,17 @@ def build(check: bool, limit: int | None) -> int:
     changed = 0
     skipped: List[str] = []
     for path in targets:
-        page = path.name
+        rel = path.relative_to(ROOT)
+        page = rel.as_posix()                       # "index.html" or "eu/index.html" — unique key
+        prefix = "../" * (len(rel.parts) - 1)       # "" for root pages, "../" one level deep
         text = path.read_text()
         if not (HEADER_RE.search(text) and FOOTER_RE.search(text)):
             skipped.append(page)
             continue
-        new = HEADER_RE.sub(lambda _m: render_header(header, page, head_hrefs, sub_to_head, product_hrefs),
-                            text, count=1)
-        new = FOOTER_RE.sub(lambda _m: render_footer(footer, page), new, count=1)
+        new = HEADER_RE.sub(
+            lambda _m: _reroot(render_header(header, page, head_hrefs, sub_to_head, product_hrefs), prefix),
+            text, count=1)
+        new = FOOTER_RE.sub(lambda _m: _reroot(render_footer(footer, page), prefix), new, count=1)
         if new != text:
             changed += 1
             if check:
