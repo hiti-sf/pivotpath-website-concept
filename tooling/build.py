@@ -60,7 +60,7 @@ NAVLINK_ACTIVE: Dict[str, str] = {
 }
 # Footer variants.
 FOOTER_PLATFORMS: Set[str] = {"index.html"}                       # col-3 header "Platforms" vs "Products"
-FOOTER_LAUNCH: Set[str] = {"index.html", "pivotpath-home.html"}   # tagline "...to launch." vs "...to market."
+# Tagline is uniformly "…from molecule to launch." sitewide (client decision 2026-07); set in footer.html.
 
 
 def _mega_maps(header: str) -> Tuple[Set[str], Dict[str, str]]:
@@ -136,8 +136,6 @@ def render_footer(footer: str, page: str) -> str:
         f = f.replace('href="#clients"', 'href="pivotpath-home.html#clients"')
     if page in FOOTER_PLATFORMS:
         f = f.replace('<h6>Products</h6>', '<h6>Platforms</h6>')
-    if page in FOOTER_LAUNCH:
-        f = f.replace('molecule to market.', 'molecule to launch.')
     return f
 
 
