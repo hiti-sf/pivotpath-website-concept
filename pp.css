@@ -374,6 +374,22 @@
 .cap-stat .l{display:block;font-size:.72rem;letter-spacing:.06em;color:var(--pp-muted);text-transform:uppercase;font-weight:700;margin-top:.4rem}
 @keyframes capfade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 
+/* ----- Homepage 2026-07 refresh: cap-panel delivery footer, featured-platform cards, photo bands ----- */
+.cap-foot{display:flex;justify-content:space-between;align-items:center;gap:1rem 2rem;flex-wrap:wrap;border-top:1px solid var(--pp-line);padding-top:1.2rem;text-align:left}
+.cap-modes{margin:0}
+.cap-modes .lbl{display:block;font-size:.66rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--pp-muted);margin-bottom:.35rem}
+.cap-modes .lanes{font-size:.92rem;font-weight:700;color:var(--pp-ink)}
+.cap-modes .lanes i{font-style:normal;color:var(--pp-accent);padding:0 .4rem}
+.cap-foot .cap-explore{white-space:nowrap}
+.fp-logo{height:28px;width:auto;display:block;align-self:flex-start;object-fit:contain;margin-bottom:1rem}
+.fp-kick{display:block;font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--pp-muted);margin-bottom:.4rem}
+.fp-cta{margin-top:.9rem;font-size:.82rem;font-weight:700;color:var(--pp-accent)}
+#scale{background:linear-gradient(rgba(10,13,18,.85),rgba(10,13,18,.85)),url('assets/scale-bg.jpg') center/cover no-repeat}
+.final-cta.cta-photo{background:linear-gradient(rgba(10,13,18,.88),rgba(10,13,18,.88)),url('assets/cta-bg.jpg') center/cover no-repeat}
+@media (max-width:767px){
+  .cap-foot{flex-direction:column;align-items:center;text-align:center;gap:.9rem}
+}
+
 /* ----- Featured products ----- */
 .section-teal{background:var(--pp-section);color:#fff}
 .see-all{font-weight:700;font-size:.86rem;color:var(--pp-accent);text-decoration:none}
