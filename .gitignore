@@ -11,4 +11,9 @@ CLAUDE.md
 # Internal project materials — kept locally, not part of the deployed site
 docs/
 source-materials/
-tooling/
+tooling/*
+# ...except the site build source-of-truth (shared header/footer partials + build script),
+# which must be version-controlled. Crawlers + crawl outputs stay ignored.
+!tooling/build.py
+!tooling/partials/
+!tooling/partials/**
