@@ -58,7 +58,8 @@
     .grey-header{background:#fff;border-bottom:1px solid var(--pp-line)}
     .navbar-brand .logo-mark{font-weight:800;font-size:1.25rem;letter-spacing:.02em;text-transform:uppercase}
     .navbar-brand .logo-mark span{color:var(--pp-muted)}
-    .navbar .nav-link{text-transform:uppercase;font-size:.78rem;font-weight:700;letter-spacing:.08em;color:#000}
+    .navbar-nav{white-space:nowrap}
+    .navbar .nav-link{text-transform:uppercase;font-size:.78rem;font-weight:700;letter-spacing:.08em;color:#000;white-space:nowrap}
     .navbar .nav-link:hover{color:var(--pp-muted)}
     .dropdown-menu{border-radius:0;border:1px solid var(--pp-line)}
     .dropdown-item{text-transform:uppercase;font-size:.74rem;font-weight:700;letter-spacing:.06em;padding:.5rem 1rem}
@@ -325,7 +326,8 @@
 .hero-single{background:var(--pp-grad-bg);color:#fff}
 .hero-single-inner{padding:60px 0 52px;max-width:900px}
 .hero-single h1{font-weight:800;font-size:var(--fs-display);line-height:1.08;margin-bottom:1.1rem}
-.hero-sub{font-size:var(--fs-lead);color:#f0f0f0;max-width:640px;margin:0 auto 2rem}
+.hero-sub{font-size:var(--fs-lead);color:#f0f0f0;max-width:640px;margin:0 auto 2rem;white-space:nowrap}
+@media(max-width:768px){.hero-sub{white-space:normal}}
 .hero-single .hero-ctas{margin-bottom:0;justify-content:center}
 .hero-manifesto{font-size:.98rem;color:rgba(255,255,255,.8);max-width:700px;margin:0 auto;line-height:1.6}
 
