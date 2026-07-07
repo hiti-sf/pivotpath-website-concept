@@ -3,10 +3,85 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
   <title>Quality & Compliance Services — Pivot Path GxP Audits, QMS & Inspection Readiness</title>
-  <meta name="description" content="Quality &amp; Compliance Services from Pivot Path — GxP audit services, vendor management, inspection readiness with mock audits and gap assessments, QMS development, training coordination and ISO certification consulting (27001 / 27701 / 9001)." />
+  <meta name="description" content="Quality &amp; Compliance Services from Pivot Path — GxP audit services, inspection readiness with mock audits and gap assessments, QMS development and remediation, vendor management, training coordination and ISO certification consulting, delivered as an extension of your quality organisation." />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="pp.css?v=10" />
+  <style>
+    /* ==== ALT-PAGE PROTOTYPE STYLES (scoped to this page; pp.css untouched) ==== */
+
+    /* Trust band — dense hairline strip under the hero */
+    .tband{border-bottom:1px solid var(--pp-line)}
+    .tband .inner{display:grid;grid-template-columns:minmax(0,4fr) repeat(4,minmax(0,2fr));align-items:stretch}
+    .tband .cell{padding:var(--sp-4) var(--sp-4);border-left:1px solid var(--pp-line)}
+    .tband .cell:first-child{border-left:0;padding-left:0}
+    .tband .note{font-size:var(--fs-lead);font-weight:600;color:var(--pp-ink);display:flex;align-items:center}
+    .tband .n{font-size:1.6rem;font-weight:800;color:var(--pp-ink);line-height:1.1;font-variant-numeric:tabular-nums}
+    .tband .l{font-size:var(--fs-sm);color:var(--pp-muted);margin-top:4px}
+
+    /* Vignette quadrants — dark band over the operations photo */
+    /* swap to assets/qc-ops-bg.jpg when the dedicated quality image lands */
+    .risk-band{background-color:#0a1016;background-image:linear-gradient(rgba(10,16,22,.9),rgba(10,16,22,.9)),url('assets/dt-ops-bg.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;color:#fff}
+    .risk-band .section-title{color:#fff}
+    .vig-grid{display:grid;grid-template-columns:1fr 1fr}
+    .vig{padding:var(--sp-5)}
+    .vig:nth-child(odd){padding-left:0}
+    .vig:nth-child(even){border-left:1px solid rgba(255,255,255,.2);padding-right:0}
+    .vig:nth-child(n+3){border-top:1px solid rgba(255,255,255,.2)}
+    .vig:nth-child(-n+2){padding-top:0}
+    .vig:nth-child(n+3){padding-bottom:0}
+    .vig h3{font-size:var(--fs-h4);font-weight:700;color:#fff;margin-bottom:var(--sp-2)}
+    .vig p{font-size:var(--fs-lead);line-height:1.6;color:rgba(255,255,255,.8);margin:0;max-width:52ch}
+
+    /* Five movements — connected flow (compliance journey) */
+    .flow4{display:grid;grid-template-columns:repeat(5,1fr);gap:var(--sp-4);position:relative;padding-top:var(--sp-4)}
+    .flow4::before{content:"";position:absolute;top:calc(var(--sp-4) + 7px);left:8px;right:8px;height:2px;background:var(--pp-grad);opacity:.5}
+    .fl .dot{width:16px;height:16px;border-radius:50%;background:var(--pp-grad);margin-bottom:var(--sp-3);position:relative}
+    .fl .ph{font-size:var(--fs-h4);font-weight:800;color:var(--pp-ink);margin-bottom:var(--sp-2)}
+    .fl .fl-note{color:var(--pp-muted);margin-bottom:0;font-size:var(--fs-sm)}
+    .flow-close{margin-top:var(--sp-5);padding-top:var(--sp-4);border-top:1px solid var(--pp-line);font-weight:600;color:var(--pp-ink);max-width:72ch}
+
+    /* Spotlight cross-link line */
+    .spotlight .dd-link{color:rgba(255,255,255,.75);font-size:var(--fs-sm);margin-top:var(--sp-4);border-top:1px solid rgba(255,255,255,.22);padding-top:var(--sp-3)}
+    .spotlight .dd-link a{color:#fff;font-weight:700;text-decoration:none}
+    .spotlight .dd-link a:hover{text-decoration:underline}
+
+    /* Ways to engage — three hairline columns, not cards */
+    .engage-grid{display:grid;grid-template-columns:repeat(3,1fr)}
+    .engage-col{padding:0 var(--sp-5);border-left:1px solid var(--pp-line)}
+    .engage-col:first-child{border-left:0;padding-left:0}
+    .engage-col h4{font-size:var(--fs-h4);margin-bottom:var(--sp-3)}
+    .engage-col p{color:var(--pp-muted)}
+    .engage-kicker{margin-top:var(--sp-5);padding-top:var(--sp-4);border-top:1px solid var(--pp-line);font-weight:600;color:var(--pp-ink)}
+
+    /* Final CTA over the photo */
+    /* swap to assets/qc-cta-bg.jpg when the dedicated quality image lands */
+    .alt-cta{background-color:#0a1016;background-image:linear-gradient(rgba(10,16,22,.8),rgba(10,16,22,.8)),url('assets/dt-cta-bg.jpg');background-size:cover;background-position:center;background-repeat:no-repeat}
+
+    /* Mobile */
+    @media (max-width:991.98px){
+      .tband .inner{grid-template-columns:repeat(2,1fr)}
+      .tband .cell{border-left:0;padding-left:0}
+      .tband .note{grid-column:1/-1;padding-bottom:0}
+      .engage-grid{grid-template-columns:1fr}
+      .engage-col{border-left:0;padding:var(--sp-4) 0;border-top:1px solid var(--pp-line)}
+      .engage-col:first-child{border-top:0;padding-top:0}
+      .flow4{grid-template-columns:1fr;gap:var(--sp-4);padding-top:0}
+      .flow4::before{top:0;bottom:0;left:7px;right:auto;width:2px;height:auto}
+      .fl{padding-left:var(--sp-5)}
+      .fl .dot{position:absolute;margin-left:calc(-1 * var(--sp-5))}
+    }
+    @media (max-width:767.98px){
+      .vig-grid{grid-template-columns:1fr}
+      .vig{padding:var(--sp-4) 0}
+      .vig:nth-child(even){border-left:0;padding-right:0}
+      .vig:nth-child(n+2){border-top:1px solid rgba(255,255,255,.2)}
+      .vig:first-child{padding-top:0}
+      .vig:last-child{padding-bottom:0}
+      .vig p{font-size:var(--fs-body)}
+    }
+  </style>
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -15,7 +90,7 @@
       "@type": "Service",
       "name": "Quality & Compliance Services",
       "serviceType": "Quality & Compliance Services",
-      "description": "Quality and compliance services — GxP audit services, vendor management, inspection readiness (mock audits and gap assessments), QMS development, training coordination and ISO certification consulting (27001 / 27701 / 9001) — delivered with an end-to-end, proactive risk-management and continuous-improvement approach.",
+      "description": "Quality and compliance services delivered as an extension of your quality organisation — GxP audit services, inspection readiness (mock audits and gap assessments), QMS development and remediation, vendor and supplier quality management, training coordination and ISO certification consulting (27001 / 27701 / 9001).",
       "provider": {
         "@type": "Organization",
         "@id": "https://pivotpath.com/#organization",
@@ -96,6 +171,14 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Vendor management combines qualification, audits and ongoing oversight so third-party risk is identified early and controlled, keeping your supply base compliant and your quality system defensible end to end."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do you work with our existing quality team?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "As an extension of it. Our practitioners integrate with your organisation — carrying senior, inspection-hardened judgement into your processes rather than delivering reports from outside — and hand back a system your team runs with confidence."
           }
         }
       ]
@@ -186,10 +269,10 @@
     <div class="container">
       <div class="crumb"><a href="pivotpath-home.html">Home</a> &nbsp;/&nbsp; <a href="pivotpath-home.html#services">Services</a> &nbsp;/&nbsp; <a href="pivotpath-quality-compliance.html">Quality &amp; Digital Compliance</a> &nbsp;/&nbsp; Quality &amp; Compliance Services</div>
       <h1>Ready for the<br>inspection before it comes.</h1>
-      <p class="lead">GxP audit services, vendor management, inspection readiness, QMS development, training coordination and ISO certification consulting (27001 / 27701 / 9001): a proactive approach that finds the gaps before an inspector does.</p>
+      <p class="lead">Pivot Path delivers GxP audit services, inspection readiness through mock audits and gap assessments, QMS development and remediation, vendor and supplier quality management, training coordination and ISO certification consulting (27001 / 27701 / 9001). Senior practitioners who work as an extension of your quality organisation — so audit-readiness becomes your everyday condition.</p>
       <div class="hero-ctas">
         <a href="#contact" class="btns2 solid-light">Talk to our quality team</a>
-        <a href="#process" class="btns-line">See how it works</a>
+        <a href="#services" class="btns-line">See what we deliver</a>
       </div>
     </div>
   </section>
@@ -199,127 +282,153 @@
     <div class="container">
       <div class="inner">
         <a href="#overview" class="active">Overview</a>
-        <a href="#challenge">The Challenge</a>
-        <a href="#what">What We Do</a>
-        <a href="#process">Process</a>
+        <a href="#record">Track Record</a>
+        <a href="#services">What We Deliver</a>
+        <a href="#assurance">Approach</a>
+        <a href="#process">How We Work</a>
         <a href="#investigationiq">InvestigationIQ</a>
-        <a href="#noteiq-dms">NoteIQ</a>
-        <a href="#numbers">Story in Numbers</a>
-        <a href="#proof">Proof</a>
-        <a href="#whyus">Why Us</a>
-        <a href="#leaders">Leaders</a>
+        <a href="#engage">Ways to Engage</a>
+        <a href="#leaders">Leader</a>
         <a href="#faq">FAQ</a>
       </div>
     </div>
   </nav>
 
-  <!-- ============ HIGHLIGHTS ============ -->
-  <section class="pad60">
+  <!-- ============ TRUST BAND ============ -->
+  <section class="tband pad60" id="record">
     <div class="container">
-      <div class="row g-4 align-items-center">
-        <div class="col-lg-5 reveal">
-          <h2 class="section-title">Compliance, Built to Hold Up Under Inspection</h2>
+      <div class="inner reveal">
+        <div class="cell note">No critical inspection findings on record — FDA, TGA, EU and UK.</div>
+        <div class="cell"><div class="n">ISO 27001 · 27701</div><div class="l">Certified — information security &amp; privacy</div></div>
+        <div class="cell"><div class="n">ALCOA+</div><div class="l">Data integrity designed in, not retrofitted</div></div>
+        <div class="cell"><div class="n">Mock audits</div><div class="l">Inspections rehearsed before the real one</div></div>
+        <div class="cell"><div class="n">GxP</div><div class="l">Audits across your system and your suppliers</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHAT WE DELIVER (pill-tabs) ============ -->
+  <section class="pad80 grey" id="services">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title reveal">An Extension of Your Quality Organisation</h2>
+      </div>
+      <div class="cap-tabs reveal" role="tablist" aria-label="Quality and compliance services">
+        <button class="cap-tab" role="tab" id="qt-1" aria-controls="qp-1" aria-selected="true"  tabindex="0">GxP Audits</button>
+        <button class="cap-tab" role="tab" id="qt-2" aria-controls="qp-2" aria-selected="false" tabindex="-1">Inspection Readiness</button>
+        <button class="cap-tab" role="tab" id="qt-3" aria-controls="qp-3" aria-selected="false" tabindex="-1">QMS Development</button>
+        <button class="cap-tab" role="tab" id="qt-4" aria-controls="qp-4" aria-selected="false" tabindex="-1">Vendor Management</button>
+        <button class="cap-tab" role="tab" id="qt-5" aria-controls="qp-5" aria-selected="false" tabindex="-1">Training</button>
+        <button class="cap-tab" role="tab" id="qt-6" aria-controls="qp-6" aria-selected="false" tabindex="-1">ISO Consulting</button>
+      </div>
+      <div class="cap-panels reveal">
+        <div class="cap-panel" role="tabpanel" id="qp-1" aria-labelledby="qt-1" tabindex="0">
+          <h3 class="cap-panel-h">Findings you can act on.</h3>
+          <p class="cap-panel-p">Internal, supplier and due-diligence audits measured against regulatory expectations and your own procedures — with clear, prioritised findings and remediation guidance, not a scorecard.</p>
+          <div class="cap-foot">
+            <a href="#contact" class="cap-explore">Discuss an audit programme <span aria-hidden="true">→</span></a>
+          </div>
         </div>
-        <div class="col-lg-7">
-          <div class="row g-4">
-            <div class="col-6 col-md-3 reveal"><div class="hl"><div class="n">GxP</div><div class="l">Audit Services</div></div></div>
-            <div class="col-6 col-md-3 reveal"><div class="hl"><div class="n">ISO</div><div class="l">27001 / 27701 / 9001</div></div></div>
-            <div class="col-6 col-md-3 reveal"><div class="hl"><div class="n">Mock Audits</div><div class="l">Inspection-Ready</div></div></div>
-            <div class="col-6 col-md-3 reveal"><div class="hl"><div class="n">QMS</div><div class="l">Built-In</div></div></div>
+        <div class="cap-panel" role="tabpanel" id="qp-2" aria-labelledby="qt-2" tabindex="0" hidden>
+          <h3 class="cap-panel-h">The inspection, rehearsed.</h3>
+          <p class="cap-panel-p">Mock audits and gap assessments that rehearse behaviour, not just documents — front room and back room — so weaknesses surface while there is still time to fix them.</p>
+          <div class="cap-foot">
+            <a href="#contact" class="cap-explore">Plan a readiness assessment <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+        <div class="cap-panel" role="tabpanel" id="qp-3" aria-labelledby="qt-3" tabindex="0" hidden>
+          <h3 class="cap-panel-h">A quality system that is lived, not shelved.</h3>
+          <p class="cap-panel-p">Built from the ground up or strengthened where it stands — procedures, document control, deviation, CAPA and change management that hold up in daily operation and under inspection.</p>
+          <div class="cap-foot">
+            <a href="#contact" class="cap-explore">Discuss your QMS <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+        <div class="cap-panel" role="tabpanel" id="qp-4" aria-labelledby="qt-4" tabindex="0" hidden>
+          <h3 class="cap-panel-h">Third-party risk, inside your line of sight.</h3>
+          <p class="cap-panel-p">Qualification, audits, supplier quality agreements and ongoing oversight — because your riskiest processes often sit outside your walls.</p>
+          <div class="cap-foot">
+            <a href="#contact" class="cap-explore">Review your supplier oversight <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+        <div class="cap-panel" role="tabpanel" id="qp-5" aria-labelledby="qt-5" tabindex="0" hidden>
+          <h3 class="cap-panel-h">Training that keeps the system living.</h3>
+          <p class="cap-panel-p">Role-based GxP curricula, scheduling, records and compliance tracking — coordinated so the quality system stays current as people and processes change.</p>
+          <div class="cap-foot">
+            <a href="#contact" class="cap-explore">Discuss training coordination <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+        <div class="cap-panel" role="tabpanel" id="qp-6" aria-labelledby="qt-6" tabindex="0" hidden>
+          <h3 class="cap-panel-h">Certification, prepared properly.</h3>
+          <p class="cap-panel-p">Consulting for ISO 27001 (information security), ISO 27701 (privacy) and ISO 9001 (quality management) — preparing your organisation and its documentation for certification and surveillance audits.</p>
+          <div class="cap-foot">
+            <a href="#contact" class="cap-explore">Plan a certification path <span aria-hidden="true">→</span></a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ CHALLENGE ============ -->
-  <section class="pad80 grey" id="challenge">
+  <!-- ============ VIGNETTES ============ -->
+  <section class="pad80 risk-band" id="assurance">
     <div class="container">
       <div class="text-center mb-5">
-        <h2 class="section-title reveal">How quality systems drift out of compliance</h2>
+        <h2 class="section-title reveal">Built for the Realities of Regulated Quality</h2>
       </div>
-      <div class="row g-4">
-        <div class="col-md-6 col-lg-3 reveal"><div class="pain"><div class="x">⚠</div><h5>Repeat audit findings</h5><p>The same observations recur because remediation treats symptoms, not root cause.</p></div></div>
-        <div class="col-md-6 col-lg-3 reveal"><div class="pain"><div class="x">▤</div><h5>Inspection surprises</h5><p>Gaps only surface in front of the inspector, when there is no time left to fix them.</p></div></div>
-        <div class="col-md-6 col-lg-3 reveal"><div class="pain"><div class="x">▣</div><h5>A QMS on paper only</h5><p>Procedures exist but are not lived, so the system fails when it is tested.</p></div></div>
-        <div class="col-md-6 col-lg-3 reveal"><div class="pain"><div class="x">⟳</div><h5>Unmanaged vendor risk</h5><p>Suppliers go unqualified and unaudited, leaving third-party risk in the blind spot.</p></div></div>
+      <div class="vig-grid reveal">
+        <div class="vig">
+          <h3>When a warning letter or 483 lands</h3>
+          <p>Remediation must be fast, credible and permanent. We fix root cause and rebuild the system around it — so the finding closes once, and stays closed.</p>
+        </div>
+        <div class="vig">
+          <h3>When growth outruns the QMS</h3>
+          <p>New markets and new modalities bring a higher tier of scrutiny. We strengthen the system before the next inspection tests it.</p>
+        </div>
+        <div class="vig">
+          <h3>When the quality team is senior-thin</h3>
+          <p>Procedures exist; inspection-hardened judgement is scarcer. Our practitioners integrate with your team and carry that weight with you.</p>
+        </div>
+        <div class="vig">
+          <h3>When supplier oversight is an annual questionnaire</h3>
+          <p>Every data-integrity gap in your supply base is a patient-safety gap. Qualification, audits and continuous oversight keep third-party risk controlled.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ WHAT WE DO ============ -->
-  <section class="pad80" id="what">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="section-title reveal">End-to-End Quality & Compliance</h2>
-      </div>
-      <div class="row g-4">
-        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
-          <h4>GxP Audit Services</h4>
-          <ul><li>Internal and self-inspection audits across the quality system</li><li>Supplier and third-party audits</li><li>Due diligence audits</li><li>Clear, prioritised findings with remediation guidance</li></ul>
-        </div></div>
-        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
-          <h4>Vendor Management</h4>
-          <ul><li>Vendor qualification and selection</li><li>Ongoing supplier oversight and monitoring</li><li>Third-party risk identification and control</li><li>Supplier quality agreements</li></ul>
-        </div></div>
-        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
-          <h4>Inspection Readiness</h4>
-          <ul><li>Mock audits that rehearse the inspection</li><li>Gap assessments against regulatory expectations</li><li>Prioritised remediation planning</li><li>Front-room and back-room preparation</li></ul>
-        </div></div>
-        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
-          <h4>QMS Development</h4>
-          <ul><li>Quality management systems built from the ground up</li><li>Strengthening and remediation of existing systems</li><li>Procedures and document control</li><li>Deviation, CAPA and change management processes</li></ul>
-        </div></div>
-        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
-          <h4>Training Coordination</h4>
-          <ul><li>GxP and quality training programmes</li><li>Role-based curricula and scheduling</li><li>Training records and compliance tracking</li><li>Keeping the QMS living, not shelf-ware</li></ul>
-        </div></div>
-        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
-          <h4>ISO Certification Consulting</h4>
-          <ul><li>ISO 27001 — information security management</li><li>ISO 27701 — privacy information management</li><li>ISO 9001 — quality management</li><li>Preparation for certification and surveillance audits</li></ul>
-        </div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ PROCESS ============ -->
-  <section class="pad80 grey" id="process">
+  <!-- ============ HOW WE WORK ============ -->
+  <section class="pad80" id="process">
     <div class="container">
       <div class="text-center mb-5">
         <h2 class="section-title reveal">How We Get You Compliant — and Keep You There</h2>
       </div>
-      <div class="proc reveal cols-5">
-        <div class="proc-step">
-          <div class="pic"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="M20 20l-3.5-3.5"/></svg></div>
-          <div class="pk">Assess</div>
-          <h5>Gap Analysis</h5>
-          <p>A gap analysis against GxP and ISO expectations maps where your quality system stands today.</p>
+      <div class="flow4 reveal">
+        <div class="fl">
+          <div class="dot"></div>
+          <div class="ph">Assess</div>
+          <p class="fl-note">A gap analysis against GxP and ISO expectations maps where your quality system stands today.</p>
         </div>
-        <div class="proc-step">
-          <div class="pic"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 1 5 5l-1.5 1.5-9 9-4.5 1 1-4.5 9-9z"/></svg></div>
-          <div class="pk">Remediate</div>
-          <h5>Close the Findings</h5>
-          <p>Prioritised remediation tackles root cause, not symptoms, so findings do not recur.</p>
+        <div class="fl">
+          <div class="dot"></div>
+          <div class="ph">Remediate</div>
+          <p class="fl-note">Prioritised remediation tackles root cause, not symptoms, so findings do not recur.</p>
         </div>
-        <div class="proc-step">
-          <div class="pic"><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg></div>
-          <div class="pk">Build QMS</div>
-          <h5>System & Training</h5>
-          <p>Procedures, document control and training coordination make the quality system living and durable.</p>
+        <div class="fl">
+          <div class="dot"></div>
+          <div class="ph">Build</div>
+          <p class="fl-note">Procedures, document control and training coordination make the quality system living and durable.</p>
         </div>
-        <div class="proc-step">
-          <div class="pic"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
-          <div class="pk">Mock Audit</div>
-          <h5>Rehearse the Inspection</h5>
-          <p>A mock audit stress-tests readiness and surfaces weaknesses before a regulator does.</p>
+        <div class="fl">
+          <div class="dot"></div>
+          <div class="ph">Rehearse</div>
+          <p class="fl-note">A mock audit stress-tests readiness and surfaces weaknesses before a regulator does.</p>
         </div>
-        <div class="proc-step">
-          <div class="pic"><svg viewBox="0 0 24 24"><path d="M23 4v6h-6M1 20v-6h6"/><path d="M3.5 9a9 9 0 0 1 15-3.4L23 10M1 14l4.5 4.4A9 9 0 0 0 20.5 15"/></svg></div>
-          <div class="pk">Sustain</div>
-          <h5>Continuous Improvement</h5>
-          <p>Ongoing audits, vendor oversight and improvement cycles keep you inspection-ready between audits.</p>
+        <div class="fl">
+          <div class="dot"></div>
+          <div class="ph">Sustain</div>
+          <p class="fl-note">Ongoing audits, vendor oversight and improvement cycles keep you inspection-ready between inspections.</p>
         </div>
       </div>
+      <p class="flow-close reveal">Readiness is a posture, not a project — the aim is a quality system where the inspection simply confirms what daily operation already proves.</p>
     </div>
   </section>
 
@@ -328,7 +437,7 @@
     <div class="container">
       <div class="spot-head reveal">
         <div class="pname">InvestigationIQ</div>
-        <p class="spot-tagline">Faster, defensible investigations — RCA and CAPA in one place.</p>
+        <p class="spot-tagline">AI-assisted root-cause analysis and CAPA — investigations that close, defensibly.</p>
       </div>
       <div class="row align-items-center g-4 g-lg-5 spot-body">
         <div class="col-lg-6 reveal">
@@ -396,151 +505,43 @@
         </div>
         <div class="col-lg-6 reveal">
           <ul class="vp-list">
-            <li class="vp"><span class="vp-ic">✓</span><div><div class="vp-t">Guided RCA</div><div class="vp-d">Structured root-cause analysis for deviations.</div></div></li>
-            <li class="vp"><span class="vp-ic">✓</span><div><div class="vp-t">CAPA that closes</div><div class="vp-d">Actions tracked through to closure.</div></div></li>
-            <li class="vp"><span class="vp-ic">✓</span><div><div class="vp-t">Recommendations, not decisions</div><div class="vp-d">AI assists the investigator; people decide.</div></div></li>
+            <li class="vp"><span class="vp-ic">✓</span><div><div class="vp-t">40–60% faster investigation cycles</div><div class="vp-d">Structured root-cause analysis — Fishbone, 5-Why, 6M — guided end to end.</div></div></li>
+            <li class="vp"><span class="vp-ic">✓</span><div><div class="vp-t">Around 6–7 hours saved per investigation</div><div class="vp-d">Drafting, evidence assembly and CAPA linkage accelerated.</div></div></li>
+            <li class="vp"><span class="vp-ic">✓</span><div><div class="vp-t">Recommendations, not decisions</div><div class="vp-d">AI assists the investigator; qualified people decide and sign.</div></div></li>
           </ul>
+          <p class="dd-link">Controlled documents behind our quality systems — <a href="pivotpath-noteiq-dms.html">NoteIQ DMS</a>, a Quality &amp; Compliance platform from Pivot Path.</p>
           <a href="pivotpath-investigationiq.html" class="btns-line mt-4">Explore InvestigationIQ</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ NOTEIQ DMS SPOTLIGHT ============ -->
-  <section class="pad80 spotlight" id="noteiq-dms">
-    <div class="container">
-      <div class="spot-head reveal">
-        <span class="logo-plate"><img src="assets/noteiq.png" alt="NoteIQ" class="prod-logo"></span>
-        <p class="spot-tagline">Controlled documents, audit-ready — the DMS behind our quality systems.</p>
-      </div>
-      <div class="row align-items-center g-4 g-lg-5 spot-body">
-        <div class="col-lg-6 reveal">
-          <div class="shot shot-zoom">
-          <div class="bar"><i class="d1"></i><i class="d2"></i><i class="d3"></i><span class="addr">app.pivotpath.com/noteiq-dms</span></div>
-          <svg viewBox="0 0 1120 640" role="img" aria-label="Representative NoteIQ DMS dashboard" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Roboto,Arial,sans-serif">
-            <defs><linearGradient id="nvgA" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#71bf44"/><stop offset=".55" stop-color="#20a676"/><stop offset="1" stop-color="#1b91a3"/></linearGradient></defs>
-            <rect width="1120" height="640" fill="#f6f7f9"/>
-            <rect width="236" height="640" fill="#0f141b"/>
-            <rect x="28" y="30" width="20" height="20" rx="5" fill="url(#nvgA)"/>
-            <text x="58" y="45" fill="#fff" font-size="17" font-weight="700">NoteIQ DMS</text>
-            <rect x="16" y="84" width="204" height="38" rx="8" fill="#ffffff1a"/>
-            <text x="40" y="108" fill="#fff" font-size="13" font-weight="600">Dashboard</text>
-            <text x="40" y="156" fill="#8b95a0" font-size="13">Documents</text>
-            <text x="40" y="196" fill="#8b95a0" font-size="13">Templates</text>
-            <text x="40" y="236" fill="#8b95a0" font-size="13">Workflows</text>
-            <text x="40" y="276" fill="#8b95a0" font-size="13">Data Room</text>
-            <text x="40" y="316" fill="#8b95a0" font-size="13">Settings</text>
-            <text x="264" y="52" fill="#11151c" font-size="20" font-weight="700">Document Management</text>
-            <rect x="812" y="32" width="196" height="34" rx="17" fill="#fff" stroke="#e3e6ea"/>
-            <text x="832" y="54" fill="#9aa3ab" font-size="12">Search…</text>
-            <circle cx="1058" cy="49" r="18" fill="url(#nvgA)"/>
-            <rect x="264" y="84" width="252" height="104" rx="10" fill="#fff" stroke="#e8eaed"/>
-            <text x="288" y="134" fill="#11151c" font-size="30" font-weight="800">4,210</text>
-            <text x="288" y="162" fill="#6b6b6b" font-size="12.5">Controlled docs</text>
-            <rect x="540" y="84" width="252" height="104" rx="10" fill="#fff" stroke="#e8eaed"/>
-            <text x="564" y="134" fill="#11151c" font-size="30" font-weight="800">100%</text>
-            <text x="564" y="162" fill="#6b6b6b" font-size="12.5">Versioned</text>
-            <rect x="816" y="84" width="252" height="104" rx="10" fill="#fff" stroke="#e8eaed"/>
-            <text x="840" y="134" fill="#11151c" font-size="30" font-weight="800">38</text>
-            <text x="840" y="162" fill="#6b6b6b" font-size="12.5">In review</text>
-            <rect x="264" y="212" width="560" height="196" rx="10" fill="#fff" stroke="#e8eaed"/>
-            <text x="288" y="246" fill="#11151c" font-size="14" font-weight="700">Documents released — last 8 weeks</text>
-            <line x1="288" y1="384" x2="800" y2="384" stroke="#e8eaed"/>
-            <g fill="url(#nvgA)">
-              <rect x="300" y="324" width="38" height="60" rx="3"/>
-              <rect x="362" y="298" width="38" height="86" rx="3"/>
-              <rect x="424" y="330" width="38" height="54" rx="3"/>
-              <rect x="486" y="280" width="38" height="104" rx="3"/>
-              <rect x="548" y="306" width="38" height="78" rx="3"/>
-              <rect x="610" y="264" width="38" height="120" rx="3"/>
-              <rect x="672" y="292" width="38" height="92" rx="3"/>
-              <rect x="734" y="274" width="38" height="110" rx="3"/>
-            </g>
-            <rect x="840" y="212" width="248" height="196" rx="10" fill="#fff" stroke="#e8eaed"/>
-            <text x="864" y="246" fill="#11151c" font-size="14" font-weight="700">By lifecycle</text>
-            <circle cx="870" cy="284" r="5" fill="#1b91a3"/><text x="886" y="289" fill="#6b6b6b" font-size="12.5">Draft</text><text x="1064" y="289" fill="#11151c" font-size="12.5" font-weight="700" text-anchor="end">64</text>
-            <circle cx="870" cy="318" r="5" fill="#20a676"/><text x="886" y="323" fill="#6b6b6b" font-size="12.5">In review</text><text x="1064" y="323" fill="#11151c" font-size="12.5" font-weight="700" text-anchor="end">38</text>
-            <circle cx="870" cy="352" r="5" fill="#71bf44"/><text x="886" y="357" fill="#6b6b6b" font-size="12.5">Released</text><text x="1064" y="357" fill="#11151c" font-size="12.5" font-weight="700" text-anchor="end">3,980</text>
-            <circle cx="870" cy="386" r="5" fill="#febc2e"/><text x="886" y="391" fill="#6b6b6b" font-size="12.5">Retired</text><text x="1064" y="391" fill="#11151c" font-size="12.5" font-weight="700" text-anchor="end">128</text>
-            <rect x="264" y="424" width="824" height="188" rx="10" fill="#fff" stroke="#e8eaed"/>
-            <text x="288" y="456" fill="#11151c" font-size="14" font-weight="700">Recent documents</text>
-            <line x1="264" y1="476" x2="1088" y2="476" stroke="#eef0f2"/>
-            <g font-size="12.5">
-              <text x="288" y="508" fill="#11151c">SOP-114</text><text x="430" y="508" fill="#6b6b6b">Cleaning procedure</text><text x="860" y="508" fill="#6b6b6b">K. Shah</text>
-              <rect x="980" y="494" width="84" height="22" rx="11" fill="#e8f6f1"/><text x="1022" y="509" fill="#1b8f73" text-anchor="middle" font-size="11" font-weight="700">In review</text>
-              <text x="288" y="548" fill="#11151c">BMR-022</text><text x="430" y="548" fill="#6b6b6b">Batch record</text><text x="860" y="548" fill="#6b6b6b">R. Menon</text>
-              <rect x="980" y="534" width="84" height="22" rx="11" fill="#eaf6e3"/><text x="1022" y="549" fill="#4c8f2e" text-anchor="middle" font-size="11" font-weight="700">Released</text>
-              <text x="288" y="588" fill="#11151c">POL-007</text><text x="430" y="588" fill="#6b6b6b">Data integrity policy</text><text x="860" y="588" fill="#6b6b6b">K. Shah</text>
-              <rect x="980" y="574" width="84" height="22" rx="11" fill="#fff3d6"/><text x="1022" y="589" fill="#9a7400" text-anchor="middle" font-size="11" font-weight="700">Draft</text>
-            </g>
-          </svg>
-          <span class="tag">Representative UI</span>
-        </div>
-        </div>
-        <div class="col-lg-6 reveal">
-          <ul class="vp-list">
-            <li class="vp"><span class="vp-ic">✓</span><div><div class="vp-t">Controlled documents</div><div class="vp-d">Versioning, review and approval workflows.</div></div></li>
-            <li class="vp"><span class="vp-ic">✓</span><div><div class="vp-t">Audit-ready</div><div class="vp-d">A complete trail for inspection.</div></div></li>
-            <li class="vp"><span class="vp-ic">✓</span><div><div class="vp-t">GxP-aligned</div><div class="vp-d">Built for regulated quality operations.</div></div></li>
-          </ul>
-          <a href="pivotpath-noteiq-dms.html" class="btns-line mt-4">Explore NoteIQ DMS</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ============ STORY IN NUMBERS ============ -->
-  <section class="pad80 stat-band" id="numbers">
+  <!-- ============ WAYS TO ENGAGE ============ -->
+  <section class="pad80 grey" id="engage">
     <div class="container">
       <div class="text-center mb-5">
-        <h2 class="section-title text-white reveal">What “Compliant” Looks Like With Us</h2>
+        <h2 class="section-title reveal">Ways to Engage</h2>
       </div>
-      <div class="row text-center g-4 justify-content-center">
-        <div class="col-md-6 col-lg-4 reveal valstat"><div class="vt">ISO 27001 &amp; 27701</div><div class="vl">Certification consulting for information-security and privacy management.</div></div>
-        <div class="col-md-6 col-lg-4 reveal valstat"><div class="vt">GxP audit-ready</div><div class="vl">Mock audits and gap assessments that surface issues before an inspector does.</div></div>
-        <div class="col-md-6 col-lg-4 reveal valstat"><div class="vt">Complete QMS</div><div class="vl">A quality management system built, trained and sustained, not left on paper.</div></div>
+      <div class="engage-grid reveal">
+        <div class="engage-col">
+          <h4>Advisory</h4>
+          <p>Gap assessments, GxP and supplier audits, mock inspections and readiness reviews — senior findings you can act on before an authority arrives.</p>
+        </div>
+        <div class="engage-col">
+          <h4>Delivery</h4>
+          <p>QMS development and remediation, ISO certification preparation and data-integrity programmes — built with your team, documented to stand inspection.</p>
+        </div>
+        <div class="engage-col">
+          <h4>Managed Operations</h4>
+          <p>Ongoing compliance operations — training coordination, vendor oversight and audit programmes run to calendar, keeping readiness your everyday condition.</p>
+        </div>
       </div>
+      <p class="engage-kicker reveal">Each engagement model is contractable independently — begin with a defined scope and expand as your requirements evolve.</p>
     </div>
   </section>
 
-  <!-- ============ PROOF ============ -->
-  <section class="pad80" id="proof">
-    <div class="container">
-      <div class="row align-items-center g-5">
-        <div class="col-lg-5 reveal">
-          <h2 class="section-title">The Rigour Behind the Work</h2>
-        </div>
-        <div class="col-lg-7">
-          <div class="row g-4">
-            <div class="col-sm-6 reveal"><div class="proof-card"><div class="big">GxP audits</div><div class="cap">Internal, supplier and due-diligence audits measured against regulation and your own procedures.</div></div></div>
-            <div class="col-sm-6 reveal"><div class="proof-card"><div class="big">Mock audits</div><div class="cap">Inspection readiness rehearsed through mock audits and gap assessments before the regulator arrives.</div></div></div>
-            <div class="col-sm-6 reveal"><div class="proof-card"><div class="big">ISO consulting</div><div class="cap">Certification consulting across ISO 27001, ISO 27701 and ISO 9001.</div></div></div>
-            <div class="col-sm-6 reveal"><div class="proof-card"><div class="big">QMS &amp; training</div><div class="cap">Quality systems developed and kept living through training coordination and ongoing oversight.</div></div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ WHY US (value proposition) ============ -->
-  <section class="pad80 stat-band" id="whyus">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="section-title text-white reveal">What sets our quality practice apart</h2>
-      </div>
-      <div class="row text-center g-4 justify-content-center">
-        <div class="col-md-6 col-lg-4 reveal valstat"><div class="vt">Compliance across the lifecycle</div><div class="vl">From audits and QMS to ISO certification, one partner across the quality lifecycle.</div></div>
-        <div class="col-md-6 col-lg-4 reveal valstat"><div class="vt">Regulatory expertise</div><div class="vl">GxP and ISO knowledge that measures you against what inspectors actually expect.</div></div>
-        <div class="col-md-6 col-lg-4 reveal valstat"><div class="vt">Operational efficiency</div><div class="vl">Leaner quality processes that reduce burden without cutting rigour.</div></div>
-        <div class="col-md-6 col-lg-4 reveal valstat"><div class="vt">Proactive risk management</div><div class="vl">Gap assessments and mock audits find risk before it becomes a finding.</div></div>
-        <div class="col-md-6 col-lg-4 reveal valstat"><div class="vt">Continuous improvement</div><div class="vl">Ongoing oversight and improvement cycles keep you inspection-ready over time.</div></div>
-        <div class="col-md-6 col-lg-4 reveal valstat"><div class="vt">Vendor risk controlled</div><div class="vl">Qualification, audits and oversight keep third-party risk out of the blind spot.</div></div>
-      </div>
-    </div>
-  </section>
-  <!-- ============ PRACTICE LEADERS ============ -->
-  <section class="pad80 grey" id="leaders">
+  <!-- ============ PRACTICE LEADER ============ -->
+  <section class="pad80" id="leaders">
     <div class="container">
       <div class="text-center mb-5"><h2 class="section-title reveal">The Leader Behind Quality &amp; Compliance</h2></div>
       <div class="row g-4 justify-content-center">
@@ -558,9 +559,8 @@
     </div>
   </section>
 
-
-    <!-- ============ FAQ ============ -->
-  <section class="pad80" id="faq">
+  <!-- ============ FAQ ============ -->
+  <section class="pad80 grey" id="faq">
     <div class="container">
       <div class="text-center mb-5">
         <h2 class="section-title reveal">Quality and compliance FAQ</h2>
@@ -588,6 +588,10 @@
               <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q5">How do you manage vendor and supplier risk?</button></h2>
               <div id="q5" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Vendor management combines qualification, audits and ongoing oversight so third-party risk is identified early and controlled, keeping your supply base compliant and your quality system defensible end to end.</div></div>
             </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q6">How do you work with our existing quality team?</button></h2>
+              <div id="q6" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">As an extension of it. Our practitioners integrate with your organisation — carrying senior, inspection-hardened judgement into your processes rather than delivering reports from outside — and hand back a system your team runs with confidence.</div></div>
+            </div>
           </div>
         </div>
       </div>
@@ -595,13 +599,13 @@
   </section>
 
   <!-- ============ FINAL CTA ============ -->
-  <section class="pad80 final-cta text-center" id="contact">
+  <section class="pad80 alt-cta text-center" id="contact">
     <div class="container">
       <h2 class="section-title text-white reveal mb-3">Ready for the Inspection.<br>Before It Comes.</h2>
-      <p class="text-white-50 reveal mb-4" style="max-width:640px;margin-inline:auto">GxP audits, inspection readiness, QMS development or ISO certification consulting (27001 / 27701 / 9001). Talk to our quality team.</p>
+      <p class="text-white-50 reveal mb-4" style="max-width:640px;margin-inline:auto">GxP audits, inspection readiness, QMS development or ISO certification consulting — our senior quality practitioners are ready to discuss your requirements.</p>
       <div class="hero-ctas justify-content-center reveal">
         <a href="mailto:info@pivotpath.com" class="btns2 solid-light">Talk to our quality team</a>
-        <a href="pivotpath-quality-compliance.html" class="btns-line">See the Quality & Digital Compliance pillar</a>
+        <a href="pivotpath-quality-compliance.html" class="btns-line">See the Quality &amp; Digital Compliance pillar</a>
       </div>
     </div>
   </section>
@@ -669,38 +673,56 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
+    // ---- Service pill-tabs (accessible) ----
     (function(){
-      function run(scope){
-        scope.querySelectorAll('.count').forEach(function(el){
-          if(el.dataset.done)return;el.dataset.done="1";
-          var to=parseFloat(el.dataset.to), dec=parseInt(el.dataset.dec||'0',10);
-          if(to===0){el.textContent="0";return;}
-          var start=null,dur=1600;
-          function step(ts){if(!start)start=ts;var p=Math.min((ts-start)/dur,1);
-            var val=to*(0.5-Math.cos(p*Math.PI)/2);
-            el.textContent=dec?val.toFixed(dec):Math.round(val).toLocaleString();
-            if(p<1)requestAnimationFrame(step);else el.textContent=dec?to.toFixed(dec):to.toLocaleString();}
-          requestAnimationFrame(step);
+      var tabs=Array.prototype.slice.call(document.querySelectorAll('.cap-tab'));
+      if(!tabs.length)return;
+      var panels=tabs.map(function(t){return document.getElementById(t.getAttribute('aria-controls'));});
+      function select(idx,focus){
+        tabs.forEach(function(t,i){
+          var on=i===idx;
+          t.setAttribute('aria-selected',on?'true':'false');
+          t.tabIndex=on?0:-1;
+          if(panels[i])panels[i].hidden=!on;
         });
+        if(focus&&tabs[idx])tabs[idx].focus();
       }
-      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)run(e.target);});},{threshold:.3});
-      document.querySelectorAll('.stat-band').forEach(function(b){io.observe(b);});
+      tabs.forEach(function(tab,i){
+        tab.addEventListener('click',function(){select(i,false);});
+        tab.addEventListener('keydown',function(e){
+          var n;
+          if(e.key==='ArrowRight'||e.key==='ArrowDown')n=(i+1)%tabs.length;
+          else if(e.key==='ArrowLeft'||e.key==='ArrowUp')n=(i-1+tabs.length)%tabs.length;
+          else if(e.key==='Home')n=0;
+          else if(e.key==='End')n=tabs.length-1;
+          else return;
+          e.preventDefault();select(n,true);
+        });
+      });
+      select(0,false);
     })();
+
+    // ---- Reveal on scroll ----
     (function(){
       var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
       document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
     })();
+
+    // ---- Active anchor-nav highlight ----
     (function(){
       var links=[].slice.call(document.querySelectorAll('.anchor-nav a'));
       var map=links.map(function(a){return {a:a,el:document.querySelector(a.getAttribute('href'))};}).filter(function(x){return x.el;});
-      function onScroll(){var y=window.scrollY+120,cur=map[0];
+      function onScroll(){
+        var y=window.scrollY+120,cur=map[0];
         map.forEach(function(x){if(x.el.offsetTop<=y)cur=x;});
-        links.forEach(function(a){a.classList.remove('active');});if(cur)cur.a.classList.add('active');}
+        links.forEach(function(a){a.classList.remove('active');});
+        if(cur)cur.a.classList.add('active');
+      }
       window.addEventListener('scroll',onScroll,{passive:true});onScroll();
     })();
   </script>
   <script src="pp-mobile.js" defer></script>
   <!-- design-toggle -->
-  <a href="pivotpath-svc-quality-compliance-alt.html" style="position:fixed;left:18px;bottom:18px;z-index:2000;background:#0f141b;color:#fff;padding:10px 18px;border-radius:999px;font:600 13px/1 -apple-system,'Segoe UI',Roboto,Arial,sans-serif;letter-spacing:.02em;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,.28);opacity:.92" aria-label="View alternate design">View alternate design</a>
+  <a href="pivotpath-svc-quality-compliance.html" style="position:fixed;left:18px;bottom:18px;z-index:2000;background:#0f141b;color:#fff;padding:10px 18px;border-radius:999px;font:600 13px/1 -apple-system,'Segoe UI',Roboto,Arial,sans-serif;letter-spacing:.02em;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,.28);opacity:.92" aria-label="View current design">View current design</a>
 </body>
 </html>

@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>Operational Excellence — Pivot Path Lean, Six Sigma & Manufacturing Excellence</title>
+  <meta name="description" content="Manufacturing Excellence Partner programme for regulated plants — Lean deployment (5S, GEMBA, Visual Factory), the 20 Keys to Workplace Improvement transformation, Six Sigma, the GEMBA digital shop-floor app, sustainability models and USFDA/TGA/WHO audit support." />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="pp.css?v=10" />
+  <style>
+    /* ==== ALT-PAGE PROTOTYPE STYLES (scoped to this page; pp.css untouched) ==== */
+
+    /* Trust band — dense hairline strip under the hero */
+    .tband{border-bottom:1px solid var(--pp-line)}
+    .tband .inner{display:grid;grid-template-columns:minmax(0,4fr) repeat(4,minmax(0,2fr));align-items:stretch}
+    .tband .cell{padding:var(--sp-4) var(--sp-4);border-left:1px solid var(--pp-line)}
+    .tband .cell:first-child{border-left:0;padding-left:0}
+    .tband .note{font-size:var(--fs-lead);font-weight:600;color:var(--pp-ink);display:flex;align-items:center}
+    .tband .n{font-size:1.6rem;font-weight:800;color:var(--pp-ink);line-height:1.1;font-variant-numeric:tabular-nums}
+    .tband .l{font-size:var(--fs-sm);color:var(--pp-muted);margin-top:4px}
+
+    /* Vignette quadrants — dark band over the operations photo */
+    /* swap to assets/qc-ops-bg.jpg when the dedicated quality imagery lands */
+    .risk-band{background-color:#0a1016;background-image:linear-gradient(rgba(10,16,22,.9),rgba(10,16,22,.9)),url('assets/dt-ops-bg.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;color:#fff}
+    .risk-band .section-title{color:#fff}
+    .vig-grid{display:grid;grid-template-columns:1fr 1fr}
+    .vig{padding:var(--sp-5)}
+    .vig:nth-child(odd){padding-left:0}
+    .vig:nth-child(even){border-left:1px solid rgba(255,255,255,.2);padding-right:0}
+    .vig:nth-child(n+3){border-top:1px solid rgba(255,255,255,.2)}
+    .vig:nth-child(-n+2){padding-top:0}
+    .vig:nth-child(n+3){padding-bottom:0}
+    .vig h3{font-size:var(--fs-h4);font-weight:700;color:#fff;margin-bottom:var(--sp-2)}
+    .vig p{font-size:var(--fs-lead);line-height:1.6;color:rgba(255,255,255,.8);margin:0;max-width:52ch}
+
+    /* Five phases — connected flow (excellence journey) */
+    .flow4{display:grid;grid-template-columns:repeat(5,1fr);gap:var(--sp-4);position:relative;padding-top:var(--sp-4)}
+    .flow4::before{content:"";position:absolute;top:calc(var(--sp-4) + 7px);left:8px;right:8px;height:2px;background:var(--pp-grad);opacity:.5}
+    .fl .dot{width:16px;height:16px;border-radius:50%;background:var(--pp-grad);margin-bottom:var(--sp-3);position:relative}
+    .fl .ph{font-size:var(--fs-h4);font-weight:800;color:var(--pp-ink);margin-bottom:var(--sp-2)}
+    .fl .fl-note{color:var(--pp-muted);margin-bottom:0;font-size:var(--fs-sm)}
+    .flow-close{margin-top:var(--sp-5);padding-top:var(--sp-4);border-top:1px solid var(--pp-line);font-weight:600;color:var(--pp-ink);max-width:72ch}
+
+    /* Ways to engage — three hairline columns, not cards */
+    .engage-grid{display:grid;grid-template-columns:repeat(3,1fr)}
+    .engage-col{padding:0 var(--sp-5);border-left:1px solid var(--pp-line)}
+    .engage-col:first-child{border-left:0;padding-left:0}
+    .engage-col h4{font-size:var(--fs-h4);margin-bottom:var(--sp-3)}
+    .engage-col p{color:var(--pp-muted)}
+    .engage-kicker{margin-top:var(--sp-5);padding-top:var(--sp-4);border-top:1px solid var(--pp-line);font-weight:600;color:var(--pp-ink)}
+
+    /* Final CTA over the photo */
+    /* swap to assets/qc-cta-bg.jpg when the dedicated quality imagery lands */
+    .alt-cta{background-color:#0a1016;background-image:linear-gradient(rgba(10,16,22,.8),rgba(10,16,22,.8)),url('assets/dt-cta-bg.jpg');background-size:cover;background-position:center;background-repeat:no-repeat}
+
+    /* Mobile */
+    @media (max-width:991.98px){
+      .tband .inner{grid-template-columns:repeat(2,1fr)}
+      .tband .cell{border-left:0;padding-left:0}
+      .tband .note{grid-column:1/-1;padding-bottom:0}
+      .engage-grid{grid-template-columns:1fr}
+      .engage-col{border-left:0;padding:var(--sp-4) 0;border-top:1px solid var(--pp-line)}
+      .engage-col:first-child{border-top:0;padding-top:0}
+      .flow4{grid-template-columns:1fr;gap:var(--sp-4);padding-top:0}
+      .flow4::before{top:0;bottom:0;left:7px;right:auto;width:2px;height:auto}
+      .fl{padding-left:var(--sp-5)}
+      .fl .dot{position:absolute;margin-left:calc(-1 * var(--sp-5))}
+    }
+    @media (max-width:767.98px){
+      .vig-grid{grid-template-columns:1fr}
+      .vig{padding:var(--sp-4) 0}
+      .vig:nth-child(even){border-left:0;padding-right:0}
+      .vig:nth-child(n+2){border-top:1px solid rgba(255,255,255,.2)}
+      .vig:first-child{padding-top:0}
+      .vig:last-child{padding-bottom:0}
+      .vig p{font-size:var(--fs-body)}
+    }
+  </style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Operational Excellence",
+      "serviceType": "Operational Excellence",
+      "description": "Manufacturing Excellence Partner programme for regulated plants — a Lean toolset (5S, GEMBA, Daily Huddle, Ideation, Visual Factory), the 20 Keys to Workplace Improvement 12–15 month transformation, Six Sigma, a GEMBA digital shop-floor app with analytics, sustainability and renewable-energy models, and USFDA, TGA and WHO audit support.",
+      "provider": {
+        "@type": "Organization",
+        "@id": "https://pivotpath.com/#organization",
+        "name": "Pivot Path",
+        "url": "https://pivotpath.com/"
+      },
+      "areaServed": "Worldwide",
+      "isPartOf": { "@type": "Service", "name": "Quality & Digital Compliance", "url": "https://pivotpath.com/pivotpath-quality-compliance.html" },
+      "url": "https://pivotpath.com/pivotpath-svc-operational-excellence.html"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://pivotpath.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Services",
+          "item": "https://pivotpath.com/#services"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Quality & Digital Compliance",
+          "item": "https://pivotpath.com/pivotpath-quality-compliance.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Operational Excellence",
+          "item": "https://pivotpath.com/pivotpath-svc-operational-excellence.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the Manufacturing Excellence Partner programme?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It is our Operational Excellence engagement — a five-phase journey from Diagnostic & Assessment through Foundation Building, Transformation Projects and Digital Integration to Continuous Improvement & Recognition, run by practitioners with deep shop-floor experience in regulated manufacturing."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which Lean tools do you deploy on the shop floor?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "5S, GEMBA, Daily Huddle, Ideation and Visual Factory, structured through the 20 Keys to Workplace Improvement framework — a 12–15 month transformation — and reinforced with Six Sigma."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the improvement work digitised?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Our GEMBA digital shop-floor app captures walks, actions and improvement ideas with built-in analytics, so daily management and Continuous Improvement run on live data rather than paper."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you support sustainability and energy goals?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes — we help sites move to renewable energy through CAPEX, OPEX, BOOT and Group Captive models, aligning cost reduction with sustainability targets."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you prepare a plant for regulatory audits?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The programme builds audit readiness and provides support for USFDA, TGA and WHO inspections as part of the operational-excellence journey."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <script src="pp-analytics.js"></script>
+  <!-- Freshworks (Freshmarketer / Freshchat) -->
+  <script src="//in.fw-cdn.com/32228802/1191962.js" chat="true"></script>
+  <script src="pp-crm.js"></script>
+</head>
+<body>
+  <div class="pp-topbar"></div>
+
+  <!-- ============ HEADER ============ -->
+  <header class="grey-header navbar navbar-expand-lg navbar-light sticky-top py-3">
+    <div class="container">
+      <a class="navbar-brand p-0" href="pivotpath-home.html">
+        <img src="pp-logo-black.svg" alt="Pivot Path" class="pp-logo" />
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item"><a class="nav-link" href="pivotpath-leadership.html">About</a></li>
+          <li class="nav-item dropdown position-static">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Services</a>
+            <div class="dropdown-menu mega-menu">
+              <div class="mega-grid">
+                <div class="mega-col">
+                  <a class="mega-head" href="pivotpath-drug-safety.html">Patient Safety</a>
+                  <a class="mega-sub" href="pivotpath-drug-safety.html">Global Pharmacovigilance</a>
+                </div>
+                <div class="mega-col">
+                  <a class="mega-head" href="pivotpath-ip-clinical.html">Integrated IP &amp; Clinical Operations</a>
+                  <a class="mega-sub" href="pivotpath-svc-clinical-operations.html">Clinical Operations</a>
+                  <a class="mega-sub" href="pivotpath-svc-ip-consulting.html">Intellectual Property Consulting</a>
+                  <a class="mega-sub" href="pivotpath-svc-mobile-clinical.html">Mobile Clinical Services</a>
+                </div>
+                <div class="mega-col">
+                  <a class="mega-head active" href="pivotpath-quality-compliance.html">Quality &amp; Digital Compliance</a>
+                  <a class="mega-sub" href="pivotpath-svc-csv.html">Computer System Validation</a>
+                  <a class="mega-sub" href="pivotpath-svc-quality-compliance.html">Quality &amp; Compliance Services</a>
+                  <a class="mega-sub active" href="pivotpath-svc-operational-excellence.html">Operational Excellence</a>
+                </div>
+                <div class="mega-col">
+                  <a class="mega-head" href="pivotpath-digital-innovation.html">Digital Transformation</a>
+                  <a class="mega-sub" href="pivotpath-svc-digital-manufacturing.html">Digital Manufacturing</a>
+                  <a class="mega-sub" href="pivotpath-svc-track-trace.html">Track &amp; Trace Solutions</a>
+                  <a class="mega-sub" href="pivotpath-svc-it-operations.html">IT Operations</a>
+                  <a class="mega-sub" href="pivotpath-svc-quality-apps.html">Quality Apps</a>
+                  <a class="mega-sub" href="pivotpath-svc-sap-coe.html">SAP COE</a>
+                </div>
+                <div class="mega-col">
+                  <a class="mega-head" href="pivotpath-human-capital.html">Human Capital</a>
+                  <a class="mega-sub" href="pivotpath-svc-hc-consulting.html">Human Capital Consulting</a>
+                  <a class="mega-sub" href="pivotpath-svc-hc-digitisation.html">Human Capital Digitisation</a>
+                  <a class="mega-sub" href="pivotpath-svc-talent-acquisition.html">Talent Acquisition Services</a>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="pivotpath-home.html#platforms" role="button" data-bs-toggle="dropdown">Platforms</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="pivotpath-novavigil.html">NovaVigil</a></li>
+              <li><a class="dropdown-item" href="pivotpath-noteiq.html">NoteIQ</a></li>
+              <li><a class="dropdown-item" href="pivotpath-anomiq.html">AnomIQ</a></li>
+              <li><a class="dropdown-item" href="pivotpath-golanzar.html">GoLanzar</a></li>
+              <li><a class="dropdown-item" href="pivotpath-inlumin.html">InLumin</a></li>
+              <li><a class="dropdown-item" href="pivotpath-arete.html">Arete</a></li>
+              <li><a class="dropdown-item" href="pivotpath-investigationiq.html">InvestigationIQ</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="pivotpath-insights.html">Insights</a></li>
+          <li class="nav-item"><a class="nav-link" href="pivotpath-ai-trust.html">AI Trust</a></li>
+          <li class="nav-item"><a class="nav-link" href="pivotpath-home.html#why">Why Us</a></li>
+          <li class="nav-item ms-lg-2"><a class="btns2" href="#contact">Talk to our experts</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ PAGE HERO ============ -->
+  <section class="page-hero pad80" id="overview">
+    <div class="container">
+      <div class="crumb"><a href="pivotpath-home.html">Home</a> &nbsp;/&nbsp; <a href="pivotpath-home.html#services">Services</a> &nbsp;/&nbsp; <a href="pivotpath-quality-compliance.html">Quality &amp; Digital Compliance</a> &nbsp;/&nbsp; Operational Excellence</div>
+      <h1>Make every shift<br>your best shift.</h1>
+      <p class="lead">Pivot Path delivers a Manufacturing Excellence Partner programme for regulated plants — Lean deployment across 5S, GEMBA, Daily Huddle and Visual Factory, the 20 Keys to Workplace Improvement transformation, Six Sigma, the GEMBA digital shop-floor app, and audit support for USFDA, TGA and WHO inspections. In regulated manufacturing, the fastest plant is the one that is right the first time.</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btns2 solid-light">Talk to our excellence team</a>
+        <a href="#services" class="btns-line">See what we deliver</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STICKY ANCHOR NAV ============ -->
+  <nav class="anchor-nav">
+    <div class="container">
+      <div class="inner">
+        <a href="#overview" class="active">Overview</a>
+        <a href="#record">Track Record</a>
+        <a href="#services">What We Deliver</a>
+        <a href="#assurance">Approach</a>
+        <a href="#journey">The Journey</a>
+        <a href="#engage">Ways to Engage</a>
+        <a href="#leaders">Leader</a>
+        <a href="#faq">FAQ</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============ TRUST BAND ============ -->
+  <section class="tband pad60" id="record">
+    <div class="container">
+      <div class="inner reveal">
+        <div class="cell note">Performance and compliance from the same system — quality designed in, not inspected in.</div>
+        <div class="cell"><div class="n">Right First Time</div><div class="l">Prevention over corrective action, shift after shift</div></div>
+        <div class="cell"><div class="n">USFDA · TGA · WHO</div><div class="l">Audit readiness and inspection support built into the programme</div></div>
+        <div class="cell"><div class="n">20 Keys</div><div class="l">Structured 12–15 month transformation, benchmarked and scored</div></div>
+        <div class="cell"><div class="n">GEMBA</div><div class="l">Digital shop floor — daily management on live data</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHAT WE DELIVER (pill-tabs) ============ -->
+  <section class="pad80 grey" id="services">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title reveal">The Manufacturing Excellence Programme</h2>
+      </div>
+      <div class="cap-tabs reveal" role="tablist" aria-label="Operational Excellence services">
+        <button class="cap-tab" role="tab" id="ox-1" aria-controls="op-1" aria-selected="true"  tabindex="0">Lean Deployment</button>
+        <button class="cap-tab" role="tab" id="ox-2" aria-controls="op-2" aria-selected="false" tabindex="-1">20 Keys Transformation</button>
+        <button class="cap-tab" role="tab" id="ox-3" aria-controls="op-3" aria-selected="false" tabindex="-1">Six Sigma</button>
+        <button class="cap-tab" role="tab" id="ox-4" aria-controls="op-4" aria-selected="false" tabindex="-1">Digital Shop Floor</button>
+        <button class="cap-tab" role="tab" id="ox-5" aria-controls="op-5" aria-selected="false" tabindex="-1">Sustainability &amp; Energy</button>
+        <button class="cap-tab" role="tab" id="ox-6" aria-controls="op-6" aria-selected="false" tabindex="-1">Audit Support</button>
+      </div>
+      <div class="cap-panels reveal">
+        <div class="cap-panel" role="tabpanel" id="op-1" aria-labelledby="ox-1" tabindex="0">
+          <h3 class="cap-panel-h">Order, rhythm and visibility on every line.</h3>
+          <p class="cap-panel-p">5S workplace organisation and sustainment, GEMBA walks and the Daily Huddle rhythm, Visual Factory for at-a-glance status, and structured Ideation that surfaces improvement from the people closest to the work.</p>
+          <div class="cap-foot">
+            <a href="#contact" class="cap-explore">Discuss Lean deployment <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+        <div class="cap-panel" role="tabpanel" id="op-2" aria-labelledby="ox-2" tabindex="0" hidden>
+          <h3 class="cap-panel-h">A structured transformation, not a slogan.</h3>
+          <p class="cap-panel-p">The 20 Keys to Workplace Improvement — twenty interlocking capability keys deployed zone by zone over 12–15 months, with benchmarked scoring and recognition, so gains are measured and sustained rather than declared.</p>
+          <div class="cap-foot">
+            <a href="#contact" class="cap-explore">Discuss a 20 Keys programme <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+        <div class="cap-panel" role="tabpanel" id="op-3" aria-labelledby="ox-3" tabindex="0" hidden>
+          <h3 class="cap-panel-h">Variation down, capability up.</h3>
+          <p class="cap-panel-p">Data-driven DMAIC problem-solving on priority losses, with capability building for operators and engineers, and gains tied to process control so improvements hold after the project team leaves.</p>
+          <div class="cap-foot">
+            <a href="#contact" class="cap-explore">Discuss Six Sigma <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+        <div class="cap-panel" role="tabpanel" id="op-4" aria-labelledby="ox-4" tabindex="0" hidden>
+          <h3 class="cap-panel-h">Daily management on live data.</h3>
+          <p class="cap-panel-p">The GEMBA digital shop-floor app digitises walks, action tracking and improvement ideas with built-in analytics — so decisions run on current shop-floor data rather than static, retrospective records.</p>
+          <div class="cap-foot">
+            <a href="#contact" class="cap-explore">Discuss the digital shop floor <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+        <div class="cap-panel" role="tabpanel" id="op-5" aria-labelledby="ox-5" tabindex="0" hidden>
+          <h3 class="cap-panel-h">Lower cost and lower carbon on one plan.</h3>
+          <p class="cap-panel-p">Renewable-energy transition planning through CAPEX, OPEX, BOOT and Group Captive models — aligning energy-cost reduction with the site's sustainability commitments.</p>
+          <div class="cap-foot">
+            <a href="#contact" class="cap-explore">Discuss sustainability options <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+        <div class="cap-panel" role="tabpanel" id="op-6" aria-labelledby="ox-6" tabindex="0" hidden>
+          <h3 class="cap-panel-h">Inspection-ready as a by-product of how the plant runs.</h3>
+          <p class="cap-panel-p">Audit readiness built across the plant as the programme progresses, with preparation and support for USFDA, TGA and WHO inspections — readiness confirmed by the regulator, earned on the floor.</p>
+          <div class="cap-foot">
+            <a href="#contact" class="cap-explore">Discuss audit readiness <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ VIGNETTES ============ -->
+  <section class="pad80 risk-band" id="assurance">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title reveal">Built for the Realities of Regulated Manufacturing</h2>
+      </div>
+      <div class="vig-grid reveal">
+        <div class="vig">
+          <h3>When deviations and CAPAs consume the calendar</h3>
+          <p>The system is retuned to prevent failure rather than document it — losses found at source, corrected at source, and held by process control.</p>
+        </div>
+        <div class="vig">
+          <h3>When review, not manufacturing, sets the release timeline</h3>
+          <p>Visual management and digitised daily control keep the record current as the work happens, so release follows production rather than paperwork.</p>
+        </div>
+        <div class="vig">
+          <h3>When improvement stalls on the fear of change</h3>
+          <p>Changes are scoped and delivered with compliance designed in, so performance and the validated state advance together instead of trading off.</p>
+        </div>
+        <div class="vig">
+          <h3>When decisions run on last month's numbers</h3>
+          <p>The GEMBA app puts live shop-floor data behind every daily decision — the same picture for operators, engineers and site leadership.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ THE JOURNEY ============ -->
+  <section class="pad80" id="journey">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title reveal">The Manufacturing Excellence Journey</h2>
+      </div>
+      <div class="flow4 reveal">
+        <div class="fl">
+          <div class="dot"></div>
+          <div class="ph">Diagnose</div>
+          <p class="fl-note">Baseline the shop floor, benchmark maturity and size the opportunity.</p>
+        </div>
+        <div class="fl">
+          <div class="dot"></div>
+          <div class="ph">Build</div>
+          <p class="fl-note">Stand up 5S, GEMBA, Daily Huddle and Visual Factory; train operators and champions.</p>
+        </div>
+        <div class="fl">
+          <div class="dot"></div>
+          <div class="ph">Transform</div>
+          <p class="fl-note">Run 20 Keys and Six Sigma projects zone by zone against priority losses.</p>
+        </div>
+        <div class="fl">
+          <div class="dot"></div>
+          <div class="ph">Digitise</div>
+          <p class="fl-note">Move daily management onto the GEMBA app — live data and analytics.</p>
+        </div>
+        <div class="fl">
+          <div class="dot"></div>
+          <div class="ph">Sustain</div>
+          <p class="fl-note">Embed the improvement culture, hold the gains and secure recognition.</p>
+        </div>
+      </div>
+      <p class="flow-close reveal">Excellence programmes fail when the consultants leave. The journey ends in a system your own people run — measured, digitised and recognised.</p>
+    </div>
+  </section>
+
+  <!-- ============ WAYS TO ENGAGE ============ -->
+  <section class="pad80 grey" id="engage">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title reveal">Ways to Engage</h2>
+      </div>
+      <div class="engage-grid reveal">
+        <div class="engage-col">
+          <h4>Advisory</h4>
+          <p>Diagnostic and assessment — the shop floor baselined, maturity benchmarked and the improvement opportunity sized into a roadmap you can act on.</p>
+        </div>
+        <div class="engage-col">
+          <h4>Delivery</h4>
+          <p>Transformation programmes run zone by zone — Lean foundations, the 20 Keys and Six Sigma projects — executed with compliance designed in.</p>
+        </div>
+        <div class="engage-col">
+          <h4>Managed Operations</h4>
+          <p>Sustained continuous improvement — the GEMBA app operated, daily management supported and recognition cycles maintained after the transformation lands.</p>
+        </div>
+      </div>
+      <p class="engage-kicker reveal">Each engagement model is contractable independently — begin with a defined scope and expand as your requirements evolve.</p>
+    </div>
+  </section>
+
+  <!-- ============ PRACTICE LEADER ============ -->
+  <section class="pad80" id="leaders">
+    <div class="container">
+      <div class="text-center mb-5"><h2 class="section-title reveal">The Leader Behind Operational Excellence</h2></div>
+      <div class="row g-4 justify-content-center">
+        <div class="col-6 col-sm-4 col-md-3 reveal">
+          <div class="leader-card">
+            <img src="assets/leader-shankar.webp" alt="Shankar Yadav" class="leader-photo" loading="lazy" width="819" height="940">
+            <div class="leader-body">
+              <div class="leader-name">Shankar Yadav</div>
+              <div class="leader-title">Operational Excellence</div>
+              <a href="#" target="_blank" rel="noopener" class="leader-linkedin" aria-label="Shankar Yadav on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="pad80 grey" id="faq">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title reveal">Operational excellence FAQ</h2>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-9">
+          <div class="accordion reveal" id="faqAcc">
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q1">What is the Manufacturing Excellence Partner programme?</button></h2>
+              <div id="q1" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">It is our Operational Excellence engagement — a five-phase journey from Diagnostic &amp; Assessment through Foundation Building, Transformation Projects and Digital Integration to Continuous Improvement &amp; Recognition, run by practitioners with deep shop-floor experience in regulated manufacturing.</div></div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2">Which Lean tools do you deploy on the shop floor?</button></h2>
+              <div id="q2" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">5S, GEMBA, Daily Huddle, Ideation and Visual Factory, structured through the 20 Keys to Workplace Improvement framework — a 12–15 month transformation — and reinforced with Six Sigma.</div></div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q3">Is the improvement work digitised?</button></h2>
+              <div id="q3" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Yes. Our GEMBA digital shop-floor app captures walks, actions and improvement ideas with built-in analytics, so daily management and Continuous Improvement run on live data rather than paper.</div></div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q4">Do you support sustainability and energy goals?</button></h2>
+              <div id="q4" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Yes — we help sites move to renewable energy through CAPEX, OPEX, BOOT and Group Captive models, aligning cost reduction with sustainability targets.</div></div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q5">Can you prepare a plant for regulatory audits?</button></h2>
+              <div id="q5" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Yes. The programme builds audit readiness and provides support for USFDA, TGA and WHO inspections as part of the operational-excellence journey.</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FINAL CTA ============ -->
+  <section class="pad80 alt-cta text-center" id="contact">
+    <div class="container">
+      <h2 class="section-title text-white reveal mb-3">Make Every Shift<br>Your Best Shift.</h2>
+      <p class="text-white-50 reveal mb-4" style="max-width:640px;margin-inline:auto">Whether you are starting with a diagnostic, a zone-by-zone transformation or a digitised shop floor, our excellence team is ready to discuss your requirements.</p>
+      <div class="hero-ctas justify-content-center reveal">
+        <a href="mailto:info@pivotpath.com" class="btns2 solid-light">Talk to our excellence team</a>
+        <a href="pivotpath-quality-compliance.html" class="btns-line">See the Quality &amp; Digital Compliance pillar</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+
+  <footer class="footer pad60">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-3">
+          <img src="pp-logo-white.svg" alt="Pivot Path — Life. Science. Possibilities." class="pp-logo-footer" />
+          <p>Born in Pharma. Built to Run It. The integrated life sciences partner for safety, quality, manufacturing and talent — from molecule to launch.</p>
+          <div class="newsletter mt-3">
+            <label class="d-block mb-2" style="font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:#fff">Join our newsletter</label>
+            <div class="input-group" style="max-width:340px">
+              <input type="email" class="form-control" placeholder="Work email" />
+              <button class="btns2" style="border-left:0">Subscribe</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h6>Company</h6>
+          <a href="pivotpath-home.html#about">Overview</a>
+          <a href="pivotpath-home.html#about">Vision & Values</a>
+          <a href="pivotpath-leadership.html">Leadership</a>
+          <a href="pivotpath-ai-trust.html">AI Trust Centre</a>
+          <a href="pivotpath-home.html#clients">Clients</a>
+          <a href="#">Careers</a>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h6>Services</h6>
+          <a href="pivotpath-drug-safety.html">Patient Safety</a>
+          <a href="pivotpath-quality-compliance.html">Quality & Digital Compliance</a>
+          <a href="pivotpath-digital-innovation.html">Digital Transformation</a>
+          <a href="pivotpath-ip-clinical.html">Integrated IP & Clinical Operations</a>
+          <a href="pivotpath-human-capital.html">Human Capital</a>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h6>Products</h6>
+          <a href="pivotpath-novavigil.html">NovaVigil</a>
+          <a href="pivotpath-noteiq.html">NoteIQ</a>
+          <a href="pivotpath-anomiq.html">AnomIQ</a>
+          <a href="pivotpath-golanzar.html">GoLanzar</a>
+          <a href="pivotpath-inlumin.html">InLumin</a>
+          <a href="pivotpath-arete.html">Arete</a>
+          <a href="pivotpath-investigationiq.html">InvestigationIQ</a>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h6>Insights</h6>
+          <a href="pivotpath-insights.html">All Insights</a>
+          <a href="pivotpath-zero-touch-it.html">Zero-Touch IT (CDMO)</a>
+          <a href="pivotpath-pharma-4-0.html">Pharma 4.0 Transformation</a>
+          <a href="pivotpath-identity-user-management.html">Identity &amp; User Management</a>
+          <h6 class="mt-4">Contact</h6>
+          <a href="mailto:info@pivotpath.com">info@pivotpath.com</a>
+          <a href="#">Bengaluru · Hyderabad · Mysuru</a>
+        </div>
+      </div>
+      <div class="footer-bottom mt-5 pt-4 d-flex flex-wrap justify-content-between gap-2">
+        <span>© 2026 Pivot Path Private Limited. Demerged entity of Arcolab.</span>
+        <span>Privacy · Terms · ISO 27001 & 27701 Certified</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // ---- Practice pill-tabs (accessible) ----
+    (function(){
+      var tabs=Array.prototype.slice.call(document.querySelectorAll('.cap-tab'));
+      if(!tabs.length)return;
+      var panels=tabs.map(function(t){return document.getElementById(t.getAttribute('aria-controls'));});
+      function select(idx,focus){
+        tabs.forEach(function(t,i){
+          var on=i===idx;
+          t.setAttribute('aria-selected',on?'true':'false');
+          t.tabIndex=on?0:-1;
+          if(panels[i])panels[i].hidden=!on;
+        });
+        if(focus&&tabs[idx])tabs[idx].focus();
+      }
+      tabs.forEach(function(tab,i){
+        tab.addEventListener('click',function(){select(i,false);});
+        tab.addEventListener('keydown',function(e){
+          var n;
+          if(e.key==='ArrowRight'||e.key==='ArrowDown')n=(i+1)%tabs.length;
+          else if(e.key==='ArrowLeft'||e.key==='ArrowUp')n=(i-1+tabs.length)%tabs.length;
+          else if(e.key==='Home')n=0;
+          else if(e.key==='End')n=tabs.length-1;
+          else return;
+          e.preventDefault();select(n,true);
+        });
+      });
+      select(0,false);
+    })();
+
+    // ---- Reveal on scroll ----
+    (function(){
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+      document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+    })();
+
+    // ---- Active anchor-nav highlight ----
+    (function(){
+      var links=[].slice.call(document.querySelectorAll('.anchor-nav a'));
+      var map=links.map(function(a){return {a:a,el:document.querySelector(a.getAttribute('href'))};}).filter(function(x){return x.el;});
+      function onScroll(){
+        var y=window.scrollY+120,cur=map[0];
+        map.forEach(function(x){if(x.el.offsetTop<=y)cur=x;});
+        links.forEach(function(a){a.classList.remove('active');});
+        if(cur)cur.a.classList.add('active');
+      }
+      window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+    })();
+  </script>
+  <script src="pp-mobile.js" defer></script>
+  <!-- design-toggle -->
+  <a href="pivotpath-svc-operational-excellence.html" style="position:fixed;left:18px;bottom:18px;z-index:2000;background:#0f141b;color:#fff;padding:10px 18px;border-radius:999px;font:600 13px/1 -apple-system,'Segoe UI',Roboto,Arial,sans-serif;letter-spacing:.02em;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,.28);opacity:.92" aria-label="View current design">View current design</a>
+</body>
+</html>
