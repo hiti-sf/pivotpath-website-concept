@@ -3,10 +3,88 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
   <title>Integrated IP & Clinical Operations — Pivot Path Patent Strategy, Clinical Ops & Toxicology</title>
-  <meta name="description" content="IP strategy and clinical operations running in parallel through every drug-lifecycle gate — patent landscaping and FTO, 505(b)(2) and Para IV, decentralised trials across 20+ India sites with 80+ GCP-trained study nurses, and DABT/ERT-certified toxicology." />
+  <meta name="description" content="Integrated IP and clinical operations from Pivot Path — patent landscaping and freedom-to-operate, 505(b)(2) pathway strategy, clinical operations and toxicology, and mobile clinical services. Know what a molecule is worth before the spend." />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="pp.css?v=10" />
+  <style>
+    /* ==== ALT-PAGE PROTOTYPE STYLES (scoped to this page; pp.css untouched) ==== */
+
+    /* Trust band — dense hairline strip under the hero */
+    .tband{border-bottom:1px solid var(--pp-line)}
+    .tband .inner{display:grid;grid-template-columns:minmax(0,4fr) repeat(4,minmax(0,2fr));align-items:stretch}
+    .tband .cell{padding:var(--sp-4) var(--sp-4);border-left:1px solid var(--pp-line)}
+    .tband .cell:first-child{border-left:0;padding-left:0}
+    .tband .note{font-size:var(--fs-lead);font-weight:600;color:var(--pp-ink);display:flex;align-items:center}
+    .tband .n{font-size:1.6rem;font-weight:800;color:var(--pp-ink);line-height:1.1;font-variant-numeric:tabular-nums}
+    .tband .l{font-size:var(--fs-sm);color:var(--pp-muted);margin-top:4px}
+
+    /* Vignette quadrants — dark band over the operations photo */
+    /* swap to assets/ipc-ops-bg.jpg when the dedicated image lands */
+    .risk-band{background-color:#0a1016;background-image:linear-gradient(rgba(10,16,22,.9),rgba(10,16,22,.9)),url('assets/dt-ops-bg.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;color:#fff}
+    .risk-band .section-title{color:#fff}
+    .vig-grid{display:grid;grid-template-columns:1fr 1fr}
+    .vig{padding:var(--sp-5)}
+    .vig:nth-child(odd){padding-left:0}
+    .vig:nth-child(even){border-left:1px solid rgba(255,255,255,.2);padding-right:0}
+    .vig:nth-child(n+3){border-top:1px solid rgba(255,255,255,.2)}
+    .vig:nth-child(-n+2){padding-top:0}
+    .vig:nth-child(n+3){padding-bottom:0}
+    .vig h3{font-size:var(--fs-h4);font-weight:700;color:#fff;margin-bottom:var(--sp-2)}
+    .vig p{font-size:var(--fs-lead);line-height:1.6;color:rgba(255,255,255,.8);margin:0;max-width:52ch}
+
+    /* Five gates — connected lifecycle flow */
+    .flow4{display:grid;grid-template-columns:repeat(5,1fr);gap:var(--sp-4);position:relative;padding-top:var(--sp-4)}
+    .flow4::before{content:"";position:absolute;top:calc(var(--sp-4) + 7px);left:8px;right:8px;height:2px;background:var(--pp-grad);opacity:.5}
+    .fl .dot{width:16px;height:16px;border-radius:50%;background:var(--pp-grad);margin-bottom:var(--sp-3);position:relative}
+    .fl .ph{font-size:var(--fs-h4);font-weight:800;color:var(--pp-ink);margin-bottom:var(--sp-2)}
+    .fl .fl-note{color:var(--pp-muted);margin-bottom:var(--sp-2);font-size:var(--fs-sm)}
+    .fl .fl-svcs{font-size:var(--fs-sm);font-weight:700;color:var(--pp-ink)}
+    .flow-close{margin-top:var(--sp-5);padding-top:var(--sp-4);border-top:1px solid var(--pp-line);font-weight:600;color:var(--pp-ink);max-width:72ch}
+
+    /* GoLanzar spotlight (dark section, text-led product name) */
+    .spotlight .gl-name{font-size:var(--fs-h3);font-weight:800;color:#fff;letter-spacing:.01em}
+    .spotlight .gl-tagline{color:rgba(255,255,255,.75);margin-top:var(--sp-1)}
+    .spotlight .dd-link{color:rgba(255,255,255,.75);font-size:var(--fs-sm);margin-top:var(--sp-4);border-top:1px solid rgba(255,255,255,.22);padding-top:var(--sp-3)}
+    .spotlight .dd-link a{color:#fff;font-weight:700;text-decoration:none}
+    .spotlight .dd-link a:hover{text-decoration:underline}
+
+    /* Ways to engage — three hairline columns, not cards */
+    .engage-grid{display:grid;grid-template-columns:repeat(3,1fr)}
+    .engage-col{padding:0 var(--sp-5);border-left:1px solid var(--pp-line)}
+    .engage-col:first-child{border-left:0;padding-left:0}
+    .engage-col h4{font-size:var(--fs-h4);margin-bottom:var(--sp-3)}
+    .engage-col p{color:var(--pp-muted)}
+    .engage-kicker{margin-top:var(--sp-5);padding-top:var(--sp-4);border-top:1px solid var(--pp-line);font-weight:600;color:var(--pp-ink)}
+
+    /* Final CTA photo band */
+    /* swap to assets/ipc-cta-bg.jpg when the dedicated image lands */
+    .alt-cta{background-color:#0a1016;background-image:linear-gradient(rgba(10,16,22,.8),rgba(10,16,22,.8)),url('assets/dt-cta-bg.jpg');background-size:cover;background-position:center;background-repeat:no-repeat}
+
+    /* Mobile */
+    @media (max-width:991.98px){
+      .tband .inner{grid-template-columns:repeat(2,1fr)}
+      .tband .cell{border-left:0;padding-left:0}
+      .tband .note{grid-column:1/-1;padding-bottom:0}
+      .engage-grid{grid-template-columns:1fr}
+      .engage-col{border-left:0;padding:var(--sp-4) 0;border-top:1px solid var(--pp-line)}
+      .engage-col:first-child{border-top:0;padding-top:0}
+      .flow4{grid-template-columns:1fr;gap:var(--sp-4);padding-top:0}
+      .flow4::before{top:0;bottom:0;left:7px;right:auto;width:2px;height:auto}
+      .fl{padding-left:var(--sp-5)}
+      .fl .dot{position:absolute;margin-left:calc(-1 * var(--sp-5))}
+    }
+    @media (max-width:767.98px){
+      .vig-grid{grid-template-columns:1fr}
+      .vig{padding:var(--sp-4) 0}
+      .vig:nth-child(even){border-left:0;padding-right:0}
+      .vig:nth-child(n+2){border-top:1px solid rgba(255,255,255,.2)}
+      .vig:first-child{padding-top:0}
+      .vig:last-child{padding-bottom:0}
+      .vig p{font-size:var(--fs-body)}
+    }
+  </style>
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -15,7 +93,7 @@
       "@type": "Service",
       "name": "Integrated IP & Clinical Operations",
       "serviceType": "IP & Clinical Operations",
-      "description": "IP strategy and clinical operations running in parallel through every drug-lifecycle gate — patent landscaping and FTO, 505(b)(2) and Para IV, decentralised trials across 20+ India sites with 80+ GCP-trained study nurses, and DABT/ERT-certified toxicology.",
+      "description": "Integrated IP and clinical operations from Pivot Path — patent landscaping and freedom-to-operate, 505(b)(2) pathway strategy, clinical operations and toxicology, and mobile clinical services. Know what a molecule is worth before the spend.",
       "provider": {
         "@type": "Organization",
         "@id": "https://pivotpath.com/#organization",
@@ -179,9 +257,10 @@
     <div class="container">
       <div class="crumb"><a href="pivotpath-home.html">Home</a> &nbsp;/&nbsp; <a href="pivotpath-home.html#services">Services</a> &nbsp;/&nbsp; Integrated IP &amp; Clinical Operations</div>
       <h1>De-risk the science,<br>from molecule to launch.</h1>
-      <p class="lead">IP strategy and clinical operations in parallel through every gate of the drug lifecycle: patent landscaping and freedom-to-operate, 505(b)(2) and Para IV, decentralised trials and toxicology, so science, patent and launch hold up together.</p>
+      <p class="lead">Pivot Path delivers patent landscaping and freedom-to-operate, 505(b)(2) and regulatory pathway strategy, clinical operations and toxicology, and mobile clinical services — one team connecting patent, pathway and protocol, so you know what a molecule is worth before the spend.</p>
       <div class="hero-ctas">
-        <a href="#contact" class="btns2 solid-light">Talk to our IP & clinical team</a>
+        <a href="#contact" class="btns2 solid-light">Talk to our development team</a>
+        <a href="#practice" class="btns-line">See the practices</a>
       </div>
     </div>
   </section>
@@ -191,193 +270,186 @@
     <div class="container">
       <div class="inner">
         <a href="#overview" class="active">Overview</a>
-        <a href="#challenge">The Challenge</a>
-        <a href="#what">What We Do</a>
-        <a href="#practice">The Practice</a>
+        <a href="#record">Track Record</a>
+        <a href="#practice">The Practices</a>
+        <a href="#assurance">Approach</a>
         <a href="#lifecycle">Lifecycle</a>
-        <a href="#numbers">Story in Numbers</a>
-        <a href="#proof">Proof</a>
-        <a href="#whyus">Why Us</a>
+        <a href="#golanzar">GoLanzar</a>
+        <a href="#engage">Ways to Engage</a>
+        <a href="#leaders">Leaders</a>
         <a href="#faq">FAQ</a>
       </div>
     </div>
   </nav>
 
-  <!-- ============ HIGHLIGHTS ============ -->
-  <section class="pad60">
+  <!-- ============ TRUST BAND ============ -->
+  <section class="tband pad60" id="record">
     <div class="container">
-      <div class="row g-4 align-items-center">
-        <div class="col-lg-5 reveal">
-          <h2 class="section-title">One Partner Across Patent, Clinic and Lab</h2>
-        </div>
-        <div class="col-lg-7">
-          <div class="row g-4">
-            <div class="col-6 col-md-3 reveal"><div class="hl"><div class="n">20+ Yrs</div><div class="l">IP Experience</div></div></div>
-            <div class="col-6 col-md-3 reveal"><div class="hl"><div class="n">20+</div><div class="l">India Trial Sites</div></div></div>
-            <div class="col-6 col-md-3 reveal"><div class="hl"><div class="n">80+</div><div class="l">GCP Study Nurses</div></div></div>
-            <div class="col-6 col-md-3 reveal"><div class="hl"><div class="n">DABT/ERT</div><div class="l">Toxicology</div></div></div>
-          </div>
-        </div>
+      <div class="inner reveal">
+        <div class="cell note">We close the white space between IP, regulatory and clinical — where development risk hides.</div>
+        <div class="cell"><div class="n">20+ Yrs</div><div class="l">IP domain experience, landscaping through litigation</div></div>
+        <div class="cell"><div class="n">15+ Yrs</div><div class="l">Average experience across the clinical team</div></div>
+        <div class="cell"><div class="n">DABT · ERT</div><div class="l">Certified toxicology, authored to global standards</div></div>
+        <div class="cell"><div class="n">GCP</div><div class="l">Trained study-nurse network at the patient's location</div></div>
       </div>
     </div>
   </section>
 
-  <!-- ============ CHALLENGE ============ -->
-  <section class="pad80 grey" id="challenge">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="section-title reveal">The Risk Isn’t One Gate —<br>It’s Every Gate, at Once</h2>
-      </div>
-      <div class="row g-4">
-        <div class="col-md-6 col-lg-3 reveal"><div class="pain"><div class="x">▤</div><h5>Patent &amp; FTO risk</h5><p>Major R&amp;D spend committed before freedom-to-operate is clear.</p></div></div>
-        <div class="col-md-6 col-lg-3 reveal"><div class="pain"><div class="x">⟳</div><h5>CRO capacity &amp; cost</h5><p>Limited slots, rising costs and oversight gaps slow programmes.</p></div></div>
-        <div class="col-md-6 col-lg-3 reveal"><div class="pain"><div class="x">▣</div><h5>Access to patients</h5><p>Reaching participants beyond major sites needs a decentralised footprint.</p></div></div>
-        <div class="col-md-6 col-lg-3 reveal"><div class="pain"><div class="x">⚠</div><h5>Impurity &amp; regulatory complexity</h5><p>Nitrosamines, impurity limits and evolving rules mean recurring assessments.</p></div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ WHAT WE DO ============ -->
-  <section class="pad80" id="what">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="section-title reveal">From Patent Strategy to the Patient’s Door</h2>
-      </div>
-      <div class="row g-4">
-        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
-          <h4>IP Strategy & Landscaping</h4>
-          <ul><li>Patent landscaping &amp; White Space Analysis</li><li>Technology evaluation &amp; patentability</li><li>FTO / clearances — cell-line, API, formulation, device</li><li>505(b)(2) &amp; differentiated product development</li></ul>
-        </div></div>
-        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
-          <h4>IP Protection, Litigation & Lifecycle</h4>
-          <ul><li>Para IV with first-to-file &amp; Orange Book listings</li><li>Prosecution, prior-art &amp; oppositions</li><li>Hatch-Waxman &amp; BPCIA (biosimilars) advisory</li><li>Litigation support, e-discovery &amp; deposition</li></ul>
-        </div></div>
-        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
-          <h4>Clinical Operations</h4>
-          <ul><li>Study design, feasibility &amp; cost estimation</li><li>CRO oversight &amp; preferential study-slot allocation</li><li>MAA / health-authority &amp; clinical SME support</li><li>Medical writing, medical affairs &amp; safety alerts</li></ul>
-        </div></div>
-        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
-          <h4>Pre-Clinical & In-Vitro Studies</h4>
-          <ul><li>Dissolution, IVIVC &amp; QbD studies</li><li>BE &amp; animal study management</li><li>505(b)(2) regulatory consulting</li><li>SmPC &amp; PIL reviews</li></ul>
-        </div></div>
-        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
-          <h4>Mobile / Decentralized Clinical Services</h4>
-          <ul><li>20+ sites in India · 80+ GCP-trained study nurses</li><li>On-site visits incl. cold-chain handling</li><li>Drug administration, blood draws &amp; biologic sampling</li><li>Documentation, EDC &amp; AE / SAE reporting</li></ul>
-        </div></div>
-        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
-          <h4>Toxicology & Regulatory</h4>
-          <ul><li>PDE / OEL, HBEL, BRA &amp; CPSR</li><li>ICH M7 (nitrosamines) &amp; TRA</li><li>BioPharma, Medical Device &amp; Cosmetics (Prop 65, MoS)</li><li>DABT/ERT-certified toxicologist</li></ul>
-        </div></div>
-      </div>
-    </div>
-  </section>
-  <!-- ============ THE PRACTICE ============ -->
+  <!-- ============ THE PRACTICES (pill-tabs) ============ -->
   <section class="pad80 grey" id="practice">
     <div class="container">
-      <div class="text-center mb-5"><h2 class="section-title reveal">The Practice</h2></div>
-      <div class="row g-4 justify-content-center">
-        <div class="col-md-6 col-lg-4 reveal"><a class="mod-link" href="pivotpath-svc-clinical-operations.html"><div class="cap-card"><h4>Clinical Operations</h4><p>Trial management, safety reporting, pre-clinical studies and scientific advisory.</p><span class="go">Explore &rarr;</span></div></a></div>
-        <div class="col-md-6 col-lg-4 reveal"><a class="mod-link" href="pivotpath-svc-ip-consulting.html"><div class="cap-card"><h4>Intellectual Property Consulting</h4><p>Landscaping, FTO, 505(b)(2), Para IV and litigation support across 20+ years.</p><span class="go">Explore &rarr;</span></div></a></div>
-        <div class="col-md-6 col-lg-4 reveal"><a class="mod-link" href="pivotpath-svc-mobile-clinical.html"><div class="cap-card"><h4>Mobile Clinical Services</h4><p>Decentralised trials across 20+ India sites with 80+ GCP-trained study nurses.</p><span class="go">Explore &rarr;</span></div></a></div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ============ LIFECYCLE ============ -->
-  <section class="pad80 grey" id="lifecycle">
-    <div class="container">
       <div class="text-center mb-5">
-        <h2 class="section-title reveal">Integrated Across the Drug Lifecycle</h2>
+        <h2 class="section-title reveal">Three Practices, One Development Plan</h2>
       </div>
-      <div class="proc reveal cols-5">
-        <div class="proc-step">
-          <div class="pic"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="M20 20l-3.5-3.5"/></svg></div>
-          <div class="pk">Discovery</div>
-          <h5>Molecule Identification</h5>
-          <p>Patent landscaping and white-space analysis set a defensible position.</p>
-        </div>
-        <div class="proc-step">
-          <div class="pic"><svg viewBox="0 0 24 24"><path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 2 3h10a2 2 0 0 0 2-3l-5-9V3"/></svg></div>
-          <div class="pk">Develop</div>
-          <h5>Research &amp; Development</h5>
-          <p>Freedom-to-operate, pre-clinical and in-vitro studies de-risk development.</p>
-        </div>
-        <div class="proc-step">
-          <div class="pic"><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg></div>
-          <div class="pk">Submit</div>
-          <h5>Regulatory &amp; Query</h5>
-          <p>505(b)(2) strategy, MAA and health-authority support and query response carry the dossier.</p>
-        </div>
-        <div class="proc-step">
-          <div class="pic"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
-          <div class="pk">Defend</div>
-          <h5>Litigation &amp; Legal</h5>
-          <p>Para IV first-to-file positioning, Hatch-Waxman advisory and litigation defend the asset.</p>
-        </div>
-        <div class="proc-step">
-          <div class="pic"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div>
-          <div class="pk">Launch</div>
-          <h5>Commercial Launch</h5>
-          <p>Commercialisation and launch-readiness bring the approved product to the patient’s door.</p>
-        </div>
+      <div class="cap-tabs reveal" role="tablist" aria-label="IP and Clinical practices">
+        <button class="cap-tab" role="tab" id="pt-1" aria-controls="pp-1" aria-selected="true"  tabindex="0">Intellectual Property Consulting</button>
+        <button class="cap-tab" role="tab" id="pt-2" aria-controls="pp-2" aria-selected="false" tabindex="-1">Clinical Operations</button>
+        <button class="cap-tab" role="tab" id="pt-3" aria-controls="pp-3" aria-selected="false" tabindex="-1">Mobile Clinical Services</button>
       </div>
-    </div>
-  </section>
-
-
-  <!-- ============ STORY IN NUMBERS ============ -->
-  <section class="pad80 stat-band" id="numbers">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="section-title text-white reveal">Depth Across IP and the Clinic</h2>
-      </div>
-      <div class="row text-center g-4 justify-content-center">
-        <div class="col-6 col-lg-3 stat"><div class="num"><span class="count" data-to="20">0</span><span class="suffix">+</span></div><div class="label">Years IP Experience</div></div>
-        <div class="col-6 col-lg-3 stat"><div class="num"><span class="count" data-to="20">0</span><span class="suffix">+</span></div><div class="label">India Trial Sites</div></div>
-        <div class="col-6 col-lg-3 stat"><div class="num"><span class="count" data-to="80">0</span><span class="suffix">+</span></div><div class="label">GCP Study Nurses</div></div>
-        <div class="col-6 col-lg-3 stat"><div class="num"><span class="count" data-to="15">0</span><span class="suffix">+</span></div><div class="label">Yrs Avg Clinical Experience</div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ PROOF ============ -->
-  <section class="pad80" id="proof">
-    <div class="container">
-      <div class="row align-items-center g-5">
-        <div class="col-lg-5 reveal">
-          <h2 class="section-title">The Credentials Behind the Work</h2>
+      <div class="cap-panels reveal">
+        <div class="cap-panel" role="tabpanel" id="pp-1" aria-labelledby="pt-1" tabindex="0">
+          <h3 class="cap-panel-h">Turn the patent landscape into a go/no-go you can act on.</h3>
+          <p class="cap-panel-p">Patent landscaping and White Space Analysis, freedom-to-operate clearances, 505(b)(2) and Para IV strategy, Hatch-Waxman and BPCIA advisory, and litigation support — the patentability, freedom-to-operate and invalidity questions answered before you invest.</p>
+          <div class="cap-foot">
+            <a href="pivotpath-svc-ip-consulting.html" class="cap-explore">Explore IP Consulting <span aria-hidden="true">→</span></a>
+          </div>
         </div>
-        <div class="col-lg-7">
-          <div class="row g-4">
-            <div class="col-sm-6 reveal"><div class="proof-card"><div class="big">20+ years</div><div class="cap">IP domain depth spanning landscaping through litigation.</div></div></div>
-            <div class="col-sm-6 reveal"><div class="proof-card"><div class="big">20+ sites</div><div class="cap">Decentralized clinical network across India.</div></div></div>
-            <div class="col-sm-6 reveal"><div class="proof-card"><div class="big">80+ GCP nurses</div><div class="cap">Mobile clinical workforce delivering at the patient’s location.</div></div></div>
-            <div class="col-sm-6 reveal"><div class="proof-card"><div class="big">DABT/ERT-certified</div><div class="cap">Toxicology authored to global standards by a certified toxicologist.</div></div></div>
+        <div class="cap-panel" role="tabpanel" id="pp-2" aria-labelledby="pt-2" tabindex="0" hidden>
+          <h3 class="cap-panel-h">Studies designed to produce a clear decision sooner.</h3>
+          <p class="cap-panel-p">Study design, feasibility and cost estimation, CRO oversight with preferential study-slot allocation, pre-clinical and in-vitro studies, toxicology to global standards, and health-authority support — evidence into the protocol before first-patient-in.</p>
+          <div class="cap-foot">
+            <a href="pivotpath-svc-clinical-operations.html" class="cap-explore">Explore Clinical Operations <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+        <div class="cap-panel" role="tabpanel" id="pp-3" aria-labelledby="pt-3" tabindex="0" hidden>
+          <h3 class="cap-panel-h">Meet patients where they live — without cutting the site out.</h3>
+          <p class="cap-panel-p">Home-health study visits across an India-wide network — drug administration, blood draws and biologic sampling with cold-chain handling, assessments and patient training — documented into EDC with AE/SAE reporting, on auditable, regulator-ready footing.</p>
+          <div class="cap-foot">
+            <a href="pivotpath-svc-mobile-clinical.html" class="cap-explore">Explore Mobile Clinical Services <span aria-hidden="true">→</span></a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ WHY US (value proposition) ============ -->
-  <section class="pad80 stat-band" id="whyus">
+  <!-- ============ VIGNETTES ============ -->
+  <section class="pad80 risk-band" id="assurance">
     <div class="container">
       <div class="text-center mb-5">
-        <h2 class="section-title text-white reveal">Your partner from concept to launch</h2>
+        <h2 class="section-title reveal">Built for the Decisions That Shape a Programme</h2>
       </div>
-      <div class="row text-center g-4 justify-content-center">
-        <div class="col-md-6 col-lg-4 reveal valstat"><div class="vt">De-risk before you commit</div><div class="vl">Landscaping, freedom-to-operate and white-space analysis frame it early.</div></div>
-        <div class="col-md-6 col-lg-4 reveal valstat"><div class="vt">IP and clinic under one roof</div><div class="vl">Patent strategy and clinical ops run in parallel, on one plan.</div></div>
-        <div class="col-md-6 col-lg-4 reveal valstat"><div class="vt">A regulatory pathway, mapped early</div><div class="vl">A clear pathway from the outset keeps the dossier tight and time to market short.</div></div>
-        <div class="col-md-6 col-lg-4 reveal valstat"><div class="vt">Trials taken to the patient</div><div class="vl">Decentralised delivery reaches participants beyond major sites, cold-chain included.</div></div>
-        <div class="col-md-6 col-lg-4 reveal valstat"><div class="vt">A multidisciplinary bench</div><div class="vl">Scientists, GCP-trained nurses and a certified toxicologist.</div></div>
-        <div class="col-md-6 col-lg-4 reveal valstat"><div class="vt">One partner to launch</div><div class="vl">One partner keeps science, patent and trial on one plan.</div></div>
+      <div class="vig-grid reveal">
+        <div class="vig">
+          <h3>When the programme is ready but the clearance isn't</h3>
+          <p>Freedom-to-operate, patentability and pathway are answered before capital is committed — a documented go/no-go, not a hopeful assumption.</p>
+        </div>
+        <div class="vig">
+          <h3>When three advisory firms never speak to each other</h3>
+          <p>Patent counsel, regulatory consultants and clinical teams work from one plan here, so nothing falls into the gaps between them.</p>
+        </div>
+        <div class="vig">
+          <h3>When the board wants a go/no-go and the evidence is scattered</h3>
+          <p>Landscape, pathway and study feasibility arrive as one integrated assessment — current, coherent and ready to act on.</p>
+        </div>
+        <div class="vig">
+          <h3>When a late surprise costs a year you priced as a quarter</h3>
+          <p>Blocking patents and unworkable endpoints are found early, while changing course is still cheap — monitoring continues as the landscape moves.</p>
+        </div>
       </div>
     </div>
   </section>
+
+  <!-- ============ LIFECYCLE ============ -->
+  <section class="pad80" id="lifecycle">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title reveal">Integrated Across Every Gate of the Lifecycle</h2>
+      </div>
+      <div class="flow4 reveal">
+        <div class="fl">
+          <div class="dot"></div>
+          <div class="ph">Discover</div>
+          <p class="fl-note">Patent landscaping and white-space analysis set a defensible position.</p>
+          <p class="fl-svcs">Landscaping · White Space</p>
+        </div>
+        <div class="fl">
+          <div class="dot"></div>
+          <div class="ph">Develop</div>
+          <p class="fl-note">Freedom-to-operate, pre-clinical and in-vitro studies de-risk development.</p>
+          <p class="fl-svcs">FTO · Dissolution · IVIVC · QbD</p>
+        </div>
+        <div class="fl">
+          <div class="dot"></div>
+          <div class="ph">Submit</div>
+          <p class="fl-note">505(b)(2) strategy, MAA support and query response carry the dossier.</p>
+          <p class="fl-svcs">505(b)(2) · MAA · Queries</p>
+        </div>
+        <div class="fl">
+          <div class="dot"></div>
+          <div class="ph">Defend</div>
+          <p class="fl-note">Para IV positioning, Hatch-Waxman advisory and litigation defend the asset.</p>
+          <p class="fl-svcs">Para IV · Litigation support</p>
+        </div>
+        <div class="fl">
+          <div class="dot"></div>
+          <div class="ph">Launch</div>
+          <p class="fl-note">Commercialisation and launch readiness bring the product to the patient.</p>
+          <p class="fl-svcs">Launch coordination</p>
+        </div>
+      </div>
+      <p class="flow-close reveal">IP and clinical do not run in sequence here — they run in parallel through every gate, on one plan, so science, patent and launch hold up together.</p>
+    </div>
+  </section>
+
+  <!-- ============ GOLANZAR — THE TECHNOLOGY LAYER ============ -->
+  <section class="pad80 spotlight" id="golanzar">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title text-white reveal">The Launch, Managed on One Platform</h2>
+      </div>
+      <div class="row align-items-center g-4 g-lg-5 spot-body">
+        <div class="col-lg-5 reveal">
+          <div class="gl-name">GoLanzar</div>
+          <p class="gl-tagline">Powering faster, smarter pharmaceutical launches.</p>
+        </div>
+        <div class="col-lg-7 reveal">
+          <ul class="vp-list">
+            <li class="vp"><span class="vp-ic">✓</span><div><div class="vp-t">One coordinated launch plan</div><div class="vp-d">Regulatory, portfolio, finance, procurement, packaging, planning, business development and manufacturing — sequenced on a single timeline.</div></div></li>
+            <li class="vp"><span class="vp-ic">✓</span><div><div class="vp-t">Connected to your systems</div><div class="vp-d">ERP, QMS and LIMS integration keeps the launch plan on live data, not last month's exports.</div></div></li>
+            <li class="vp"><span class="vp-ic">✓</span><div><div class="vp-t">Predictive insights, real-time dashboards</div><div class="vp-d">Risks to the launch date surface early enough to act on.</div></div></li>
+          </ul>
+          <p class="dd-link">GoLanzar is Pivot Path's launch-management platform for IP, clinical and commercial teams — <a href="pivotpath-golanzar.html">explore GoLanzar</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WAYS TO ENGAGE ============ -->
+  <section class="pad80 grey" id="engage">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title reveal">Ways to Engage</h2>
+      </div>
+      <div class="engage-grid reveal">
+        <div class="engage-col">
+          <h4>Advisory</h4>
+          <p>Patent landscaping and White Space Analysis, freedom-to-operate clearances, 505(b)(2) and regulatory pathway strategy — the evidence to commit, redirect or stop, before the spend.</p>
+        </div>
+        <div class="engage-col">
+          <h4>Delivery</h4>
+          <p>Study design and feasibility, pre-clinical and in-vitro studies, toxicology assessments, submissions and query support, prosecution and litigation support — delivered to plan.</p>
+        </div>
+        <div class="engage-col">
+          <h4>Managed Operations</h4>
+          <p>CRO oversight with preferential study-slot allocation, the mobile clinical network operated end to end, and launch coordination on GoLanzar — run as a programme, not trial by trial.</p>
+        </div>
+      </div>
+      <p class="engage-kicker reveal">Each engagement model is contractable independently — begin with a defined scope and expand as your requirements evolve.</p>
+    </div>
+  </section>
+
   <!-- ============ PRACTICE LEADERS ============ -->
-  <section class="pad80 grey" id="leaders">
+  <section class="pad80" id="leaders">
     <div class="container">
       <div class="text-center mb-5">
         <h2 class="section-title reveal">The Leaders Behind IP &amp; Clinical</h2>
@@ -417,8 +489,8 @@
     </div>
   </section>
 
-    <!-- ============ FAQ ============ -->
-  <section class="pad80" id="faq">
+  <!-- ============ FAQ ============ -->
+  <section class="pad80 grey" id="faq">
     <div class="container">
       <div class="text-center mb-5">
         <h2 class="section-title reveal">IP and clinical, your questions</h2>
@@ -453,13 +525,13 @@
   </section>
 
   <!-- ============ FINAL CTA ============ -->
-  <section class="pad80 final-cta text-center" id="contact">
+  <section class="pad80 alt-cta text-center" id="contact">
     <div class="container">
       <h2 class="section-title text-white reveal mb-3">De-Risk the Science.<br>From Molecule to Launch, With One Partner.</h2>
-      <p class="text-white-50 reveal mb-4" style="max-width:640px;margin-inline:auto">Whether you need freedom-to-operate before you invest, a decentralised India trial or toxicology to global standards, talk to us.</p>
+      <p class="text-white-50 reveal mb-4" style="max-width:640px;margin-inline:auto">Whether you need freedom-to-operate before you invest, a study designed for a clear decision, or a launch coordinated on one plan, our senior team is ready to discuss your requirements.</p>
       <div class="hero-ctas justify-content-center reveal">
-        <a href="mailto:info@pivotpath.com" class="btns2 solid-light">Talk to our IP & clinical team</a>
-        <a href="pivotpath-home.html#platforms" class="btns-line">Book a GoLanzar demo</a>
+        <a href="mailto:info@pivotpath.com" class="btns2 solid-light">Talk to our development team</a>
+        <a href="pivotpath-golanzar.html" class="btns-line">Book a GoLanzar demo</a>
       </div>
     </div>
   </section>
@@ -527,38 +599,56 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
+    // ---- Practice pill-tabs (accessible) ----
     (function(){
-      function run(scope){
-        scope.querySelectorAll('.count').forEach(function(el){
-          if(el.dataset.done)return;el.dataset.done="1";
-          var to=parseFloat(el.dataset.to), dec=parseInt(el.dataset.dec||'0',10);
-          if(to===0){el.textContent="0";return;}
-          var start=null,dur=1600;
-          function step(ts){if(!start)start=ts;var p=Math.min((ts-start)/dur,1);
-            var val=to*(0.5-Math.cos(p*Math.PI)/2);
-            el.textContent=dec?val.toFixed(dec):Math.round(val).toLocaleString();
-            if(p<1)requestAnimationFrame(step);else el.textContent=dec?to.toFixed(dec):to.toLocaleString();}
-          requestAnimationFrame(step);
+      var tabs=Array.prototype.slice.call(document.querySelectorAll('.cap-tab'));
+      if(!tabs.length)return;
+      var panels=tabs.map(function(t){return document.getElementById(t.getAttribute('aria-controls'));});
+      function select(idx,focus){
+        tabs.forEach(function(t,i){
+          var on=i===idx;
+          t.setAttribute('aria-selected',on?'true':'false');
+          t.tabIndex=on?0:-1;
+          if(panels[i])panels[i].hidden=!on;
         });
+        if(focus&&tabs[idx])tabs[idx].focus();
       }
-      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)run(e.target);});},{threshold:.3});
-      document.querySelectorAll('.stat-band').forEach(function(b){io.observe(b);});
+      tabs.forEach(function(tab,i){
+        tab.addEventListener('click',function(){select(i,false);});
+        tab.addEventListener('keydown',function(e){
+          var n;
+          if(e.key==='ArrowRight'||e.key==='ArrowDown')n=(i+1)%tabs.length;
+          else if(e.key==='ArrowLeft'||e.key==='ArrowUp')n=(i-1+tabs.length)%tabs.length;
+          else if(e.key==='Home')n=0;
+          else if(e.key==='End')n=tabs.length-1;
+          else return;
+          e.preventDefault();select(n,true);
+        });
+      });
+      select(0,false);
     })();
+
+    // ---- Reveal on scroll ----
     (function(){
       var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
       document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
     })();
+
+    // ---- Active anchor-nav highlight ----
     (function(){
       var links=[].slice.call(document.querySelectorAll('.anchor-nav a'));
       var map=links.map(function(a){return {a:a,el:document.querySelector(a.getAttribute('href'))};}).filter(function(x){return x.el;});
-      function onScroll(){var y=window.scrollY+120,cur=map[0];
+      function onScroll(){
+        var y=window.scrollY+120,cur=map[0];
         map.forEach(function(x){if(x.el.offsetTop<=y)cur=x;});
-        links.forEach(function(a){a.classList.remove('active');});if(cur)cur.a.classList.add('active');}
+        links.forEach(function(a){a.classList.remove('active');});
+        if(cur)cur.a.classList.add('active');
+      }
       window.addEventListener('scroll',onScroll,{passive:true});onScroll();
     })();
   </script>
   <script src="pp-mobile.js" defer></script>
   <!-- design-toggle -->
-  <a href="pivotpath-ip-clinical-alt.html" style="position:fixed;left:18px;bottom:18px;z-index:2000;background:#0f141b;color:#fff;padding:10px 18px;border-radius:999px;font:600 13px/1 -apple-system,'Segoe UI',Roboto,Arial,sans-serif;letter-spacing:.02em;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,.28);opacity:.92" aria-label="View alternate design">View alternate design</a>
+  <a href="pivotpath-ip-clinical.html" style="position:fixed;left:18px;bottom:18px;z-index:2000;background:#0f141b;color:#fff;padding:10px 18px;border-radius:999px;font:600 13px/1 -apple-system,'Segoe UI',Roboto,Arial,sans-serif;letter-spacing:.02em;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,.28);opacity:.92" aria-label="View current design">View current design</a>
 </body>
 </html>
