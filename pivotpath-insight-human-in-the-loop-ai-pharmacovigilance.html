@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Insights — Case Studies, Use Cases, Blog & News | Pivot Path</title>
-  <meta name="description" content="Insights from Pivot Path — case studies, use cases, blog articles and news across pharmacovigilance, quality, digital transformation, IP & clinical operations and human capital.">
+  <title>Human-in-the-loop AI in pharmacovigilance | Pivot Path</title>
+  <meta name="description" content="How to use AI in pharmacovigilance without losing regulatory control — automation for the routine, humans accountable for every safety decision." />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="pp.css?v=10" />
   <script type="application/ld+json">
@@ -12,19 +12,24 @@
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "CollectionPage",
-      "name": "Insights — Case Studies, Use Cases, Blog & News",
-      "description": "Insights from Pivot Path — case studies, use cases, blog articles and news across the life sciences value chain.",
-      "url": "https://pivotpath.com/pivotpath-insights.html",
-      "isPartOf": {
-        "@id": "https://pivotpath.com/#website"
-      },
-      "about": {
+      "@type": "BlogPosting",
+      "headline": "Human-in-the-loop AI in pharmacovigilance: what good looks like",
+      "description": "How to use AI in pharmacovigilance without losing regulatory control — automation for the routine, humans accountable for every safety decision.",
+      "author": {
         "@type": "Organization",
         "@id": "https://pivotpath.com/#organization",
         "name": "Pivot Path",
         "url": "https://pivotpath.com/"
-      }
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://pivotpath.com/#organization",
+        "name": "Pivot Path",
+        "url": "https://pivotpath.com/"
+      },
+      "mainEntityOfPage": "https://pivotpath.com/pivotpath-insight-human-in-the-loop-ai-pharmacovigilance.html",
+      "url": "https://pivotpath.com/pivotpath-insight-human-in-the-loop-ai-pharmacovigilance.html",
+      "datePublished": "2026-07-09"
     },
     {
       "@type": "BreadcrumbList",
@@ -40,6 +45,12 @@
           "position": 2,
           "name": "Insights",
           "item": "https://pivotpath.com/pivotpath-insights.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Human-in-the-loop AI in pharmacovigilance: what good looks like",
+          "item": "https://pivotpath.com/pivotpath-insight-human-in-the-loop-ai-pharmacovigilance.html"
         }
       ]
     }
@@ -104,7 +115,7 @@
             </div>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Platforms</a>
+            <a class="nav-link dropdown-toggle" href="pivotpath-home.html#platforms" role="button" data-bs-toggle="dropdown">Platforms</a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="pivotpath-novavigil.html">NovaVigil</a></li>
               <li><a class="dropdown-item" href="pivotpath-noteiq.html">NoteIQ</a></li>
@@ -127,75 +138,84 @@
   <!-- ============ PAGE HERO ============ -->
   <section class="page-hero pad80">
     <div class="container">
-      <div class="crumb"><a href="pivotpath-home.html">Home</a> &nbsp;/&nbsp; Insights</div>
-      <h1>Insights</h1>
-      <p class="lead">Case studies, use cases, articles and news from the teams who build and run life sciences operations.</p>
-      <div class="hero-ctas">
-        <a href="#contact" class="btns2 solid-light">Talk to our experts</a>
-      </div>
+      <div class="crumb"><a href="pivotpath-home.html">Home</a> &nbsp;/&nbsp; <a href="pivotpath-insights.html">Insights</a> &nbsp;/&nbsp; Blog</div>
+      <h1>Human-in-the-loop AI in pharmacovigilance: what good looks like</h1>
+      <p class="lead">AI can absorb the routine load in pharmacovigilance — but a human must stay accountable for every safety decision. Here is what a defensible operating model looks like.</p>
     </div>
   </section>
 
-  <!-- ============ INSIGHTS INDEX ============ -->
-  <section class="pad80" id="insights">
+  <!-- ============ ARTICLE ============ -->
+  <section class="pad80">
     <div class="container">
-      <div class="hscroll">
-        <div class="cap-tabs" role="tablist" aria-label="Filter insights">
-          <button class="cap-tab active" type="button" data-filter="all">All</button>
-          <button class="cap-tab" type="button" data-filter="case-study">Case Studies</button>
-          <button class="cap-tab" type="button" data-filter="use-case">Use Cases</button>
-          <button class="cap-tab" type="button" data-filter="blog">Blog</button>
-          <button class="cap-tab" type="button" data-filter="news">News</button>
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <article class="pp-article reveal">
+<p>A single missed adverse event can become a regulatory finding, a patient-safety risk, and a
+reputational problem all at once. That is why the promise of AI in pharmacovigilance — faster
+case intake, cleaner triage, earlier signals — sits alongside a hard question every safety
+leader is now asked in audits: who is accountable when the model is wrong?</p>
+<h2>The pressure is real, and so is the risk</h2>
+<p>Case volumes keep climbing while regulatory expectations tighten. Manual case processing does
+not scale linearly, and the temptation is to hand the whole pipeline to automation. But
+pharmacovigilance is a regulated safety function, not a back-office workflow. An AI that
+silently mislabels a serious case, or drops a signal, does not just create rework — it creates
+liability. The failure mode is quiet, and quiet failures are the ones that surface late.</p>
+<h2>What good looks like</h2>
+<p>The standard the buyer is measured against is traceability. Under <strong>21 CFR Part 11</strong> and
+<strong>EU Annex 11</strong>, regulated records and the decisions behind them must be attributable, legible,
+and auditable — every action logged and timestamped. Regulators are increasingly explicit that
+AI in a GxP context is <em>expected</em> to keep a human accountable for the decision; the model
+informs, it does not decide.</p>
+<p>That distinction is the whole game. Automation is welcome for the repetitive, high-volume,
+low-judgement work. Accountability stays with a named, qualified person for anything that
+touches a safety conclusion.</p>
+<h2>The Pivot Path angle</h2>
+<p>We don&rsquo;t just advise on this operating model — we run it. Our pharmacovigilance work draws a
+clear line between what runs hands-off and what stays human-in-the-loop:</p>
+<ul>
+<li><strong>Automated:</strong> case intake, de-duplication, data extraction, and first-pass triage — the
+  routine load AI handles well and consistently.</li>
+<li><strong>Human-owned:</strong> causality assessment, seriousness and expectedness determinations, and every
+  signal decision — reviewed and signed by a qualified safety professional.</li>
+</ul>
+<p>The principle we hold to across every AI-enabled deployment is simple: <strong>AI outputs are
+recommendations, never decisions.</strong> That is what keeps the system defensible when an auditor
+asks how a conclusion was reached — the answer is a person, supported by a logged, reviewable
+trail, not a black box.</p>
+<p>You can see how this shows up in our <a href="pivotpath-drug-safety.html">patient-safety operations</a>,
+and in <a href="pivotpath-novavigil.html">NovaVigil</a>, our pharmacovigilance platform built around the
+same human-in-the-loop discipline.</p>
+<h2>FAQ</h2>
+<h3>Can AI process adverse event cases end to end?</h3>
+<p>It can process the routine, structured parts of the workflow — intake, de-duplication, data
+extraction, first-pass triage. Safety conclusions such as causality and seriousness stay with a
+qualified reviewer, under change control and full audit trail.</p>
+<h3>Is using AI in pharmacovigilance compliant with 21 CFR Part 11?</h3>
+<p>Yes, when it is deployed correctly. Part 11 and EU Annex 11 require attributable, auditable
+records and decisions. Keeping a human accountable for safety determinations, with every action
+logged, is what makes an AI-enabled workflow defensible in audit.</p>
+<h3>How do you stop AI from missing a signal?</h3>
+<p>By design: the model triages and surfaces, but signal decisions are made and documented by
+people. The value of automation is that it frees expert time to focus on exactly those
+judgement calls, rather than on manual data handling.</p>
+<h2>Bring us the workload</h2>
+<p>If you&rsquo;re weighing where AI fits in your safety operations — and where it must not — bring us the
+problem. We&rsquo;ll map it to an operating model that scales the routine work and keeps every safety
+decision accountable, logged, and audit-ready.</p>
+          </article>
         </div>
       </div>
-      <div class="row g-4" id="insights-grid">
-        <div class="col-md-4 reveal" data-cat="case-study">
-          <a href="pivotpath-zero-touch-it.html" class="story-card">
-            <span class="story-tag">Case Study · Digital Transformation</span>
-            <span class="story-metric">Zero-Touch IT for a leading CDMO</span>
-            <span class="story-cap">A leading Indian CDMO absorbed 2× growth on the same 35-person team — 50+ processes automated across four sites, 7,000+ assets managed.</span>
-            <span class="story-go">Read the story <span aria-hidden="true">→</span></span>
-          </a>
-        </div>
-        <div class="col-md-4 reveal" data-cat="case-study">
-          <a href="pivotpath-pharma-4-0.html" class="story-card">
-            <span class="story-tag">Case Study · Digital Transformation</span>
-            <span class="story-metric">Pharma 4.0 plant transformation</span>
-            <span class="story-cap">A European injectable plant migrated onto a modern, validated systems stack in 60 days — fully remote, without stopping production.</span>
-            <span class="story-go">Read the story <span aria-hidden="true">→</span></span>
-          </a>
-        </div>
-        <div class="col-md-4 reveal" data-cat="case-study">
-          <a href="pivotpath-identity-user-management.html" class="story-card">
-            <span class="story-tag">Case Study · IT Automation</span>
-            <span class="story-metric">Identity &amp; User Management</span>
-            <span class="story-cap">Standardised the identity lifecycle — onboarding, access change and offboarding — HRMS-triggered, ticket-approved and BOT-automated.</span>
-            <span class="story-go">Read the story <span aria-hidden="true">→</span></span>
-          </a>
-        </div>
-        <!-- INSIGHTS:GENERATED -->
-        <div class="col-md-4 reveal" data-cat="blog">
-          <a href="pivotpath-insight-human-in-the-loop-ai-pharmacovigilance.html" class="story-card">
-            <span class="story-tag">Blog · Patient Safety</span>
-            <span class="story-metric">Human-in-the-loop AI in pharmacovigilance: what good looks like</span>
-            <span class="story-cap">AI can absorb the routine load in pharmacovigilance — but a human must stay accountable for every safety decision. Here is what a defensible operating model looks like.</span>
-            <span class="story-go">Read the article <span aria-hidden="true">→</span></span>
-          </a>
-        </div>
-        <!-- /INSIGHTS:GENERATED -->
-      </div>
-      <div class="insights-empty" hidden>New content is coming soon.</div>
     </div>
   </section>
 
   <!-- ============ FINAL CTA ============ -->
   <section class="pad80 final-cta text-center" id="contact">
     <div class="container">
-      <h2 class="section-title text-white reveal mb-3">Want to Explore a Topic?</h2>
-      <p class="text-white-50 reveal mb-4" style="max-width:640px;margin-inline:auto">Bring us the problem and we’ll map it to the right capability, platform or story.</p>
+      <h2 class="section-title text-white reveal mb-3">Bring us the workload.</h2>
+      <p class="text-white-50 reveal mb-4" style="max-width:640px;margin-inline:auto">Tell us the problem and we&rsquo;ll map it to the right capability, platform or team &mdash; and run it with you.</p>
       <div class="hero-ctas justify-content-center reveal">
         <a href="mailto:info@pivotpath.com" class="btn-pill btn-pill-light">Talk to our experts</a>
-        <a href="pivotpath-home.html#services" class="btn-pill btn-pill-ghost">Explore our services</a>
+        <a href="pivotpath-insights.html" class="btn-pill btn-pill-ghost">Back to Insights</a>
       </div>
     </div>
   </section>
@@ -263,62 +283,9 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    // ---- Count-up stat band ----
-    (function(){
-      function run(scope){
-        scope.querySelectorAll('.count').forEach(function(el){
-          if(el.dataset.done)return;el.dataset.done="1";
-          var to=parseFloat(el.dataset.to), dec=parseInt(el.dataset.dec||'0',10);
-          if(to===0){el.textContent="0";return;}
-          var start=null,dur=1600;
-          function step(ts){if(!start)start=ts;var p=Math.min((ts-start)/dur,1);
-            var val=to*(0.5-Math.cos(p*Math.PI)/2);
-            el.textContent=dec?val.toFixed(dec):Math.round(val).toLocaleString();
-            if(p<1)requestAnimationFrame(step);else el.textContent=dec?to.toFixed(dec):to.toLocaleString();}
-          requestAnimationFrame(step);
-        });
-      }
-      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)run(e.target);});},{threshold:.3});
-      document.querySelectorAll('.stat-band').forEach(function(b){io.observe(b);});
-    })();
-
-    // ---- Reveal on scroll ----
     (function(){
       var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
       document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
-    })();
-
-    // ---- Active anchor-nav highlight ----
-    (function(){
-      var links=[].slice.call(document.querySelectorAll('.anchor-nav a'));
-      var map=links.map(function(a){return {a:a,el:document.querySelector(a.getAttribute('href'))};}).filter(function(x){return x.el;});
-      function onScroll(){
-        var y=window.scrollY+120,cur=map[0];
-        map.forEach(function(x){if(x.el.offsetTop<=y)cur=x;});
-        links.forEach(function(a){a.classList.remove('active');});
-        if(cur)cur.a.classList.add('active');
-      }
-      window.addEventListener('scroll',onScroll,{passive:true});onScroll();
-    })();
-  </script>
-  <script>
-    // Insights category filter
-    (function(){
-      var tabs=[].slice.call(document.querySelectorAll('.cap-tab'));
-      var cards=[].slice.call(document.querySelectorAll('#insights-grid [data-cat]'));
-      var empty=document.querySelector('.insights-empty');
-      var MSG={'use-case':'New use cases are coming soon.','blog':'New articles are coming soon.','news':'News updates are coming soon.','case-study':'New case studies are coming soon.','all':'New content is coming soon.'};
-      function apply(f){
-        var shown=0;
-        cards.forEach(function(c){var m=(f==='all'||c.getAttribute('data-cat')===f);c.style.display=m?'':'none';if(m)shown++;});
-        if(empty){empty.hidden=shown>0;empty.textContent=MSG[f]||'New content is coming soon.';}
-      }
-      tabs.forEach(function(t){t.addEventListener('click',function(){
-        tabs.forEach(function(x){x.classList.remove('active');});
-        t.classList.add('active');
-        apply(t.getAttribute('data-filter'));
-      });});
-      apply('all');
     })();
   </script>
   <script src="pp-mobile.js" defer></script>

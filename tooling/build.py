@@ -119,9 +119,11 @@ def render_header(header: str, page: str, head_hrefs: Set[str], sub_to_head: Dic
         head = sub_to_head[page]
         h = h.replace(f'<a class="mega-head" href="{head}">',
                       f'<a class="mega-head active" href="{head}">')
-    # Active top-level nav-link
-    if page in NAVLINK_ACTIVE:
-        target = NAVLINK_ACTIVE[page]
+    # Active top-level nav-link (generated insight/blog pages also activate Insights)
+    target = NAVLINK_ACTIVE.get(page)
+    if target is None and page.startswith("pivotpath-insight-"):
+        target = "pivotpath-insights.html"
+    if target:
         h = h.replace(f'class="nav-link" href="{target}"',
                       f'class="nav-link active" href="{target}"')
     return h

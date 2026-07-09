@@ -1,0 +1,9 @@
+# Core crawling dependencies
+requests>=2.31.0
+beautifulsoup4>=4.12.0
+lxml>=4.9.0
+markdownify>=0.11.0
+
+# Insights build step (tooling/build_insights.py) — markdown->HTML publishing bridge
+markdown>=3.4
+PyYAML>=6.0
