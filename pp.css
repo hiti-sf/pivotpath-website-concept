@@ -585,22 +585,3 @@
   .tline .tl .pic svg{width:18px;height:18px}
   .tline .tl::before{left:17px}
 }
-
-/* ============ INSIGHTS / BLOG ARTICLE PROSE ============ */
-/* Long-form body for generated insight posts (tooling/build_insights.py).
-   Tokenised to the sitewide type + 8pt spacing scale — no hard-coded sizes. */
-.pp-article{font-size:var(--fs-body);color:var(--pp-ink);line-height:1.7}
-.pp-article > *:first-child{margin-top:0}
-.pp-article h2{font-size:var(--fs-h3);line-height:1.25;margin:var(--sp-6) 0 var(--sp-3)}
-.pp-article h3{font-size:var(--fs-h4);line-height:1.3;margin:var(--sp-5) 0 var(--sp-2)}
-.pp-article p{margin:0 0 var(--sp-3)}
-.pp-article ul,.pp-article ol{margin:0 0 var(--sp-3);padding-left:1.35rem}
-.pp-article li{margin-bottom:var(--sp-1)}
-.pp-article li > ul,.pp-article li > ol{margin:var(--sp-1) 0 0}
-.pp-article a{color:var(--pp-accent);text-decoration:underline;text-underline-offset:2px}
-.pp-article strong{color:var(--pp-ink)}
-.pp-article blockquote{margin:var(--sp-4) 0;padding:var(--sp-2) var(--sp-4);
-  border-left:3px solid var(--pp-accent);color:var(--pp-grey);font-style:italic}
-.pp-article img{max-width:100%;height:auto;border-radius:12px;margin:var(--sp-4) 0}
-.pp-article code{background:var(--pp-line);padding:.15em .4em;border-radius:4px;font-size:.9em}
-.pp-article hr{border:0;border-top:1px solid var(--pp-line);margin:var(--sp-6) 0}
