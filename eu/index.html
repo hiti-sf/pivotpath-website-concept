@@ -3,29 +3,115 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pharmacovigilance in Europe — EU QPPV, EudraVigilance &amp; GVP | Pivot Path</title>
-  <meta name="description" content="Pharmacovigilance for the EU/EEA, UK and Switzerland from Pivot Path — EEA-resident QPPV, EudraVigilance &amp; EVDAS, GVP-aligned case processing, PSMF, aggregate reporting and signal management. Inspection-ready, at scale." />
+  <title>Pivot Path in Europe: One Safety Operation for Every Market You Sell In</title>
+  <meta name="description" content="EMA, MHRA, Swissmedic, FDA, Health Canada and TGA each set their own rules. Pivot Path runs them as one safety operation, with an EEA-resident QPPV and leads based in Europe." />
   <link rel="preconnect" href="https://cdn.jsdelivr.net" />
   <link rel="preconnect" href="https://in.fw-cdn.com" />
   <link rel="preload" href="../pp.css?v=15" as="style" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="../pp.css?v=15" />
+  <style>
+    /* ==== EU FRONT-DOOR PAGE STYLES (scoped to this page; pp.css untouched) ==== */
+
+    /* Trust band — dense hairline strip */
+    .tband{border-bottom:1px solid var(--pp-line)}
+    .tband .inner{display:grid;grid-template-columns:minmax(0,4fr) repeat(4,minmax(0,2fr));align-items:stretch}
+    .tband .cell{padding:var(--sp-4) var(--sp-4);border-left:1px solid var(--pp-line)}
+    .tband .cell:first-child{border-left:0;padding-left:0}
+    .tband .note{font-size:var(--fs-lead);font-weight:600;color:var(--pp-ink);display:flex;align-items:center}
+    .tband .n{font-size:1.6rem;font-weight:800;color:var(--pp-ink);line-height:1.1;font-variant-numeric:tabular-nums}
+    .tband .l{font-size:var(--fs-sm);color:var(--pp-muted);margin-top:4px}
+
+    /* "A European front" dark band, vignette quadrants */
+    .eu-native{background:#0c1219;color:#fff}
+    .eu-native .section-title{color:#fff}
+    .vig-grid{display:grid;grid-template-columns:1fr 1fr}
+    .vig{padding:var(--sp-5)}
+    .vig:nth-child(odd){padding-left:0}
+    .vig:nth-child(even){border-left:1px solid rgba(255,255,255,.2);padding-right:0}
+    .vig:nth-child(n+3){border-top:1px solid rgba(255,255,255,.2)}
+    .vig:nth-child(-n+2){padding-top:0}
+    .vig:nth-child(n+3){padding-bottom:0}
+    .vig h3{font-size:var(--fs-h4);font-weight:700;color:#fff;margin-bottom:var(--sp-2)}
+    .vig p{font-size:var(--fs-lead);line-height:1.6;color:rgba(255,255,255,.8);margin:0;max-width:52ch}
+
+    /* PV — four movements, connected flow */
+    .flow4{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--sp-5);position:relative;padding-top:var(--sp-4)}
+    .flow4::before{content:"";position:absolute;top:calc(var(--sp-4) + 7px);left:8px;right:8px;height:2px;background:var(--pp-grad);opacity:.5}
+    .fl .dot{width:16px;height:16px;border-radius:50%;background:var(--pp-grad);margin-bottom:var(--sp-3);position:relative}
+    .fl .ph{font-size:var(--fs-h3);font-weight:800;color:var(--pp-ink);margin-bottom:var(--sp-2)}
+    .fl .fl-note{color:var(--pp-muted);margin-bottom:var(--sp-3)}
+    .fl .fl-svcs{font-size:var(--fs-sm);font-weight:700;color:var(--pp-ink)}
+    .flow-close{margin-top:var(--sp-5);padding-top:var(--sp-4);border-top:1px solid var(--pp-line);font-weight:600;color:var(--pp-ink)}
+    .pv-deep{display:inline-block;margin-top:var(--sp-4);font-weight:700;color:var(--pp-accent);text-decoration:none}
+    .pv-deep:hover{text-decoration:underline}
+
+    /* NovaVigil dark spotlight extras */
+    .nv-litany{display:flex;gap:8px;flex-wrap:wrap;margin:var(--sp-3) 0}
+    .spotlight .nv-chip{border:1px solid rgba(255,255,255,.4);border-radius:999px;padding:4px 14px;font-size:var(--fs-sm);font-weight:600;color:#fff}
+    .spotlight .nv-principle{border-left:3px solid var(--pp-accent);padding-left:var(--sp-3);color:rgba(255,255,255,.85);margin:var(--sp-4) 0 0}
+    .spotlight .nv-compliance{font-size:var(--fs-sm);color:rgba(255,255,255,.65);margin-top:var(--sp-3)}
+
+    /* Hairline columns — lifecycle pillars + engage */
+    .engage-grid{display:grid;grid-template-columns:repeat(3,1fr)}
+    .engage-grid.cols4{grid-template-columns:repeat(4,1fr)}
+    .engage-grid.cols5{grid-template-columns:repeat(5,1fr)}
+    .engage-col{padding:0 var(--sp-4);border-left:1px solid var(--pp-line)}
+    .engage-col:first-child{border-left:0;padding-left:0}
+    .engage-col h4{font-size:var(--fs-h4);margin-bottom:var(--sp-3)}
+    .engage-col p{color:var(--pp-muted)}
+    .engage-kicker{margin-top:var(--sp-5);padding-top:var(--sp-4);border-top:1px solid var(--pp-line);font-weight:600;color:var(--pp-ink)}
+    .r-link{display:inline-block;margin-top:var(--sp-3);font-size:var(--fs-sm);font-weight:700;color:var(--pp-accent);text-decoration:none}
+    .r-link:hover{text-decoration:underline}
+
+    /* Final CTA over the photo */
+    .alt-cta{background:linear-gradient(rgba(10,16,22,.8),rgba(10,16,22,.8)),url('../assets/pv-cta-bg.jpg') center/cover no-repeat}
+    .alt-cta .cta-note{font-size:.78rem;letter-spacing:.06em;color:rgba(255,255,255,.55)}
+
+    /* Leader card: location line under the title */
+    .leader-loc{font-size:.74rem;color:var(--pp-muted);margin-top:2px;line-height:1.35}
+
+    /* Mobile */
+    @media (max-width:991.98px){
+      .tband .inner{grid-template-columns:repeat(2,1fr)}
+      .tband .cell{border-left:0;padding-left:0}
+      .tband .note{grid-column:1/-1;padding-bottom:0}
+      .engage-grid,.engage-grid.cols4,.engage-grid.cols5{grid-template-columns:1fr 1fr}
+      .engage-col{border-left:0;padding:var(--sp-4) 0;border-top:1px solid var(--pp-line)}
+      .engage-col:first-child{border-top:0;padding-top:0}
+      .flow4{grid-template-columns:1fr;gap:var(--sp-4);padding-top:0}
+      .flow4::before{top:0;bottom:0;left:7px;right:auto;width:2px;height:auto}
+      .fl{padding-left:var(--sp-5)}
+      .fl .dot{position:absolute;margin-left:calc(-1 * var(--sp-5))}
+    }
+    @media (max-width:767.98px){
+      .vig-grid{grid-template-columns:1fr}
+      .vig{padding:var(--sp-4) 0}
+      .vig:nth-child(even){border-left:0;padding-right:0}
+      .vig:nth-child(n+2){border-top:1px solid rgba(255,255,255,.2)}
+      .vig:first-child{padding-top:0}
+      .vig p{font-size:var(--fs-body)}
+    }
+    @media (max-width:575.98px){
+      .engage-grid,.engage-grid.cols4,.engage-grid.cols5{grid-template-columns:1fr}
+    }
+  </style>
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "Service",
-      "name": "Pharmacovigilance in Europe",
-      "serviceType": "Pharmacovigilance",
-      "description": "Pharmacovigilance for the EU/EEA, UK and Switzerland from Pivot Path — EEA-resident QPPV, EudraVigilance and EVDAS, GVP-aligned ICSR case processing, PSMF authoring and maintenance, aggregate reporting and signal management. Inspection-ready, at scale.",
+      "name": "Pivot Path in Europe",
+      "serviceType": "Pharmacovigilance and pharma lifecycle services",
+      "description": "One safety operation across fragmented regulators. EMA and its national agencies, MHRA, Swissmedic, FDA, Health Canada and TGA, run under one quality system, with an EEA-resident QPPV, EudraVigilance and EVDAS, PSMF and aggregate reporting, and leads based in Europe.",
       "provider": {
         "@type": "Organization",
         "@id": "https://pivotpath.com/#organization",
         "name": "Pivot Path",
         "url": "https://pivotpath.com/"
       },
-      "areaServed": [ "European Union", "European Economic Area", "United Kingdom", "Switzerland" ],
+      "areaServed": [ "European Union", "European Economic Area", "United Kingdom", "Switzerland", "United States", "Canada", "Australia" ],
       "url": "https://pivotpath.com/eu/"
     },
     {
@@ -40,13 +126,7 @@
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "Services",
-          "item": "https://pivotpath.com/#services"
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "name": "Pharmacovigilance in Europe",
+          "name": "Europe",
           "item": "https://pivotpath.com/eu/"
         }
       ]
@@ -56,42 +136,34 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "Do you provide an EU/EEA QPPV?",
+          "name": "Who will be my first point of contact?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. We provide an EEA-resident Qualified Person for Pharmacovigilance (with back-up cover), named in your Pharmacovigilance System Master File and registered in EudraVigilance, plus local contact persons where an individual member state requires one."
+            "text": "A senior lead based in Switzerland or the EU, who owns the relationship end to end and works in your regulatory context, on CET working hours."
           }
         },
         {
           "@type": "Question",
-          "name": "Can one partner cover both the EU and the UK after Brexit?",
+          "name": "Where is the work actually done?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. We cover your EU/EEA obligations and your UK obligations — a UK QPPV and a UK-based national contact person under the Windsor Framework — and Switzerland (Swissmedic) where needed, on one aligned system."
+            "text": "Your European leads are in the EU. The bulk of case processing and delivery runs from our pharma-native delivery centres in India, under one quality system, SLAs and a full audit trail. There are no hidden hand-offs."
           }
         },
         {
           "@type": "Question",
-          "name": "Are you EudraVigilance and E2B (R3) ready?",
+          "name": "Do you provide an EEA-resident QPPV?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. We handle EudraVigilance registration and electronic ICSR reporting in E2B (R3) / ISO ICSR, EVDAS-based signal detection, and XEVMPD / Article 57 product-data submissions."
+            "text": "Yes. An EEA-resident QPPV with back-up cover, named in your PSMF and registered in EudraVigilance, plus local contact persons where a member state requires one, and UK cover under the Windsor Framework."
           }
         },
         {
           "@type": "Question",
-          "name": "Which safety databases do you work in?",
+          "name": "How is our safety data governed?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "We work in your environment — Oracle Argus, Empirica, Clinevo Safety — coding in MedDRA and WHO-DD, submitting in E2B (R3). No database? We'll recommend and stand one up."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Do you support GVP inspection readiness?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. Our processes are aligned to GVP; we run mock audits, keep your PSMF and documentation inspection-ready, and manage CAPAs — with 10+ PV inspections in 7 years and no critical findings on record."
+            "text": "With an EU data-residency option, aligned to EU Annex 11, the EU AI Act and GDPR, and a complete human-in-the-loop audit trail on every case."
           }
         },
         {
@@ -99,7 +171,15 @@
           "name": "How fast can you onboard for EU market entry?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Weeks, not quarters. A fixed-scope pilot de-risks the move — we've in-sourced full aggregate operations in five months at roughly a third of prior cost."
+            "text": "Weeks, not quarters. A fixed-scope pilot de-risks the move, and we have in-sourced full aggregate operations in five months."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you also cover our US, Canadian and other international obligations?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. US safety reporting and PADER aggregates run on the same system, with an FDA pharmacovigilance inspection closed with no Form 483 observations. Medical information coverage spans the US, Canada, the UK and the EU, and the operation is TGA-inspected. One system, one audit trail."
           }
         }
       ]
@@ -201,12 +281,12 @@
   <!-- ============ PAGE HERO ============ -->
   <section class="page-hero pad80" id="overview">
     <div class="container">
-      <div class="crumb"><a href="../pivotpath-home.html">Home</a> &nbsp;/&nbsp; <a href="../pivotpath-home.html#services">Services</a> &nbsp;/&nbsp; Pharmacovigilance in Europe</div>
-      <h1>Pharmacovigilance for Europe —<br>one partner for EU, UK &amp; Switzerland.</h1>
-      <p class="lead">An EEA-resident QPPV, EudraVigilance and EVDAS, GVP-aligned case processing, PSMF, aggregate reporting and signal management — across the EU/EEA, the UK and Switzerland. Run by a pharma-native team with a clean inspection record.</p>
+      <div class="crumb"><a href="../pivotpath-home.html">Home</a> &nbsp;/&nbsp; Europe</div>
+      <h1>Every market you sell in. One safety operation.</h1>
+      <p class="lead">EMA and its national agencies, MHRA, Swissmedic, FDA, Health Canada, TGA. Each sets its own rules, clocks and formats. Pivot Path runs them as one operation, with an EEA-resident QPPV and client leads based in Europe.</p>
       <div class="hero-ctas">
-        <a href="mailto:info@pivotpath.com" class="btns2 solid-light">Talk to our EU safety team</a>
-        <a href="#novavigil" class="btns-line">See NovaVigil</a>
+        <a href="#contact" class="btns2 solid-light">Talk to our safety team</a>
+        <a href="../pivotpath-pharmacovigilance-europe.html" class="btns-line">EU pharmacovigilance in detail</a>
       </div>
     </div>
   </section>
@@ -216,201 +296,134 @@
     <div class="container">
       <div class="inner">
         <a href="#overview" class="active">Overview</a>
-        <a href="#challenge">The EU Challenge</a>
-        <a href="#what">What We Do</a>
         <a href="#coverage">Coverage</a>
-        <a href="#flow">How It Works</a>
+        <a href="#record">Track Record</a>
+        <a href="#operate">How We Run It</a>
+        <a href="#pv">Pharmacovigilance</a>
         <a href="#novavigil">NovaVigil</a>
-        <a href="#numbers">Story in Numbers</a>
-        <a href="#proof">Proof</a>
+        <a href="#lifecycle">Full Lifecycle</a>
+        <a href="#leaders">Leaders</a>
         <a href="#faq">FAQ</a>
       </div>
     </div>
   </nav>
 
-  <!-- ============ HIGHLIGHTS ============ -->
-  <section class="pad60">
-    <div class="container">
-      <div class="row g-4 align-items-center">
-        <div class="col-lg-5 reveal">
-          <h2 class="section-title">A Full EU Safety Operation, Run For You</h2>
-        </div>
-        <div class="col-lg-7">
-          <div class="row g-4">
-            <div class="col-6 col-md-3 reveal"><div class="hl"><div class="n">35K</div><div class="l">ICSRs / Year</div></div></div>
-            <div class="col-6 col-md-3 reveal"><div class="hl"><div class="n">98%</div><div class="l">Quality Check</div></div></div>
-            <div class="col-6 col-md-3 reveal"><div class="hl"><div class="n">99.9%</div><div class="l">On-Time Submission</div></div></div>
-            <div class="col-6 col-md-3 reveal"><div class="hl"><div class="n">10+</div><div class="l">PV Inspections, 7 Yrs</div></div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ CHALLENGE ============ -->
-  <section class="pad80 grey" id="challenge">
+  <!-- ============ COVERAGE ============ -->
+  <section class="pad80" id="coverage">
     <div class="container">
       <div class="text-center mb-5">
-        <h2 class="section-title reveal">Europe's PV Rules Are Unforgiving —<br>and Fragmented Across Every Border</h2>
+        <h2 class="section-title reveal">One Operation, Every Regulator</h2>
       </div>
-      <div class="row g-4">
-        <div class="col-md-6 col-lg-4 reveal"><div class="pain"><div class="x">⬔</div><h5>Fragmented across markets</h5><p>Divergent national obligations, languages and local contact-person rules across 27+ EEA states.</p></div></div>
-        <div class="col-md-6 col-lg-4 reveal"><div class="pain"><div class="x">⇄</div><h5>Dual EU + UK coverage</h5><p>Post-Brexit you need an EU/EEA QPPV and UK PV cover (UK QPPV + UK contact person); Switzerland adds another regime.</p></div></div>
-        <div class="col-md-6 col-lg-4 reveal"><div class="pain"><div class="x">▤</div><h5>EudraVigilance &amp; EVDAS burden</h5><p>Registration, the E2B (R3) gateway and signal analytics are a standing technical and resourcing load.</p></div></div>
-        <div class="col-md-6 col-lg-4 reveal"><div class="pain"><div class="x">⌕</div><h5>The local-literature gap</h5><p>EMA's medical literature monitoring covers only listed substances — screening the rest stays your responsibility.</p></div></div>
-        <div class="col-md-6 col-lg-4 reveal"><div class="pain"><div class="x">▣</div><h5>Inspection exposure</h5><p>EMA and national GVP inspections; thin documentation turns an audit into a fire drill.</p></div></div>
-        <div class="col-md-6 col-lg-4 reveal"><div class="pain"><div class="x">↑</div><h5>Rising case volumes</h5><p>Launches and growth outpace fixed in-house teams, and surges arrive without warning.</p></div></div>
+      <div class="engage-grid cols5 reveal">
+        <div class="engage-col">
+          <h4>EMA &amp; EEA agencies</h4>
+          <p>EudraVigilance in E2B (R3), EVDAS signal work and PSUSA-ready aggregate reports, with an EEA-resident QPPV.</p>
+        </div>
+        <div class="engage-col">
+          <h4>MHRA (UK)</h4>
+          <p>A UK QPPV and UK national contact person under the Windsor Framework.</p>
+        </div>
+        <div class="engage-col">
+          <h4>Swissmedic (CH)</h4>
+          <p>Swiss reporting through a single point of contact.</p>
+        </div>
+        <div class="engage-col">
+          <h4>FDA (US)</h4>
+          <p>US safety reporting and PADER aggregates. An FDA pharmacovigilance inspection closed with no Form 483 observations.</p>
+        </div>
+        <div class="engage-col">
+          <h4>Canada, Australia &amp; beyond</h4>
+          <p>The same operation and quality system. Medical information coverage across the US, Canada, UK and EU, and TGA-inspected.</p>
+        </div>
+      </div>
+      <p class="engage-kicker reveal">One partner across every market, instead of a separate vendor for each one.</p>
+    </div>
+  </section>
+
+  <!-- ============ TRUST BAND ============ -->
+  <section class="tband pad60" id="record">
+    <div class="container">
+      <div class="inner reveal">
+        <div class="cell note">A consistent record of successful regulatory inspections, with no critical findings on record across EMA, national authorities, MHRA, FDA and TGA.</div>
+        <div class="cell"><div class="n">10+</div><div class="l">Successful PV inspections in the last 7 years</div></div>
+        <div class="cell"><div class="n">99.9%</div><div class="l">On-time ICSR submission</div></div>
+        <div class="cell"><div class="n">98%</div><div class="l">Independent quality check</div></div>
+        <div class="cell"><div class="n">100%</div><div class="l">Aggregate-report compliance</div></div>
       </div>
     </div>
   </section>
 
-  <!-- ============ WHAT WE DO ============ -->
-  <section class="pad80" id="what">
+  <!-- ============ HOW WE RUN IT ============ -->
+  <section class="pad80 eu-native" id="operate">
     <div class="container">
       <div class="text-center mb-5">
-        <h2 class="section-title reveal">The Complete EU Pharmacovigilance Lifecycle</h2>
+        <h2 class="section-title reveal">Built for How Europe Regulates</h2>
       </div>
-      <div class="row g-4">
-        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
-          <h4>EU QPPV &amp; Local Contact Persons</h4>
-          <ul><li>EEA-resident QPPV, with back-up cover</li><li>Named in your PSMF, registered in EudraVigilance</li><li>Local QPPV / contact persons per member state</li><li>UK QPPV &amp; UK national contact person</li></ul>
-        </div></div>
-        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
-          <h4>EudraVigilance &amp; EVDAS</h4>
-          <ul><li>EudraVigilance registration &amp; gateway set-up</li><li>Electronic ICSR reporting in E2B (R3) / ISO ICSR</li><li>EVDAS-based signal detection</li><li>XEVMPD / Article 57 product-data submissions</li></ul>
-        </div></div>
-        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
-          <h4>ICSR Case Processing</h4>
-          <ul><li>Intake, triage &amp; duplicate check</li><li>MedDRA &amp; WHO-DD coding</li><li>Narrative writing &amp; medical review</li><li>QC and E2B (R3) submission to authorities</li></ul>
-        </div></div>
-        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
-          <h4>Aggregate Reporting</h4>
-          <ul><li>PSUR / PBRER, PSUSA-ready submissions</li><li>DSUR, PADER, addendum &amp; ACO reports</li><li>Line listings &amp; signal sections</li><li>400+ reports authored annually</li></ul>
-        </div></div>
-        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
-          <h4>Signal Management</h4>
-          <ul><li>Signal detection &amp; validation</li><li>Data mining &amp; disproportionality</li><li>Benefit-risk assessment support</li><li>Aligned to GVP Module IX</li></ul>
-        </div></div>
-        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
-          <h4>PSMF Authoring &amp; Maintenance</h4>
-          <ul><li>Build and maintain your PSMF</li><li>Annex &amp; logbook upkeep</li><li>Kept current and audit-ready</li><li>Provided to authorities on request</li></ul>
-        </div></div>
-        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
-          <h4>Literature Monitoring</h4>
-          <ul><li>Global &amp; local literature surveillance</li><li>Fills the gap left by EMA MLM</li><li>AI-accelerated by NovaVigil</li><li>Full audit trail &amp; traceability</li></ul>
-        </div></div>
-        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
-          <h4>Risk Management (RMP)</h4>
-          <ul><li>RMP authoring &amp; updates</li><li>Risk-minimisation measures</li><li>Effectiveness evaluation</li><li>Labelling &amp; safety-communication support</li></ul>
-        </div></div>
-        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
-          <h4>Audit, Inspection &amp; CAPA</h4>
-          <ul><li>GVP inspection readiness</li><li>Mock audits &amp; gap assessments</li><li>CAPA management &amp; remediation</li><li>Vendor &amp; SDEA oversight</li></ul>
-        </div></div>
+      <div class="vig-grid reveal">
+        <div class="vig">
+          <h3>Named accountability</h3>
+          <p>An EEA-resident QPPV with back-up cover, named in your PSMF. Your relationship is owned by senior client leads based in Switzerland and across the EU.</p>
+        </div>
+        <div class="vig">
+          <h3>Data governed to European standards</h3>
+          <p>An EU data-residency option, aligned to EU Annex 11, the EU AI Act and GDPR.</p>
+        </div>
+        <div class="vig">
+          <h3>Ready for the inspector</h3>
+          <p>The record is built as the work happens. Successful inspections by EMA-member authorities, MHRA, FDA and TGA, with no critical findings on record.</p>
+        </div>
+        <div class="vig">
+          <h3>Capacity without compromise</h3>
+          <p>Pharma-native delivery centres in India run case processing at scale under one quality system, SLAs and a full audit trail. Launch surges are absorbed without re-papering your quality system.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ COVERAGE (one partner, three regimes) ============ -->
-  <section class="pad80 grey" id="coverage">
+  <!-- ============ PHARMACOVIGILANCE — FLAGSHIP ============ -->
+  <section class="pad80" id="pv">
     <div class="container">
       <div class="text-center mb-5">
-        <h2 class="section-title reveal">One Partner for EU, UK &amp; Switzerland</h2>
+        <h2 class="section-title reveal">End-to-End Pharmacovigilance</h2>
       </div>
-      <div class="row g-4 justify-content-center">
-        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
-          <h4>EU / EEA</h4>
-          <p>Your core European obligations, run end to end on one aligned system.</p>
-          <div class="d-flex flex-wrap gap-2 mt-3">
-            <span class="chip-light">EEA-resident QPPV</span>
-            <span class="chip-light">EudraVigilance / EVDAS</span>
-            <span class="chip-light">GVP</span>
-            <span class="chip-light">PSMF</span>
-            <span class="chip-light">PSUR / PSUSA</span>
-          </div>
-        </div></div>
-        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
-          <h4>United Kingdom</h4>
-          <p>Post-Brexit UK cover without standing up a second operation.</p>
-          <div class="d-flex flex-wrap gap-2 mt-3">
-            <span class="chip-light">UK QPPV</span>
-            <span class="chip-light">UK contact person</span>
-            <span class="chip-light">Windsor Framework</span>
-            <span class="chip-light">MHRA reporting</span>
-          </div>
-        </div></div>
-        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
-          <h4>Switzerland</h4>
-          <p>A further jurisdiction covered where your portfolio reaches it.</p>
-          <div class="d-flex flex-wrap gap-2 mt-3">
-            <span class="chip-light">Swissmedic</span>
-            <span class="chip-light">Local reporting</span>
-            <span class="chip-light">Single point of contact</span>
-          </div>
-        </div></div>
+      <div class="flow4 reveal">
+        <div class="fl">
+          <div class="dot"></div>
+          <div class="ph">Capture</div>
+          <p class="fl-note">Adverse events arrive through channels we already staff.</p>
+          <p class="fl-svcs">Medical information &amp; intake&nbsp;· Literature surveillance</p>
+        </div>
+        <div class="fl">
+          <div class="dot"></div>
+          <div class="ph">Process</div>
+          <p class="fl-note">Every case moves from triage to on-time EudraVigilance submission, with medical review.</p>
+          <p class="fl-svcs">ICSR case processing&nbsp;· E2B (R3)</p>
+        </div>
+        <div class="fl">
+          <div class="dot"></div>
+          <div class="ph">Analyse</div>
+          <p class="fl-note">Individual cases become portfolio-level evidence.</p>
+          <p class="fl-svcs">Signal management (EVDAS)&nbsp;· Aggregate reporting (PSUR / PSUSA)</p>
+        </div>
+        <div class="fl">
+          <div class="dot"></div>
+          <div class="ph">Govern</div>
+          <p class="fl-note">Reporting commitments and named accountability stay in place.</p>
+          <p class="fl-svcs">EEA-resident QPPV&nbsp;· PSMF&nbsp;· Risk management</p>
+        </div>
       </div>
+      <p class="flow-close reveal">EU/EEA, UK, Switzerland and your US and international reporting on a single system.
+        <a href="../pivotpath-pharmacovigilance-europe.html" class="pv-deep">Full EU pharmacovigilance coverage →</a>
+      </p>
     </div>
   </section>
 
-  <!-- ============ HOW IT WORKS ============ -->
-  <section class="pad80" id="flow">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="section-title reveal">From Intake to EudraVigilance, Without Gaps</h2>
-      </div>
-      <div class="tline reveal">
-        <div class="tl">
-          <div class="pic"><svg viewBox="0 0 24 24"><path d="M3 12h5l2 3h4l2-3h5M5 5h14l2 7v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5z"/></svg></div>
-          <div class="pk">Receive</div>
-          <h5>Intake &amp; Triage</h5>
-          <p>Every case is logged, de-duplicated and triaged for seriousness and expectedness. Clocks start on time.</p>
-        </div>
-        <div class="tl">
-          <div class="pic"><svg viewBox="0 0 24 24"><path d="M3 12V4a1 1 0 0 1 1-1h8l9 9-9 9z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg></div>
-          <div class="pk">Code</div>
-          <h5>Coding</h5>
-          <p>Events, drugs and indications are coded to MedDRA and WHODrug. Analysis and aggregate reporting depend on that terminology.</p>
-        </div>
-        <div class="tl">
-          <div class="pic"><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></div>
-          <div class="pk">Author</div>
-          <h5>Narrative</h5>
-          <p>A clear, chronological narrative captures the clinical course so reviewers and regulators can assess it unambiguously.</p>
-        </div>
-        <div class="tl">
-          <div class="pic"><svg viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></div>
-          <div class="pk">Assess</div>
-          <h5>Medical Review</h5>
-          <p>A medically qualified reviewer confirms causality, seriousness and labelling.</p>
-        </div>
-        <div class="tl">
-          <div class="pic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg></div>
-          <div class="pk">Verify</div>
-          <h5>Quality Control</h5>
-          <p>Each case is checked against source and quality criteria before release, catching errors early.</p>
-        </div>
-        <div class="tl">
-          <div class="pic"><svg viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg></div>
-          <div class="pk">Submit</div>
-          <h5>EudraVigilance Submission</h5>
-          <p>Validated cases are submitted to EudraVigilance and national authorities in E2B (R3), on time.</p>
-        </div>
-        <div class="tl">
-          <div class="pic"><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 14-5l2 2M20 12a8 8 0 0 1-14 5l-2-2"/><path d="M18 4v5h-5M6 20v-5h5"/></svg></div>
-          <div class="pk">Monitor</div>
-          <h5>Follow-up</h5>
-          <p>Outstanding queries are pursued and follow-up reconciled, keeping the record current.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ NOVAVIGIL SPOTLIGHT ============ -->
+  <!-- ============ NOVAVIGIL — THE TECHNOLOGY LAYER ============ -->
   <section class="pad80 spotlight" id="novavigil">
     <div class="container">
       <div class="spot-head reveal">
         <span class="logo-plate"><img src="../assets/novavigil.png" alt="NovaVigil" class="prod-logo"></span>
-        <p class="spot-tagline">AI-driven literature monitoring for European pharmacovigilance teams.</p>
+        <p class="spot-tagline">AI-driven literature monitoring, built for regulated use.</p>
       </div>
       <div class="row align-items-center g-4 g-lg-5 spot-body">
         <div class="col-lg-6 reveal">
@@ -470,7 +483,6 @@
             <rect x="264" y="424" width="824" height="188" rx="10" fill="#fff" stroke="#e8eaed"/>
             <text x="288" y="456" fill="#11151c" font-size="14" font-weight="700">Recent cases</text>
             <line x1="264" y1="476" x2="1088" y2="476" stroke="#eef0f2"/>
-            <text x="288" y="468" fill="#9aa3ab" font-size="0"> </text>
             <g font-size="12.5">
               <text x="288" y="508" fill="#11151c">ICSR-20416</text><text x="430" y="508" fill="#6b6b6b">J. Clin. Pharm — adverse event</text><text x="860" y="508" fill="#6b6b6b">A. Rao</text>
               <rect x="980" y="494" width="84" height="22" rx="11" fill="#e8f6f1"/><text x="1022" y="509" fill="#1b8f73" text-anchor="middle" font-size="11" font-weight="700">Review</text>
@@ -485,121 +497,84 @@
         </div>
         <div class="col-lg-6 reveal">
           <ul class="vp-list">
-            <li class="vp"><span class="vp-ic">✓</span><div><div class="vp-t">45 minutes per article</div><div class="vp-d">Cuts literature article screening and processing from 3 hours to 45 minutes — 63% faster reviews.</div></div></li>
-            <li class="vp"><span class="vp-ic">✓</span><div><div class="vp-t">EU-ready by design</div><div class="vp-d">Aligned to EU Annex 11 and the EU AI Act, with an EU data-residency option and E2B (R3) output.</div></div></li>
-            <li class="vp"><span class="vp-ic">✓</span><div><div class="vp-t">Defensible by design</div><div class="vp-d">A complete, human-in-the-loop audit trail, validated (GAMP 5); complements Oracle Argus, Empirica and Clinevo Safety.</div></div></li>
+            <li class="vp"><span class="vp-ic">✓</span><div><div class="vp-t">45 minutes per article</div><div class="vp-d">Cuts literature screening and processing from 3 hours to 45 minutes, a 63% reduction in review time.</div></div></li>
+            <li class="vp"><span class="vp-ic">✓</span><div><div class="vp-t">EU-ready</div><div class="vp-d">Aligned to EU Annex 11 and the EU AI Act, with an EU data-residency option and E2B (R3) output.</div></div></li>
+            <li class="vp"><span class="vp-ic">✓</span><div><div class="vp-t">Defensible</div><div class="vp-d">A complete, human-in-the-loop audit trail, validated to GAMP 5. Complements Oracle Argus, Empirica and Clinevo Safety.</div></div></li>
           </ul>
+          <div class="nv-litany">
+            <span class="nv-chip">Logged</span>
+            <span class="nv-chip">Traceable</span>
+            <span class="nv-chip">Reviewable</span>
+            <span class="nv-chip">Defensible</span>
+          </div>
+          <p class="nv-principle">AI accelerates the work. Qualified reviewers keep final judgement on every case.</p>
+          <p class="nv-compliance">Designed for regulated use: 21 CFR Part 11 · EU Annex 11 · CIOMS · EU AI Act.</p>
           <a href="../pivotpath-novavigil.html" class="btns-line mt-4">Explore NovaVigil</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ REGULATORY-READY CHIP BAND ============ -->
-  <section class="pad80 grey" id="regulatory">
+  <!-- ============ FULL LIFECYCLE — 4 PILLARS ============ -->
+  <section class="pad80 grey" id="lifecycle">
     <div class="container">
       <div class="text-center mb-5">
-        <h2 class="section-title reveal">Built for Europe's Regulatory Framework</h2>
+        <h2 class="section-title reveal">The Full Lifecycle Beyond Safety</h2>
       </div>
-      <div class="d-flex flex-wrap justify-content-center gap-2 reveal">
-        <span class="chip-dark">GVP</span>
-        <span class="chip-dark">QPPV</span>
-        <span class="chip-dark">EudraVigilance</span>
-        <span class="chip-dark">EVDAS</span>
-        <span class="chip-dark">XEVMPD / Article 57</span>
-        <span class="chip-dark">E2B (R3) / ISO ICSR</span>
-        <span class="chip-dark">PSMF</span>
-        <span class="chip-dark">PSUR / PBRER</span>
-        <span class="chip-dark">PSUSA</span>
-        <span class="chip-dark">EURD list</span>
-        <span class="chip-dark">PRAC</span>
-        <span class="chip-dark">Signal Management</span>
-        <span class="chip-dark">RMP</span>
-        <span class="chip-dark">PASS</span>
-        <span class="chip-dark">Additional Monitoring</span>
-        <span class="chip-dark">Literature Monitoring</span>
-        <span class="chip-dark">Windsor Framework</span>
-        <span class="chip-dark">GDPR</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ STORY IN NUMBERS ============ -->
-  <section class="pad80 stat-band" id="numbers">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="section-title text-white reveal">Safety Operations at Scale</h2>
-      </div>
-      <div class="row text-center g-4">
-        <div class="col-6 col-md-4 col-lg-2 stat"><div class="num"><span class="count" data-to="35000">0</span><span class="suffix">+</span></div><div class="label">ICSRs / Year</div></div>
-        <div class="col-6 col-md-4 col-lg-2 stat"><div class="num"><span class="count" data-to="1000">0</span><span class="suffix">+</span></div><div class="label">Products — Signal Mgmt</div></div>
-        <div class="col-6 col-md-4 col-lg-2 stat"><div class="num"><span class="count" data-to="400">0</span><span class="suffix">+</span></div><div class="label">Products — Literature</div></div>
-        <div class="col-6 col-md-4 col-lg-2 stat"><div class="num"><span class="count" data-to="400">0</span><span class="suffix">+</span></div><div class="label">Aggregate Reports / Yr</div></div>
-        <div class="col-6 col-md-4 col-lg-2 stat"><div class="num"><span class="count" data-to="99.9" data-dec="1">0</span><span class="suffix">%</span></div><div class="label">On-Time Submission</div></div>
-        <div class="col-6 col-md-4 col-lg-2 stat"><div class="num"><span class="count" data-to="10">0</span><span class="suffix">+</span></div><div class="label">PV Inspections, 7 Yrs</div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ PROOF ============ -->
-  <section class="pad80" id="proof">
-    <div class="container">
-      <div class="row align-items-center g-5">
-        <div class="col-lg-5 reveal">
-          <h2 class="section-title">Outcomes From Real Engagements</h2>
+      <div class="engage-grid cols4 reveal">
+        <div class="engage-col">
+          <h4>Digital Transformation</h4>
+          <p>Pharma 4.0 manufacturing IT, serialisation and track-&amp;-trace (EU MDR / EMVS), SAP and validated applications.</p>
+          <a href="../pivotpath-digital-innovation.html" class="r-link">Explore →</a>
         </div>
-        <div class="col-lg-7">
-          <div class="row g-4">
-            <div class="col-sm-6 reveal"><div class="proof-card"><div class="big">Zero 483s</div><div class="cap">US FDA pharmacovigilance inspection closed with no Form 483 observations.</div></div></div>
-            <div class="col-sm-6 reveal"><div class="proof-card"><div class="big">18,000 serious ICSRs</div><div class="cap">Processed under deadline through surge automation.</div></div></div>
-            <div class="col-sm-6 reveal"><div class="proof-card"><div class="big">~⅓ the cost</div><div class="cap">Aggregate operations in-sourced in just 5 months.</div></div></div>
-            <div class="col-sm-6 reveal"><div class="proof-card"><div class="big">10+ inspections</div><div class="cap">Successful PV inspections over 7 years, with no critical findings on record (FDA / TGA / EU / UK).</div></div></div>
-          </div>
+        <div class="engage-col">
+          <h4>Quality &amp; Compliance</h4>
+          <p>GxP quality systems, computer system validation (21 CFR Part 11 / EU Annex 11) and audit readiness.</p>
+          <a href="../pivotpath-quality-compliance.html" class="r-link">Explore →</a>
+        </div>
+        <div class="engage-col">
+          <h4>IP &amp; Clinical</h4>
+          <p>Patent strategy, regulatory filings and clinical operations, from molecule to launch.</p>
+          <a href="../pivotpath-ip-clinical.html" class="r-link">Explore →</a>
+        </div>
+        <div class="engage-col">
+          <h4>Human Capital</h4>
+          <p>Pharma-native talent, HR digitisation and workforce operations.</p>
+          <a href="../pivotpath-human-capital.html" class="r-link">Explore →</a>
         </div>
       </div>
+      <p class="engage-kicker reveal">One partner across the lifecycle. Engage a single workstream or the whole operation.</p>
     </div>
   </section>
 
-  <!-- ============ WHY US (value proposition) ============ -->
-  <section class="pad80 stat-band" id="whyus">
+  <!-- ============ LEADERSHIP ============ -->
+  <section class="pad80" id="leaders">
     <div class="container">
       <div class="text-center mb-5">
-        <h2 class="section-title text-white reveal">What you get from our safety teams</h2>
-      </div>
-      <div class="row text-center g-4 justify-content-center">
-        <div class="col-md-6 col-lg-4 reveal valstat"><div class="vt">Multi-Country EU Coverage</div><div class="vl">Safety across the EU/EEA, UK and Switzerland, with the right rules per market.</div></div>
-        <div class="col-md-6 col-lg-4 reveal valstat"><div class="vt">Repeatable, Traceable Processes</div><div class="vl">SOP-driven, traceable workflows deliver consistent quality, on time.</div></div>
-        <div class="col-md-6 col-lg-4 reveal valstat"><div class="vt">SME-Led Case Review</div><div class="vl">Medically qualified therapeutic-area experts sign off cases.</div></div>
-        <div class="col-md-6 col-lg-4 reveal valstat"><div class="vt">Audit &amp; Inspection Ready</div><div class="vl">Compliance-by-design keeps your PSMF and documentation inspection-ready.</div></div>
-        <div class="col-md-6 col-lg-4 reveal valstat"><div class="vt">Signals Surfaced Early</div><div class="vl">Proactive EVDAS monitoring catches signals before they become risk.</div></div>
-        <div class="col-md-6 col-lg-4 reveal valstat"><div class="vt">Scalable, Lower-Cost Capacity</div><div class="vl">Round-the-clock coverage absorbs surges, cutting cost per case.</div></div>
-      </div>
-    </div>
-  </section>
-  <!-- ============ PRACTICE LEADERS ============ -->
-  <section class="pad80 grey" id="leaders">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="section-title reveal">The Leaders Behind Patient Safety</h2>
+        <h2 class="section-title reveal">Leadership</h2>
       </div>
       <div class="row g-4 justify-content-center">
         <div class="col-6 col-sm-4 col-md-3 col-lg-2 reveal">
           <div class="leader-card">
-            <img src="../assets/leader-gopal.webp" alt="Dr. Gopal Muralidharan" class="leader-photo" loading="lazy" width="819" height="940">
+            <img src="../assets/leader-danilo.webp" alt="Danilo Di Giannuario" class="leader-photo" loading="lazy" width="697" height="800">
             <div class="leader-body">
-              <div class="leader-name">Dr. Gopal Muralidharan</div>
-              <div class="leader-title">Global Pharmacovigilance &amp; Clinical Ops Advisory</div>
-              <a href="#" target="_blank" rel="noopener" class="leader-linkedin" aria-label="Dr. Gopal Muralidharan on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a>
+              <div class="leader-name">Danilo Di Giannuario</div>
+              <!-- TODO: replace with confirmed title from client -->
+              <div class="leader-title">Title to be confirmed</div>
+              <div class="leader-loc">Prague, Czech Republic</div>
+              <a href="https://www.linkedin.com/in/danilodigiannuario/" target="_blank" rel="noopener" class="leader-linkedin" aria-label="Danilo Di Giannuario on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a>
             </div>
           </div>
         </div>
         <div class="col-6 col-sm-4 col-md-3 col-lg-2 reveal">
           <div class="leader-card">
-            <img src="../assets/leader-naveen.webp" alt="Naveen Kumar H.D" class="leader-photo" loading="lazy" width="819" height="940">
+            <img src="../assets/leader-aurel.webp" alt="Aurel Ignat" class="leader-photo" loading="lazy" width="819" height="940">
             <div class="leader-body">
-              <div class="leader-name">Naveen Kumar H.D</div>
-              <div class="leader-title">Associate Director, Pharmacovigilance</div>
-              <a href="#" target="_blank" rel="noopener" class="leader-linkedin" aria-label="Naveen Kumar H.D on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a>
+              <div class="leader-name">Aurel Ignat</div>
+              <!-- TODO: replace with confirmed title from client -->
+              <div class="leader-title">Title to be confirmed</div>
+              <div class="leader-loc">Switzerland</div>
+              <a href="https://www.linkedin.com/in/aurel-ignat-7b7115181/" target="_blank" rel="noopener" class="leader-linkedin" aria-label="Aurel Ignat on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a>
             </div>
           </div>
         </div>
@@ -607,38 +582,38 @@
     </div>
   </section>
 
-    <!-- ============ FAQ ============ -->
-  <section class="pad80" id="faq">
+  <!-- ============ FAQ ============ -->
+  <section class="pad80 grey" id="faq">
     <div class="container">
       <div class="text-center mb-5">
-        <h2 class="section-title reveal">EU Pharmacovigilance FAQ</h2>
+        <h2 class="section-title reveal">Frequently Asked Questions</h2>
       </div>
       <div class="row justify-content-center">
         <div class="col-lg-9">
           <div class="accordion reveal" id="faqAcc">
             <div class="accordion-item">
-              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q1">Do you provide an EU/EEA QPPV?</button></h2>
-              <div id="q1" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Yes. We provide an EEA-resident Qualified Person for Pharmacovigilance (with back-up cover), named in your Pharmacovigilance System Master File and registered in EudraVigilance, plus local contact persons where an individual member state requires one.</div></div>
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q1">Who will be my first point of contact?</button></h2>
+              <div id="q1" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">A senior lead based in Switzerland or the EU, who owns the relationship end to end and works in your regulatory context, on CET working hours.</div></div>
             </div>
             <div class="accordion-item">
-              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2">Can one partner cover both the EU and the UK after Brexit?</button></h2>
-              <div id="q2" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Yes. We cover your EU/EEA obligations and your UK obligations — a UK QPPV and a UK-based national contact person under the Windsor Framework — and Switzerland (Swissmedic) where needed, on one aligned system.</div></div>
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2">Where is the work actually done?</button></h2>
+              <div id="q2" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Your European leads are in the EU. The bulk of case processing and delivery runs from our pharma-native delivery centres in India, under one quality system, SLAs and a full audit trail. There are no hidden hand-offs.</div></div>
             </div>
             <div class="accordion-item">
-              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q3">Are you EudraVigilance and E2B (R3) ready?</button></h2>
-              <div id="q3" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Yes. We handle EudraVigilance registration and electronic ICSR reporting in E2B (R3) / ISO ICSR, EVDAS-based signal detection, and XEVMPD / Article 57 product-data submissions.</div></div>
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q3">Do you provide an EEA-resident QPPV?</button></h2>
+              <div id="q3" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Yes. An EEA-resident QPPV with back-up cover, named in your PSMF and registered in EudraVigilance, plus local contact persons where a member state requires one, and UK cover under the Windsor Framework.</div></div>
             </div>
             <div class="accordion-item">
-              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q4">Which safety databases do you work in?</button></h2>
-              <div id="q4" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">We work in your environment — Oracle Argus, Empirica, Clinevo Safety — coding in MedDRA and WHO-DD, submitting in E2B (R3). No database? We’ll recommend and stand one up.</div></div>
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q4">How is our safety data governed?</button></h2>
+              <div id="q4" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">With an EU data-residency option, aligned to EU Annex 11, the EU AI Act and GDPR, and a complete human-in-the-loop audit trail on every case.</div></div>
             </div>
             <div class="accordion-item">
-              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q5">Do you support GVP inspection readiness?</button></h2>
-              <div id="q5" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Yes. Our processes are aligned to GVP; we run mock audits, keep your PSMF and documentation inspection-ready, and manage CAPAs — with 10+ PV inspections in 7 years and no critical findings on record.</div></div>
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q5">How fast can you onboard for EU market entry?</button></h2>
+              <div id="q5" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Weeks, not quarters. A fixed-scope pilot de-risks the move, and we have in-sourced full aggregate operations in five months.</div></div>
             </div>
             <div class="accordion-item">
-              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q6">How fast can you onboard for EU market entry?</button></h2>
-              <div id="q6" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Weeks, not quarters. A fixed-scope pilot de-risks the move — we’ve in-sourced full aggregate operations in five months at roughly a third of prior cost.</div></div>
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q6">Can you also cover our US, Canadian and other international obligations?</button></h2>
+              <div id="q6" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Yes. US safety reporting and PADER aggregates run on the same system, with an FDA pharmacovigilance inspection closed with no Form 483 observations. Medical information coverage spans the US, Canada, the UK and the EU, and the operation is TGA-inspected. One system, one audit trail.</div></div>
             </div>
           </div>
         </div>
@@ -647,14 +622,15 @@
   </section>
 
   <!-- ============ FINAL CTA ============ -->
-  <section class="pad80 final-cta text-center" id="contact">
+  <section class="pad80 alt-cta text-center" id="contact">
     <div class="container">
-      <h2 class="section-title text-white reveal mb-3">Entering Europe, or Scaling Your<br>EU Safety Operation?</h2>
-      <p class="text-white-50 reveal mb-4" style="max-width:640px;margin-inline:auto">From an EEA QPPV to a full EU, UK and Switzerland pharmacovigilance operation, start the conversation.</p>
+      <h2 class="section-title text-white reveal mb-3">Entering a Market,<br>or Consolidating Many?</h2>
+      <p class="text-white-50 reveal mb-4" style="max-width:640px;margin-inline:auto">From a single QPPV mandate to a multi-market safety operation. Your first conversation is with our team in Europe.</p>
       <div class="hero-ctas justify-content-center reveal">
-        <a href="mailto:info@pivotpath.com" class="btns2 solid-light">Talk to our EU safety team</a>
-        <a href="../pivotpath-novavigil.html" class="btns-line">Book a NovaVigil demo</a>
+        <a href="mailto:info@pivotpath.com" class="btns2 solid-light">Talk to our safety team</a>
+        <a href="../pivotpath-pharmacovigilance-europe.html" class="btns-line">EU pharmacovigilance in detail</a>
       </div>
+      <p class="cta-note reveal mt-3">Calls scheduled on CET working hours</p>
     </div>
   </section>
 
@@ -721,25 +697,6 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
   <script>
-    // ---- Count-up stat band ----
-    (function(){
-      function run(scope){
-        scope.querySelectorAll('.count').forEach(function(el){
-          if(el.dataset.done)return;el.dataset.done="1";
-          var to=parseFloat(el.dataset.to), dec=parseInt(el.dataset.dec||'0',10);
-          if(to===0){el.textContent="0";return;}
-          var start=null,dur=1600;
-          function step(ts){if(!start)start=ts;var p=Math.min((ts-start)/dur,1);
-            var val=to*(0.5-Math.cos(p*Math.PI)/2);
-            el.textContent=dec?val.toFixed(dec):Math.round(val).toLocaleString();
-            if(p<1)requestAnimationFrame(step);else el.textContent=dec?to.toFixed(dec):to.toLocaleString();}
-          requestAnimationFrame(step);
-        });
-      }
-      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)run(e.target);});},{threshold:.3});
-      document.querySelectorAll('.stat-band').forEach(function(b){io.observe(b);});
-    })();
-
     // ---- Reveal on scroll ----
     (function(){
       var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});

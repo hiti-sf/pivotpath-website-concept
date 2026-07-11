@@ -140,7 +140,7 @@ def render_footer(footer: str, page: str) -> str:
 
 
 # Pages that live in a sub-directory (their asset/link paths need a `../` prefix — see _reroot()).
-SUBDIR_PAGES = ("eu/index.html",)
+SUBDIR_PAGES: tuple[str, ...] = ("eu/index.html",)
 
 
 def pages() -> List[Path]:
@@ -173,7 +173,7 @@ def build(check: bool, limit: int | None) -> int:
     skipped: List[str] = []
     for path in targets:
         rel = path.relative_to(ROOT)
-        page = rel.as_posix()                       # "index.html" or "eu/index.html" — unique key
+        page = rel.as_posix()                       # e.g. "index.html" — unique key (dir/ pages keep their slash)
         prefix = "../" * (len(rel.parts) - 1)       # "" for root pages, "../" one level deep
         text = path.read_text()
         if not (HEADER_RE.search(text) and FOOTER_RE.search(text)):
