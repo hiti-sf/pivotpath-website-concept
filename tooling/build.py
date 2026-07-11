@@ -49,7 +49,7 @@ PRODUCT_TOGGLE_PAGES: Set[str] = {
 # The two homepages. They use RELATIVE in-page anchors (#services, #platforms, #why, #about,
 # #clients) and a brand href of "#"; every other page is a sub-page that rewrites those anchors to
 # point back at the homepage's sections (pivotpath-home.html#...) and links the brand to the homepage.
-HOMEPAGE: Set[str] = {"index.html", "pivotpath-home.html", "pivotpath-home-alt.html"}
+HOMEPAGE: Set[str] = {"index.html", "pivotpath-home.html"}
 # Pages that mark a top-level nav-link active -> {page: href of the link to activate}.
 NAVLINK_ACTIVE: Dict[str, str] = {
     "pivotpath-ai-trust.html": "pivotpath-ai-trust.html",

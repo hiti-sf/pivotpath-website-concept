@@ -4,12 +4,93 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>IT Operations — Pivot Path Managed Manufacturing IT, SAP, RPA & Cybersecurity</title>
-  <meta name="description" content="Managed manufacturing IT for life sciences — Zero-Touch operations, hybrid infrastructure on AWS and Azure, cybersecurity and IT-OT segregation, an SAP Centre of Excellence, RPA automation and GxP compliance governance across a build-and-run model." />
+  <meta name="description" content="Managed manufacturing IT for life sciences — Zero-Touch operations, on-premise and cloud infrastructure, cybersecurity and IT-OT segregation, an SAP Centre of Excellence, RPA automation and GxP compliance governance across a build-and-run model." />
   <link rel="preconnect" href="https://cdn.jsdelivr.net" />
   <link rel="preconnect" href="https://in.fw-cdn.com" />
   <link rel="preload" href="pp.css?v=15" as="style" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="pp.css?v=15" />
+  <style>
+    /* ==== ALT-PAGE PROTOTYPE STYLES (scoped to this page; pp.css untouched) ==== */
+
+    /* Trust band — dense hairline strip under the hero */
+    .tband{border-bottom:1px solid var(--pp-line)}
+    .tband .inner{display:grid;grid-template-columns:minmax(0,4fr) repeat(4,minmax(0,2fr));align-items:stretch}
+    .tband .cell{padding:var(--sp-4) var(--sp-4);border-left:1px solid var(--pp-line)}
+    .tband .cell:first-child{border-left:0;padding-left:0}
+    .tband .note{font-size:var(--fs-lead);font-weight:600;color:var(--pp-ink);display:flex;align-items:center}
+    .tband .n{font-size:1.6rem;font-weight:800;color:var(--pp-ink);line-height:1.1;font-variant-numeric:tabular-nums}
+    .tband .l{font-size:var(--fs-sm);color:var(--pp-muted);margin-top:4px}
+
+    /* Vignette quadrants — dark band over the operations photo */
+    .risk-band{background-color:#0a1016;background-image:linear-gradient(rgba(10,16,22,.9),rgba(10,16,22,.9)),url('assets/dt-ops-bg.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;color:#fff}
+    .risk-band .section-title{color:#fff}
+    .vig-grid{display:grid;grid-template-columns:1fr 1fr}
+    .vig{padding:var(--sp-5)}
+    .vig:nth-child(odd){padding-left:0}
+    .vig:nth-child(even){border-left:1px solid rgba(255,255,255,.2);padding-right:0}
+    .vig:nth-child(n+3){border-top:1px solid rgba(255,255,255,.2)}
+    .vig:nth-child(-n+2){padding-top:0}
+    .vig:nth-child(n+3){padding-bottom:0}
+    .vig h3{font-size:var(--fs-h4);font-weight:700;color:#fff;margin-bottom:var(--sp-2)}
+    .vig p{font-size:var(--fs-lead);line-height:1.6;color:rgba(255,255,255,.8);margin:0;max-width:52ch}
+
+    /* Five movements — connected flow (takeover journey) */
+    .flow4{display:grid;grid-template-columns:repeat(5,1fr);gap:var(--sp-4);position:relative;padding-top:var(--sp-4)}
+    .flow4::before{content:"";position:absolute;top:calc(var(--sp-4) + 7px);left:8px;right:8px;height:2px;background:var(--pp-grad);opacity:.5}
+    .fl .dot{width:16px;height:16px;border-radius:50%;background:var(--pp-grad);margin-bottom:var(--sp-3);position:relative}
+    .fl .ph{font-size:var(--fs-h4);font-weight:800;color:var(--pp-ink);margin-bottom:var(--sp-2)}
+    .fl .fl-note{color:var(--pp-muted);margin-bottom:0;font-size:var(--fs-sm)}
+    .flow-close{margin-top:var(--sp-5);padding-top:var(--sp-4);border-top:1px solid var(--pp-line);font-weight:600;color:var(--pp-ink);max-width:72ch}
+    .flow-close a{color:var(--pp-accent);text-decoration:none}
+    .flow-close a:hover{text-decoration:underline}
+
+    /* Case studies — two hairline editorial columns */
+    .cs-grid{display:grid;grid-template-columns:1fr 1fr}
+    .cs-col{padding:0 var(--sp-5);border-left:1px solid var(--pp-line)}
+    .cs-col:first-child{border-left:0;padding-left:0}
+    .cs-col h4{font-size:var(--fs-h4);margin-bottom:var(--sp-3)}
+    .cs-col p{color:var(--pp-muted)}
+    .cs-go{font-size:var(--fs-sm);font-weight:700;color:var(--pp-accent);text-decoration:none}
+    .cs-go:hover{text-decoration:underline}
+
+    /* Ways to engage — three hairline columns, not cards */
+    .engage-grid{display:grid;grid-template-columns:repeat(3,1fr)}
+    .engage-col{padding:0 var(--sp-5);border-left:1px solid var(--pp-line)}
+    .engage-col:first-child{border-left:0;padding-left:0}
+    .engage-col h4{font-size:var(--fs-h4);margin-bottom:var(--sp-3)}
+    .engage-col p{color:var(--pp-muted)}
+    .engage-kicker{margin-top:var(--sp-5);padding-top:var(--sp-4);border-top:1px solid var(--pp-line);font-weight:600;color:var(--pp-ink)}
+
+    /* Final CTA over the tablet-on-the-line photo */
+    .alt-cta{background-color:#0a1016;background-image:linear-gradient(rgba(10,16,22,.8),rgba(10,16,22,.8)),url('assets/dt-cta-bg.jpg');background-size:cover;background-position:center;background-repeat:no-repeat}
+
+    /* Mobile */
+    @media (max-width:991.98px){
+      .tband .inner{grid-template-columns:repeat(2,1fr)}
+      .tband .cell{border-left:0;padding-left:0}
+      .tband .note{grid-column:1/-1;padding-bottom:0}
+      .engage-grid{grid-template-columns:1fr}
+      .engage-col{border-left:0;padding:var(--sp-4) 0;border-top:1px solid var(--pp-line)}
+      .engage-col:first-child{border-top:0;padding-top:0}
+      .cs-grid{grid-template-columns:1fr}
+      .cs-col{border-left:0;padding:var(--sp-4) 0;border-top:1px solid var(--pp-line)}
+      .cs-col:first-child{border-top:0;padding-top:0}
+      .flow4{grid-template-columns:1fr;gap:var(--sp-4);padding-top:0}
+      .flow4::before{top:0;bottom:0;left:7px;right:auto;width:2px;height:auto}
+      .fl{padding-left:var(--sp-5)}
+      .fl .dot{position:absolute;margin-left:calc(-1 * var(--sp-5))}
+    }
+    @media (max-width:767.98px){
+      .vig-grid{grid-template-columns:1fr}
+      .vig{padding:var(--sp-4) 0}
+      .vig:nth-child(even){border-left:0;padding-right:0}
+      .vig:nth-child(n+2){border-top:1px solid rgba(255,255,255,.2)}
+      .vig:first-child{padding-top:0}
+      .vig:last-child{padding-bottom:0}
+      .vig p{font-size:var(--fs-body)}
+    }
+  </style>
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -18,7 +99,7 @@
       "@type": "Service",
       "name": "IT Operations",
       "serviceType": "IT Operations",
-      "description": "Managed manufacturing IT for life sciences on a build-and-run model — Zero-Touch operations (intelligent event correlation, automated remediation, patch and lifecycle automation), hybrid infrastructure management across on-prem, AWS and Azure with backup and DR, cybersecurity and secure IT-OT segregation, an SAP Centre of Excellence covering HANA and ECC 6.0, RPA and IoT automation with Robotics-as-a-Service, and GxP compliance governance with audit-ready, centralised dashboards.",
+      "description": "Managed manufacturing IT for life sciences on a build-and-run model — Zero-Touch operations (intelligent event correlation, automated remediation, patch and lifecycle automation), infrastructure management across on-premise and cloud with backup and DR, cybersecurity and secure IT-OT segregation, an SAP Centre of Excellence covering HANA and ECC 6.0, RPA and IoT automation with \"Robotics as a Service\" (RaaS), and GxP compliance governance with audit-ready, centralised dashboards.",
       "provider": {
         "@type": "Organization",
         "@id": "https://pivotpath.com/#organization",
@@ -71,10 +152,10 @@
         },
         {
           "@type": "Question",
-          "name": "Do you run both on-prem and cloud infrastructure?",
+          "name": "Do you run both on-premise and cloud infrastructure?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes — we manage hybrid infrastructure across on-prem and cloud, including backup and disaster recovery and capacity and lifecycle management, with cloud instances on AWS and Azure."
+            "text": "Yes — we manage infrastructure across on-premise and cloud as one environment, including backup and disaster recovery and capacity and lifecycle management, under a single operating standard."
           }
         },
         {
@@ -82,7 +163,7 @@
           "name": "How do you secure the IT-OT boundary?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "We deliver secure IT-OT segregation through network segmentation, firewall and access governance and vulnerability management, alongside continuous security monitoring across the estate."
+            "text": "We deliver secure IT-OT segregation through network segmentation, firewall and access governance and vulnerability management, alongside continuous security monitoring across the whole environment."
           }
         },
         {
@@ -202,10 +283,10 @@
     <div class="container">
       <div class="crumb"><a href="pivotpath-home.html">Home</a> &nbsp;/&nbsp; <a href="pivotpath-home.html#services">Services</a> &nbsp;/&nbsp; <a href="pivotpath-digital-innovation.html">Digital Transformation</a> &nbsp;/&nbsp; IT Operations</div>
       <h1>Manage.<br>Protect. Comply.</h1>
-      <p class="lead">Managed manufacturing IT for life sciences. We build and run the pharma IT estate, from Zero-Touch operations and hybrid infrastructure to cybersecurity, an SAP Centre of Excellence, RPA automation and GxP compliance governance.</p>
+      <p class="lead">We run manufacturing IT for life sciences — infrastructure operations across on-premise and cloud, cybersecurity and secure IT-OT segregation, SAP operations, process automation and GxP compliance governance — built and operated for your plants and sites as one accountable service.</p>
       <div class="hero-ctas">
         <a href="#contact" class="btns2 solid-light">Talk to our IT operations team</a>
-        <a href="#process" class="btns-line">See how it works</a>
+        <a href="pivotpath-zero-touch-it.html" class="btns-line">Read the Zero-Touch IT case study</a>
       </div>
     </div>
   </section>
@@ -215,179 +296,201 @@
     <div class="container">
       <div class="inner">
         <a href="#overview" class="active">Overview</a>
-        <a href="#challenge">The Challenge</a>
-        <a href="#what">What We Do</a>
-        <a href="#process">Process</a>
-        <a href="#numbers">Story in Numbers</a>
-        <a href="#proof">Proof</a>
-        <a href="#whyus">Why Us</a>
+        <a href="#record">Track Record</a>
+        <a href="#services">What We Run</a>
+        <a href="#assurance">Approach</a>
+        <a href="#journey">How We Take Over</a>
+        <a href="#proof">Case Studies</a>
+        <a href="#engage">Ways to Engage</a>
         <a href="#leaders">Leaders</a>
         <a href="#faq">FAQ</a>
       </div>
     </div>
   </nav>
 
-  <!-- ============ HIGHLIGHTS ============ -->
-  <section class="pad60">
+  <!-- ============ TRUST BAND ============ -->
+  <section class="tband pad60" id="record">
     <div class="container">
-      <div class="row g-4 align-items-center">
-        <div class="col-lg-5 reveal">
-          <h2 class="section-title">We Build and Run Your Pharma IT</h2>
+      <div class="inner reveal">
+        <div class="cell note">SOP-driven, traceable and audit-ready — GxP governance across every plant and site.</div>
+        <div class="cell"><div class="n">160+</div><div class="l">Audits fronted — regulatory &amp; customer</div></div>
+        <div class="cell"><div class="n">24/7</div><div class="l">Continuous security monitoring</div></div>
+        <div class="cell"><div class="n">GxP</div><div class="l">Centralised compliance dashboards</div></div>
+        <div class="cell"><div class="n">Backup &amp; DR</div><div class="l">Resilience designed into every environment</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHAT WE RUN (pill-tabs) ============ -->
+  <section class="pad80 grey" id="services">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title reveal">Your Plant IT, Run as a Service</h2>
+      </div>
+      <div class="cap-tabs reveal" role="tablist" aria-label="IT Operations services">
+        <button class="cap-tab" role="tab" id="pt-1" aria-controls="pp-1" aria-selected="true"  tabindex="0">Zero-Touch Operations</button>
+        <button class="cap-tab" role="tab" id="pt-2" aria-controls="pp-2" aria-selected="false" tabindex="-1">Infrastructure &amp; DR</button>
+        <button class="cap-tab" role="tab" id="pt-3" aria-controls="pp-3" aria-selected="false" tabindex="-1">Cybersecurity &amp; IT-OT</button>
+        <button class="cap-tab" role="tab" id="pt-4" aria-controls="pp-4" aria-selected="false" tabindex="-1">SAP Centre of Excellence</button>
+        <button class="cap-tab" role="tab" id="pt-5" aria-controls="pp-5" aria-selected="false" tabindex="-1">Automation &amp; RaaS</button>
+        <button class="cap-tab" role="tab" id="pt-6" aria-controls="pp-6" aria-selected="false" tabindex="-1">GxP Governance</button>
+      </div>
+      <div class="cap-panels reveal">
+        <div class="cap-panel" role="tabpanel" id="pp-1" aria-labelledby="pt-1" tabindex="0">
+          <h3 class="cap-panel-h">Routine operations, off your team's hands.</h3>
+          <p class="cap-panel-p">Intelligent event correlation across your environment, automated remediation of routine incidents, and patch and lifecycle automation — the model behind our Zero-Touch IT engagements.</p>
+          <div class="cap-foot">
+            <a href="#contact" class="cap-explore">Discuss Zero-Touch operations <span aria-hidden="true">→</span></a>
+          </div>
         </div>
-        <div class="col-lg-7">
-          <div class="row g-4">
-            <div class="col-6 col-md-3 reveal"><div class="hl"><div class="n">12+</div><div class="l">IT Ecosystems Run</div></div></div>
-            <div class="col-6 col-md-3 reveal"><div class="hl"><div class="n">7,000+</div><div class="l">Users Supported</div></div></div>
-            <div class="col-6 col-md-3 reveal"><div class="hl"><div class="n">28</div><div class="l">Sites / 4 Continents</div></div></div>
-            <div class="col-6 col-md-3 reveal"><div class="hl"><div class="n">160+</div><div class="l">Audits Fronted</div></div></div>
+        <div class="cap-panel" role="tabpanel" id="pp-2" aria-labelledby="pt-2" tabindex="0" hidden>
+          <h3 class="cap-panel-h">On-premise and cloud, managed as one.</h3>
+          <p class="cap-panel-p">Infrastructure across on-premise and cloud — with backup and disaster recovery, capacity and lifecycle management, and one operating standard across all of it.</p>
+          <div class="cap-foot">
+            <a href="#contact" class="cap-explore">Discuss your infrastructure <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+        <div class="cap-panel" role="tabpanel" id="pp-3" aria-labelledby="pt-3" tabindex="0" hidden>
+          <h3 class="cap-panel-h">The boundary between IT and OT, held.</h3>
+          <p class="cap-panel-p">Network segmentation across IT and OT, firewall and access governance, vulnerability management and continuous security monitoring — production protected without slowing it down.</p>
+          <div class="cap-foot">
+            <a href="#contact" class="cap-explore">Arrange a security review <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+        <div class="cap-panel" role="tabpanel" id="pp-4" aria-labelledby="pt-4" tabindex="0" hidden>
+          <h3 class="cap-panel-h">SAP, implemented and maintained for pharma.</h3>
+          <p class="cap-panel-p">Implementations, rollouts, upgrades, application maintenance and integration across the SAP landscape — HANA and ECC 6.0 depth, inside the same managed model.</p>
+          <div class="cap-foot">
+            <a href="pivotpath-svc-sap-coe.html" class="cap-explore">Explore the SAP COE <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+        <div class="cap-panel" role="tabpanel" id="pp-5" aria-labelledby="pt-5" tabindex="0" hidden>
+          <h3 class="cap-panel-h">Automation delivered as a service, not a project.</h3>
+          <p class="cap-panel-p">Process automation with RPA, AI and ML under "Robotics as a Service" (RaaS), an enterprise RPA Centre of Excellence, and IoT-connected data across operations.</p>
+          <div class="cap-foot">
+            <a href="#contact" class="cap-explore">Discuss automation <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+        <div class="cap-panel" role="tabpanel" id="pp-6" aria-labelledby="pt-6" tabindex="0" hidden>
+          <h3 class="cap-panel-h">Compliance that is part of the operation.</h3>
+          <p class="cap-panel-p">SOP-driven, traceable operations with audit-ready records and controls, continuous security monitoring, and centralised compliance dashboards — one view of control status.</p>
+          <div class="cap-foot">
+            <a href="#contact" class="cap-explore">Talk about GxP governance <span aria-hidden="true">→</span></a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ CHALLENGE ============ -->
-  <section class="pad80 grey" id="challenge">
+  <!-- ============ VIGNETTES ============ -->
+  <section class="pad80 risk-band" id="assurance">
     <div class="container">
       <div class="text-center mb-5">
-        <h2 class="section-title reveal">The failure points in manufacturing IT</h2>
+        <h2 class="section-title reveal">Built for the Realities of Manufacturing IT</h2>
       </div>
-      <div class="row g-4">
-        <div class="col-md-6 col-lg-3 reveal"><div class="pain"><div class="x">▤</div><h5>Legacy IT sprawl</h5><p>Ageing, fragmented systems drive unplanned downtime and a rising cost to keep the lights on.</p></div></div>
-        <div class="col-md-6 col-lg-3 reveal"><div class="pain"><div class="x">▣</div><h5>IT-OT security exposure</h5><p>An open boundary between IT and shop-floor OT widens the attack surface across the plant.</p></div></div>
-        <div class="col-md-6 col-lg-3 reveal"><div class="pain"><div class="x">⚠</div><h5>Audit &amp; compliance burden</h5><p>Proving GxP control and staying audit-ready stretches thin, overloaded IT teams.</p></div></div>
-        <div class="col-md-6 col-lg-3 reveal"><div class="pain"><div class="x">⟳</div><h5>Manual ops toil</h5><p>Repetitive incidents, patching and routine tasks eat the day and delay real improvement.</p></div></div>
+      <div class="vig-grid reveal">
+        <div class="vig">
+          <h3>When legacy systems fail without warning</h3>
+          <p>Intelligent event correlation and automated remediation act before users notice — and patch and lifecycle automation stops the same failure returning.</p>
+        </div>
+        <div class="vig">
+          <h3>When the shop floor meets the network</h3>
+          <p>Secure IT-OT segregation — network segmentation, firewall and access governance, vulnerability management — keeps an attack on one side from becoming an outage on the other.</p>
+        </div>
+        <div class="vig">
+          <h3>When the auditor asks who changed what</h3>
+          <p>Operations are SOP-driven and traceable, with centralised compliance dashboards giving one view of control status. The evidence exists before the question does.</p>
+        </div>
+        <div class="vig">
+          <h3>When routine work consumes the team</h3>
+          <p>Automation absorbs incidents, patching and repetitive tasks, so your people spend their days improving the environment instead of keeping it running.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ WHAT WE DO ============ -->
-  <section class="pad80" id="what">
+  <!-- ============ HOW WE TAKE OVER ============ -->
+  <section class="pad80" id="journey">
     <div class="container">
       <div class="text-center mb-5">
-        <h2 class="section-title reveal">Comprehensive Managed Manufacturing IT</h2>
+        <h2 class="section-title reveal">How We Take Over Your IT Operations</h2>
       </div>
-      <div class="row g-4">
-        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
-          <h4>Zero-Touch Managed Operations</h4>
-          <ul><li>Intelligent event correlation across the estate</li><li>Automated remediation of routine incidents</li><li>Patch &amp; lifecycle automation and orchestration</li><li>See our <a href="pivotpath-zero-touch-it.html">Zero-Touch IT case study</a></li></ul>
-        </div></div>
-        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
-          <h4>Hybrid Infrastructure & DR</h4>
-          <ul><li>On-prem and cloud managed as one estate</li><li>Backup and disaster recovery</li><li>Capacity and lifecycle management</li><li>Cloud instances on AWS &amp; Azure</li></ul>
-        </div></div>
-        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
-          <h4>Cybersecurity & IT-OT Segregation</h4>
-          <ul><li>Network segmentation across IT and OT</li><li>Firewall and access governance</li><li>Vulnerability management</li><li>Continuous security monitoring</li></ul>
-        </div></div>
-        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
-          <h4>SAP Centre of Excellence</h4>
-          <ul><li>Implementations, rollouts and upgrades</li><li>Application maintenance (AMC)</li><li>Integration across the SAP landscape</li><li>HANA and ECC 6.0 expertise</li></ul>
-        </div></div>
-        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
-          <h4>RPA & Automation (RaaS)</h4>
-          <ul><li>Process automation with RPA, AI and ML</li><li>Robotics-as-a-Service (RaaS)</li><li>Enterprise RPA Centre of Excellence</li><li>IoT-connected data across operations</li></ul>
-        </div></div>
-        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
-          <h4>GxP Compliance Governance</h4>
-          <ul><li>SOP-driven, traceable operations</li><li>Audit-ready records and controls</li><li>Continuous security monitoring</li><li>Centralised compliance dashboards</li></ul>
-        </div></div>
+      <div class="flow4 reveal">
+        <div class="fl">
+          <div class="dot"></div>
+          <div class="ph">Assess</div>
+          <p class="fl-note">Your environment, dependencies and risks mapped — on-premise, cloud and the OT boundary.</p>
+        </div>
+        <div class="fl">
+          <div class="dot"></div>
+          <div class="ph">Secure</div>
+          <p class="fl-note">IT segmented from OT; the environment hardened with access governance and vulnerability management.</p>
+        </div>
+        <div class="fl">
+          <div class="dot"></div>
+          <div class="ph">Automate</div>
+          <p class="fl-note">Event correlation, automated remediation and patch automation take routine ops off people's hands.</p>
+        </div>
+        <div class="fl">
+          <div class="dot"></div>
+          <div class="ph">Govern</div>
+          <p class="fl-note">SOP-driven, traceable operations keep every site audit-ready, with one view of control status.</p>
+        </div>
+        <div class="fl">
+          <div class="dot"></div>
+          <div class="ph">Improve</div>
+          <p class="fl-note">We run your IT day to day — and keep raising reliability, security and automation.</p>
+        </div>
       </div>
+      <p class="flow-close reveal">One team assesses, secures, automates and runs — so nothing is lost between project and operations.</p>
     </div>
   </section>
 
-  <!-- ============ PROCESS ============ -->
-  <section class="pad80 grey" id="process">
+  <!-- ============ CASE STUDIES ============ -->
+  <section class="pad80 grey" id="proof">
     <div class="container">
       <div class="text-center mb-5">
-        <h2 class="section-title reveal">How We Run Your IT</h2>
+        <h2 class="section-title reveal">Proven in Operation</h2>
       </div>
-      <div class="proc reveal cols-5">
-        <div class="proc-step">
-          <div class="pic"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
-          <div class="pk">Step 1</div>
-          <h5>Assess</h5>
-          <p>We map the IT estate, dependencies and risks across on-prem, cloud and the OT boundary.</p>
+      <div class="cs-grid reveal">
+        <div class="cs-col">
+          <h4>Zero-Touch IT Operations</h4>
+          <p>A pharma CDMO moved its manufacturing IT to zero-touch operation — intelligent event correlation, automated remediation and patch automation running routine operations with minimal manual intervention, under GxP compliance governance.</p>
+          <a href="pivotpath-zero-touch-it.html" class="cs-go">Read the case study →</a>
         </div>
-        <div class="proc-step">
-          <div class="pic"><svg viewBox="0 0 24 24"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/></svg></div>
-          <div class="pk">Step 2</div>
-          <h5>Secure &amp; Segregate</h5>
-          <p>We segment IT from OT and harden the estate with firewalls, access governance and vulnerability management.</p>
-        </div>
-        <div class="proc-step">
-          <div class="pic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg></div>
-          <div class="pk">Step 3</div>
-          <h5>Automate (Zero-Touch)</h5>
-          <p>Event correlation, automated remediation and patch automation take routine ops off people’s hands.</p>
-        </div>
-        <div class="proc-step">
-          <div class="pic"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
-          <div class="pk">Step 4</div>
-          <h5>Govern (GxP)</h5>
-          <p>SOP-driven, traceable operations keep the estate audit-ready with centralised compliance dashboards.</p>
-        </div>
-        <div class="proc-step">
-          <div class="pic"><svg viewBox="0 0 24 24"><path d="M1 4v6h6"/><path d="M3.5 15a9 9 0 1 0 2.1-9.4L1 10"/></svg></div>
-          <div class="pk">Step 5</div>
-          <h5>Run &amp; Improve</h5>
-          <p>We run the estate day to day and keep raising reliability, security and automation over time.</p>
+        <div class="cs-col">
+          <h4>Identity &amp; User Management</h4>
+          <p>Joiner, mover and leaver processes automated end to end — HRMS-triggered, ticket-approved and BOT-executed, with traceable, audit-ready access governance across enterprise systems.</p>
+          <a href="pivotpath-identity-user-management.html" class="cs-go">Read the case study →</a>
         </div>
       </div>
     </div>
   </section>
 
-
-  <!-- ============ STORY IN NUMBERS ============ -->
-  <section class="pad80 stat-band" id="numbers">
+  <!-- ============ WAYS TO ENGAGE ============ -->
+  <section class="pad80" id="engage">
     <div class="container">
       <div class="text-center mb-5">
-        <h2 class="section-title text-white reveal">What Managed IT Delivers</h2>
+        <h2 class="section-title reveal">Ways to Engage</h2>
       </div>
-      <div class="row text-center g-4 justify-content-center">
-        <div class="col-6 col-md-3 stat"><div class="num"><span class="count" data-to="12">0</span><span class="suffix">+</span></div><div class="label">IT Ecosystems Run</div></div>
-        <div class="col-6 col-md-3 stat"><div class="num"><span class="count" data-to="7000">0</span><span class="suffix">+</span></div><div class="label">Users Supported</div></div>
-        <div class="col-6 col-md-3 stat"><div class="num"><span class="count" data-to="28">0</span></div><div class="label">Sites / 4 Continents</div></div>
-        <div class="col-6 col-md-3 stat"><div class="num"><span class="count" data-to="160">0</span><span class="suffix">+</span></div><div class="label">Audits Fronted</div></div>
+      <div class="engage-grid reveal">
+        <div class="engage-col">
+          <h4>Advisory</h4>
+          <p>IT and security assessment — dependencies, risks and the IT-OT boundary mapped across your sites, on-premise and cloud, with a remediation roadmap you can act on.</p>
+        </div>
+        <div class="engage-col">
+          <h4>Delivery</h4>
+          <p>SAP implementations, rollouts and upgrades, infrastructure builds and automation deployments — delivered validated, documented and ready to operate.</p>
+        </div>
+        <div class="engage-col">
+          <h4>Managed Operations</h4>
+          <p>Your manufacturing IT run as a service under GxP governance — Zero-Touch operations, backup and DR, continuous monitoring and RaaS-based automation.</p>
+        </div>
       </div>
+      <p class="engage-kicker reveal">Each engagement model is contractable independently — begin with a defined scope and expand as your requirements evolve.</p>
     </div>
   </section>
 
-  <!-- ============ PROOF ============ -->
-  <section class="pad80" id="proof">
-    <div class="container">
-      <div class="row align-items-center g-5">
-        <div class="col-lg-5 reveal">
-          <h2 class="section-title">The Engineering Behind the Estate</h2>
-        </div>
-        <div class="col-lg-7">
-          <div class="row g-4">
-            <div class="col-sm-6 reveal"><div class="proof-card"><div class="big">28 sites</div><div class="cap">IT operations run across 28 manufacturing sites spanning four continents.</div></div></div>
-            <div class="col-sm-6 reveal"><div class="proof-card"><div class="big">3 cloud</div><div class="cap">Three cloud instances managed on AWS and Azure alongside on-prem infrastructure.</div></div></div>
-            <div class="col-sm-6 reveal"><div class="proof-card"><div class="big">170+ processes</div><div class="cap">Over 170 processes automated with RPA and Robotics-as-a-Service.</div></div></div>
-            <div class="col-sm-6 reveal"><div class="proof-card"><div class="big">160+ audits</div><div class="cap">More than 160 audits fronted with SOP-driven, audit-ready GxP governance.</div></div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ WHY US (value proposition) ============ -->
-  <section class="pad80 stat-band" id="whyus">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="section-title text-white reveal">What our managed IT model delivers</h2>
-      </div>
-      <div class="row text-center g-4 justify-content-center">
-        <div class="col-md-6 col-lg-4 reveal valstat"><div class="vt">Build and run</div><div class="vl">We take on the whole pharma IT estate rather than one-off projects.</div></div>
-        <div class="col-md-6 col-lg-4 reveal valstat"><div class="vt">Zero-Touch operations</div><div class="vl">Event correlation, automated remediation and patch automation cut manual toil.</div></div>
-        <div class="col-md-6 col-lg-4 reveal valstat"><div class="vt">Secure by design</div><div class="vl">IT-OT segregation, access governance and continuous monitoring across the estate.</div></div>
-        <div class="col-md-6 col-lg-4 reveal valstat"><div class="vt">SAP Centre of Excellence</div><div class="vl">Implementations, rollouts, upgrades and AMC, with HANA and ECC 6.0 depth.</div></div>
-        <div class="col-md-6 col-lg-4 reveal valstat"><div class="vt">Automation at scale</div><div class="vl">Enterprise RPA Centre of Excellence and Robotics-as-a-Service across operations.</div></div>
-        <div class="col-md-6 col-lg-4 reveal valstat"><div class="vt">Audit-ready governance</div><div class="vl">SOP-driven, traceable operations with centralised GxP compliance dashboards.</div></div>
-      </div>
-    </div>
-  </section>
   <!-- ============ PRACTICE LEADERS ============ -->
   <section class="pad80 grey" id="leaders">
     <div class="container">
@@ -417,8 +520,7 @@
     </div>
   </section>
 
-
-    <!-- ============ FAQ ============ -->
+  <!-- ============ FAQ ============ -->
   <section class="pad80" id="faq">
     <div class="container">
       <div class="text-center mb-5">
@@ -432,12 +534,12 @@
               <div id="q1" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Zero-Touch is our managed manufacturing IT model — Manage, Protect, Comply — where intelligent event correlation, automated remediation and patch and lifecycle automation keep the pharma IT ecosystem running with minimal manual intervention.</div></div>
             </div>
             <div class="accordion-item">
-              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2">Do you run both on-prem and cloud infrastructure?</button></h2>
-              <div id="q2" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Yes — we manage hybrid infrastructure across on-prem and cloud, including backup and disaster recovery and capacity and lifecycle management, with cloud instances on AWS and Azure.</div></div>
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2">Do you run both on-premise and cloud infrastructure?</button></h2>
+              <div id="q2" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Yes — we manage infrastructure across on-premise and cloud as one environment, including backup and disaster recovery and capacity and lifecycle management, under a single operating standard.</div></div>
             </div>
             <div class="accordion-item">
               <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q3">How do you secure the IT-OT boundary?</button></h2>
-              <div id="q3" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">We deliver secure IT-OT segregation through network segmentation, firewall and access governance and vulnerability management, alongside continuous security monitoring across the estate.</div></div>
+              <div id="q3" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">We deliver secure IT-OT segregation through network segmentation, firewall and access governance and vulnerability management, alongside continuous security monitoring across the whole environment.</div></div>
             </div>
             <div class="accordion-item">
               <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q4">What does your SAP Centre of Excellence cover?</button></h2>
@@ -454,10 +556,10 @@
   </section>
 
   <!-- ============ FINAL CTA ============ -->
-  <section class="pad80 final-cta text-center" id="contact">
+  <section class="pad80 alt-cta text-center" id="contact">
     <div class="container">
-      <h2 class="section-title text-white reveal mb-3">Manage.<br>Protect. Comply.</h2>
-      <p class="text-white-50 reveal mb-4" style="max-width:640px;margin-inline:auto">Zero-Touch operations, hybrid infrastructure and cybersecurity, an SAP Centre of Excellence, RPA automation or GxP compliance governance. Talk to our IT operations team.</p>
+      <h2 class="section-title text-white reveal mb-3">One Team for Your<br>Manufacturing IT</h2>
+      <p class="text-white-50 reveal mb-4" style="max-width:640px;margin-inline:auto">Zero-Touch operations, infrastructure, cybersecurity, SAP or GxP governance — start with the piece under most pressure, and our IT operations team will take it from there.</p>
       <div class="hero-ctas justify-content-center reveal">
         <a href="mailto:info@pivotpath.com" class="btns2 solid-light">Talk to our IT operations team</a>
         <a href="pivotpath-digital-innovation.html" class="btns-line">See the Digital Transformation pillar</a>
@@ -528,38 +630,54 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
   <script>
+    // ---- Service pill-tabs (accessible) ----
     (function(){
-      function run(scope){
-        scope.querySelectorAll('.count').forEach(function(el){
-          if(el.dataset.done)return;el.dataset.done="1";
-          var to=parseFloat(el.dataset.to), dec=parseInt(el.dataset.dec||'0',10);
-          if(to===0){el.textContent="0";return;}
-          var start=null,dur=1600;
-          function step(ts){if(!start)start=ts;var p=Math.min((ts-start)/dur,1);
-            var val=to*(0.5-Math.cos(p*Math.PI)/2);
-            el.textContent=dec?val.toFixed(dec):Math.round(val).toLocaleString();
-            if(p<1)requestAnimationFrame(step);else el.textContent=dec?to.toFixed(dec):to.toLocaleString();}
-          requestAnimationFrame(step);
+      var tabs=Array.prototype.slice.call(document.querySelectorAll('.cap-tab'));
+      if(!tabs.length)return;
+      var panels=tabs.map(function(t){return document.getElementById(t.getAttribute('aria-controls'));});
+      function select(idx,focus){
+        tabs.forEach(function(t,i){
+          var on=i===idx;
+          t.setAttribute('aria-selected',on?'true':'false');
+          t.tabIndex=on?0:-1;
+          if(panels[i])panels[i].hidden=!on;
         });
+        if(focus&&tabs[idx])tabs[idx].focus();
       }
-      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)run(e.target);});},{threshold:.3});
-      document.querySelectorAll('.stat-band').forEach(function(b){io.observe(b);});
+      tabs.forEach(function(tab,i){
+        tab.addEventListener('click',function(){select(i,false);});
+        tab.addEventListener('keydown',function(e){
+          var n;
+          if(e.key==='ArrowRight'||e.key==='ArrowDown')n=(i+1)%tabs.length;
+          else if(e.key==='ArrowLeft'||e.key==='ArrowUp')n=(i-1+tabs.length)%tabs.length;
+          else if(e.key==='Home')n=0;
+          else if(e.key==='End')n=tabs.length-1;
+          else return;
+          e.preventDefault();select(n,true);
+        });
+      });
+      select(0,false);
     })();
+
+    // ---- Reveal on scroll ----
     (function(){
       var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
       document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
     })();
+
+    // ---- Active anchor-nav highlight ----
     (function(){
       var links=[].slice.call(document.querySelectorAll('.anchor-nav a'));
       var map=links.map(function(a){return {a:a,el:document.querySelector(a.getAttribute('href'))};}).filter(function(x){return x.el;});
-      function onScroll(){var y=window.scrollY+120,cur=map[0];
+      function onScroll(){
+        var y=window.scrollY+120,cur=map[0];
         map.forEach(function(x){if(x.el.offsetTop<=y)cur=x;});
-        links.forEach(function(a){a.classList.remove('active');});if(cur)cur.a.classList.add('active');}
+        links.forEach(function(a){a.classList.remove('active');});
+        if(cur)cur.a.classList.add('active');
+      }
       window.addEventListener('scroll',onScroll,{passive:true});onScroll();
     })();
   </script>
   <script src="pp-mobile.js" defer></script>
-  <!-- design-toggle -->
-  <a href="pivotpath-svc-it-operations-alt.html" style="position:fixed;left:18px;bottom:18px;z-index:2000;background:#0f141b;color:#fff;padding:10px 18px;border-radius:999px;font:600 13px/1 -apple-system,'Segoe UI',Roboto,Arial,sans-serif;letter-spacing:.02em;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,.28);opacity:.92" aria-label="View alternate design">View alternate design</a>
 </body>
 </html>

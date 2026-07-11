@@ -3,13 +3,88 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Digital Transformation — Pivot Path Digital Manufacturing, Track & Trace & IT</title>
-  <meta name="description" content="Digital factory, MES, serialisation, SAP, RPA and IT infrastructure from Pivot Path — we build your digital factory and run it too, across 12+ pharma IT ecosystems and 7,000+ users." />
+  <title>Digital Transformation — Pivot Path | One Partner, Shop Floor to Enterprise</title>
+  <meta name="description" content="Digital transformation for pharma from Pivot Path — one partner across manufacturing systems, IT estates and OT infrastructure, from strategy through steady state, with compliance designed in." />
   <link rel="preconnect" href="https://cdn.jsdelivr.net" />
   <link rel="preconnect" href="https://in.fw-cdn.com" />
   <link rel="preload" href="pp.css?v=15" as="style" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="pp.css?v=15" />
+  <style>
+    /* ==== ALT-PAGE PROTOTYPE STYLES (scoped to this page; pp.css untouched) ==== */
+
+    /* Trust band — dense hairline strip under the hero */
+    .tband{border-bottom:1px solid var(--pp-line)}
+    .tband .inner{display:grid;grid-template-columns:minmax(0,4fr) repeat(4,minmax(0,2fr));align-items:stretch}
+    .tband .cell{padding:var(--sp-4) var(--sp-4);border-left:1px solid var(--pp-line)}
+    .tband .cell:first-child{border-left:0;padding-left:0}
+    .tband .note{font-size:var(--fs-lead);font-weight:600;color:var(--pp-ink);display:flex;align-items:center}
+    .tband .n{font-size:1.6rem;font-weight:800;color:var(--pp-ink);line-height:1.1;font-variant-numeric:tabular-nums}
+    .tband .l{font-size:var(--fs-sm);color:var(--pp-muted);margin-top:4px}
+
+    /* Vignette quadrants — dark band over the control-room photo */
+    .risk-band{background-color:#0a1016;background-image:linear-gradient(rgba(10,16,22,.9),rgba(10,16,22,.9)),url('assets/dt-ops-bg.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;color:#fff}
+    .risk-band .section-title{color:#fff}
+    .vig-grid{display:grid;grid-template-columns:1fr 1fr}
+    .vig{padding:var(--sp-5)}
+    .vig:nth-child(odd){padding-left:0}
+    .vig:nth-child(even){border-left:1px solid rgba(255,255,255,.2);padding-right:0}
+    .vig:nth-child(n+3){border-top:1px solid rgba(255,255,255,.2)}
+    .vig:nth-child(-n+2){padding-top:0}
+    .vig:nth-child(n+3){padding-bottom:0}
+    .vig h3{font-size:var(--fs-h4);font-weight:700;color:#fff;margin-bottom:var(--sp-2)}
+    .vig p{font-size:var(--fs-lead);line-height:1.6;color:rgba(255,255,255,.8);margin:0;max-width:52ch}
+
+    /* Four movements — connected flow, one journey */
+    .flow4{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--sp-5);position:relative;padding-top:var(--sp-4)}
+    .flow4::before{content:"";position:absolute;top:calc(var(--sp-4) + 7px);left:8px;right:8px;height:2px;background:var(--pp-grad);opacity:.5}
+    .fl .dot{width:16px;height:16px;border-radius:50%;background:var(--pp-grad);margin-bottom:var(--sp-3);position:relative}
+    .fl .ph{font-size:var(--fs-h3);font-weight:800;color:var(--pp-ink);margin-bottom:var(--sp-2)}
+    .fl .fl-note{color:var(--pp-muted);margin-bottom:var(--sp-3)}
+    .fl .fl-svcs{font-size:var(--fs-sm);font-weight:700;color:var(--pp-ink)}
+    .fl .fl-svcs a{color:var(--pp-accent);text-decoration:none}
+    .fl .fl-svcs a:hover{text-decoration:underline}
+    .flow-close{margin-top:var(--sp-5);padding-top:var(--sp-4);border-top:1px solid var(--pp-line);font-weight:600;color:var(--pp-ink);max-width:72ch}
+
+    /* Data-to-decisions contrast (dark spotlight section) */
+    .spotlight .dd-link{color:rgba(255,255,255,.75);font-size:var(--fs-sm);margin-top:var(--sp-4);border-top:1px solid rgba(255,255,255,.22);padding-top:var(--sp-3)}
+    .spotlight .dd-link a{color:#fff;font-weight:700;text-decoration:none}
+    .spotlight .dd-link a:hover{text-decoration:underline}
+
+    /* Ways to engage — three hairline columns, not cards */
+    .engage-grid{display:grid;grid-template-columns:repeat(3,1fr)}
+    .engage-col{padding:0 var(--sp-5);border-left:1px solid var(--pp-line)}
+    .engage-col:first-child{border-left:0;padding-left:0}
+    .engage-col h4{font-size:var(--fs-h4);margin-bottom:var(--sp-3)}
+    .engage-col p{color:var(--pp-muted)}
+    .engage-kicker{margin-top:var(--sp-5);padding-top:var(--sp-4);border-top:1px solid var(--pp-line);font-weight:600;color:var(--pp-ink)}
+
+    /* Final CTA over the tablet-on-the-line photo */
+    .alt-cta{background-color:#0a1016;background-image:linear-gradient(rgba(10,16,22,.8),rgba(10,16,22,.8)),url('assets/dt-cta-bg.jpg');background-size:cover;background-position:center;background-repeat:no-repeat}
+
+    /* Mobile */
+    @media (max-width:991.98px){
+      .tband .inner{grid-template-columns:repeat(2,1fr)}
+      .tband .cell{border-left:0;padding-left:0}
+      .tband .note{grid-column:1/-1;padding-bottom:0}
+      .engage-grid{grid-template-columns:1fr}
+      .engage-col{border-left:0;padding:var(--sp-4) 0;border-top:1px solid var(--pp-line)}
+      .engage-col:first-child{border-top:0;padding-top:0}
+      .flow4{grid-template-columns:1fr;gap:var(--sp-4);padding-top:0}
+      .flow4::before{top:0;bottom:0;left:7px;right:auto;width:2px;height:auto}
+      .fl{padding-left:var(--sp-5)}
+      .fl .dot{position:absolute;margin-left:calc(-1 * var(--sp-5))}
+    }
+    @media (max-width:767.98px){
+      .vig-grid{grid-template-columns:1fr}
+      .vig{padding:var(--sp-4) 0}
+      .vig:nth-child(even){border-left:0;padding-right:0}
+      .vig:nth-child(n+2){border-top:1px solid rgba(255,255,255,.2)}
+      .vig:first-child{padding-top:0}
+      .vig:last-child{padding-bottom:0}
+      .vig p{font-size:var(--fs-body)}
+    }
+  </style>
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -18,7 +93,7 @@
       "@type": "Service",
       "name": "Digital Transformation",
       "serviceType": "Digital Transformation",
-      "description": "Digital factory, MES, serialisation, SAP, RPA and IT infrastructure from Pivot Path — we build your digital factory and run it too, across 12+ pharma IT ecosystems and 7,000+ users.",
+      "description": "Digital transformation for pharma from Pivot Path — one partner across manufacturing systems, IT estates and OT infrastructure, from strategy through steady state, with compliance designed in.",
       "provider": {
         "@type": "Organization",
         "@id": "https://pivotpath.com/#organization",
@@ -59,7 +134,7 @@
           "name": "What exactly is your \"build-and-run\" model?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "We own the pharma IT ecosystem — MES, digital factory, serialisation, SAP, automation, infrastructure — built and run, today for 12+ organisations and 7,000+ users."
+            "text": "We own the pharma IT ecosystem — MES, digital factory, serialisation, SAP, automation, infrastructure — built and run as one accountable service, so integration is never someone else's problem."
           }
         },
         {
@@ -72,10 +147,10 @@
         },
         {
           "@type": "Question",
-          "name": "Can you validate and secure 7,000+ users?",
+          "name": "How do you secure IT and OT environments?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. We run IT infrastructure and cybersecurity for 7,000+ users across 12+ organisations, plus M&A IT due diligence and migration."
+            "text": "Secure IT-OT segregation — network segmentation, firewall and access governance, vulnerability management — with continuous security monitoring, GxP compliance governance and centralised compliance dashboards across the estate. We also run M&A IT due diligence and migration."
           }
         },
         {
@@ -91,7 +166,15 @@
           "name": "What is RaaS / an RPA Centre of Excellence?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "RaaS — \"Robotics as a Service\" — delivers automation as an operated service, not a one-off build. We stand up enterprise RPA Centres of Excellence, automate 170+ processes, and extend into AI, IoT, ML."
+            "text": "\"Robotics as a Service\" (RaaS) delivers automation as an operated service, not a one-off build. We stand up enterprise RPA Centres of Excellence and extend into AI, IoT and ML."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where do we start?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "With an assessment. We map your digital maturity, agree a roadmap sized to the outcomes you need, and begin with a defined scope — a single line, system or site — before scaling what works."
           }
         }
       ]
@@ -194,11 +277,11 @@
   <section class="page-hero pad80" id="overview">
     <div class="container">
       <div class="crumb"><a href="pivotpath-home.html">Home</a> &nbsp;/&nbsp; <a href="pivotpath-home.html#services">Services</a> &nbsp;/&nbsp; Digital Transformation</div>
-      <h1>We build your digital factory —<br>and run it too.</h1>
-      <p class="lead">Build-and-run ownership of your pharma IT estate: MES, the digital factory, serialisation and Track &amp; Trace, SAP, automation and cybersecurity, engineered and operated as one.</p>
+      <h1>One transformation partner,<br>from shop floor to enterprise.</h1>
+      <p class="lead">Pivot Path plans and delivers digital transformation across the pharmaceutical enterprise — manufacturing systems, IT estates and OT infrastructure — and builds the data foundation that turns plant-floor signals into business decisions. One partner, no handoffs.</p>
       <div class="hero-ctas">
         <a href="#contact" class="btns2 solid-light">Talk to our digital team</a>
-        <a href="pivotpath-home.html#platforms" class="btns-line">Book an AnomIQ demo</a>
+        <a href="#journey" class="btns-line">See how we work</a>
       </div>
     </div>
   </section>
@@ -208,169 +291,191 @@
     <div class="container">
       <div class="inner">
         <a href="#overview" class="active">Overview</a>
-        <a href="#challenge">The Challenge</a>
-        <a href="#what">What We Do</a>
-        <a href="#factory">Digital Factory</a>
-        <a href="#godeeper">Go Deeper</a>
-        <a href="#anomiq">AnomIQ</a>
-        <a href="#numbers">Story in Numbers</a>
-        <a href="#proof">Proof</a>
-        <a href="#whyus">Why Us</a>
+        <a href="#record">Track Record</a>
+        <a href="#assurance">Approach</a>
+        <a href="#journey">The Journey</a>
+        <a href="#practice">Practices</a>
+        <a href="#decisions">Data to Decisions</a>
+        <a href="#engage">Ways to Engage</a>
+        <a href="#leaders">Leaders</a>
         <a href="#faq">FAQ</a>
       </div>
     </div>
   </nav>
 
-  <!-- ============ HIGHLIGHTS ============ -->
-  <section class="pad60">
+  <!-- ============ TRUST BAND ============ -->
+  <section class="tband pad60" id="record">
     <div class="container">
-      <div class="row g-4 align-items-center">
-        <div class="col-lg-5 reveal">
-          <h2 class="section-title">Technology Owned End to End — Built and Run</h2>
+      <div class="inner reveal">
+        <div class="cell note">Compliance designed in from day one — never retrofitted.</div>
+        <div class="cell"><div class="n">160+</div><div class="l">Audits fronted — regulatory &amp; customer</div></div>
+        <div class="cell"><div class="n">Part 11</div><div class="l">21 CFR Part 11 · ALCOA+ data integrity</div></div>
+        <div class="cell"><div class="n">IQ · OQ · PQ</div><div class="l">Validated delivery on every system</div></div>
+        <div class="cell"><div class="n">24/7</div><div class="l">L1–L3 managed operations</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ VIGNETTES ============ -->
+  <section class="pad80 risk-band" id="assurance">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title reveal">Built for the Realities of a Regulated Plant</h2>
+      </div>
+      <div class="vig-grid reveal">
+        <div class="vig">
+          <h3>When the plant still runs on paper</h3>
+          <p>Batch records move to glass and the line becomes visible. Release stops waiting on paperwork.</p>
         </div>
-        <div class="col-lg-7">
-          <div class="row g-4">
-            <div class="col-6 col-md-3 reveal"><div class="hl"><div class="n">12+</div><div class="l">IT Ecosystems Run</div></div></div>
-            <div class="col-6 col-md-3 reveal"><div class="hl"><div class="n">7,000+</div><div class="l">Users Supported</div></div></div>
-            <div class="col-6 col-md-3 reveal"><div class="hl"><div class="n">170+</div><div class="l">Processes Automated</div></div></div>
-            <div class="col-6 col-md-3 reveal"><div class="hl"><div class="n">291,000+</div><div class="l">TraceLink Network</div></div></div>
+        <div class="vig">
+          <h3>When systems don't speak to each other</h3>
+          <p>We integrate the stack from sensor to ERP, so the enterprise sees one live picture — not four exports stitched together at month-end.</p>
+        </div>
+        <div class="vig">
+          <h3>When every market writes its own serialisation rules</h3>
+          <p>Serialise once, comply everywhere. Alerts are handled under SLA, with root-cause analysis behind every closure.</p>
+        </div>
+        <div class="vig">
+          <h3>When IT and OT share a boundary</h3>
+          <p>Secure segregation — network segmentation, access governance, vulnerability management — keeps production protected without slowing the plant it protects.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ THE JOURNEY ============ -->
+  <section class="pad80" id="journey">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title reveal">One Partner, From Strategy to Steady State</h2>
+      </div>
+      <div class="flow4 reveal">
+        <div class="fl">
+          <div class="dot"></div>
+          <div class="ph">Plan</div>
+          <p class="fl-note">A transformation roadmap sized to your maturity — not a big bang.</p>
+          <p class="fl-svcs">Vendor-agnostic assessment &amp; strategy</p>
+        </div>
+        <div class="fl">
+          <div class="dot"></div>
+          <div class="ph">Build</div>
+          <p class="fl-note">The systems that run a modern plant, implemented and validated.</p>
+          <p class="fl-svcs"><a href="pivotpath-svc-digital-manufacturing.html">Digital Manufacturing</a>&nbsp;· <a href="pivotpath-svc-sap-coe.html">SAP COE</a>&nbsp;· <a href="pivotpath-svc-quality-apps.html">Quality Apps</a>&nbsp;· <a href="pivotpath-svc-track-trace.html">Track &amp; Trace</a></p>
+        </div>
+        <div class="fl">
+          <div class="dot"></div>
+          <div class="ph">Integrate</div>
+          <p class="fl-note">One connected thread from sensor to ERP — L0–L4, IT-OT, data and dashboards.</p>
+          <p class="fl-svcs">Data platforms · Command-room dashboards</p>
+        </div>
+        <div class="fl">
+          <div class="dot"></div>
+          <div class="ph">Run</div>
+          <p class="fl-note">Owned after go-live: zero-touch IT, application management and automation as a service.</p>
+          <p class="fl-svcs"><a href="pivotpath-svc-it-operations.html">IT Operations</a></p>
+        </div>
+      </div>
+      <p class="flow-close reveal">Most transformations fail in the handoffs — between strategist and builder, builder and operator. We hold all three roles, so integration is never someone else's problem.</p>
+    </div>
+  </section>
+
+  <!-- ============ THE FIVE PRACTICES (pill-tabs) ============ -->
+  <section class="pad80 grey" id="practice">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title reveal">Five Practices, One Partner</h2>
+      </div>
+      <div class="cap-tabs reveal" role="tablist" aria-label="Digital Transformation practices">
+        <button class="cap-tab" role="tab" id="pt-1" aria-controls="pp-1" aria-selected="true"  tabindex="0">Digital Manufacturing</button>
+        <button class="cap-tab" role="tab" id="pt-2" aria-controls="pp-2" aria-selected="false" tabindex="-1">Track &amp; Trace Solutions</button>
+        <button class="cap-tab" role="tab" id="pt-3" aria-controls="pp-3" aria-selected="false" tabindex="-1">IT Operations</button>
+        <button class="cap-tab" role="tab" id="pt-4" aria-controls="pp-4" aria-selected="false" tabindex="-1">Quality Apps</button>
+        <button class="cap-tab" role="tab" id="pt-5" aria-controls="pp-5" aria-selected="false" tabindex="-1">SAP COE</button>
+      </div>
+      <div class="cap-panels reveal">
+        <div class="cap-panel" role="tabpanel" id="pp-1" aria-labelledby="pt-1" tabindex="0">
+          <h3 class="cap-panel-h">Take the paper off the floor.</h3>
+          <p class="cap-panel-p">MES — eBMR, eLog and historian — L0–L4 integration and golden-batch analytics: the connected plant, built and run without stopping production.</p>
+          <div class="cap-foot">
+            <a href="pivotpath-svc-digital-manufacturing.html" class="cap-explore">Explore Digital Manufacturing <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+        <div class="cap-panel" role="tabpanel" id="pp-2" aria-labelledby="pt-2" tabindex="0" hidden>
+          <h3 class="cap-panel-h">Serialise once, comply everywhere.</h3>
+          <p class="cap-panel-p">Serialisation and country compliance across EU MDR, DSCSA and beyond — Level-4 configuration, master data, and EMVS/NMVS alert management under SLA with root-cause analysis.</p>
+          <div class="cap-foot">
+            <a href="pivotpath-svc-track-trace.html" class="cap-explore">Explore Track &amp; Trace <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+        <div class="cap-panel" role="tabpanel" id="pp-3" aria-labelledby="pt-3" tabindex="0" hidden>
+          <h3 class="cap-panel-h">Manage. Protect. Comply.</h3>
+          <p class="cap-panel-p">Zero-touch managed IT, hybrid infrastructure across AWS and Azure, cybersecurity and secure IT-OT segregation — with GxP compliance governance across the estate.</p>
+          <div class="cap-foot">
+            <a href="pivotpath-svc-it-operations.html" class="cap-explore">Explore IT Operations <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+        <div class="cap-panel" role="tabpanel" id="pp-4" aria-labelledby="pt-4" tabindex="0" hidden>
+          <h3 class="cap-panel-h">Quality systems, implemented and run.</h3>
+          <p class="cap-panel-p">QMS, LMS, DMS, LIMS and VMS — vendor-agnostic selection, validated implementation and 24/7 managed services, so the quality stack works every day.</p>
+          <div class="cap-foot">
+            <a href="pivotpath-svc-quality-apps.html" class="cap-explore">Explore Quality Apps <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+        <div class="cap-panel" role="tabpanel" id="pp-5" aria-labelledby="pt-5" tabindex="0" hidden>
+          <h3 class="cap-panel-h">SAP for life sciences, implemented and validated.</h3>
+          <p class="cap-panel-p">S/4 HANA and ECC 6.0 — implementations, rollouts, upgrades and validated application maintenance, inspection-ready with Part 11 and data-integrity controls.</p>
+          <div class="cap-foot">
+            <a href="pivotpath-svc-sap-coe.html" class="cap-explore">Explore SAP COE <span aria-hidden="true">→</span></a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ CHALLENGE ============ -->
-  <section class="pad80 grey" id="challenge">
+  <!-- ============ FROM DATA TO DECISIONS ============ -->
+  <section class="pad80 spotlight" id="decisions">
     <div class="container">
       <div class="text-center mb-5">
-        <h2 class="section-title reveal">The Plant Generates Data —<br>The Enterprise Can’t Yet Use It</h2>
-      </div>
-      <div class="row g-4">
-        <div class="col-md-6 col-lg-3 reveal"><div class="pain"><div class="x">▤</div><h5>Paper-based manufacturing</h5><p>Paper records, logs and checklists slow release and obscure the line.</p></div></div>
-        <div class="col-md-6 col-lg-3 reveal"><div class="pain"><div class="x">▥</div><h5>Data silos, no real-time view</h5><p>L0–L4 systems don’t talk, so there’s no live picture of the floor.</p></div></div>
-        <div class="col-md-6 col-lg-3 reveal"><div class="pain"><div class="x">⛓</div><h5>Serialisation &amp; multi-market burden</h5><p>Each market adds its own serialisation rules.</p></div></div>
-        <div class="col-md-6 col-lg-3 reveal"><div class="pain"><div class="x">⌗</div><h5>Legacy systems &amp; the 4.0 gap</h5><p>Aging stacks block a connected Industry 4.0 plant.</p></div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ WHAT WE DO ============ -->
-  <section class="pad80" id="what">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="section-title reveal">From the Plant Floor to the Enterprise</h2>
-        <p class="reveal" style="max-width:760px;margin-inline:auto;color:var(--pp-muted)">Five connected practices — from MES on the shop floor to the enterprise IT estate — each built and run by teams who know the pharma audit table. Explore a practice:</p>
-      </div>
-      <div class="row g-4 justify-content-center">
-        <div class="col-md-6 col-lg-4 reveal"><a class="mod-link" href="pivotpath-svc-digital-manufacturing.html"><div class="cap-card"><h4>Digital Manufacturing</h4><p>MES (eBMR/eBPR, eLog, historian), L0&ndash;L4 integration, golden-batch analytics and Industry 4.0 on the connected plant.</p><span class="go">Explore &rarr;</span></div></a></div>
-        <div class="col-md-6 col-lg-4 reveal"><a class="mod-link" href="pivotpath-svc-track-trace.html"><div class="cap-card"><h4>Track &amp; Trace Solutions</h4><p>Serialisation and multi-market country compliance, Level-4 configuration and EMVS/NMVS alert management.</p><span class="go">Explore &rarr;</span></div></a></div>
-        <div class="col-md-6 col-lg-4 reveal"><a class="mod-link" href="pivotpath-svc-quality-apps.html"><div class="cap-card"><h4>Quality Apps</h4><p>QMS, LMS, DMS, LIMS and VMS — vendor-agnostic selection, implementation, validation and 24/7 managed services.</p><span class="go">Explore &rarr;</span></div></a></div>
-        <div class="col-md-6 col-lg-4 reveal"><a class="mod-link" href="pivotpath-svc-sap-coe.html"><div class="cap-card"><h4>SAP COE</h4><p>SAP for life sciences — implementations, rollouts, upgrades, integration and validated AMC across S/4 HANA and ECC 6.0.</p><span class="go">Explore &rarr;</span></div></a></div>
-        <div class="col-md-6 col-lg-4 reveal"><a class="mod-link" href="pivotpath-svc-it-operations.html"><div class="cap-card"><h4>IT Operations</h4><p>Managed manufacturing IT, cybersecurity, RPA and infrastructure across 12+ environments and 7,000+ users.</p><span class="go">Explore &rarr;</span></div></a></div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ============ DIGITAL FACTORY ============ -->
-  <section class="pad80 grey" id="factory">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="section-title reveal">The Digital Factory Maturity Model</h2>
-      </div>
-      <div class="proc reveal cols-4">
-        <div class="proc-step">
-          <div class="pic"><svg viewBox="0 0 24 24"><path d="M6 9a6 6 0 0 1 12 0c0 5 2 6 2 6H4s2-1 2-6z"/><path d="M10 21a2 2 0 0 0 4 0"/></svg></div>
-          <div class="pk">Reactive</div>
-          <h5>Reactive</h5>
-          <p>Teams respond after the fact, firefighting deviations.</p>
-        </div>
-        <div class="proc-step">
-          <div class="pic"><svg viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></div>
-          <div class="pk">Proactive</div>
-          <h5>Proactive</h5>
-          <p>Connected data flags issues before they escalate.</p>
-        </div>
-        <div class="proc-step">
-          <div class="pic"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div>
-          <div class="pk">Predictive</div>
-          <h5>Predictive</h5>
-          <p>Models anticipate quality drifts and equipment failures from history.</p>
-        </div>
-        <div class="proc-step">
-          <div class="pic"><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 14-5l2 2M20 12a8 8 0 0 1-14 5l-2-2"/><path d="M18 4v5h-5M6 20v-5h5"/></svg></div>
-          <div class="pk">Adaptive</div>
-          <h5>Adaptive</h5>
-          <p>The plant self-adjusts in real time, steering each run to the golden batch.</p>
-        </div>
-      </div>
-      <div class="text-center mt-5 reveal"><a href="pivotpath-pharma-4-0.html" class="btns-line dark">Explore our Pharma 4.0 approach</a></div>
-    </div>
-  </section>
-
-  <!-- ============ GO DEEPER ============ -->
-  <section class="pad80" id="godeeper">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="section-title reveal">Go Deeper</h2>
-      </div>
-      <div class="row g-4 justify-content-center">
-        <div class="col-md-6 reveal"><div class="cap-card">
-          <h4>Zero-Touch IT Operations</h4>
-          <ul><li>Intelligent automation &amp; self-healing operations</li><li>Hybrid infrastructure across AWS &amp; Azure</li><li>Secure IT-OT segregation</li><li>GxP compliance governance &mdash; Manage. Protect. Comply.</li></ul>
-          <a href="pivotpath-zero-touch-it.html" class="btns-line dark mt-2">Explore Zero-Touch IT</a>
-        </div></div>
-        <div class="col-md-6 reveal"><div class="cap-card">
-          <h4>Identity &amp; User Management</h4>
-          <ul><li>End-to-end identity lifecycle automation</li><li>Onboarding, access change &amp; offboarding</li><li>HRMS-triggered, ticket-approved, BOT-automated</li><li>Audit-ready, traceable access governance</li></ul>
-          <a href="pivotpath-identity-user-management.html" class="btns-line dark mt-2">Explore the case study</a>
-        </div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ ANOMIQ SPOTLIGHT ============ -->
-  <section class="pad80 spotlight" id="anomiq">
-    <div class="container">
-      <div class="spot-head reveal">
-        <span class="logo-plate"><img src="assets/anomiq.png" alt="AnomIQ" class="prod-logo"></span>
-        <p class="spot-tagline">Anomaly detection across QC labs and the manufacturing floor.</p>
+        <h2 class="section-title text-white reveal">From Data to Decisions</h2>
       </div>
       <div class="row align-items-center g-4 g-lg-5 spot-body">
         <div class="col-lg-6 reveal">
           <div class="shot shot-zoom">
-          <div class="bar"><i class="d1"></i><i class="d2"></i><i class="d3"></i><span class="addr">app.pivotpath.com/anomiq</span></div>
-          <svg viewBox="0 0 1120 640" role="img" aria-label="Representative AnomIQ dashboard" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Roboto,Arial,sans-serif">
-            <defs><linearGradient id="nvgA" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#71bf44"/><stop offset=".55" stop-color="#20a676"/><stop offset="1" stop-color="#1b91a3"/></linearGradient></defs>
+          <div class="bar"><i class="d1"></i><i class="d2"></i><i class="d3"></i><span class="addr">command-centre.yourplant.com</span></div>
+          <svg viewBox="0 0 1120 640" role="img" aria-label="Representative plant command-centre dashboard" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Roboto,Arial,sans-serif">
+            <defs><linearGradient id="ddgA" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#71bf44"/><stop offset=".55" stop-color="#20a676"/><stop offset="1" stop-color="#1b91a3"/></linearGradient></defs>
             <rect width="1120" height="640" fill="#f6f7f9"/>
+            <!-- sidebar -->
             <rect width="236" height="640" fill="#0f141b"/>
-            <rect x="28" y="30" width="20" height="20" rx="5" fill="url(#nvgA)"/>
-            <text x="58" y="45" fill="#fff" font-size="17" font-weight="700">AnomIQ</text>
+            <rect x="28" y="30" width="20" height="20" rx="5" fill="url(#ddgA)"/>
+            <text x="58" y="45" fill="#fff" font-size="17" font-weight="700">Command Centre</text>
             <rect x="16" y="84" width="204" height="38" rx="8" fill="#ffffff1a"/>
-            <text x="40" y="108" fill="#fff" font-size="13" font-weight="600">Dashboard</text>
-            <text x="40" y="156" fill="#8b95a0" font-size="13">Anomalies</text>
-            <text x="40" y="196" fill="#8b95a0" font-size="13">Audit Trails</text>
-            <text x="40" y="236" fill="#8b95a0" font-size="13">Detection Rules</text>
-            <text x="40" y="276" fill="#8b95a0" font-size="13">Reports</text>
-            <text x="40" y="316" fill="#8b95a0" font-size="13">Settings</text>
-            <text x="264" y="52" fill="#11151c" font-size="20" font-weight="700">Anomaly Monitoring</text>
+            <text x="40" y="108" fill="#fff" font-size="13" font-weight="600">Plant Overview</text>
+            <text x="40" y="156" fill="#8b95a0" font-size="13">Lines &amp; Equipment</text>
+            <text x="40" y="196" fill="#8b95a0" font-size="13">Batches</text>
+            <text x="40" y="236" fill="#8b95a0" font-size="13">Deviations</text>
+            <text x="40" y="276" fill="#8b95a0" font-size="13">Serialisation</text>
+            <text x="40" y="316" fill="#8b95a0" font-size="13">IT &amp; OT Health</text>
+            <!-- header -->
+            <text x="264" y="52" fill="#11151c" font-size="20" font-weight="700">Plant Overview — Live</text>
             <rect x="812" y="32" width="196" height="34" rx="17" fill="#fff" stroke="#e3e6ea"/>
             <text x="832" y="54" fill="#9aa3ab" font-size="12">Search…</text>
-            <circle cx="1058" cy="49" r="18" fill="url(#nvgA)"/>
+            <circle cx="1058" cy="49" r="18" fill="url(#ddgA)"/>
+            <!-- KPI cards -->
             <rect x="264" y="84" width="252" height="104" rx="10" fill="#fff" stroke="#e8eaed"/>
-            <text x="288" y="134" fill="#11151c" font-size="30" font-weight="800">37</text>
-            <text x="288" y="162" fill="#6b6b6b" font-size="12.5">Open anomalies</text>
+            <text x="288" y="134" fill="#11151c" font-size="30" font-weight="800">12</text>
+            <text x="288" y="162" fill="#6b6b6b" font-size="12.5">Batches in flight</text>
             <rect x="540" y="84" width="252" height="104" rx="10" fill="#fff" stroke="#e8eaed"/>
-            <text x="564" y="134" fill="#11151c" font-size="30" font-weight="800">99.2%</text>
-            <text x="564" y="162" fill="#6b6b6b" font-size="12.5">Trails monitored</text>
+            <text x="564" y="134" fill="#11151c" font-size="30" font-weight="800">3</text>
+            <text x="564" y="162" fill="#6b6b6b" font-size="12.5">Open deviations</text>
             <rect x="816" y="84" width="252" height="104" rx="10" fill="#fff" stroke="#e8eaed"/>
-            <text x="840" y="134" fill="#11151c" font-size="30" font-weight="800">4</text>
-            <text x="840" y="162" fill="#6b6b6b" font-size="12.5">Critical alerts</text>
+            <text x="840" y="134" fill="#11151c" font-size="30" font-weight="800">Live</text>
+            <text x="840" y="162" fill="#6b6b6b" font-size="12.5">L0–L4 data thread</text>
+            <!-- chart card -->
             <rect x="264" y="212" width="560" height="196" rx="10" fill="#fff" stroke="#e8eaed"/>
-            <text x="288" y="246" fill="#11151c" font-size="14" font-weight="700">Anomalies detected — last 8 weeks</text>
+            <text x="288" y="246" fill="#11151c" font-size="14" font-weight="700">Line throughput — this week</text>
             <line x1="288" y1="384" x2="800" y2="384" stroke="#e8eaed"/>
-            <g fill="url(#nvgA)">
+            <g fill="url(#ddgA)">
               <rect x="300" y="324" width="38" height="60" rx="3"/>
               <rect x="362" y="298" width="38" height="86" rx="3"/>
               <rect x="424" y="330" width="38" height="54" rx="3"/>
@@ -380,22 +485,24 @@
               <rect x="672" y="292" width="38" height="92" rx="3"/>
               <rect x="734" y="274" width="38" height="110" rx="3"/>
             </g>
+            <!-- side card -->
             <rect x="840" y="212" width="248" height="196" rx="10" fill="#fff" stroke="#e8eaed"/>
-            <text x="864" y="246" fill="#11151c" font-size="14" font-weight="700">By status</text>
-            <circle cx="870" cy="284" r="5" fill="#1b91a3"/><text x="886" y="289" fill="#6b6b6b" font-size="12.5">Investigating</text><text x="1064" y="289" fill="#11151c" font-size="12.5" font-weight="700" text-anchor="end">14</text>
-            <circle cx="870" cy="318" r="5" fill="#20a676"/><text x="886" y="323" fill="#6b6b6b" font-size="12.5">Under review</text><text x="1064" y="323" fill="#11151c" font-size="12.5" font-weight="700" text-anchor="end">9</text>
-            <circle cx="870" cy="352" r="5" fill="#71bf44"/><text x="886" y="357" fill="#6b6b6b" font-size="12.5">Closed</text><text x="1064" y="357" fill="#11151c" font-size="12.5" font-weight="700" text-anchor="end">312</text>
-            <circle cx="870" cy="386" r="5" fill="#febc2e"/><text x="886" y="391" fill="#6b6b6b" font-size="12.5">Critical</text><text x="1064" y="391" fill="#11151c" font-size="12.5" font-weight="700" text-anchor="end">4</text>
+            <text x="864" y="246" fill="#11151c" font-size="14" font-weight="700">Systems health</text>
+            <circle cx="870" cy="284" r="5" fill="#1b91a3"/><text x="886" y="289" fill="#6b6b6b" font-size="12.5">MES</text><text x="1064" y="289" fill="#11151c" font-size="12.5" font-weight="700" text-anchor="end">OK</text>
+            <circle cx="870" cy="318" r="5" fill="#20a676"/><text x="886" y="323" fill="#6b6b6b" font-size="12.5">SAP</text><text x="1064" y="323" fill="#11151c" font-size="12.5" font-weight="700" text-anchor="end">OK</text>
+            <circle cx="870" cy="352" r="5" fill="#71bf44"/><text x="886" y="357" fill="#6b6b6b" font-size="12.5">LIMS</text><text x="1064" y="357" fill="#11151c" font-size="12.5" font-weight="700" text-anchor="end">OK</text>
+            <circle cx="870" cy="386" r="5" fill="#febc2e"/><text x="886" y="391" fill="#6b6b6b" font-size="12.5">Serialisation L4</text><text x="1064" y="391" fill="#11151c" font-size="12.5" font-weight="700" text-anchor="end">1 alert</text>
+            <!-- table card -->
             <rect x="264" y="424" width="824" height="188" rx="10" fill="#fff" stroke="#e8eaed"/>
-            <text x="288" y="456" fill="#11151c" font-size="14" font-weight="700">Recent anomalies</text>
+            <text x="288" y="456" fill="#11151c" font-size="14" font-weight="700">Recent events</text>
             <line x1="264" y1="476" x2="1088" y2="476" stroke="#eef0f2"/>
             <g font-size="12.5">
-              <text x="288" y="508" fill="#11151c">ANM-4471</text><text x="430" y="508" fill="#6b6b6b">Empower — audit-trail gap</text><text x="860" y="508" fill="#6b6b6b">K. Shah</text>
-              <rect x="980" y="494" width="84" height="22" rx="11" fill="#e8f6f1"/><text x="1022" y="509" fill="#1b8f73" text-anchor="middle" font-size="11" font-weight="700">Open</text>
-              <text x="288" y="548" fill="#11151c">ANM-4470</text><text x="430" y="548" fill="#6b6b6b">LIMS — backdated entry</text><text x="860" y="548" fill="#6b6b6b">R. Menon</text>
+              <text x="288" y="508" fill="#11151c">EVT-2214</text><text x="430" y="508" fill="#6b6b6b">Line 2 — parameter drift flagged</text><text x="860" y="508" fill="#6b6b6b">Auto</text>
+              <rect x="980" y="494" width="84" height="22" rx="11" fill="#e8f6f1"/><text x="1022" y="509" fill="#1b8f73" text-anchor="middle" font-size="11" font-weight="700">Acting</text>
+              <text x="288" y="548" fill="#11151c">EVT-2213</text><text x="430" y="548" fill="#6b6b6b">EMVS alert — resolved with RCA</text><text x="860" y="548" fill="#6b6b6b">T&amp;T desk</text>
               <rect x="980" y="534" width="84" height="22" rx="11" fill="#eaf6e3"/><text x="1022" y="549" fill="#4c8f2e" text-anchor="middle" font-size="11" font-weight="700">Closed</text>
-              <text x="288" y="588" fill="#11151c">ANM-4469</text><text x="430" y="588" fill="#6b6b6b">MES — parameter excursion</text><text x="860" y="588" fill="#6b6b6b">K. Shah</text>
-              <rect x="980" y="574" width="84" height="22" rx="11" fill="#fff3d6"/><text x="1022" y="589" fill="#9a7400" text-anchor="middle" font-size="11" font-weight="700">Critical</text>
+              <text x="288" y="588" fill="#11151c">EVT-2212</text><text x="430" y="588" fill="#6b6b6b">Batch 7841 — released</text><text x="860" y="588" fill="#6b6b6b">QA</text>
+              <rect x="980" y="574" width="84" height="22" rx="11" fill="#eaf6e3"/><text x="1022" y="589" fill="#4c8f2e" text-anchor="middle" font-size="11" font-weight="700">Done</text>
             </g>
           </svg>
           <span class="tag">Representative UI</span>
@@ -403,70 +510,42 @@
         </div>
         <div class="col-lg-6 reveal">
           <ul class="vp-list">
-            <li class="vp"><span class="vp-ic">✓</span><div><div class="vp-t">Catch it early</div><div class="vp-d">Surfaces issues before they become deviations.</div></div></li>
-            <li class="vp"><span class="vp-ic">✓</span><div><div class="vp-t">Lab to floor</div><div class="vp-d">Bridges QC and manufacturing in one view.</div></div></li>
-            <li class="vp"><span class="vp-ic">✓</span><div><div class="vp-t">Cheap to fix</div><div class="vp-d">Flags problems while cheap to resolve.</div></div></li>
+            <li class="vp"><span class="vp-ic">✓</span><div><div class="vp-t">From retrospective review to real-time response</div><div class="vp-d">Issues surface as they happen — not at batch review.</div></div></li>
+            <li class="vp"><span class="vp-ic">✓</span><div><div class="vp-t">From siloed exports to one source of truth</div><div class="vp-d">Line, lab and enterprise read the same live numbers.</div></div></li>
+            <li class="vp"><span class="vp-ic">✓</span><div><div class="vp-t">From delayed escalation to command-room visibility</div><div class="vp-d">Operations and leadership share the same picture, at the same moment.</div></div></li>
           </ul>
-          <a href="pivotpath-anomiq.html" class="btns-line mt-4">Explore AnomIQ</a>
+          <p class="dd-link">Our Quality &amp; Compliance platforms — <a href="pivotpath-anomiq.html">AnomIQ</a> and <a href="pivotpath-noteiq.html">NoteIQ</a> — plug into the same connected thread.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ STORY IN NUMBERS ============ -->
-  <section class="pad80 stat-band" id="numbers">
+  <!-- ============ WAYS TO ENGAGE ============ -->
+  <section class="pad80 grey" id="engage">
     <div class="container">
       <div class="text-center mb-5">
-        <h2 class="section-title text-white reveal">Digital Transformation at Scale</h2>
+        <h2 class="section-title reveal">Ways to Engage</h2>
       </div>
-      <div class="row text-center g-4">
-        <div class="col-6 col-md-4 col-lg-2 stat"><div class="num"><span class="count" data-to="12">0</span><span class="suffix">+</span></div><div class="label">IT Ecosystems Run</div></div>
-        <div class="col-6 col-md-4 col-lg-2 stat"><div class="num"><span class="count" data-to="7000">0</span><span class="suffix">+</span></div><div class="label">Users Supported</div></div>
-        <div class="col-6 col-md-4 col-lg-2 stat"><div class="num"><span class="count" data-to="50">0</span><span class="suffix">+</span></div><div class="label">SAP Rollouts</div></div>
-        <div class="col-6 col-md-4 col-lg-2 stat"><div class="num"><span class="count" data-to="30">0</span><span class="suffix">+</span></div><div class="label">Track &amp; Trace Rollouts</div></div>
-        <div class="col-6 col-md-4 col-lg-2 stat"><div class="num"><span class="count" data-to="170">0</span><span class="suffix">+</span></div><div class="label">Processes Automated</div></div>
-        <div class="col-6 col-md-4 col-lg-2 stat"><div class="num"><span class="count" data-to="150">0</span><span class="suffix">+</span></div><div class="label">Dashboards Built</div></div>
+      <div class="engage-grid reveal">
+        <div class="engage-col">
+          <h4>Advisory</h4>
+          <p>Digital maturity assessment, transformation roadmap, vendor selection and M&amp;A IT due diligence — led by practitioners who run plants, not just projects.</p>
+        </div>
+        <div class="engage-col">
+          <h4>Delivery</h4>
+          <p>MES, SAP, quality applications and serialisation — implemented, integrated and validated (IQ/OQ/PQ), with compliance designed in.</p>
+        </div>
+        <div class="engage-col">
+          <h4>Managed Operations</h4>
+          <p>Zero-touch IT, 24/7 L1–L3 application management, alert management and "Robotics as a Service" (RaaS) — the estate owned after go-live.</p>
+        </div>
       </div>
+      <p class="engage-kicker reveal">Each engagement model is contractable independently — begin with a defined scope and expand as your requirements evolve.</p>
     </div>
   </section>
 
-  <!-- ============ PROOF ============ -->
-  <section class="pad80" id="proof">
-    <div class="container">
-      <div class="row align-items-center g-5">
-        <div class="col-lg-5 reveal">
-          <h2 class="section-title">Outcomes From Real Engagements</h2>
-        </div>
-        <div class="col-lg-7">
-          <div class="row g-4">
-            <div class="col-sm-6 reveal"><div class="proof-card"><div class="big">60 days, fully remote</div><div class="cap">European injectable plant transitioned in full.</div></div></div>
-            <div class="col-sm-6 reveal"><div class="proof-card"><div class="big">&lt;200 days</div><div class="cap">Greenfield vaccine facility built for 200M doses.</div></div></div>
-            <div class="col-sm-6 reveal"><a class="mod-link" href="pivotpath-inlumin.html"><div class="proof-card"><div class="big">P2P transformed</div><div class="cap">At a pharma CDMO, via the InLumin platform.</div><span class="go">Explore InLumin &rarr;</span></div></a></div>
-            <div class="col-sm-6 reveal"><div class="proof-card"><div class="big">3× faster</div><div class="cap">Operator skill-up via 8chili digital twins.</div></div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ WHY US (value proposition) ============ -->
-  <section class="pad80 stat-band" id="whyus">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="section-title text-white reveal">How we approach modernisation differently</h2>
-      </div>
-      <div class="row text-center g-4 justify-content-center">
-        <div class="col-md-6 col-lg-4 reveal valstat"><div class="vt">We Build It and Run It</div><div class="vl">We engineer the digital factory, then run it.</div></div>
-        <div class="col-md-6 col-lg-4 reveal valstat"><div class="vt">Step-by-Step Modernisation</div><div class="vl">We modernise legacy systems step by step, sustainably.</div></div>
-        <div class="col-md-6 col-lg-4 reveal valstat"><div class="vt">Plant Floor to Enterprise</div><div class="vl">We connect line to business in one real-time picture.</div></div>
-        <div class="col-md-6 col-lg-4 reveal valstat"><div class="vt">Modernise While You Make</div><div class="vl">We transform the stack without stopping production.</div></div>
-        <div class="col-md-6 col-lg-4 reveal valstat"><div class="vt">Serialisation at Global Scale</div><div class="vl">Track &amp; trace and country compliance, any market.</div></div>
-        <div class="col-md-6 col-lg-4 reveal valstat"><div class="vt">Automation Adds Capacity</div><div class="vl">Automation turns effort into capacity.</div></div>
-      </div>
-    </div>
-  </section>
   <!-- ============ PRACTICE LEADERS ============ -->
-  <section class="pad80 grey" id="leaders">
+  <section class="pad80" id="leaders">
     <div class="container">
       <div class="text-center mb-5">
         <h2 class="section-title reveal">The Leaders Behind Digital Transformation</h2>
@@ -506,8 +585,8 @@
     </div>
   </section>
 
-    <!-- ============ FAQ ============ -->
-  <section class="pad80" id="faq">
+  <!-- ============ FAQ ============ -->
+  <section class="pad80 grey" id="faq">
     <div class="container">
       <div class="text-center mb-5">
         <h2 class="section-title reveal">Common transformation questions</h2>
@@ -517,15 +596,15 @@
           <div class="accordion reveal" id="faqAcc">
             <div class="accordion-item">
               <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q1">What exactly is your “build-and-run” model?</button></h2>
-              <div id="q1" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">We own the pharma IT ecosystem — MES, digital factory, serialisation, SAP, automation, infrastructure — built and run, today for 12+ organisations and 7,000+ users.</div></div>
+              <div id="q1" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">We own the pharma IT ecosystem — MES, digital factory, serialisation, SAP, automation, infrastructure — built and run as one accountable service, so integration is never someone else’s problem.</div></div>
             </div>
             <div class="accordion-item">
               <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2">Which serialisation markets do you support?</button></h2>
               <div id="q2" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Track &amp; Trace covers serialisation and country compliance for EU MDR, DSCSA, Russia, Uzbekistan, Brazil, China, South Korea and the Gulf &amp; Near East — Level-4 config, master data, SOPs, vendor selection, testing &amp; validation. Alert Management handles EMVS/NMVS alerts with SLA + RCA.</div></div>
             </div>
             <div class="accordion-item">
-              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q3">Can you validate and secure 7,000+ users?</button></h2>
-              <div id="q3" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Yes. We run IT infrastructure and cybersecurity for 7,000+ users across 12+ organisations, plus M&amp;A IT due diligence and migration.</div></div>
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q3">How do you secure IT and OT environments?</button></h2>
+              <div id="q3" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Secure IT-OT segregation — network segmentation, firewall and access governance, vulnerability management — with continuous security monitoring, GxP compliance governance and centralised compliance dashboards across the estate. We also run M&amp;A IT due diligence and migration.</div></div>
             </div>
             <div class="accordion-item">
               <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q4">Can you modernise legacy systems without halting production?</button></h2>
@@ -533,7 +612,11 @@
             </div>
             <div class="accordion-item">
               <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q5">What is RaaS / an RPA Centre of Excellence?</button></h2>
-              <div id="q5" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">RaaS — “Robotics as a Service” — delivers automation as an operated service, not a one-off build. We stand up enterprise RPA Centres of Excellence, automate 170+ processes, and extend into AI, IoT, ML.</div></div>
+              <div id="q5" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">“Robotics as a Service” (RaaS) delivers automation as an operated service, not a one-off build. We stand up enterprise RPA Centres of Excellence and extend into AI, IoT and ML.</div></div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q6">Where do we start?</button></h2>
+              <div id="q6" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">With an assessment. We map your digital maturity, agree a roadmap sized to the outcomes you need, and begin with a defined scope — a single line, system or site — before scaling what works.</div></div>
             </div>
           </div>
         </div>
@@ -542,13 +625,13 @@
   </section>
 
   <!-- ============ FINAL CTA ============ -->
-  <section class="pad80 final-cta text-center" id="contact">
+  <section class="pad80 alt-cta text-center" id="contact">
     <div class="container">
-      <h2 class="section-title text-white reveal mb-3">Build Your Digital Factory.<br>We’ll Run It With You.</h2>
-      <p class="text-white-50 reveal mb-4" style="max-width:640px;margin-inline:auto">Whether you’re digitising the plant floor, onboarding a serialisation market or handing your IT estate to a partner that owns the outcome, start the conversation.</p>
+      <h2 class="section-title text-white reveal mb-3">One Partner for the<br>Whole Transformation</h2>
+      <p class="text-white-50 reveal mb-4" style="max-width:640px;margin-inline:auto">Whether you're taking paper off the plant floor, onboarding a serialisation market or handing over an IT estate, our senior team is ready to discuss your requirements.</p>
       <div class="hero-ctas justify-content-center reveal">
         <a href="mailto:info@pivotpath.com" class="btns2 solid-light">Talk to our digital team</a>
-        <a href="pivotpath-home.html#platforms" class="btns-line">Book an AnomIQ demo</a>
+        <a href="pivotpath-svc-digital-manufacturing.html" class="btns-line">Explore Digital Manufacturing</a>
       </div>
     </div>
   </section>
@@ -616,38 +699,54 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
   <script>
+    // ---- Practice pill-tabs (accessible) ----
     (function(){
-      function run(scope){
-        scope.querySelectorAll('.count').forEach(function(el){
-          if(el.dataset.done)return;el.dataset.done="1";
-          var to=parseFloat(el.dataset.to), dec=parseInt(el.dataset.dec||'0',10);
-          if(to===0){el.textContent="0";return;}
-          var start=null,dur=1600;
-          function step(ts){if(!start)start=ts;var p=Math.min((ts-start)/dur,1);
-            var val=to*(0.5-Math.cos(p*Math.PI)/2);
-            el.textContent=dec?val.toFixed(dec):Math.round(val).toLocaleString();
-            if(p<1)requestAnimationFrame(step);else el.textContent=dec?to.toFixed(dec):to.toLocaleString();}
-          requestAnimationFrame(step);
+      var tabs=Array.prototype.slice.call(document.querySelectorAll('.cap-tab'));
+      if(!tabs.length)return;
+      var panels=tabs.map(function(t){return document.getElementById(t.getAttribute('aria-controls'));});
+      function select(idx,focus){
+        tabs.forEach(function(t,i){
+          var on=i===idx;
+          t.setAttribute('aria-selected',on?'true':'false');
+          t.tabIndex=on?0:-1;
+          if(panels[i])panels[i].hidden=!on;
         });
+        if(focus&&tabs[idx])tabs[idx].focus();
       }
-      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)run(e.target);});},{threshold:.3});
-      document.querySelectorAll('.stat-band').forEach(function(b){io.observe(b);});
+      tabs.forEach(function(tab,i){
+        tab.addEventListener('click',function(){select(i,false);});
+        tab.addEventListener('keydown',function(e){
+          var n;
+          if(e.key==='ArrowRight'||e.key==='ArrowDown')n=(i+1)%tabs.length;
+          else if(e.key==='ArrowLeft'||e.key==='ArrowUp')n=(i-1+tabs.length)%tabs.length;
+          else if(e.key==='Home')n=0;
+          else if(e.key==='End')n=tabs.length-1;
+          else return;
+          e.preventDefault();select(n,true);
+        });
+      });
+      select(0,false);
     })();
+
+    // ---- Reveal on scroll ----
     (function(){
       var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
       document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
     })();
+
+    // ---- Active anchor-nav highlight ----
     (function(){
       var links=[].slice.call(document.querySelectorAll('.anchor-nav a'));
       var map=links.map(function(a){return {a:a,el:document.querySelector(a.getAttribute('href'))};}).filter(function(x){return x.el;});
-      function onScroll(){var y=window.scrollY+120,cur=map[0];
+      function onScroll(){
+        var y=window.scrollY+120,cur=map[0];
         map.forEach(function(x){if(x.el.offsetTop<=y)cur=x;});
-        links.forEach(function(a){a.classList.remove('active');});if(cur)cur.a.classList.add('active');}
+        links.forEach(function(a){a.classList.remove('active');});
+        if(cur)cur.a.classList.add('active');
+      }
       window.addEventListener('scroll',onScroll,{passive:true});onScroll();
     })();
   </script>
   <script src="pp-mobile.js" defer></script>
-  <!-- design-toggle -->
-  <a href="pivotpath-digital-innovation-alt.html" style="position:fixed;left:18px;bottom:18px;z-index:2000;background:#0f141b;color:#fff;padding:10px 18px;border-radius:999px;font:600 13px/1 -apple-system,'Segoe UI',Roboto,Arial,sans-serif;letter-spacing:.02em;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,.28);opacity:.92" aria-label="View alternate design">View alternate design</a>
 </body>
 </html>

@@ -4,12 +4,86 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Talent Acquisition Services — Pivot Path RPO & Data-Backed Hiring</title>
-  <meta name="description" content="RPO-model talent acquisition with no upfront retainer and data-backed search across a repository of 100,000+ profiles — leadership and senior, middle and junior, campus hiring, TA analytics, employer branding and process excellence." />
+  <meta name="description" content="Embedded talent acquisition for life sciences from Pivot Path — leadership and senior search, middle, junior and campus hiring, TA analytics and employer branding, on an RPO model with no upfront retainer and data-backed search." />
   <link rel="preconnect" href="https://cdn.jsdelivr.net" />
   <link rel="preconnect" href="https://in.fw-cdn.com" />
   <link rel="preload" href="pp.css?v=15" as="style" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="pp.css?v=15" />
+  <style>
+    /* ==== ALT-PAGE PROTOTYPE STYLES (scoped to this page; pp.css untouched) ==== */
+
+    /* Trust band — dense hairline strip under the hero */
+    .tband{border-bottom:1px solid var(--pp-line)}
+    .tband .inner{display:grid;grid-template-columns:minmax(0,4fr) repeat(4,minmax(0,2fr));align-items:stretch}
+    .tband .cell{padding:var(--sp-4) var(--sp-4);border-left:1px solid var(--pp-line)}
+    .tband .cell:first-child{border-left:0;padding-left:0}
+    .tband .note{font-size:var(--fs-lead);font-weight:600;color:var(--pp-ink);display:flex;align-items:center}
+    .tband .n{font-size:1.6rem;font-weight:800;color:var(--pp-ink);line-height:1.1;font-variant-numeric:tabular-nums}
+    .tband .l{font-size:var(--fs-sm);color:var(--pp-muted);margin-top:4px}
+
+    /* Vignette quadrants — dark band over the operations photo */
+    /* swap to assets/hc-ops-bg.jpg when the dedicated Human Capital image lands */
+    .risk-band{background-color:#0a1016;background-image:linear-gradient(rgba(10,16,22,.9),rgba(10,16,22,.9)),url('assets/dt-ops-bg.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;color:#fff}
+    .risk-band .section-title{color:#fff}
+    .vig-grid{display:grid;grid-template-columns:1fr 1fr}
+    .vig{padding:var(--sp-5)}
+    .vig:nth-child(odd){padding-left:0}
+    .vig:nth-child(even){border-left:1px solid rgba(255,255,255,.2);padding-right:0}
+    .vig:nth-child(n+3){border-top:1px solid rgba(255,255,255,.2)}
+    .vig:nth-child(-n+2){padding-top:0}
+    .vig:nth-child(n+3){padding-bottom:0}
+    .vig h3{font-size:var(--fs-h4);font-weight:700;color:#fff;margin-bottom:var(--sp-2)}
+    .vig p{font-size:var(--fs-lead);line-height:1.6;color:rgba(255,255,255,.8);margin:0;max-width:52ch}
+
+    /* Five movements — connected flow (hiring journey) */
+    .flow4{display:grid;grid-template-columns:repeat(5,1fr);gap:var(--sp-4);position:relative;padding-top:var(--sp-4)}
+    .flow4::before{content:"";position:absolute;top:calc(var(--sp-4) + 7px);left:8px;right:8px;height:2px;background:var(--pp-grad);opacity:.5}
+    .fl .dot{width:16px;height:16px;border-radius:50%;background:var(--pp-grad);margin-bottom:var(--sp-3);position:relative}
+    .fl .ph{font-size:var(--fs-h4);font-weight:800;color:var(--pp-ink);margin-bottom:var(--sp-2)}
+    .fl .fl-note{color:var(--pp-muted);margin-bottom:0;font-size:var(--fs-sm)}
+    .flow-close{margin-top:var(--sp-5);padding-top:var(--sp-4);border-top:1px solid var(--pp-line);font-weight:600;color:var(--pp-ink);max-width:72ch}
+
+    /* Spotlight cross-link line (dark section) */
+    .spotlight .dd-link{color:rgba(255,255,255,.75);font-size:var(--fs-sm);margin-top:var(--sp-4);border-top:1px solid rgba(255,255,255,.22);padding-top:var(--sp-3)}
+    .spotlight .dd-link a{color:#fff;font-weight:700;text-decoration:none}
+    .spotlight .dd-link a:hover{text-decoration:underline}
+
+    /* Ways to engage — three hairline columns, not cards */
+    .engage-grid{display:grid;grid-template-columns:repeat(3,1fr)}
+    .engage-col{padding:0 var(--sp-5);border-left:1px solid var(--pp-line)}
+    .engage-col:first-child{border-left:0;padding-left:0}
+    .engage-col h4{font-size:var(--fs-h4);margin-bottom:var(--sp-3)}
+    .engage-col p{color:var(--pp-muted)}
+    .engage-kicker{margin-top:var(--sp-5);padding-top:var(--sp-4);border-top:1px solid var(--pp-line);font-weight:600;color:var(--pp-ink)}
+
+    /* Final CTA photo band */
+    /* swap to assets/hc-cta-bg.jpg when the dedicated Human Capital image lands */
+    .alt-cta{background-color:#0a1016;background-image:linear-gradient(rgba(10,16,22,.8),rgba(10,16,22,.8)),url('assets/dt-cta-bg.jpg');background-size:cover;background-position:center;background-repeat:no-repeat}
+
+    /* Mobile */
+    @media (max-width:991.98px){
+      .tband .inner{grid-template-columns:repeat(2,1fr)}
+      .tband .cell{border-left:0;padding-left:0}
+      .tband .note{grid-column:1/-1;padding-bottom:0}
+      .engage-grid{grid-template-columns:1fr}
+      .engage-col{border-left:0;padding:var(--sp-4) 0;border-top:1px solid var(--pp-line)}
+      .engage-col:first-child{border-top:0;padding-top:0}
+      .flow4{grid-template-columns:1fr;gap:var(--sp-4);padding-top:0}
+      .flow4::before{top:0;bottom:0;left:7px;right:auto;width:2px;height:auto}
+      .fl{padding-left:var(--sp-5)}
+      .fl .dot{position:absolute;margin-left:calc(-1 * var(--sp-5))}
+    }
+    @media (max-width:767.98px){
+      .vig-grid{grid-template-columns:1fr}
+      .vig{padding:var(--sp-4) 0}
+      .vig:nth-child(even){border-left:0;padding-right:0}
+      .vig:nth-child(n+2){border-top:1px solid rgba(255,255,255,.2)}
+      .vig:first-child{padding-top:0}
+      .vig:last-child{padding-bottom:0}
+      .vig p{font-size:var(--fs-body)}
+    }
+  </style>
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -18,7 +92,7 @@
       "@type": "Service",
       "name": "Talent Acquisition Services",
       "serviceType": "Recruitment Process Outsourcing",
-      "description": "RPO-model talent acquisition with no upfront retainer and data-backed search across a repository of 100,000+ profiles — leadership and senior hiring (global), middle and junior hiring (India and global), campus hiring, TA analytics, employer branding and social media recruitment, and process excellence and market intelligence, underpinned by the Arete platform.",
+      "description": "Embedded talent acquisition for life sciences on an RPO model with no upfront retainer and data-backed search — leadership and senior hiring (global), middle and junior hiring (India and global), campus hiring, TA analytics, employer branding and social media recruitment, and process excellence and market intelligence, underpinned by the Arete platform.",
       "provider": {
         "@type": "Organization",
         "@id": "https://pivotpath.com/#organization",
@@ -71,10 +145,10 @@
         },
         {
           "@type": "Question",
-          "name": "What is the 100,000+ profile repository?",
+          "name": "What makes your search data-backed?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "It is our proprietary repository of over 100,000 profiles that underpins data-backed search, letting us shortlist relevant candidates faster instead of starting every mandate from scratch."
+            "text": "Every mandate draws on our proprietary profile repository and market intelligence, so shortlists are built from evidence rather than started from scratch — and TA analytics track the funnel from sourcing to acceptance."
           }
         },
         {
@@ -82,7 +156,15 @@
           "name": "Which roles and regions do you cover?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Leadership and senior hiring globally, middle and junior hiring across India and global markets, and campus hiring — spanning specialist and niche life sciences roles as well as broader functions."
+            "text": "Leadership and senior hiring globally, middle and junior hiring across India and global markets, and campus hiring — spanning specialist life sciences roles such as pharmacovigilance, regulatory affairs, CSV, QA/QC and clinical operations, as well as broader functions."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you staff a launch or a sudden ramp?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Embedded RPO capacity scales with your programmes — for a greenfield vaccine facility we delivered 200+ hires in four months — and flexes back down when the peak passes."
           }
         },
         {
@@ -98,7 +180,7 @@
           "name": "Which platform supports your recruiting?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Our talent acquisition work is underpinned by Arete, Pivot Path's own recruiting platform — Hire Smarter. Hire Faster. Talent Guaranteed."
+            "text": "Our talent acquisition work is underpinned by Arete, Pivot Path's own recruiting platform — Hire Smarter. Hire Faster. Accepted candidates flow straight into the Darwinbox HCM we implement for clients."
           }
         }
       ]
@@ -202,11 +284,10 @@
     <div class="container">
       <div class="crumb"><a href="pivotpath-home.html">Home</a> &nbsp;/&nbsp; <a href="pivotpath-home.html#services">Services</a> &nbsp;/&nbsp; <a href="pivotpath-human-capital.html">Human Capital</a> &nbsp;/&nbsp; Talent Acquisition Services</div>
       <h1>Hire smarter.<br>Hire faster.</h1>
-      <p class="lead">RPO-model talent acquisition with no upfront retainer and data-backed search across a repository of 100,000+ profiles: from leadership and senior mandates to middle, junior and campus hiring, backed by TA analytics, employer branding and market intelligence.</p>
+      <p class="lead">Pivot Path delivers embedded talent acquisition for life sciences — leadership and senior search worldwide, middle, junior and campus hiring across India and global markets, TA analytics, employer branding, and process excellence — on an RPO model with no upfront retainer and data-backed search. Recruiters who know the roles, so milestones never wait for people.</p>
       <div class="hero-ctas">
         <a href="#contact" class="btns2 solid-light">Talk to our talent team</a>
-        <a href="#process" class="btns-line">See how it works</a>
-        <a href="#contact" class="btns2 solid-light">Submit a mandate</a>
+        <a href="#services" class="btns-line">See what we deliver</a>
       </div>
     </div>
   </section>
@@ -216,136 +297,162 @@
     <div class="container">
       <div class="inner">
         <a href="#overview" class="active">Overview</a>
-        <a href="#challenge">The Challenge</a>
-        <a href="#what">What We Do</a>
-        <a href="#process">Process</a>
+        <a href="#record">Track Record</a>
+        <a href="#services">What We Deliver</a>
+        <a href="#assurance">Approach</a>
+        <a href="#process">How We Hire</a>
         <a href="#arete">Arete</a>
-        <a href="#numbers">Story in Numbers</a>
-        <a href="#proof">Proof</a>
-        <a href="#whyus">Why Us</a>
-        <a href="#leaders">Leaders</a>
+        <a href="#engage">Ways to Engage</a>
+        <a href="#leaders">Leader</a>
         <a href="#faq">FAQ</a>
       </div>
     </div>
   </nav>
 
-  <!-- ============ HIGHLIGHTS ============ -->
-  <section class="pad60">
+  <!-- ============ TRUST BAND ============ -->
+  <section class="tband pad60" id="record">
     <div class="container">
-      <div class="row g-4 align-items-center">
-        <div class="col-lg-5 reveal">
-          <h2 class="section-title">Recruiting Built on Data, Not Retainers</h2>
+      <div class="inner reveal">
+        <div class="cell note">Recruiters who screen with scientific literacy — pharmacovigilance, regulatory affairs, CSV, QA/QC, clinical operations.</div>
+        <div class="cell"><div class="n">No Retainer</div><div class="l">Engagement tied to delivery, not an upfront fee</div></div>
+        <div class="cell"><div class="n">Data-Backed</div><div class="l">Shortlists built from evidence, not guesswork</div></div>
+        <div class="cell"><div class="n">Embedded</div><div class="l">Teams that carry your brand and culture</div></div>
+        <div class="cell"><div class="n">RPO</div><div class="l">Capacity that scales with your programmes</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHAT WE DELIVER (pill-tabs) ============ -->
+  <section class="pad80 grey" id="services">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title reveal">Talent Acquisition, End to End</h2>
+      </div>
+      <div class="cap-tabs reveal" role="tablist" aria-label="Talent acquisition services">
+        <button class="cap-tab" role="tab" id="ta-1" aria-controls="tp-1" aria-selected="true"  tabindex="0">Leadership &amp; Senior</button>
+        <button class="cap-tab" role="tab" id="ta-2" aria-controls="tp-2" aria-selected="false" tabindex="-1">Middle &amp; Junior</button>
+        <button class="cap-tab" role="tab" id="ta-3" aria-controls="tp-3" aria-selected="false" tabindex="-1">Campus Hiring</button>
+        <button class="cap-tab" role="tab" id="ta-4" aria-controls="tp-4" aria-selected="false" tabindex="-1">TA Analytics</button>
+        <button class="cap-tab" role="tab" id="ta-5" aria-controls="tp-5" aria-selected="false" tabindex="-1">Employer Branding</button>
+        <button class="cap-tab" role="tab" id="ta-6" aria-controls="tp-6" aria-selected="false" tabindex="-1">Process Excellence</button>
+      </div>
+      <div class="cap-panels reveal">
+        <div class="cap-panel" role="tabpanel" id="tp-1" aria-labelledby="ta-1" tabindex="0">
+          <h3 class="cap-panel-h">Confidential searches for the roles that set direction.</h3>
+          <p class="cap-panel-p">Global leadership and senior mandates, delivered mandate-led and confidential — data-backed shortlisting with specialist life sciences coverage.</p>
+          <div class="cap-foot">
+            <a href="#contact" class="cap-explore">Discuss a mandate <span aria-hidden="true">→</span></a>
+          </div>
         </div>
-        <div class="col-lg-7">
-          <div class="row g-4">
-            <div class="col-6 col-md-3 reveal"><div class="hl"><div class="n">100,000+</div><div class="l">Profile Repository</div></div></div>
-            <div class="col-6 col-md-3 reveal"><div class="hl"><div class="n">No Retainer</div><div class="l">No Upfront Fee</div></div></div>
-            <div class="col-6 col-md-3 reveal"><div class="hl"><div class="n">Data-Backed</div><div class="l">Search &amp; Shortlisting</div></div></div>
-            <div class="col-6 col-md-3 reveal"><div class="hl"><div class="n">RPO</div><div class="l">Delivery Model</div></div></div>
+        <div class="cap-panel" role="tabpanel" id="tp-2" aria-labelledby="ta-2" tabindex="0" hidden>
+          <h3 class="cap-panel-h">Scalable pipelines that keep programmes staffed.</h3>
+          <p class="cap-panel-p">Middle and junior hiring across India and global markets — consistent screening and quality standards, with faster shortlists drawn from proprietary data.</p>
+          <div class="cap-foot">
+            <a href="#contact" class="cap-explore">Discuss volume hiring <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+        <div class="cap-panel" role="tabpanel" id="tp-3" aria-labelledby="ta-3" tabindex="0" hidden>
+          <h3 class="cap-panel-h">Early talent, built into a pipeline.</h3>
+          <p class="cap-panel-p">Structured campus recruitment programmes — early-talent sourcing and assessment, employer presence on campus, and graduate pipelines that feed the roles ahead.</p>
+          <div class="cap-foot">
+            <a href="#contact" class="cap-explore">Discuss campus programmes <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+        <div class="cap-panel" role="tabpanel" id="tp-4" aria-labelledby="ta-4" tabindex="0" hidden>
+          <h3 class="cap-panel-h">Hiring measured like any other operation.</h3>
+          <p class="cap-panel-p">Hiring-performance tracking and reporting across the funnel — insight into sourcing and conversion that feeds continuous improvement of every mandate.</p>
+          <div class="cap-foot">
+            <a href="#contact" class="cap-explore">Discuss TA analytics <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+        <div class="cap-panel" role="tabpanel" id="tp-5" aria-labelledby="ta-5" tabindex="0" hidden>
+          <h3 class="cap-panel-h">A brand candidates recognise before the recruiter calls.</h3>
+          <p class="cap-panel-p">Employer brand strategy and positioning, social media recruitment campaigns, and candidate engagement that turns cold outreach into warm pipelines.</p>
+          <div class="cap-foot">
+            <a href="#contact" class="cap-explore">Discuss employer branding <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+        <div class="cap-panel" role="tabpanel" id="tp-6" aria-labelledby="ta-6" tabindex="0" hidden>
+          <h3 class="cap-panel-h">The recruiting engine, engineered.</h3>
+          <p class="cap-panel-p">Recruitment process design and optimisation, market intelligence and talent mapping, benchmarking and advisory — RPO delivery with no upfront retainer.</p>
+          <div class="cap-foot">
+            <a href="#contact" class="cap-explore">Discuss process excellence <span aria-hidden="true">→</span></a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ CHALLENGE ============ -->
-  <section class="pad80 grey" id="challenge">
+  <!-- ============ VIGNETTES ============ -->
+  <section class="pad80 risk-band" id="assurance">
     <div class="container">
       <div class="text-center mb-5">
-        <h2 class="section-title reveal">The bottlenecks in your hiring pipeline</h2>
+        <h2 class="section-title reveal">Built for the Realities of Life Sciences Hiring</h2>
       </div>
-      <div class="row g-4">
-        <div class="col-md-6 col-lg-3 reveal"><div class="pain"><div class="x">⟳</div><h5>Slow time-to-hire</h5><p>Roles stay open for months while pipelines are built from scratch.</p></div></div>
-        <div class="col-md-6 col-lg-3 reveal"><div class="pain"><div class="x">▤</div><h5>Retainer risk</h5><p>Upfront fees paid before any shortlist is delivered strain budgets.</p></div></div>
-        <div class="col-md-6 col-lg-3 reveal"><div class="pain"><div class="x">▣</div><h5>Weak candidate data</h5><p>Thin, outdated talent data makes shortlisting slow and unreliable.</p></div></div>
-        <div class="col-md-6 col-lg-3 reveal"><div class="pain"><div class="x">⚠</div><h5>Niche &amp; specialist roles</h5><p>Scarce life sciences skill sets are hard to source through generic channels.</p></div></div>
+      <div class="vig-grid reveal">
+        <div class="vig">
+          <h3>When the milestone is fixed but the team isn't</h3>
+          <p>A trial start or tech-transfer date does not move. Embedded recruiters scale the search to the deadline, so the date is met by the people who must deliver it.</p>
+        </div>
+        <div class="vig">
+          <h3>When agencies send volume, not fit</h3>
+          <p>Our recruiters screen with scientific literacy — they know pharmacovigilance from regulatory affairs and CSV from QA — so your scientists interview candidates, not CVs.</p>
+        </div>
+        <div class="vig">
+          <h3>When hiring spikes around a submission</h3>
+          <p>RPO capacity flexes up for the surge and back down after it — recruiting strength sized to the programme, without a permanent cost base.</p>
+        </div>
+        <div class="vig">
+          <h3>When specialist roles stay open for months</h3>
+          <p>Scarce skill sets rarely surface through generic channels. Data-backed search from a proprietary repository shortcuts sourcing on every mandate.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ WHAT WE DO ============ -->
-  <section class="pad80" id="what">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="section-title reveal">Talent Acquisition, End to End</h2>
-      </div>
-      <div class="row g-4">
-        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
-          <h4>Leadership & Senior Hiring</h4>
-          <ul><li>Global search for leadership &amp; senior roles</li><li>Data-backed shortlisting from the profile repository</li><li>Confidential, mandate-led delivery</li><li>Specialist life sciences coverage</li></ul>
-        </div></div>
-        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
-          <h4>Middle & Junior Hiring</h4>
-          <ul><li>Middle &amp; junior hiring across India and global markets</li><li>Scalable pipelines for high-volume needs</li><li>Consistent screening &amp; quality standards</li><li>Faster shortlists from proprietary data</li></ul>
-        </div></div>
-        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
-          <h4>Campus Hiring</h4>
-          <ul><li>Structured campus recruitment programmes</li><li>Early-talent sourcing &amp; assessment</li><li>Employer presence on campus</li><li>Pipeline building for graduate roles</li></ul>
-        </div></div>
-        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
-          <h4>TA Analytics</h4>
-          <ul><li>Hiring-performance tracking &amp; reporting</li><li>Data-backed decisions across the funnel</li><li>Insight into sourcing &amp; conversion</li><li>Continuous improvement of outcomes</li></ul>
-        </div></div>
-        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
-          <h4>Employer Branding & Social Media Recruitment</h4>
-          <ul><li>Employer brand strategy &amp; positioning</li><li>Social media recruitment campaigns</li><li>Candidate engagement &amp; reach</li><li>Stronger, warmer talent pipelines</li></ul>
-        </div></div>
-        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
-          <h4>Process Excellence & Market Intelligence</h4>
-          <ul><li>Recruitment process design &amp; optimisation</li><li>Market intelligence &amp; talent mapping</li><li>Benchmarking &amp; advisory</li><li>RPO delivery with no upfront retainer</li></ul>
-        </div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ PROCESS ============ -->
-  <section class="pad80 grey" id="process">
+  <!-- ============ HOW WE HIRE ============ -->
+  <section class="pad80" id="process">
     <div class="container">
       <div class="text-center mb-5">
         <h2 class="section-title reveal">How We Hire</h2>
       </div>
-      <div class="proc reveal cols-5">
-        <div class="proc-step">
-          <div class="pic"><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg></div>
-          <div class="pk">Define</div>
-          <h5>Define the Role</h5>
-          <p>We scope the mandate, must-have skills and success profile before the search starts.</p>
+      <div class="flow4 reveal">
+        <div class="fl">
+          <div class="dot"></div>
+          <div class="ph">Define</div>
+          <p class="fl-note">The mandate, must-have skills and success profile scoped before the search starts.</p>
         </div>
-        <div class="proc-step">
-          <div class="pic"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="M20 20l-3.5-3.5"/></svg></div>
-          <div class="pk">Search</div>
-          <h5>Data-Backed Search</h5>
-          <p>We mine our 100,000+ profile repository and market to source relevant candidates fast.</p>
+        <div class="fl">
+          <div class="dot"></div>
+          <div class="ph">Search</div>
+          <p class="fl-note">Proprietary repository and market mined for relevant candidates, fast.</p>
         </div>
-        <div class="proc-step">
-          <div class="pic"><svg viewBox="0 0 24 24"><path d="M16 3.13a4 4 0 0 1 0 7.75M21 21v-2a4 4 0 0 0-3-3.87M7 8a4 4 0 1 0 8 0 4 4 0 0 0-8 0M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg></div>
-          <div class="pk">Assess</div>
-          <h5>Shortlist &amp; Assess</h5>
-          <p>Screened, assessed shortlists are delivered against the agreed profile, with no upfront retainer.</p>
+        <div class="fl">
+          <div class="dot"></div>
+          <div class="ph">Assess</div>
+          <p class="fl-note">Screened, assessed shortlists delivered against the agreed profile.</p>
         </div>
-        <div class="proc-step">
-          <div class="pic"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
-          <div class="pk">Close</div>
-          <h5>Offer &amp; Close</h5>
-          <p>We manage offer, negotiation and closure to secure the chosen candidate.</p>
+        <div class="fl">
+          <div class="dot"></div>
+          <div class="ph">Close</div>
+          <p class="fl-note">Offer, negotiation and closure managed to secure the chosen candidate.</p>
         </div>
-        <div class="proc-step">
-          <div class="pic"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
-          <div class="pk">Improve</div>
-          <h5>Analytics &amp; Improve</h5>
-          <p>TA analytics track hiring performance and feed continuous improvement of the funnel.</p>
+        <div class="fl">
+          <div class="dot"></div>
+          <div class="ph">Improve</div>
+          <p class="fl-note">TA analytics track performance and feed continuous improvement of the funnel.</p>
         </div>
       </div>
+      <p class="flow-close reveal">No fee is taken before a shortlist exists — engagement is tied to delivery at every step, and the learning from every mandate compounds into the next.</p>
     </div>
   </section>
-
 
   <!-- ============ PRODUCT SPOTLIGHT: ARETE ============ -->
   <section class="pad80 spotlight" id="arete">
     <div class="container">
       <div class="spot-head reveal">
         <div class="pname">Arete</div>
-        <p class="spot-tagline">Hire Smarter. Hire Faster. Talent Guaranteed.</p>
+        <p class="spot-tagline">Hire Smarter. Hire Faster.</p>
       </div>
       <div class="row align-items-center g-4 g-lg-5 spot-body">
         <div class="col-lg-6 reveal">
@@ -413,68 +520,43 @@
         </div>
         <div class="col-lg-6 reveal">
           <ul class="vp-list">
-            <li class="vp"><span class="vp-ic">✓</span><div><div class="vp-t">Data-backed search</div><div class="vp-d">Drawn from a 100,000+ profile repository.</div></div></li>
-            <li class="vp"><span class="vp-ic">✓</span><div><div class="vp-t">No upfront retainer</div><div class="vp-d">An RPO model that pays for outcomes.</div></div></li>
-            <li class="vp"><span class="vp-ic">✓</span><div><div class="vp-t">Specialist reach</div><div class="vp-d">Leadership to campus, across India and globally.</div></div></li>
+            <li class="vp"><span class="vp-ic">✓</span><div><div class="vp-t">Intelligent sourcing &amp; screening</div><div class="vp-d">AI candidate scoring surfaces fit first, so recruiters spend their time on the right conversations.</div></div></li>
+            <li class="vp"><span class="vp-ic">✓</span><div><div class="vp-t">Streamlined hiring execution</div><div class="vp-d">Scheduling, evaluation and pipeline management in one flow, mandate to offer.</div></div></li>
+            <li class="vp"><span class="vp-ic">✓</span><div><div class="vp-t">Insights &amp; integration</div><div class="vp-d">Funnel analytics with HRMS and API integration into your existing systems.</div></div></li>
           </ul>
+          <p class="dd-link">Accepted candidates flow straight into the <a href="pivotpath-svc-hc-digitisation.html">Darwinbox HCM</a> we implement for clients — hiring and HR operations on one connected thread.</p>
           <a href="pivotpath-arete.html" class="btns-line mt-4">Explore Arete</a>
         </div>
       </div>
     </div>
   </section>
 
-
-  <!-- ============ STORY IN NUMBERS ============ -->
-  <section class="pad80 stat-band" id="numbers">
+  <!-- ============ WAYS TO ENGAGE ============ -->
+  <section class="pad80 grey" id="engage">
     <div class="container">
       <div class="text-center mb-5">
-        <h2 class="section-title text-white reveal">The Depth Behind Every Search</h2>
+        <h2 class="section-title reveal">Ways to Engage</h2>
       </div>
-      <div class="row text-center g-4 justify-content-center">
-        <div class="col-6 col-lg-4 stat"><div class="num"><span class="count" data-to="100000">0</span><span class="suffix">+</span></div><div class="label">Profile Repository</div></div>
-        <div class="col-6 col-lg-4 stat"><div class="num">₹0</div><div class="label">No Upfront Retainer</div></div>
-        <div class="col-6 col-lg-4 stat"><div class="num">RPO</div><div class="label">Delivery Model</div></div>
+      <div class="engage-grid reveal">
+        <div class="engage-col">
+          <h4>Advisory</h4>
+          <p>TA analytics, market intelligence, talent mapping and employer-brand strategy — the hiring engine measured and tuned before mandates are opened.</p>
+        </div>
+        <div class="engage-col">
+          <h4>Delivery</h4>
+          <p>Defined searches from leadership to campus — mandate-led, data-backed and screened with scientific literacy, with no upfront retainer.</p>
+        </div>
+        <div class="engage-col">
+          <h4>Managed Operations</h4>
+          <p>Embedded RPO teams that carry your brand and scale with programme phases — recruiting capacity that flexes up for a surge and back down after it.</p>
+        </div>
       </div>
+      <p class="engage-kicker reveal">Each engagement model is contractable independently — begin with a defined scope and expand as your requirements evolve.</p>
     </div>
   </section>
 
-  <!-- ============ PROOF ============ -->
-  <section class="pad80" id="proof">
-    <div class="container">
-      <div class="row align-items-center g-5">
-        <div class="col-lg-5 reveal">
-          <h2 class="section-title">What Makes the Difference</h2>
-        </div>
-        <div class="col-lg-7">
-          <div class="row g-4">
-            <div class="col-sm-6 reveal"><div class="proof-card"><div class="big">100,000+</div><div class="cap">Profiles in our proprietary repository, powering data-backed search across every mandate.</div></div></div>
-            <div class="col-sm-6 reveal"><div class="proof-card"><div class="big">No retainer</div><div class="cap">An RPO model with no upfront fee. We deliver shortlists against defined roles.</div></div></div>
-            <div class="col-sm-6 reveal"><div class="proof-card"><div class="big">Global reach</div><div class="cap">Leadership and senior search globally, with middle and junior hiring across India and global markets.</div></div></div>
-            <div class="col-sm-6 reveal"><div class="proof-card"><div class="big">Arete</div><div class="cap">Underpinned by Pivot Path’s own recruiting platform: Hire Smarter. Hire Faster. Talent Guaranteed.</div></div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ WHY US (value proposition) ============ -->
-  <section class="pad80 stat-band" id="whyus">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="section-title text-white reveal">Why Employers Hire With Us</h2>
-      </div>
-      <div class="row text-center g-4 justify-content-center">
-        <div class="col-md-6 col-lg-4 reveal valstat"><div class="vt">100,000+ profile repository</div><div class="vl">Proprietary talent data that shortcuts sourcing on every mandate.</div></div>
-        <div class="col-md-6 col-lg-4 reveal valstat"><div class="vt">No upfront retainer</div><div class="vl">An RPO model that ties engagement to delivery, not a fee taken in advance.</div></div>
-        <div class="col-md-6 col-lg-4 reveal valstat"><div class="vt">Data-backed search</div><div class="vl">Shortlists built from evidence and analytics, not guesswork.</div></div>
-        <div class="col-md-6 col-lg-4 reveal valstat"><div class="vt">Leadership to campus</div><div class="vl">One partner across senior, middle, junior and early-talent hiring.</div></div>
-        <div class="col-md-6 col-lg-4 reveal valstat"><div class="vt">Branding &amp; analytics</div><div class="vl">Employer branding, social recruitment and TA analytics in one engagement.</div></div>
-        <div class="col-md-6 col-lg-4 reveal valstat"><div class="vt">Powered by Arete</div><div class="vl">Our own recruiting platform behind the delivery model.</div></div>
-      </div>
-    </div>
-  </section>
-  <!-- ============ PRACTICE LEADERS ============ -->
-  <section class="pad80 grey" id="leaders">
+  <!-- ============ PRACTICE LEADER ============ -->
+  <section class="pad80" id="leaders">
     <div class="container">
       <div class="text-center mb-5"><h2 class="section-title reveal">The Leader Behind Talent Acquisition</h2></div>
       <div class="row g-4 justify-content-center">
@@ -492,9 +574,8 @@
     </div>
   </section>
 
-
-    <!-- ============ FAQ ============ -->
-  <section class="pad80" id="faq">
+  <!-- ============ FAQ ============ -->
+  <section class="pad80 grey" id="faq">
     <div class="container">
       <div class="text-center mb-5">
         <h2 class="section-title reveal">Talent acquisition FAQ</h2>
@@ -507,20 +588,24 @@
               <div id="q1" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">We operate on a recruitment process outsourcing (RPO) model with no upfront retainer — you engage our recruiting capability against defined roles, and we run the search end to end using a data-backed approach rather than charging a fee before delivery.</div></div>
             </div>
             <div class="accordion-item">
-              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2">What is the 100,000+ profile repository?</button></h2>
-              <div id="q2" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">It is our proprietary repository of over 100,000 profiles that underpins data-backed search, letting us shortlist relevant candidates faster instead of starting every mandate from scratch.</div></div>
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2">What makes your search data-backed?</button></h2>
+              <div id="q2" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Every mandate draws on our proprietary profile repository and market intelligence, so shortlists are built from evidence rather than started from scratch — and TA analytics track the funnel from sourcing to acceptance.</div></div>
             </div>
             <div class="accordion-item">
               <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q3">Which roles and regions do you cover?</button></h2>
-              <div id="q3" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Leadership and senior hiring globally, middle and junior hiring across India and global markets, and campus hiring — spanning specialist and niche life sciences roles as well as broader functions.</div></div>
+              <div id="q3" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Leadership and senior hiring globally, middle and junior hiring across India and global markets, and campus hiring — spanning specialist life sciences roles such as pharmacovigilance, regulatory affairs, CSV, QA/QC and clinical operations, as well as broader functions.</div></div>
             </div>
             <div class="accordion-item">
-              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q4">Do you offer analytics and employer branding?</button></h2>
-              <div id="q4" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Yes — TA analytics to track and improve hiring performance, plus employer branding and social media recruitment to strengthen your candidate pipeline, supported by process excellence and market intelligence.</div></div>
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q4">Can you staff a launch or a sudden ramp?</button></h2>
+              <div id="q4" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Yes. Embedded RPO capacity scales with your programmes — for a greenfield vaccine facility we delivered 200+ hires in four months — and flexes back down when the peak passes.</div></div>
             </div>
             <div class="accordion-item">
-              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q5">Which platform supports your recruiting?</button></h2>
-              <div id="q5" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Our talent acquisition work is underpinned by Arete, Pivot Path’s own recruiting platform — Hire Smarter. Hire Faster. Talent Guaranteed.</div></div>
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q5">Do you offer analytics and employer branding?</button></h2>
+              <div id="q5" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Yes — TA analytics to track and improve hiring performance, plus employer branding and social media recruitment to strengthen your candidate pipeline, supported by process excellence and market intelligence.</div></div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q6">Which platform supports your recruiting?</button></h2>
+              <div id="q6" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Our talent acquisition work is underpinned by Arete, Pivot Path’s own recruiting platform — Hire Smarter. Hire Faster. Accepted candidates flow straight into the Darwinbox HCM we implement for clients.</div></div>
             </div>
           </div>
         </div>
@@ -529,14 +614,13 @@
   </section>
 
   <!-- ============ FINAL CTA ============ -->
-  <section class="pad80 final-cta text-center" id="contact">
+  <section class="pad80 alt-cta text-center" id="contact">
     <div class="container">
       <h2 class="section-title text-white reveal mb-3">Hire Smarter.<br>Hire Faster.</h2>
-      <p class="text-white-50 reveal mb-4" style="max-width:640px;margin-inline:auto">Leadership, volume, campus or specialist hiring. Data-backed, RPO-model recruiting with no upfront retainer. Talk to our talent team.</p>
+      <p class="text-white-50 reveal mb-4" style="max-width:640px;margin-inline:auto">Leadership, volume, campus or specialist hiring — embedded, data-backed recruiting with no upfront retainer. Our talent team is ready to discuss your requirements.</p>
       <div class="hero-ctas justify-content-center reveal">
         <a href="mailto:info@pivotpath.com" class="btns2 solid-light">Talk to our talent team</a>
         <a href="pivotpath-human-capital.html" class="btns-line">See the Human Capital pillar</a>
-        <a href="mailto:info@pivotpath.com" class="btns2 solid-light">Submit a mandate</a>
       </div>
     </div>
   </section>
@@ -604,38 +688,54 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
   <script>
+    // ---- Service pill-tabs (accessible) ----
     (function(){
-      function run(scope){
-        scope.querySelectorAll('.count').forEach(function(el){
-          if(el.dataset.done)return;el.dataset.done="1";
-          var to=parseFloat(el.dataset.to), dec=parseInt(el.dataset.dec||'0',10);
-          if(to===0){el.textContent="0";return;}
-          var start=null,dur=1600;
-          function step(ts){if(!start)start=ts;var p=Math.min((ts-start)/dur,1);
-            var val=to*(0.5-Math.cos(p*Math.PI)/2);
-            el.textContent=dec?val.toFixed(dec):Math.round(val).toLocaleString();
-            if(p<1)requestAnimationFrame(step);else el.textContent=dec?to.toFixed(dec):to.toLocaleString();}
-          requestAnimationFrame(step);
+      var tabs=Array.prototype.slice.call(document.querySelectorAll('.cap-tab'));
+      if(!tabs.length)return;
+      var panels=tabs.map(function(t){return document.getElementById(t.getAttribute('aria-controls'));});
+      function select(idx,focus){
+        tabs.forEach(function(t,i){
+          var on=i===idx;
+          t.setAttribute('aria-selected',on?'true':'false');
+          t.tabIndex=on?0:-1;
+          if(panels[i])panels[i].hidden=!on;
         });
+        if(focus&&tabs[idx])tabs[idx].focus();
       }
-      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)run(e.target);});},{threshold:.3});
-      document.querySelectorAll('.stat-band').forEach(function(b){io.observe(b);});
+      tabs.forEach(function(tab,i){
+        tab.addEventListener('click',function(){select(i,false);});
+        tab.addEventListener('keydown',function(e){
+          var n;
+          if(e.key==='ArrowRight'||e.key==='ArrowDown')n=(i+1)%tabs.length;
+          else if(e.key==='ArrowLeft'||e.key==='ArrowUp')n=(i-1+tabs.length)%tabs.length;
+          else if(e.key==='Home')n=0;
+          else if(e.key==='End')n=tabs.length-1;
+          else return;
+          e.preventDefault();select(n,true);
+        });
+      });
+      select(0,false);
     })();
+
+    // ---- Reveal on scroll ----
     (function(){
       var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
       document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
     })();
+
+    // ---- Active anchor-nav highlight ----
     (function(){
       var links=[].slice.call(document.querySelectorAll('.anchor-nav a'));
       var map=links.map(function(a){return {a:a,el:document.querySelector(a.getAttribute('href'))};}).filter(function(x){return x.el;});
-      function onScroll(){var y=window.scrollY+120,cur=map[0];
+      function onScroll(){
+        var y=window.scrollY+120,cur=map[0];
         map.forEach(function(x){if(x.el.offsetTop<=y)cur=x;});
-        links.forEach(function(a){a.classList.remove('active');});if(cur)cur.a.classList.add('active');}
+        links.forEach(function(a){a.classList.remove('active');});
+        if(cur)cur.a.classList.add('active');
+      }
       window.addEventListener('scroll',onScroll,{passive:true});onScroll();
     })();
   </script>
   <script src="pp-mobile.js" defer></script>
-  <!-- design-toggle -->
-  <a href="pivotpath-svc-talent-acquisition-alt.html" style="position:fixed;left:18px;bottom:18px;z-index:2000;background:#0f141b;color:#fff;padding:10px 18px;border-radius:999px;font:600 13px/1 -apple-system,'Segoe UI',Roboto,Arial,sans-serif;letter-spacing:.02em;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,.28);opacity:.92" aria-label="View alternate design">View alternate design</a>
 </body>
 </html>

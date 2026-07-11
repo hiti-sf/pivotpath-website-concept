@@ -3,13 +3,82 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mobile Clinical Services — Pivot Path Decentralised Trials Across India</title>
-  <meta name="description" content="Decentralised, home-health clinical delivery across 20+ trial sites in India with 80+ GCP-trained study nurses — study drug administration, blood draws, biologic sampling, clinical assessments, cold-chain handling and AE/SAE reporting, with patient convenience and protocol adherence." />
+  <title>Mobile Clinical Services — Pivot Path Home-Health Trial Delivery Across India</title>
+  <meta name="description" content="Mobile clinical services from Pivot Path — in-home and near-home trial visits across India: study drug administration, blood draws and biologic sampling, clinical assessments, patient training and PRO questionnaires, delivered by GCP-trained study nurses with cold-chain integrity and EDC and AE/SAE reporting." />
   <link rel="preconnect" href="https://cdn.jsdelivr.net" />
   <link rel="preconnect" href="https://in.fw-cdn.com" />
   <link rel="preload" href="pp.css?v=15" as="style" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="pp.css?v=15" />
+  <style>
+    /* ==== ALT-PAGE PROTOTYPE STYLES (scoped to this page; pp.css untouched) ==== */
+
+    /* Trust band — dense hairline strip under the hero */
+    .tband{border-bottom:1px solid var(--pp-line)}
+    .tband .inner{display:grid;grid-template-columns:minmax(0,4fr) repeat(4,minmax(0,2fr));align-items:stretch}
+    .tband .cell{padding:var(--sp-4) var(--sp-4);border-left:1px solid var(--pp-line)}
+    .tband .cell:first-child{border-left:0;padding-left:0}
+    .tband .note{font-size:var(--fs-lead);font-weight:600;color:var(--pp-ink);display:flex;align-items:center}
+    .tband .n{font-size:1.6rem;font-weight:800;color:var(--pp-ink);line-height:1.1;font-variant-numeric:tabular-nums}
+    .tband .l{font-size:var(--fs-sm);color:var(--pp-muted);margin-top:4px}
+
+    /* Vignette quadrants — dark band over the operations photo */
+    /* swap to assets/ipc-ops-bg.jpg when the dedicated IP & Clinical image lands */
+    .risk-band{background-color:#0a1016;background-image:linear-gradient(rgba(10,16,22,.9),rgba(10,16,22,.9)),url('assets/dt-ops-bg.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;color:#fff}
+    .risk-band .section-title{color:#fff}
+    .vig-grid{display:grid;grid-template-columns:1fr 1fr}
+    .vig{padding:var(--sp-5)}
+    .vig:nth-child(odd){padding-left:0}
+    .vig:nth-child(even){border-left:1px solid rgba(255,255,255,.2);padding-right:0}
+    .vig:nth-child(n+3){border-top:1px solid rgba(255,255,255,.2)}
+    .vig:nth-child(-n+2){padding-top:0}
+    .vig:nth-child(n+3){padding-bottom:0}
+    .vig h3{font-size:var(--fs-h4);font-weight:700;color:#fff;margin-bottom:var(--sp-2)}
+    .vig p{font-size:var(--fs-lead);line-height:1.6;color:rgba(255,255,255,.8);margin:0;max-width:52ch}
+
+    /* Five movements — connected flow (how a visit runs) */
+    .flow4{display:grid;grid-template-columns:repeat(5,1fr);gap:var(--sp-4);position:relative;padding-top:var(--sp-4)}
+    .flow4::before{content:"";position:absolute;top:calc(var(--sp-4) + 7px);left:8px;right:8px;height:2px;background:var(--pp-grad);opacity:.5}
+    .fl .dot{width:16px;height:16px;border-radius:50%;background:var(--pp-grad);margin-bottom:var(--sp-3);position:relative}
+    .fl .ph{font-size:var(--fs-h4);font-weight:800;color:var(--pp-ink);margin-bottom:var(--sp-2)}
+    .fl .fl-note{color:var(--pp-muted);margin-bottom:0;font-size:var(--fs-sm)}
+    .flow-close{margin-top:var(--sp-5);padding-top:var(--sp-4);border-top:1px solid var(--pp-line);font-weight:600;color:var(--pp-ink);max-width:72ch}
+
+    /* Ways to engage — three hairline columns, not cards */
+    .engage-grid{display:grid;grid-template-columns:repeat(3,1fr)}
+    .engage-col{padding:0 var(--sp-5);border-left:1px solid var(--pp-line)}
+    .engage-col:first-child{border-left:0;padding-left:0}
+    .engage-col h4{font-size:var(--fs-h4);margin-bottom:var(--sp-3)}
+    .engage-col p{color:var(--pp-muted)}
+    .engage-kicker{margin-top:var(--sp-5);padding-top:var(--sp-4);border-top:1px solid var(--pp-line);font-weight:600;color:var(--pp-ink)}
+
+    /* Final CTA over the photo */
+    /* swap to assets/ipc-cta-bg.jpg when the dedicated IP & Clinical image lands */
+    .alt-cta{background-color:#0a1016;background-image:linear-gradient(rgba(10,16,22,.8),rgba(10,16,22,.8)),url('assets/dt-cta-bg.jpg');background-size:cover;background-position:center;background-repeat:no-repeat}
+
+    /* Mobile */
+    @media (max-width:991.98px){
+      .tband .inner{grid-template-columns:repeat(2,1fr)}
+      .tband .cell{border-left:0;padding-left:0}
+      .tband .note{grid-column:1/-1;padding-bottom:0}
+      .engage-grid{grid-template-columns:1fr}
+      .engage-col{border-left:0;padding:var(--sp-4) 0;border-top:1px solid var(--pp-line)}
+      .engage-col:first-child{border-top:0;padding-top:0}
+      .flow4{grid-template-columns:1fr;gap:var(--sp-4);padding-top:0}
+      .flow4::before{top:0;bottom:0;left:7px;right:auto;width:2px;height:auto}
+      .fl{padding-left:var(--sp-5)}
+      .fl .dot{position:absolute;margin-left:calc(-1 * var(--sp-5))}
+    }
+    @media (max-width:767.98px){
+      .vig-grid{grid-template-columns:1fr}
+      .vig{padding:var(--sp-4) 0}
+      .vig:nth-child(even){border-left:0;padding-right:0}
+      .vig:nth-child(n+2){border-top:1px solid rgba(255,255,255,.2)}
+      .vig:first-child{padding-top:0}
+      .vig:last-child{padding-bottom:0}
+      .vig p{font-size:var(--fs-body)}
+    }
+  </style>
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -18,7 +87,7 @@
       "@type": "Service",
       "name": "Mobile Clinical Services",
       "serviceType": "Mobile Clinical Services",
-      "description": "Decentralised, home-health clinical delivery across 20+ trial sites in India with 80+ GCP-trained study nurses — study drug administration, blood draws and biologic sampling, clinical assessments, patient training, PRO questionnaires, cold-chain handling, site support and documentation with EDC and AE/SAE reporting.",
+      "description": "In-home and near-home clinical trial visits across India — study drug administration, blood draws and biologic sampling, clinical assessments, patient training and PRO questionnaires, delivered by GCP-trained study nurses with cold-chain integrity, EDC documentation and AE/SAE reporting per protocol.",
       "provider": {
         "@type": "Organization",
         "@id": "https://pivotpath.com/#organization",
@@ -66,7 +135,7 @@
           "name": "Where do you deliver mobile clinical services?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Across 20+ trial sites in India, delivering decentralised home-health and on-site visits so patients can participate beyond major hospital sites while staying on protocol."
+            "text": "Across 20+ trial sites in India, delivering home-health and on-site visits so patients can participate beyond major hospital sites while staying on protocol."
           }
         },
         {
@@ -201,11 +270,11 @@
   <section class="page-hero pad80" id="overview">
     <div class="container">
       <div class="crumb"><a href="pivotpath-home.html">Home</a> &nbsp;/&nbsp; <a href="pivotpath-home.html#services">Services</a> &nbsp;/&nbsp; <a href="pivotpath-ip-clinical.html">Integrated IP &amp; Clinical Operations</a> &nbsp;/&nbsp; Mobile Clinical Services</div>
-      <h1>Bring the trial<br>to the patient.</h1>
-      <p class="lead">Decentralised, home-health clinical delivery across 20+ sites in India: study drug administration, blood draws, biologic sampling, clinical assessments and cold-chain sample handling, carried out by 80+ GCP-trained study nurses with patient convenience and full protocol adherence.</p>
+      <h1>Clinical visits,<br>wherever the patient is.</h1>
+      <p class="lead">Pivot Path delivers in-home and near-home trial visits across India — study drug administration, blood draws and biologic sampling, clinical assessments, patient training and PRO questionnaires — carried out by GCP-trained study nurses, with cold-chain integrity and EDC and AE/SAE reporting managed per protocol. Hybrid by design: remote or on-site, whichever fits the endpoint.</p>
       <div class="hero-ctas">
         <a href="#contact" class="btns2 solid-light">Talk to our clinical team</a>
-        <a href="#process" class="btns-line">See how it works</a>
+        <a href="#process" class="btns-line">See how a visit runs</a>
       </div>
     </div>
   </section>
@@ -215,179 +284,181 @@
     <div class="container">
       <div class="inner">
         <a href="#overview" class="active">Overview</a>
-        <a href="#challenge">The Challenge</a>
-        <a href="#what">What We Do</a>
-        <a href="#process">Process</a>
-        <a href="#numbers">Story in Numbers</a>
-        <a href="#proof">Proof</a>
-        <a href="#whyus">Why Us</a>
-        <a href="#leaders">Leaders</a>
+        <a href="#record">Track Record</a>
+        <a href="#services">What We Deliver</a>
+        <a href="#assurance">Approach</a>
+        <a href="#process">How a Visit Runs</a>
+        <a href="#engage">Ways to Engage</a>
+        <a href="#leaders">Leader</a>
         <a href="#faq">FAQ</a>
       </div>
     </div>
   </nav>
 
-  <!-- ============ HIGHLIGHTS ============ -->
-  <section class="pad60">
+  <!-- ============ TRUST BAND ============ -->
+  <section class="tband pad60" id="record">
     <div class="container">
-      <div class="row g-4 align-items-center">
-        <div class="col-lg-5 reveal">
-          <h2 class="section-title">Clinical Care, Wherever the Patient Is</h2>
+      <div class="inner reveal">
+        <div class="cell note">Every visit SOP-led, documented at source and reported to the investigator site.</div>
+        <div class="cell"><div class="n">20+</div><div class="l">Trial sites across India</div></div>
+        <div class="cell"><div class="n">80+</div><div class="l">GCP-trained study nurses</div></div>
+        <div class="cell"><div class="n">Cold-Chain</div><div class="l">Integrity on every sample visit</div></div>
+        <div class="cell"><div class="n">EDC · AE/SAE</div><div class="l">Protocol-compliant reporting</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHAT WE DELIVER (pill-tabs) ============ -->
+  <section class="pad80 grey" id="services">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title reveal">Full-Service Visits, On Protocol</h2>
+      </div>
+      <div class="cap-tabs reveal" role="tablist" aria-label="Mobile clinical services">
+        <button class="cap-tab" role="tab" id="mt-1" aria-controls="mp-1" aria-selected="true"  tabindex="0">Drug Administration</button>
+        <button class="cap-tab" role="tab" id="mt-2" aria-controls="mp-2" aria-selected="false" tabindex="-1">Sampling &amp; Diagnostics</button>
+        <button class="cap-tab" role="tab" id="mt-3" aria-controls="mp-3" aria-selected="false" tabindex="-1">Clinical Assessments</button>
+        <button class="cap-tab" role="tab" id="mt-4" aria-controls="mp-4" aria-selected="false" tabindex="-1">Patient Training &amp; PROs</button>
+        <button class="cap-tab" role="tab" id="mt-5" aria-controls="mp-5" aria-selected="false" tabindex="-1">Cold-Chain &amp; Supply</button>
+        <button class="cap-tab" role="tab" id="mt-6" aria-controls="mp-6" aria-selected="false" tabindex="-1">Documentation &amp; Safety</button>
+      </div>
+      <div class="cap-panels reveal">
+        <div class="cap-panel" role="tabpanel" id="mp-1" aria-labelledby="mt-1" tabindex="0">
+          <h3 class="cap-panel-h">Dosing on protocol, at the patient's door.</h3>
+          <p class="cap-panel-p">Study drug administered per protocol — infusion, injection or topical — with dosing records maintained to standard on every visit.</p>
+          <div class="cap-foot">
+            <a href="#contact" class="cap-explore">Discuss your study <span aria-hidden="true">→</span></a>
+          </div>
         </div>
-        <div class="col-lg-7">
-          <div class="row g-4">
-            <div class="col-6 col-md-3 reveal"><div class="hl"><div class="n">20+</div><div class="l">India Trial Sites</div></div></div>
-            <div class="col-6 col-md-3 reveal"><div class="hl"><div class="n">80+</div><div class="l">GCP Study Nurses</div></div></div>
-            <div class="col-6 col-md-3 reveal"><div class="hl"><div class="n">Cold-Chain</div><div class="l">Sample Visits</div></div></div>
-            <div class="col-6 col-md-3 reveal"><div class="hl"><div class="n">At-Home</div><div class="l">Biologic Sampling</div></div></div>
+        <div class="cap-panel" role="tabpanel" id="mp-2" aria-labelledby="mt-2" tabindex="0" hidden>
+          <h3 class="cap-panel-h">Specimens collected right, the first time.</h3>
+          <p class="cap-panel-p">Blood draws by certified professionals, nasopharyngeal and oral mucosal swabs, urine and other biological specimens — collected exactly as the protocol requires.</p>
+          <div class="cap-foot">
+            <a href="#contact" class="cap-explore">Discuss your sampling needs <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+        <div class="cap-panel" role="tabpanel" id="mp-3" aria-labelledby="mt-3" tabindex="0" hidden>
+          <h3 class="cap-panel-h">A structured clinical review, wherever the visit happens.</h3>
+          <p class="cap-panel-p">Vital signs, body weight, ECG monitoring, concomitant medications and symptoms — a complete on-site clinical assessment, recorded to standard.</p>
+          <div class="cap-foot">
+            <a href="#contact" class="cap-explore">Discuss your assessments <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+        <div class="cap-panel" role="tabpanel" id="mp-4" aria-labelledby="mt-4" tabindex="0" hidden>
+          <h3 class="cap-panel-h">Confident patients, complete data.</h3>
+          <p class="cap-panel-p">Self-administration and device-use guidance, treatment-adherence coaching, and patient-reported outcome questionnaires administered where the patient lives — adherence and retention follow.</p>
+          <div class="cap-foot">
+            <a href="#contact" class="cap-explore">Discuss patient support <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+        <div class="cap-panel" role="tabpanel" id="mp-5" aria-labelledby="mt-5" tabindex="0" hidden>
+          <h3 class="cap-panel-h">Integrity from door to laboratory.</h3>
+          <p class="cap-panel-p">Laboratory kits and supplies coordinated from the site, visits scheduled with the patient, and samples collected and shipped under cold-chain conditions throughout.</p>
+          <div class="cap-foot">
+            <a href="#contact" class="cap-explore">Discuss logistics <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+        <div class="cap-panel" role="tabpanel" id="mp-6" aria-labelledby="mt-6" tabindex="0" hidden>
+          <h3 class="cap-panel-h">Everything the site needs, filed and reported.</h3>
+          <p class="cap-panel-p">Source documents shared with the investigator site and study coordinator, EDC entries managed per protocol, AE/SAE reporting on time, and study-compliance checks with site staff support — the site keeps oversight without carrying the field logistics.</p>
+          <div class="cap-foot">
+            <a href="#contact" class="cap-explore">Discuss documentation <span aria-hidden="true">→</span></a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ CHALLENGE ============ -->
-  <section class="pad80 grey" id="challenge">
+  <!-- ============ VIGNETTES ============ -->
+  <section class="pad80 risk-band" id="assurance">
     <div class="container">
       <div class="text-center mb-5">
-        <h2 class="section-title reveal">The hard parts of running a decentralised trial</h2>
+        <h2 class="section-title reveal">Built for the Realities of Hybrid Trials</h2>
       </div>
-      <div class="row g-4">
-        <div class="col-md-6 col-lg-3 reveal"><div class="pain"><div class="x">⟳</div><h5>Patients beyond major sites</h5><p>Distance and travel burden keep eligible patients from enrolling and staying on study.</p></div></div>
-        <div class="col-md-6 col-lg-3 reveal"><div class="pain"><div class="x">▤</div><h5>Cold-chain risk</h5><p>Off-site sampling can compromise specimen integrity without controlled handling and shipment.</p></div></div>
-        <div class="col-md-6 col-lg-3 reveal"><div class="pain"><div class="x">▣</div><h5>Site capacity strain</h5><p>Investigator sites lack the reach and staff to run visits across scattered locations.</p></div></div>
-        <div class="col-md-6 col-lg-3 reveal"><div class="pain"><div class="x">⚠</div><h5>Documentation &amp; AE/SAE burden</h5><p>EDC entry and safety reporting from the field stretch already lean study teams.</p></div></div>
+      <div class="vig-grid reveal">
+        <div class="vig">
+          <h3>When travel burden drives dropout</h3>
+          <p>Distance quietly erodes enrolment and retention. Visits at the patient's location keep eligible patients on study — and their data on protocol.</p>
+        </div>
+        <div class="vig">
+          <h3>When remote elements add to the site's load</h3>
+          <p>Field teams arrive qualified, trained and supplied, and hand back complete documentation. The site keeps oversight without carrying the logistics.</p>
+        </div>
+        <div class="vig">
+          <h3>When the inspector asks for the audit trail</h3>
+          <p>Every visit is SOP-led and documented at source — EDC entries and AE/SAE reports filed per protocol, reviewable end to end.</p>
+        </div>
+        <div class="vig">
+          <h3>When patient-centricity stops at the slogan</h3>
+          <p>Visits are scheduled around the patient's week, not the site's calendar. Adherence and retention improve because participation fits real lives.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ WHAT WE DO ============ -->
-  <section class="pad80" id="what">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="section-title reveal">Full-Service Mobile Clinical Delivery</h2>
-      </div>
-      <div class="row g-4">
-        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
-          <h4>Drug Administration</h4>
-          <ul><li>Study drug administration per protocol</li><li>Infusion, injection &amp; topical routes</li><li>Delivered at the patient’s location</li><li>Dosing records maintained to standard</li></ul>
-        </div></div>
-        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
-          <h4>Blood Draws & Biologic Sampling</h4>
-          <ul><li>Blood draws by certified professionals</li><li>Nasopharyngeal &amp; oral mucosal swabs</li><li>Urine &amp; other biological specimens</li><li>Collection as per protocol requirements</li></ul>
-        </div></div>
-        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
-          <h4>Clinical Assessments</h4>
-          <ul><li>Vital signs &amp; body weight</li><li>ECG monitoring</li><li>Concomitant medications &amp; symptoms</li><li>Structured on-site clinical review</li></ul>
-        </div></div>
-        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
-          <h4>Patient Training & PRO</h4>
-          <ul><li>Self-administration &amp; device-use guidance</li><li>Treatment-adherence coaching</li><li>Patient-reported outcome questionnaires</li><li>Feedback-form administration</li></ul>
-        </div></div>
-        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
-          <h4>Cold-Chain & Supply</h4>
-          <ul><li>Sample collection &amp; shipment under cold-chain</li><li>Laboratory kits &amp; supplies coordinated from site</li><li>Visit scheduling with the patient</li><li>Specimen integrity maintained throughout</li></ul>
-        </div></div>
-        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
-          <h4>Documentation, EDC & AE/SAE</h4>
-          <ul><li>Source documents shared with the site &amp; coordinator</li><li>EDC entries managed as per protocol</li><li>AE/SAE reporting per protocol</li><li>Study-compliance checks &amp; site staff support</li></ul>
-        </div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ PROCESS ============ -->
-  <section class="pad80 grey" id="process">
+  <!-- ============ HOW A VISIT RUNS ============ -->
+  <section class="pad80" id="process">
     <div class="container">
       <div class="text-center mb-5">
         <h2 class="section-title reveal">How a Mobile Visit Runs</h2>
       </div>
-      <div class="proc reveal cols-5">
-        <div class="proc-step">
-          <div class="pic"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="M20 20l-3.5-3.5"/></svg></div>
-          <div class="pk">Initiate</div>
-          <h5>Request &amp; Consent</h5>
-          <p>The investigator submits a service request and the patient provides informed consent for home-visit services.</p>
+      <div class="flow4 reveal">
+        <div class="fl">
+          <div class="dot"></div>
+          <div class="ph">Initiate</div>
+          <p class="fl-note">The investigator submits a service request; the patient gives informed consent for home-visit services.</p>
         </div>
-        <div class="proc-step">
-          <div class="pic"><svg viewBox="0 0 24 24"><path d="M16 3.13a4 4 0 0 1 0 7.75M21 21v-2a4 4 0 0 0-3-3.87M7 8a4 4 0 1 0 8 0 4 4 0 0 0-8 0M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg></div>
-          <div class="pk">Qualify</div>
-          <h5>Qualify Local Provider</h5>
-          <p>Local providers are identified, qualified and trained; credentials and CVs are reviewed and filed by the site.</p>
+        <div class="fl">
+          <div class="dot"></div>
+          <div class="ph">Qualify</div>
+          <p class="fl-note">Local providers are identified, qualified and trained — credentials and CVs reviewed and filed by the site.</p>
         </div>
-        <div class="proc-step">
-          <div class="pic"><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg></div>
-          <div class="pk">Coordinate</div>
-          <h5>Schedule &amp; Supply</h5>
-          <p>The provider contacts the patient to schedule the visit and receives laboratory kits and supplies from the site.</p>
+        <div class="fl">
+          <div class="dot"></div>
+          <div class="ph">Schedule</div>
+          <p class="fl-note">The visit is scheduled with the patient; laboratory kits and supplies are coordinated from the site.</p>
         </div>
-        <div class="proc-step">
-          <div class="pic"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
-          <div class="pk">Deliver</div>
-          <h5>On-Site Visit (Cold-Chain)</h5>
-          <p>The visit is conducted at the patient’s location, with sample collection and shipment managed under cold-chain conditions.</p>
+        <div class="fl">
+          <div class="dot"></div>
+          <div class="ph">Visit</div>
+          <p class="fl-note">Care is delivered at the patient's location, with samples collected and shipped under cold-chain conditions.</p>
         </div>
-        <div class="proc-step">
-          <div class="pic"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
-          <div class="pk">Report</div>
-          <h5>Document &amp; Report</h5>
-          <p>Source documents and results are shared with the site, and EDC entries and AE/SAE reporting are managed as per protocol.</p>
+        <div class="fl">
+          <div class="dot"></div>
+          <div class="ph">Report</div>
+          <p class="fl-note">Source documents reach the site and coordinator; EDC entries and AE/SAE reporting are managed per protocol.</p>
         </div>
       </div>
+      <p class="flow-close reveal">One accountable field operation from request to report — the investigator site stays in control of every step.</p>
     </div>
   </section>
 
-
-  <!-- ============ STORY IN NUMBERS ============ -->
-  <section class="pad80 stat-band" id="numbers">
+  <!-- ============ WAYS TO ENGAGE ============ -->
+  <section class="pad80 grey" id="engage">
     <div class="container">
       <div class="text-center mb-5">
-        <h2 class="section-title text-white reveal">Reach Across India</h2>
+        <h2 class="section-title reveal">Ways to Engage</h2>
       </div>
-      <div class="row text-center g-4 justify-content-center">
-        <div class="col-6 col-lg-4 stat"><div class="num"><span class="count" data-to="20">0</span><span class="suffix">+</span></div><div class="label">India Trial Sites</div></div>
-        <div class="col-6 col-lg-4 stat"><div class="num"><span class="count" data-to="80">0</span><span class="suffix">+</span></div><div class="label">GCP-Trained Study Nurses</div></div>
+      <div class="engage-grid reveal">
+        <div class="engage-col">
+          <h4>Advisory</h4>
+          <p>Feasibility and network design — which visits can move off-site, where your patients are, and how the protocol supports a hybrid model.</p>
+        </div>
+        <div class="engage-col">
+          <h4>Delivery</h4>
+          <p>Per-study visit programmes — providers qualified, staff trained and supplied, visits delivered and documented to protocol.</p>
+        </div>
+        <div class="engage-col">
+          <h4>Managed Operations</h4>
+          <p>An operated home-health network across India — scheduling, cold-chain logistics, documentation and safety reporting, run study after study.</p>
+        </div>
       </div>
+      <p class="engage-kicker reveal">Each engagement model is contractable independently — begin with a defined scope and expand as your requirements evolve.</p>
     </div>
   </section>
 
-  <!-- ============ PROOF ============ -->
-  <section class="pad80" id="proof">
-    <div class="container">
-      <div class="row align-items-center g-5">
-        <div class="col-lg-5 reveal">
-          <h2 class="section-title">The Reach Behind the Service</h2>
-        </div>
-        <div class="col-lg-7">
-          <div class="row g-4">
-            <div class="col-sm-6 reveal"><div class="proof-card"><div class="big">20+ sites</div><div class="cap">Mobile clinical delivery across trial sites in India, reaching patients beyond major hospital centres.</div></div></div>
-            <div class="col-sm-6 reveal"><div class="proof-card"><div class="big">80+ nurses</div><div class="cap">GCP-trained study nurses skilled in clinical documentation and patient care.</div></div></div>
-            <div class="col-sm-6 reveal"><div class="proof-card"><div class="big">Cold-chain</div><div class="cap">Sample collection and shipment managed under controlled conditions to protect specimen integrity.</div></div></div>
-            <div class="col-sm-6 reveal"><div class="proof-card"><div class="big">SOP-led</div><div class="cap">Well-defined standard operating procedures applied at every stage for consistency and compliance.</div></div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ WHY US (value proposition) ============ -->
-  <section class="pad80 stat-band" id="whyus">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="section-title text-white reveal">What our field teams bring to your trial</h2>
-      </div>
-      <div class="row text-center g-4 justify-content-center">
-        <div class="col-md-6 col-lg-4 reveal valstat"><div class="vt">Standardised procedures</div><div class="vl">Well-defined SOPs implemented at every stage for consistency and compliance.</div></div>
-        <div class="col-md-6 col-lg-4 reveal valstat"><div class="vt">Qualified expertise</div><div class="vl">GCP-trained nursing professionals skilled in documentation and patient care.</div></div>
-        <div class="col-md-6 col-lg-4 reveal valstat"><div class="vt">Quality &amp; precision</div><div class="vl">High-quality data collection and patient care delivered with accuracy and reliability.</div></div>
-        <div class="col-md-6 col-lg-4 reveal valstat"><div class="vt">Regulatory compliance</div><div class="vl">Records and patient data kept in line with international standards and sponsor expectations.</div></div>
-        <div class="col-md-6 col-lg-4 reveal valstat"><div class="vt">Transparent collaboration</div><div class="vl">Timely sharing of reports and updates in accordance with sponsor agreements.</div></div>
-        <div class="col-md-6 col-lg-4 reveal valstat"><div class="vt">Patient convenience</div><div class="vl">Care delivered at the patient’s location, easing travel burden while keeping studies on protocol.</div></div>
-      </div>
-    </div>
-  </section>
-  <!-- ============ PRACTICE LEADERS ============ -->
-  <section class="pad80 grey" id="leaders">
+  <!-- ============ PRACTICE LEADER ============ -->
+  <section class="pad80" id="leaders">
     <div class="container">
       <div class="text-center mb-5"><h2 class="section-title reveal">The Leader Behind Mobile Clinical Services</h2></div>
       <div class="row g-4 justify-content-center">
@@ -405,19 +476,18 @@
     </div>
   </section>
 
-
-    <!-- ============ FAQ ============ -->
-  <section class="pad80" id="faq">
+  <!-- ============ FAQ ============ -->
+  <section class="pad80 grey" id="faq">
     <div class="container">
       <div class="text-center mb-5">
-        <h2 class="section-title reveal">Decentralised trials, your questions</h2>
+        <h2 class="section-title reveal">Mobile clinical services, your questions</h2>
       </div>
       <div class="row justify-content-center">
         <div class="col-lg-9">
           <div class="accordion reveal" id="faqAcc">
             <div class="accordion-item">
               <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q1">Where do you deliver mobile clinical services?</button></h2>
-              <div id="q1" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Across 20+ trial sites in India, delivering decentralised home-health and on-site visits so patients can participate beyond major hospital sites while staying on protocol.</div></div>
+              <div id="q1" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Across 20+ trial sites in India, delivering home-health and on-site visits so patients can participate beyond major hospital sites while staying on protocol.</div></div>
             </div>
             <div class="accordion-item">
               <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2">Who conducts the visits?</button></h2>
@@ -442,13 +512,13 @@
   </section>
 
   <!-- ============ FINAL CTA ============ -->
-  <section class="pad80 final-cta text-center" id="contact">
+  <section class="pad80 alt-cta text-center" id="contact">
     <div class="container">
-      <h2 class="section-title text-white reveal mb-3">Bring the Trial<br>to the Patient.</h2>
-      <p class="text-white-50 reveal mb-4" style="max-width:640px;margin-inline:auto">Decentralised visits, at-home sampling, cold-chain handling and protocol-compliant reporting across India. Talk to our clinical team.</p>
+      <h2 class="section-title text-white reveal mb-3">Reach More Patients.<br>Stay on Protocol.</h2>
+      <p class="text-white-50 reveal mb-4" style="max-width:640px;margin-inline:auto">In-home visits, at-home sampling, cold-chain handling and protocol-compliant reporting across India — our clinical team is ready to discuss your study.</p>
       <div class="hero-ctas justify-content-center reveal">
         <a href="mailto:info@pivotpath.com" class="btns2 solid-light">Talk to our clinical team</a>
-        <a href="pivotpath-ip-clinical.html" class="btns-line">See the IP & Clinical pillar</a>
+        <a href="pivotpath-ip-clinical.html" class="btns-line">See the IP &amp; Clinical pillar</a>
       </div>
     </div>
   </section>
@@ -516,38 +586,54 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
   <script>
+    // ---- Service pill-tabs (accessible) ----
     (function(){
-      function run(scope){
-        scope.querySelectorAll('.count').forEach(function(el){
-          if(el.dataset.done)return;el.dataset.done="1";
-          var to=parseFloat(el.dataset.to), dec=parseInt(el.dataset.dec||'0',10);
-          if(to===0){el.textContent="0";return;}
-          var start=null,dur=1600;
-          function step(ts){if(!start)start=ts;var p=Math.min((ts-start)/dur,1);
-            var val=to*(0.5-Math.cos(p*Math.PI)/2);
-            el.textContent=dec?val.toFixed(dec):Math.round(val).toLocaleString();
-            if(p<1)requestAnimationFrame(step);else el.textContent=dec?to.toFixed(dec):to.toLocaleString();}
-          requestAnimationFrame(step);
+      var tabs=Array.prototype.slice.call(document.querySelectorAll('.cap-tab'));
+      if(!tabs.length)return;
+      var panels=tabs.map(function(t){return document.getElementById(t.getAttribute('aria-controls'));});
+      function select(idx,focus){
+        tabs.forEach(function(t,i){
+          var on=i===idx;
+          t.setAttribute('aria-selected',on?'true':'false');
+          t.tabIndex=on?0:-1;
+          if(panels[i])panels[i].hidden=!on;
         });
+        if(focus&&tabs[idx])tabs[idx].focus();
       }
-      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)run(e.target);});},{threshold:.3});
-      document.querySelectorAll('.stat-band').forEach(function(b){io.observe(b);});
+      tabs.forEach(function(tab,i){
+        tab.addEventListener('click',function(){select(i,false);});
+        tab.addEventListener('keydown',function(e){
+          var n;
+          if(e.key==='ArrowRight'||e.key==='ArrowDown')n=(i+1)%tabs.length;
+          else if(e.key==='ArrowLeft'||e.key==='ArrowUp')n=(i-1+tabs.length)%tabs.length;
+          else if(e.key==='Home')n=0;
+          else if(e.key==='End')n=tabs.length-1;
+          else return;
+          e.preventDefault();select(n,true);
+        });
+      });
+      select(0,false);
     })();
+
+    // ---- Reveal on scroll ----
     (function(){
       var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
       document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
     })();
+
+    // ---- Active anchor-nav highlight ----
     (function(){
       var links=[].slice.call(document.querySelectorAll('.anchor-nav a'));
       var map=links.map(function(a){return {a:a,el:document.querySelector(a.getAttribute('href'))};}).filter(function(x){return x.el;});
-      function onScroll(){var y=window.scrollY+120,cur=map[0];
+      function onScroll(){
+        var y=window.scrollY+120,cur=map[0];
         map.forEach(function(x){if(x.el.offsetTop<=y)cur=x;});
-        links.forEach(function(a){a.classList.remove('active');});if(cur)cur.a.classList.add('active');}
+        links.forEach(function(a){a.classList.remove('active');});
+        if(cur)cur.a.classList.add('active');
+      }
       window.addEventListener('scroll',onScroll,{passive:true});onScroll();
     })();
   </script>
   <script src="pp-mobile.js" defer></script>
-  <!-- design-toggle -->
-  <a href="pivotpath-svc-mobile-clinical-alt.html" style="position:fixed;left:18px;bottom:18px;z-index:2000;background:#0f141b;color:#fff;padding:10px 18px;border-radius:999px;font:600 13px/1 -apple-system,'Segoe UI',Roboto,Arial,sans-serif;letter-spacing:.02em;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,.28);opacity:.92" aria-label="View alternate design">View alternate design</a>
 </body>
 </html>

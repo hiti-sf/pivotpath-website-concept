@@ -4,12 +4,87 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Computer System Validation — Pivot Path CSV, CSA & 21 CFR Part 11 Compliance</title>
-  <meta name="description" content="Risk-based computer system validation across the CSV 1.0 to 4.0 maturity model — Computer Software Assurance (CSA), full URS-to-PQ lifecycle, network, middleware, instrument and shopfloor qualification, and NoteIQ software — compliant with 21 CFR Part 11 and EU Annex 11. 200+ RPAs validated, 10,000+ CSA documents." />
+  <meta name="description" content="Risk-based computer system validation and Computer Software Assurance (CSA) from Pivot Path — consulting, managed validation, transformation and automation, and the NoteIQ VMS platform, across the full URS-to-PQ lifecycle, compliant with 21 CFR Part 11 and EU Annex 11." />
   <link rel="preconnect" href="https://cdn.jsdelivr.net" />
   <link rel="preconnect" href="https://in.fw-cdn.com" />
   <link rel="preload" href="pp.css?v=15" as="style" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="pp.css?v=15" />
+  <style>
+    /* ==== ALT-PAGE PROTOTYPE STYLES (scoped to this page; pp.css untouched) ==== */
+
+    /* Trust band — dense hairline strip under the hero */
+    .tband{border-bottom:1px solid var(--pp-line)}
+    .tband .inner{display:grid;grid-template-columns:minmax(0,4fr) repeat(4,minmax(0,2fr));align-items:stretch}
+    .tband .cell{padding:var(--sp-4) var(--sp-4);border-left:1px solid var(--pp-line)}
+    .tband .cell:first-child{border-left:0;padding-left:0}
+    .tband .note{font-size:var(--fs-lead);font-weight:600;color:var(--pp-ink);display:flex;align-items:center}
+    .tband .n{font-size:1.6rem;font-weight:800;color:var(--pp-ink);line-height:1.1;font-variant-numeric:tabular-nums}
+    .tband .l{font-size:var(--fs-sm);color:var(--pp-muted);margin-top:4px}
+
+    /* Vignette quadrants — dark band over the operations photo */
+    /* swap to assets/qc-ops-bg.jpg when the dedicated quality image lands */
+    .risk-band{background-color:#0a1016;background-image:linear-gradient(rgba(10,16,22,.9),rgba(10,16,22,.9)),url('assets/dt-ops-bg.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;color:#fff}
+    .risk-band .section-title{color:#fff}
+    .vig-grid{display:grid;grid-template-columns:1fr 1fr}
+    .vig{padding:var(--sp-5)}
+    .vig:nth-child(odd){padding-left:0}
+    .vig:nth-child(even){border-left:1px solid rgba(255,255,255,.2);padding-right:0}
+    .vig:nth-child(n+3){border-top:1px solid rgba(255,255,255,.2)}
+    .vig:nth-child(-n+2){padding-top:0}
+    .vig:nth-child(n+3){padding-bottom:0}
+    .vig h3{font-size:var(--fs-h4);font-weight:700;color:#fff;margin-bottom:var(--sp-2)}
+    .vig p{font-size:var(--fs-lead);line-height:1.6;color:rgba(255,255,255,.8);margin:0;max-width:52ch}
+
+    /* Maturity path — connected flow */
+    .flow4{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--sp-5);position:relative;padding-top:var(--sp-4)}
+    .flow4::before{content:"";position:absolute;top:calc(var(--sp-4) + 7px);left:8px;right:8px;height:2px;background:var(--pp-grad);opacity:.5}
+    .fl .dot{width:16px;height:16px;border-radius:50%;background:var(--pp-grad);margin-bottom:var(--sp-3);position:relative}
+    .fl .ph{font-size:var(--fs-h3);font-weight:800;color:var(--pp-ink);margin-bottom:var(--sp-2)}
+    .fl .fl-note{color:var(--pp-muted);margin-bottom:var(--sp-3)}
+    .fl .fl-svcs{font-size:var(--fs-sm);font-weight:700;color:var(--pp-ink)}
+    .flow-close{margin-top:var(--sp-5);padding-top:var(--sp-4);border-top:1px solid var(--pp-line);font-weight:600;color:var(--pp-ink);max-width:72ch}
+
+    /* Platform note inside the dark spotlight */
+    .spotlight .dd-link{color:rgba(255,255,255,.75);font-size:var(--fs-sm);margin-top:var(--sp-4);border-top:1px solid rgba(255,255,255,.22);padding-top:var(--sp-3)}
+    .spotlight .dd-link a{color:#fff;font-weight:700;text-decoration:none}
+    .spotlight .dd-link a:hover{text-decoration:underline}
+
+    /* Ways to engage — three hairline columns, not cards */
+    .engage-grid{display:grid;grid-template-columns:repeat(3,1fr)}
+    .engage-col{padding:0 var(--sp-5);border-left:1px solid var(--pp-line)}
+    .engage-col:first-child{border-left:0;padding-left:0}
+    .engage-col h4{font-size:var(--fs-h4);margin-bottom:var(--sp-3)}
+    .engage-col p{color:var(--pp-muted)}
+    .engage-kicker{margin-top:var(--sp-5);padding-top:var(--sp-4);border-top:1px solid var(--pp-line);font-weight:600;color:var(--pp-ink)}
+
+    /* Final CTA photo band */
+    /* swap to assets/qc-cta-bg.jpg when the dedicated quality image lands */
+    .alt-cta{background-color:#0a1016;background-image:linear-gradient(rgba(10,16,22,.8),rgba(10,16,22,.8)),url('assets/dt-cta-bg.jpg');background-size:cover;background-position:center;background-repeat:no-repeat}
+
+    /* Mobile */
+    @media (max-width:991.98px){
+      .tband .inner{grid-template-columns:repeat(2,1fr)}
+      .tband .cell{border-left:0;padding-left:0}
+      .tband .note{grid-column:1/-1;padding-bottom:0}
+      .engage-grid{grid-template-columns:1fr}
+      .engage-col{border-left:0;padding:var(--sp-4) 0;border-top:1px solid var(--pp-line)}
+      .engage-col:first-child{border-top:0;padding-top:0}
+      .flow4{grid-template-columns:1fr;gap:var(--sp-4);padding-top:0}
+      .flow4::before{top:0;bottom:0;left:7px;right:auto;width:2px;height:auto}
+      .fl{padding-left:var(--sp-5)}
+      .fl .dot{position:absolute;margin-left:calc(-1 * var(--sp-5))}
+    }
+    @media (max-width:767.98px){
+      .vig-grid{grid-template-columns:1fr}
+      .vig{padding:var(--sp-4) 0}
+      .vig:nth-child(even){border-left:0;padding-right:0}
+      .vig:nth-child(n+2){border-top:1px solid rgba(255,255,255,.2)}
+      .vig:first-child{padding-top:0}
+      .vig:last-child{padding-bottom:0}
+      .vig p{font-size:var(--fs-body)}
+    }
+  </style>
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -18,7 +93,7 @@
       "@type": "Service",
       "name": "Computer System Validation",
       "serviceType": "Computer System Validation",
-      "description": "Risk-based computer system validation across the CSV 1.0 to 4.0 maturity model, using a Computer Software Assurance (CSA) approach. Full URS-to-PQ lifecycle covering network qualification, middleware, hardware, analytical instruments and shopfloor equipment, validation master planning (CSVMP), and the NoteIQ software platform — compliant with 21 CFR Part 11 and EU Annex 11. Delivered as managed services, consulting, transformation and automation, and software.",
+      "description": "Risk-based computer system validation using a Computer Software Assurance (CSA) approach. Full URS-to-PQ lifecycle covering network qualification, middleware, hardware, analytical instruments and shopfloor equipment, validation master planning (CSVMP), and the NoteIQ software platform — compliant with 21 CFR Part 11 and EU Annex 11. Delivered as managed services, consulting, transformation and automation, and software.",
       "provider": {
         "@type": "Organization",
         "@id": "https://pivotpath.com/#organization",
@@ -74,7 +149,7 @@
           "name": "How does a CSA risk-based approach reduce validation effort?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Computer Software Assurance directs testing effort by risk rather than validating every function equally. High-risk, patient- or data-impacting functions get rigorous scripted testing; low-risk functions rely on unscripted or vendor testing. On one programme this focused approach supported CSA across 10,000+ documents while reducing over-testing of low-risk systems."
+            "text": "Computer Software Assurance directs testing effort by risk and intended use rather than validating every function equally. High-risk, patient- or data-impacting functions receive rigorous scripted testing; low-risk functions rely on unscripted or vendor testing, with the rationale documented and defensible under inspection."
           }
         },
         {
@@ -82,7 +157,7 @@
           "name": "Which systems and equipment can you validate?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "We cover network qualification, middleware, hardware, analytical instruments and shopfloor equipment across the full URS-to-PQ lifecycle, governed by a validation master plan (CSVMP). We have validated 200+ RPAs, including unmanned protocol execution."
+            "text": "We cover network qualification, middleware, hardware, analytical instruments and shopfloor equipment across the full URS-to-PQ lifecycle, governed by a validation master plan (CSVMP) and extending to automated and unmanned protocol execution."
           }
         },
         {
@@ -202,10 +277,10 @@
     <div class="container">
       <div class="crumb"><a href="pivotpath-home.html">Home</a> &nbsp;/&nbsp; <a href="pivotpath-home.html#services">Services</a> &nbsp;/&nbsp; <a href="pivotpath-quality-compliance.html">Quality &amp; Digital Compliance</a> &nbsp;/&nbsp; Computer System Validation</div>
       <h1>Validate by risk,<br>not by volume.</h1>
-      <p class="lead">Risk-based computer system validation across the CSV 1.0 to 4.0 maturity model. We apply a Computer Software Assurance (CSA) approach across the full URS-to-PQ lifecycle, covering network, middleware, instrument and shopfloor qualification, compliant with 21 CFR Part 11 and EU Annex 11.</p>
+      <p class="lead">Pivot Path delivers risk-based computer system validation and Computer Software Assurance (CSA) — consulting, managed validation services, transformation and automation, and the NoteIQ VMS platform — across the full URS-to-PQ lifecycle, from networks and middleware to analytical instruments and shopfloor equipment. Compliant with 21 CFR Part 11 and EU Annex 11, with assurance effort placed where the risk actually lives.</p>
       <div class="hero-ctas">
         <a href="#contact" class="btns2 solid-light">Talk to our validation team</a>
-        <a href="#process" class="btns-line">See how it works</a>
+        <a href="#services" class="btns-line">See what we deliver</a>
       </div>
     </div>
   </section>
@@ -215,131 +290,156 @@
     <div class="container">
       <div class="inner">
         <a href="#overview" class="active">Overview</a>
-        <a href="#challenge">The Challenge</a>
-        <a href="#what">What We Do</a>
-        <a href="#process">Process</a>
-        <a href="#noteiq">NoteIQ</a>
-        <a href="#numbers">Story in Numbers</a>
-        <a href="#proof">Proof</a>
-        <a href="#whyus">Why Us</a>
+        <a href="#record">Track Record</a>
+        <a href="#services">What We Deliver</a>
+        <a href="#assurance">Approach</a>
+        <a href="#maturity">Maturity Path</a>
+        <a href="#noteiq">NoteIQ VMS</a>
+        <a href="#engage">Ways to Engage</a>
         <a href="#leaders">Leaders</a>
         <a href="#faq">FAQ</a>
       </div>
     </div>
   </nav>
 
-  <!-- ============ HIGHLIGHTS ============ -->
-  <section class="pad60">
+  <!-- ============ TRUST BAND ============ -->
+  <section class="tband pad60" id="record">
     <div class="container">
-      <div class="row g-4 align-items-center">
-        <div class="col-lg-5 reveal">
-          <h2 class="section-title">Assurance, Focused Where the Risk Is</h2>
+      <div class="inner reveal">
+        <div class="cell note">Assurance effort focused where the risk lives — and evidence that holds in inspection.</div>
+        <div class="cell"><div class="n">Part 11 · Annex 11</div><div class="l">Electronic records &amp; signatures, validated</div></div>
+        <div class="cell"><div class="n">CSA</div><div class="l">Risk-based assurance, aligned to FDA guidance</div></div>
+        <div class="cell"><div class="n">URS → PQ</div><div class="l">Full-lifecycle traceability on every system</div></div>
+        <div class="cell"><div class="n">CSVMP</div><div class="l">Master-planned, defensible evidence</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHAT WE DELIVER (pill-tabs) ============ -->
+  <section class="pad80 grey" id="services">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title reveal">Validation, Delivered Four Ways</h2>
+      </div>
+      <div class="cap-tabs reveal" role="tablist" aria-label="Computer System Validation services">
+        <button class="cap-tab" role="tab" id="vt-1" aria-controls="vp-1" aria-selected="true"  tabindex="0">Managed Validation</button>
+        <button class="cap-tab" role="tab" id="vt-2" aria-controls="vp-2" aria-selected="false" tabindex="-1">Consulting</button>
+        <button class="cap-tab" role="tab" id="vt-3" aria-controls="vp-3" aria-selected="false" tabindex="-1">Transformation &amp; Automation</button>
+        <button class="cap-tab" role="tab" id="vt-4" aria-controls="vp-4" aria-selected="false" tabindex="-1">CSA Approach</button>
+        <button class="cap-tab" role="tab" id="vt-5" aria-controls="vp-5" aria-selected="false" tabindex="-1">Equipment &amp; Instruments</button>
+        <button class="cap-tab" role="tab" id="vt-6" aria-controls="vp-6" aria-selected="false" tabindex="-1">NoteIQ VMS</button>
+      </div>
+      <div class="cap-panels reveal">
+        <div class="cap-panel" role="tabpanel" id="vp-1" aria-labelledby="vt-1" tabindex="0">
+          <h3 class="cap-panel-h">Your validation lifecycle, run for you.</h3>
+          <p class="cap-panel-p">Outsourced validation across the full URS-to-PQ lifecycle — validation master plan (CSVMP) ownership, backlog clearance for lean quality teams, and the periodic review and revalidation that keep systems in a validated state rather than re-earning it per project.</p>
+          <div class="cap-foot">
+            <a href="#contact" class="cap-explore">Discuss managed validation <span aria-hidden="true">→</span></a>
+          </div>
         </div>
-        <div class="col-lg-7">
-          <div class="row g-4">
-            <div class="col-6 col-md-3 reveal"><div class="hl"><div class="n">200+</div><div class="l">RPAs Validated</div></div></div>
-            <div class="col-6 col-md-3 reveal"><div class="hl"><div class="n">10,000+</div><div class="l">CSA Documents</div></div></div>
-            <div class="col-6 col-md-3 reveal"><div class="hl"><div class="n">1.0→4.0</div><div class="l">CSV Maturity Model</div></div></div>
-            <div class="col-6 col-md-3 reveal"><div class="hl"><div class="n">Part 11 · Annex 11</div><div class="l">Compliance Standards</div></div></div>
+        <div class="cap-panel" role="tabpanel" id="vp-2" aria-labelledby="vt-2" tabindex="0" hidden>
+          <h3 class="cap-panel-h">Strategy before scripts.</h3>
+          <p class="cap-panel-p">Gap assessment against 21 CFR Part 11 and EU Annex 11, maturity assessment and roadmap on the CSV 1.0 to 4.0 model, validation strategy, SOPs and templates — and inspection readiness support when the audit is scheduled.</p>
+          <div class="cap-foot">
+            <a href="#contact" class="cap-explore">Discuss a gap assessment <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+        <div class="cap-panel" role="tabpanel" id="vp-3" aria-labelledby="vt-3" tabindex="0" hidden>
+          <h3 class="cap-panel-h">Validation that moves up the curve.</h3>
+          <p class="cap-panel-p">We move validation from paper protocols and manual runs towards a data-driven lifecycle with automated and unmanned protocol execution — so the effort curve bends down as the estate grows, without breaking the validated state.</p>
+          <div class="cap-foot">
+            <a href="#maturity" class="cap-explore">See the maturity path <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+        <div class="cap-panel" role="tabpanel" id="vp-4" aria-labelledby="vt-4" tabindex="0" hidden>
+          <h3 class="cap-panel-h">Effort proportional to risk.</h3>
+          <p class="cap-panel-p">Computer Software Assurance directs testing by patient and data risk and by intended use — rigorous scripted testing where it matters, unscripted and vendor testing where it does not, with every decision documented. Auditors weigh evidence; volume is not the measure.</p>
+          <div class="cap-foot">
+            <a href="#assurance" class="cap-explore">See the approach in practice <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+        <div class="cap-panel" role="tabpanel" id="vp-5" aria-labelledby="vt-5" tabindex="0" hidden>
+          <h3 class="cap-panel-h">Qualified from network to shopfloor.</h3>
+          <p class="cap-panel-p">Network qualification, middleware and hardware validation, analytical instrument and shopfloor equipment qualification — IQ, OQ and PQ executed and documented with full traceability to the URS.</p>
+          <div class="cap-foot">
+            <a href="#contact" class="cap-explore">Discuss your qualification scope <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+        <div class="cap-panel" role="tabpanel" id="vp-6" aria-labelledby="vt-6" tabindex="0" hidden>
+          <h3 class="cap-panel-h">The validation record, in one system.</h3>
+          <p class="cap-panel-p">NoteIQ VMS digitises the validation lifecycle — structured URS-to-PQ records, execution and traceability in one platform, with Part 11 and Annex 11 electronic records and signatures.</p>
+          <div class="cap-foot">
+            <a href="pivotpath-noteiq-vms.html" class="cap-explore">Explore NoteIQ VMS <span aria-hidden="true">→</span></a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ CHALLENGE ============ -->
-  <section class="pad80 grey" id="challenge">
+  <!-- ============ VIGNETTES ============ -->
+  <section class="pad80 risk-band" id="assurance">
     <div class="container">
       <div class="text-center mb-5">
-        <h2 class="section-title reveal">Why validation drags on</h2>
+        <h2 class="section-title reveal">Built for the Realities of Regulated Validation</h2>
       </div>
-      <div class="row g-4">
-        <div class="col-md-6 col-lg-3 reveal"><div class="pain"><div class="x">⟳</div><h5>Validation backlog</h5><p>New systems and change requests queue faster than lean teams can qualify them.</p></div></div>
-        <div class="col-md-6 col-lg-3 reveal"><div class="pain"><div class="x">▤</div><h5>Over-testing low-risk systems</h5><p>Uniform, document-heavy testing wastes effort where patient and data risk is minimal.</p></div></div>
-        <div class="col-md-6 col-lg-3 reveal"><div class="pain"><div class="x">⚠</div><h5>Audit exposure</h5><p>Gaps against 21 CFR Part 11 and EU Annex 11 surface as findings during inspection.</p></div></div>
-        <div class="col-md-6 col-lg-3 reveal"><div class="pain"><div class="x">▣</div><h5>Legacy &amp; manual execution</h5><p>Paper protocols and manual runs block the move towards automated, unmanned execution.</p></div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ WHAT WE DO ============ -->
-  <section class="pad80" id="what">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="section-title reveal">Four Ways to Deliver Validation</h2>
-      </div>
-      <div class="row g-4">
-        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
-          <h4>Validation as a Managed Service</h4>
-          <ul><li>Outsourced validation across the full URS-to-PQ lifecycle</li><li>Validation master plan (CSVMP) ownership</li><li>Backlog clearance for lean quality teams</li><li>Ongoing periodic review &amp; revalidation</li></ul>
-        </div></div>
-        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
-          <h4>Validation Consulting</h4>
-          <ul><li>Gap assessment against 21 CFR Part 11 &amp; EU Annex 11</li><li>CSV 1.0 to 4.0 maturity assessment &amp; roadmap</li><li>Validation strategy, SOPs &amp; templates</li><li>Inspection readiness &amp; audit support</li></ul>
-        </div></div>
-        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
-          <h4>Transformation & Automation</h4>
-          <ul><li>Move validation up the CSV 1.0 to 4.0 curve</li><li>Automated and unmanned protocol execution</li><li>200+ RPAs validated for regulated workflows</li><li>Paperless, data-driven validation lifecycle</li></ul>
-        </div></div>
-        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
-          <h4>CSA Risk-Based Approach</h4>
-          <ul><li>Computer Software Assurance across the estate</li><li>Test effort focused by patient &amp; data risk</li><li>Scripted testing for high-risk functions</li><li>Unscripted &amp; vendor testing where risk is low</li></ul>
-        </div></div>
-        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
-          <h4>Equipment & Instrument Qualification</h4>
-          <ul><li>Network qualification &amp; middleware validation</li><li>Hardware &amp; analytical instrument qualification</li><li>Shopfloor &amp; manufacturing equipment</li><li>IQ / OQ / PQ execution &amp; documentation</li></ul>
-        </div></div>
-        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
-          <h4>Software Platform — <a href="pivotpath-noteiq.html">NoteIQ</a></h4>
-          <ul><li>Digitise validation, documents &amp; training</li><li>Structured URS-to-PQ records &amp; traceability</li><li>Part 11 / Annex 11 electronic records &amp; signatures</li><li>Single system of record for the validation estate</li></ul>
-        </div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ PROCESS ============ -->
-  <section class="pad80 grey" id="process">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="section-title reveal">The URS-to-PQ Lifecycle</h2>
-      </div>
-      <div class="proc reveal cols-5">
-        <div class="proc-step">
-          <div class="pic"><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg></div>
-          <div class="pk">Plan</div>
-          <h5>Validation Master Plan</h5>
-          <p>A CSVMP frames scope, roles and the validation strategy across the estate before work begins.</p>
+      <div class="vig-grid reveal">
+        <div class="vig">
+          <h3>When every system gets the same mountain of tests</h3>
+          <p>A CSA risk assessment sets the effort before the scripts are written — so low-risk systems stop consuming the attention your high-risk systems need.</p>
         </div>
-        <div class="proc-step">
-          <div class="pic"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg></div>
-          <div class="pk">Specify</div>
-          <h5>User Requirement Spec</h5>
-          <p>The URS captures what each system must do, forming the traceable baseline for later testing.</p>
+        <div class="vig">
+          <h3>When vendor releases outpace revalidation</h3>
+          <p>Validation is managed as a lifecycle, not a document set — change control, periodic review and drift watched continuously, so the validated state survives the release calendar.</p>
         </div>
-        <div class="proc-step">
-          <div class="pic"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
-          <div class="pk">Risk-Assess</div>
-          <h5>CSA Risk Assessment</h5>
-          <p>A Computer Software Assurance assessment focuses test effort by patient and data risk.</p>
+        <div class="vig">
+          <h3>When the auditor asks why you tested what you tested</h3>
+          <p>The answer is a documented risk assessment, not a template. Evidence traceable from URS to PQ — defensible, because it was reasoned.</p>
         </div>
-        <div class="proc-step">
-          <div class="pic"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
-          <div class="pk">Qualify</div>
-          <h5>IQ / OQ / PQ</h5>
-          <p>Installation, operational and performance qualification confirm the system as installed and in use.</p>
-        </div>
-        <div class="proc-step">
-          <div class="pic"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
-          <div class="pk">Sustain</div>
-          <h5>Periodic Review</h5>
-          <p>Periodic review and change control keep systems in a validated state through their lifecycle.</p>
+        <div class="vig">
+          <h3>When teams route around the validated system</h3>
+          <p>Right-sized assurance keeps the compliant path fast enough that no one needs the workaround — removing the compliance risk that compliance processes can create.</p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ============ MATURITY PATH ============ -->
+  <section class="pad80" id="maturity">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title reveal">The CSV 1.0 → 4.0 Maturity Path</h2>
+      </div>
+      <div class="flow4 reveal">
+        <div class="fl">
+          <div class="dot"></div>
+          <div class="ph">CSV 1.0</div>
+          <p class="fl-note">Document-heavy, manual practice — paper protocols and hand-run execution.</p>
+          <p class="fl-svcs">Where many estates start</p>
+        </div>
+        <div class="fl">
+          <div class="dot"></div>
+          <div class="ph">CSV 2.0</div>
+          <p class="fl-note">Electronic records replace paper; the lifecycle becomes traceable end to end.</p>
+          <p class="fl-svcs">Digitised records · Traceability</p>
+        </div>
+        <div class="fl">
+          <div class="dot"></div>
+          <div class="ph">CSV 3.0</div>
+          <p class="fl-note">CSA directs effort by risk and intended use; testing is reasoned, not templated.</p>
+          <p class="fl-svcs">Risk-based assurance</p>
+        </div>
+        <div class="fl">
+          <div class="dot"></div>
+          <div class="ph">CSV 4.0</div>
+          <p class="fl-note">Largely automated, unmanned execution — the validated state maintained continuously.</p>
+          <p class="fl-svcs">Automated execution</p>
+        </div>
+      </div>
+      <p class="flow-close reveal">We assess where each system sits today and move it up the curve — without breaking the validated state along the way.</p>
+    </div>
+  </section>
 
-  <!-- ============ NOTEIQ SPOTLIGHT ============ -->
+  <!-- ============ NOTEIQ VMS SPOTLIGHT ============ -->
   <section class="pad80 spotlight" id="noteiq">
     <div class="container">
       <div class="spot-head reveal">
@@ -413,66 +513,42 @@
         <div class="col-lg-6 reveal">
           <ul class="vp-list">
             <li class="vp"><span class="vp-ic">✓</span><div><div class="vp-t">Risk-based CSA</div><div class="vp-d">Test effort follows risk, aligned to Computer Software Assurance.</div></div></li>
-            <li class="vp"><span class="vp-ic">✓</span><div><div class="vp-t">URS→PQ lifecycle</div><div class="vp-d">Protocols, execution and traceability managed in one system.</div></div></li>
+            <li class="vp"><span class="vp-ic">✓</span><div><div class="vp-t">URS → PQ lifecycle</div><div class="vp-d">Protocols, execution and traceability managed in one system.</div></div></li>
             <li class="vp"><span class="vp-ic">✓</span><div><div class="vp-t">21 CFR Part 11 / EU Annex 11</div><div class="vp-d">Audit-ready electronic records and signatures.</div></div></li>
           </ul>
+          <p class="dd-link">NoteIQ is a Quality &amp; Compliance platform from Pivot Path — the VMS module manages the validation lifecycle end to end.</p>
           <a href="pivotpath-noteiq-vms.html" class="btns-line mt-4">Explore NoteIQ VMS</a>
         </div>
       </div>
     </div>
   </section>
 
-
-  <!-- ============ STORY IN NUMBERS ============ -->
-  <section class="pad80 stat-band" id="numbers">
+  <!-- ============ WAYS TO ENGAGE ============ -->
+  <section class="pad80 grey" id="engage">
     <div class="container">
       <div class="text-center mb-5">
-        <h2 class="section-title text-white reveal">Scale of Validation Delivered</h2>
+        <h2 class="section-title reveal">Ways to Engage</h2>
       </div>
-      <div class="row text-center g-4 justify-content-center">
-        <div class="col-6 col-lg-4 stat"><div class="num"><span class="count" data-to="200">0</span><span class="suffix">+</span></div><div class="label">RPAs Validated</div></div>
-        <div class="col-6 col-lg-4 stat"><div class="num"><span class="count" data-to="10000">0</span><span class="suffix">+</span></div><div class="label">CSA Documents</div></div>
+      <div class="engage-grid reveal">
+        <div class="engage-col">
+          <h4>Advisory</h4>
+          <p>Gap assessment against 21 CFR Part 11 and EU Annex 11, CSV 1.0 to 4.0 maturity assessment and roadmap, validation strategy and SOPs — and support when the inspection is scheduled.</p>
+        </div>
+        <div class="engage-col">
+          <h4>Delivery</h4>
+          <p>Qualification and validation projects across systems, equipment and instruments — IQ, OQ and PQ executed and documented with full URS traceability, on a CSA risk-based footing.</p>
+        </div>
+        <div class="engage-col">
+          <h4>Managed Operations</h4>
+          <p>Validation as a managed service — CSVMP ownership, periodic review, revalidation and backlog clearance, so the validated state is maintained continuously.</p>
+        </div>
       </div>
+      <p class="engage-kicker reveal">Each engagement model is contractable independently — begin with a defined scope and expand as your requirements evolve.</p>
     </div>
   </section>
 
-  <!-- ============ PROOF ============ -->
-  <section class="pad80" id="proof">
-    <div class="container">
-      <div class="row align-items-center g-5">
-        <div class="col-lg-5 reveal">
-          <h2 class="section-title">Proof at Scale, Under Regulation</h2>
-        </div>
-        <div class="col-lg-7">
-          <div class="row g-4">
-            <div class="col-sm-6 reveal"><div class="proof-card"><div class="big">200+ RPAs</div><div class="cap">Robotic process automations validated for regulated workflows, including unmanned protocol execution.</div></div></div>
-            <div class="col-sm-6 reveal"><div class="proof-card"><div class="big">10,000+ docs</div><div class="cap">Computer Software Assurance applied across a documentation estate at scale.</div></div></div>
-            <div class="col-sm-6 reveal"><div class="proof-card"><div class="big">CSV 1.0→4.0</div><div class="cap">A maturity model that moves validation from manual practice towards automated, unmanned execution.</div></div></div>
-            <div class="col-sm-6 reveal"><div class="proof-card"><div class="big">Part 11 · Annex 11</div><div class="cap">Electronic records and signatures validated to 21 CFR Part 11 and EU Annex 11.</div></div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ WHY US (value proposition) ============ -->
-  <section class="pad80 stat-band" id="whyus">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="section-title text-white reveal">What our validation approach delivers</h2>
-      </div>
-      <div class="row text-center g-4 justify-content-center">
-        <div class="col-md-6 col-lg-4 reveal valstat"><div class="vt">Risk-based, not volume-based</div><div class="vl">A CSA approach focuses effort on the functions that carry patient and data risk.</div></div>
-        <div class="col-md-6 col-lg-4 reveal valstat"><div class="vt">Proven at scale</div><div class="vl">200+ RPAs validated and CSA applied across 10,000+ documents.</div></div>
-        <div class="col-md-6 col-lg-4 reveal valstat"><div class="vt">Whole-estate coverage</div><div class="vl">Network, middleware, hardware, instruments and shopfloor equipment.</div></div>
-        <div class="col-md-6 col-lg-4 reveal valstat"><div class="vt">Compliant by design</div><div class="vl">Validated to 21 CFR Part 11 and EU Annex 11 with full URS-to-PQ traceability.</div></div>
-        <div class="col-md-6 col-lg-4 reveal valstat"><div class="vt">A path to CSV 4.0</div><div class="vl">A maturity model that moves you towards automated, unmanned execution.</div></div>
-        <div class="col-md-6 col-lg-4 reveal valstat"><div class="vt">Four ways to engage</div><div class="vl">Managed services, consulting, transformation and automation, or software.</div></div>
-      </div>
-    </div>
-  </section>
   <!-- ============ PRACTICE LEADERS ============ -->
-  <section class="pad80 grey" id="leaders">
+  <section class="pad80" id="leaders">
     <div class="container">
       <div class="text-center mb-5"><h2 class="section-title reveal">The Leaders Behind Computer System Validation</h2></div>
       <div class="row g-4 justify-content-center">
@@ -500,9 +576,8 @@
     </div>
   </section>
 
-
-    <!-- ============ FAQ ============ -->
-  <section class="pad80" id="faq">
+  <!-- ============ FAQ ============ -->
+  <section class="pad80 grey" id="faq">
     <div class="container">
       <div class="text-center mb-5">
         <h2 class="section-title reveal">Validation FAQ</h2>
@@ -516,11 +591,11 @@
             </div>
             <div class="accordion-item">
               <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2">How does a CSA risk-based approach reduce validation effort?</button></h2>
-              <div id="q2" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Computer Software Assurance directs testing effort by risk rather than validating every function equally. High-risk, patient- or data-impacting functions get rigorous scripted testing; low-risk functions rely on unscripted or vendor testing. On one programme this focused approach supported CSA across 10,000+ documents while reducing over-testing of low-risk systems.</div></div>
+              <div id="q2" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Computer Software Assurance directs testing effort by risk and intended use rather than validating every function equally. High-risk, patient- or data-impacting functions receive rigorous scripted testing; low-risk functions rely on unscripted or vendor testing, with the rationale documented and defensible under inspection.</div></div>
             </div>
             <div class="accordion-item">
               <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q3">Which systems and equipment can you validate?</button></h2>
-              <div id="q3" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">We cover network qualification, middleware, hardware, analytical instruments and shopfloor equipment across the full URS-to-PQ lifecycle, governed by a validation master plan (CSVMP). We have validated 200+ RPAs, including unmanned protocol execution.</div></div>
+              <div id="q3" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">We cover network qualification, middleware, hardware, analytical instruments and shopfloor equipment across the full URS-to-PQ lifecycle, governed by a validation master plan (CSVMP) and extending to automated and unmanned protocol execution.</div></div>
             </div>
             <div class="accordion-item">
               <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q4">Which regulations do you validate against?</button></h2>
@@ -537,13 +612,13 @@
   </section>
 
   <!-- ============ FINAL CTA ============ -->
-  <section class="pad80 final-cta text-center" id="contact">
+  <section class="pad80 alt-cta text-center" id="contact">
     <div class="container">
       <h2 class="section-title text-white reveal mb-3">Validate by Risk.<br>Not by Volume.</h2>
-      <p class="text-white-50 reveal mb-4" style="max-width:640px;margin-inline:auto">Clear a validation backlog, move up the CSV 1.0 to 4.0 curve, or adopt a CSA risk-based approach compliant with 21 CFR Part 11 and EU Annex 11: talk to our validation team.</p>
+      <p class="text-white-50 reveal mb-4" style="max-width:640px;margin-inline:auto">Clear a validation backlog, move up the CSV 1.0 to 4.0 curve, or put your assurance programme on a risk-based footing — talk to our validation team.</p>
       <div class="hero-ctas justify-content-center reveal">
         <a href="mailto:info@pivotpath.com" class="btns2 solid-light">Talk to our validation team</a>
-        <a href="pivotpath-quality-compliance.html" class="btns-line">See the Quality & Digital Compliance pillar</a>
+        <a href="pivotpath-quality-compliance.html" class="btns-line">See the Quality &amp; Digital Compliance pillar</a>
       </div>
     </div>
   </section>
@@ -611,38 +686,54 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
   <script>
+    // ---- Practice pill-tabs (accessible) ----
     (function(){
-      function run(scope){
-        scope.querySelectorAll('.count').forEach(function(el){
-          if(el.dataset.done)return;el.dataset.done="1";
-          var to=parseFloat(el.dataset.to), dec=parseInt(el.dataset.dec||'0',10);
-          if(to===0){el.textContent="0";return;}
-          var start=null,dur=1600;
-          function step(ts){if(!start)start=ts;var p=Math.min((ts-start)/dur,1);
-            var val=to*(0.5-Math.cos(p*Math.PI)/2);
-            el.textContent=dec?val.toFixed(dec):Math.round(val).toLocaleString();
-            if(p<1)requestAnimationFrame(step);else el.textContent=dec?to.toFixed(dec):to.toLocaleString();}
-          requestAnimationFrame(step);
+      var tabs=Array.prototype.slice.call(document.querySelectorAll('.cap-tab'));
+      if(!tabs.length)return;
+      var panels=tabs.map(function(t){return document.getElementById(t.getAttribute('aria-controls'));});
+      function select(idx,focus){
+        tabs.forEach(function(t,i){
+          var on=i===idx;
+          t.setAttribute('aria-selected',on?'true':'false');
+          t.tabIndex=on?0:-1;
+          if(panels[i])panels[i].hidden=!on;
         });
+        if(focus&&tabs[idx])tabs[idx].focus();
       }
-      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)run(e.target);});},{threshold:.3});
-      document.querySelectorAll('.stat-band').forEach(function(b){io.observe(b);});
+      tabs.forEach(function(tab,i){
+        tab.addEventListener('click',function(){select(i,false);});
+        tab.addEventListener('keydown',function(e){
+          var n;
+          if(e.key==='ArrowRight'||e.key==='ArrowDown')n=(i+1)%tabs.length;
+          else if(e.key==='ArrowLeft'||e.key==='ArrowUp')n=(i-1+tabs.length)%tabs.length;
+          else if(e.key==='Home')n=0;
+          else if(e.key==='End')n=tabs.length-1;
+          else return;
+          e.preventDefault();select(n,true);
+        });
+      });
+      select(0,false);
     })();
+
+    // ---- Reveal on scroll ----
     (function(){
       var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
       document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
     })();
+
+    // ---- Active anchor-nav highlight ----
     (function(){
       var links=[].slice.call(document.querySelectorAll('.anchor-nav a'));
       var map=links.map(function(a){return {a:a,el:document.querySelector(a.getAttribute('href'))};}).filter(function(x){return x.el;});
-      function onScroll(){var y=window.scrollY+120,cur=map[0];
+      function onScroll(){
+        var y=window.scrollY+120,cur=map[0];
         map.forEach(function(x){if(x.el.offsetTop<=y)cur=x;});
-        links.forEach(function(a){a.classList.remove('active');});if(cur)cur.a.classList.add('active');}
+        links.forEach(function(a){a.classList.remove('active');});
+        if(cur)cur.a.classList.add('active');
+      }
       window.addEventListener('scroll',onScroll,{passive:true});onScroll();
     })();
   </script>
   <script src="pp-mobile.js" defer></script>
-  <!-- design-toggle -->
-  <a href="pivotpath-svc-csv-alt.html" style="position:fixed;left:18px;bottom:18px;z-index:2000;background:#0f141b;color:#fff;padding:10px 18px;border-radius:999px;font:600 13px/1 -apple-system,'Segoe UI',Roboto,Arial,sans-serif;letter-spacing:.02em;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,.28);opacity:.92" aria-label="View alternate design">View alternate design</a>
 </body>
 </html>
