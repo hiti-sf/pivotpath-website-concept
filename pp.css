@@ -510,8 +510,12 @@
 @media(prefers-reduced-motion:reduce){.hscroll::before,.anchor-nav::before{animation:none}}
 
 @media(max-width:768px){
-  /* Hero: reduce padding, lower title floor (no <br> stripping — see spec §4.1) */
-  .hero-single-inner{padding:16px 0 16px}
+  /* Slimmer mobile bar: logo + header padding ~30% smaller (frees room at the hero top).
+     !important overrides Bootstrap's .py-3 utility, which is itself !important. */
+  .pp-logo{height:27px}
+  .grey-header.navbar{padding-top:.7rem!important;padding-bottom:.7rem!important}
+  /* Hero: a little more top padding now the bar is shorter */
+  .hero-single-inner{padding:32px 0 20px}
   .hero-inner{padding:52px 0}
   .page-hero.pad80{padding-top:64px}
   .hero-single h1,.hero h1,.page-hero h1{font-size:clamp(1.7rem,6vw,2.2rem)}
@@ -576,7 +580,8 @@
   #nav{max-height:66vh;overflow-y:auto;-webkit-overflow-scrolling:touch}
   .navbar-collapse .nav-link{padding-top:.7rem;padding-bottom:.7rem}
   .mega-menu .mega-head,.mega-menu .mega-sub{padding-top:.5rem;padding-bottom:.5rem}
-  .navbar-toggler{padding:.55rem .7rem}
+  .navbar-toggler{padding:.4rem .55rem}
+  .navbar-toggler-icon{width:1.15em;height:1.15em}
   /* evident "⌄ more" cue, only while the menu is open; hidden at end via .menu-at-end (pp-mobile.js) */
   .grey-header:has(#nav.show)::after{content:"\2304 more";position:absolute;left:0;right:0;bottom:0;
     height:36px;display:flex;align-items:flex-end;justify-content:center;padding-bottom:5px;
