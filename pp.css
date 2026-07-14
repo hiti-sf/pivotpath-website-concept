@@ -64,8 +64,8 @@
     .dropdown-menu{border-radius:0;border:1px solid var(--pp-line)}
     .dropdown-item{text-transform:uppercase;font-size:.74rem;font-weight:700;letter-spacing:.06em;padding:.5rem 1rem}
     /* Services mega-menu */
-    .mega-menu{width:min(960px,calc(100vw - 2rem));padding:1.4rem 1.6rem;border-radius:0;border:1px solid var(--pp-line)}
-    .mega-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1.4rem}
+    .mega-menu{width:min(1140px,calc(100vw - 2rem));padding:1.4rem 1.6rem;border-radius:0;border:1px solid var(--pp-line)}
+    .mega-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:1rem}
     .mega-col{display:flex;flex-direction:column;gap:.35rem}
     .mega-head{text-transform:uppercase;font-size:.72rem;font-weight:800;letter-spacing:.06em;color:#000;text-decoration:none;padding-bottom:.4rem;border-bottom:1px solid var(--pp-line);margin-bottom:.3rem}
     .mega-head:hover,.mega-head.active{color:var(--pp-accent)}
