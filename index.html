@@ -104,6 +104,30 @@
   <!-- Freshworks (Freshmarketer / Freshchat) -->
   <script src="//in.fw-cdn.com/32228802/1191962.js" chat="true" defer></script>
   <script src="pp-crm.js" defer></script>
+  <!-- Mobile first-paint lean pass (page-scoped, review artifact — desktop untouched) -->
+  <style>
+    @media(max-width:768px){
+      /* De-duplicate competing labels on first paint: keep one message per block */
+      .lean-hide-mobile{display:none!important}
+
+      /* Hero: match the desktop green. The mobile pass stacks a 2nd rgba(0,0,0,.30)
+         overlay on top of the .28 already baked into --pp-grad-bg, over-darkening the
+         gradient. Drop the extra overlay so mobile == desktop hero. */
+      .hero-single::before{display:none}
+
+      /* Decompress the services block: the title + pills were pulled tight into the
+         first-paint fold. Give the header room and let the cards move down. */
+      #services.pad60{padding-top:var(--sp-5)}
+      #services .text-center:has(> .section-title){margin-bottom:var(--sp-4)!important}
+      #services .cap-tabs{gap:.4rem}
+      #services .cap-tab{padding:.5rem .65rem;font-size:.72rem}
+    }
+
+    /* Client logo strip ~30% bigger on small phones (was 14px / 64px). */
+    @media(max-width:575px){
+      .wordmark-logo{height:18px;max-width:84px}
+    }
+  </style>
 </head>
 <body>
   <div class="pp-topbar"></div>
@@ -195,7 +219,7 @@
   <section class="hero-single" id="about">
     <div class="container hero-single-inner text-center">
       <h1 class="reveal">The Pharma <br class="d-md-none">Operations Platform</h1>
-      <p class="hero-sub reveal" style="white-space:normal;max-width:760px">We manage and run your operations, with technology and AI.</p>
+      <p class="hero-sub reveal" style="white-space:normal;max-width:760px">We run your operations, with technology and AI.</p>
       <div class="hero-ctas reveal">
         <a href="#contact" class="btn-pill btn-pill-light">Talk to our experts</a>
         <a href="#platforms" class="btn-pill btn-pill-ghost">Explore our platforms</a>
@@ -206,7 +230,7 @@
   <!-- ============ SOCIAL PROOF — WORDMARK STRIP ============ -->
   <section class="wordmark-strip" id="clients" aria-label="Trusted by pharma leaders">
     <div class="container">
-      <h3 class="reveal" style="text-align:center;font-weight:800;color:#000;font-size:var(--fs-h3);line-height:1.15;margin:0 0 1.1rem">Built and delivered by a pharma-native team.</h3>
+      <h3 class="reveal lean-hide-mobile" style="text-align:center;font-weight:800;color:#000;font-size:var(--fs-h3);line-height:1.15;margin:0 0 1.1rem">Built and delivered by a pharma-native team.</h3>
       <p class="wordmark-eyebrow">Trusted by pharma leaders</p>
       <div class="wordmark-marquee reveal">
         <div class="wordmark-track">
@@ -274,7 +298,7 @@
     <div class="container">
       <div class="text-center mb-5">
         <h2 class="section-title reveal">One Accountable Partner</h2>
-        <p class="reveal" style="margin:0;color:var(--pp-accent);font-weight:700;letter-spacing:.02em;font-size:.75rem;white-space:nowrap">Consulting. Managed Services. Technology.</p>
+        <p class="reveal" style="margin:0;color:var(--pp-accent);font-weight:700;letter-spacing:.02em;font-size:.75rem;white-space:nowrap">Consulting. Operations. Technology.</p>
       </div>
 
       <div class="cap-tabs reveal" role="tablist" aria-label="Capabilities">
@@ -288,7 +312,7 @@
       <div class="cap-panels reveal">
         <div class="cap-panel" role="tabpanel" id="cp-1" aria-labelledby="ct-1" tabindex="0">
           <h3 class="cap-panel-h">Safety operations you can hand over.</h3>
-          <p class="cap-panel-p">We run case processing, signal management, aggregate reporting and medical information as a single accountable operation.</p>
+          <p class="cap-panel-p"><span class="d-none d-md-inline">We run case processing, signal management, aggregate reporting and medical information as a single accountable operation.</span><span class="d-md-none">Case processing, signals, aggregate reporting and medical info, run as one accountable operation.</span></p>
           <div class="cap-foot">
             <a href="pivotpath-drug-safety.html" class="cap-explore">Explore Patient Safety <span aria-hidden="true">→</span></a>
           </div>
@@ -324,7 +348,7 @@
       </div>
 
       <div class="text-center mt-5">
-        <a href="#contact" class="btn-pill btn-pill-dark reveal">Not sure where to start? Talk to our experts</a>
+        <a href="#contact" class="btn-pill btn-pill-dark reveal"><span class="d-none d-md-inline">Not sure where to start? Talk to our experts</span><span class="d-md-none">Talk to our experts</span></a>
       </div>
     </div>
   </section>
