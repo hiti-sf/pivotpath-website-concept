@@ -324,7 +324,7 @@
 
 /* ----- Single hero ----- */
 .hero-single{background:var(--pp-grad-bg);color:#fff}
-.hero-single-inner{padding:60px 0 52px;max-width:900px}
+.hero-single-inner{padding:48px 0 32px;max-width:900px}
 .hero-single h1{font-weight:800;font-size:var(--fs-display);line-height:1.08;margin-bottom:1.1rem}
 .hero-sub{font-size:var(--fs-lead);color:#f0f0f0;max-width:640px;margin:0 auto 2rem;white-space:nowrap}
 @media(max-width:768px){.hero-sub{white-space:normal}}
@@ -332,8 +332,8 @@
 .hero-manifesto{font-size:.98rem;color:rgba(255,255,255,.8);max-width:700px;margin:0 auto;line-height:1.6}
 
 /* ----- Wordmark social-proof strip ----- */
-.wordmark-strip{padding:46px 0;border-bottom:1px solid var(--pp-line);background:#fff;overflow:hidden}
-.wordmark-eyebrow{text-align:center;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:var(--pp-muted);margin-bottom:1.5rem}
+.wordmark-strip{padding:32px 0;border-bottom:1px solid var(--pp-line);background:#fff;overflow:hidden}
+.wordmark-eyebrow{text-align:center;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:var(--pp-muted);margin-bottom:1rem}
 .wordmark-marquee{position:relative;width:100%;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
 /* Seamless marquee: each logo carries its own trailing space via margin-right (NOT flex `gap`),
    so the duplicated track tiles exactly and translateX(-50%) equals one whole period — a flex
@@ -345,7 +345,7 @@
 .wordmark-more{color:var(--pp-accent);font-size:.9rem}
 .wordmark-logo{height:46px;width:auto;max-width:170px;object-fit:contain;opacity:.9;transition:opacity .2s;flex:0 0 auto;margin-right:3rem}
 .wordmark-logo:hover{opacity:1}
-@media(max-width:575px){.wordmark-logo{height:14px;max-width:64px;margin-right:1.5rem}.wordmark-track{animation-duration:44s}.wordmark-strip{padding:26px 0}}
+@media(max-width:575px){.wordmark-logo{height:14px;max-width:64px;margin-right:1.5rem}.wordmark-track{animation-duration:44s}.wordmark-strip{padding:16px 0}}
 @keyframes wm-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
 /* ----- Capability pill-tabs ----- */
@@ -511,11 +511,13 @@
 
 @media(max-width:768px){
   /* Hero: reduce padding, lower title floor (no <br> stripping — see spec §4.1) */
-  .hero-single-inner{padding:36px 0 30px}
+  .hero-single-inner{padding:16px 0 16px}
   .hero-inner{padding:52px 0}
   .page-hero.pad80{padding-top:64px}
   .hero-single h1,.hero h1,.page-hero h1{font-size:clamp(1.7rem,6vw,2.2rem)}
   .hero-sub,.page-hero .lead{margin-bottom:1.4rem}
+  /* Homepage hero CTAs hidden on mobile (nav CTA still reachable) */
+  .hero-single .hero-ctas{display:none}
   /* Hero contrast: deepen overlay so text stays legible over the light gradient end */
   .hero-single,.page-hero{position:relative}
   .hero-single::before,.page-hero::before{content:"";position:absolute;inset:0;
@@ -528,6 +530,15 @@
     gap:.5rem;padding:.1rem 2.8rem .85rem 0;scrollbar-width:none}
   .cap-tabs::-webkit-scrollbar{display:none}
   .cap-tab{flex:0 0 auto;scroll-snap-align:start;padding:.62rem 1.15rem}
+  /* First-paint fold: homepage pills sit right under the title, no full mb-5 gap */
+  #services.pad60{padding-top:var(--sp-2)}
+  #services .text-center:has(> .section-title){margin-bottom:var(--sp-2)!important}
+  /* Homepage capability pills: all 5 always visible, wrap instead of scroll (no chevron cue needed).
+     flex-basis forces a steady 3-across grid (3+2) instead of ragged single-line packing. */
+  #services .cap-tabs{flex-wrap:wrap;justify-content:center;overflow-x:visible;
+    padding:.1rem 0 .5rem;gap:.3rem;scroll-snap-type:none}
+  #services .cap-tab{scroll-snap-align:none;flex:1 1 30%;min-width:0;text-align:center;
+    padding:.32rem .3rem;font-size:.66rem;line-height:1.1}
 
   /* Anchor-nav: snap + room for the chevron (cue from .anchor-nav above) */
   .anchor-nav .inner{scroll-snap-type:x proximity;padding-right:2.6rem}
