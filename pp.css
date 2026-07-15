@@ -72,12 +72,12 @@
     .mega-sub{font-size:.8rem;font-weight:600;color:var(--pp-muted);text-decoration:none;padding:.15rem 0}
     .mega-sub:hover,.mega-sub.active{color:var(--pp-accent)}
     .mega-sub.active{font-weight:700}
-    /* Platforms mega-menu: services-styled — service-line header (span) + its products beneath.
-       Narrower than Services (fewer items); placed before the mobile query so the 1fr collapse wins. */
-    .mega-products{width:min(660px,calc(100vw - 2rem))}
-    .mega-grid-products{grid-template-columns:repeat(3,minmax(0,1fr));gap:1.2rem 1.4rem}
-    .mega-products .mega-head{margin-bottom:.5rem}
-    .mega-products .dropdown-item{text-transform:none;letter-spacing:0;font-size:.85rem;font-weight:600;color:var(--pp-muted);padding:.18rem 0}
+    /* Platforms mega-menu: same full-width single-row card as Services (service-line header + its
+       products beneath). Products stay .dropdown-item (build.py active hook) but read like .mega-sub.
+       Placed before the mobile query so the 1fr collapse wins. */
+    .mega-grid-products{grid-template-columns:repeat(5,minmax(0,1fr))}
+    .mega-products .mega-head{margin-bottom:.4rem}
+    .mega-products .dropdown-item{text-transform:none;letter-spacing:0;font-size:.8rem;font-weight:600;color:var(--pp-muted);padding:.15rem 0}
     .mega-products .dropdown-item:hover,.mega-products .dropdown-item:focus,.mega-products .dropdown-item.active{color:var(--pp-accent);background:transparent}
     @media(max-width:1199.98px){.mega-menu{width:100%;padding:.6rem 0;border:0}.mega-grid{grid-template-columns:1fr;gap:.9rem}.mega-head{border-bottom:0}}
 
