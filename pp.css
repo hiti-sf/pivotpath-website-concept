@@ -614,7 +614,7 @@
 }
 
 /* ===== VALUE-CHAIN MAP (vc-) ===== */
-.vc-matrix{display:grid;grid-template-columns:repeat(6,minmax(178px,1fr));min-width:1080px;border:1px solid var(--pp-line);border-radius:var(--r-md);overflow:hidden;background:#fff}
+.vc-matrix{display:grid;grid-template-columns:repeat(5,minmax(178px,1fr));min-width:900px;border:1px solid var(--pp-line);border-radius:var(--r-md);overflow:hidden;background:#fff}
 .hscroll:has(> .vc-matrix){overflow-x:auto;-webkit-overflow-scrolling:touch}
 .vc-col{border-left:1px solid var(--pp-line);display:flex;flex-direction:column}
 .vc-col:first-child{border-left:0}
