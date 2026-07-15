@@ -338,7 +338,10 @@
 /* Seamless marquee: each logo carries its own trailing space via margin-right (NOT flex `gap`),
    so the duplicated track tiles exactly and translateX(-50%) equals one whole period — a flex
    `gap` here leaves a half-gap seam that jumps on every loop. Keep spacing on .wordmark-logo. */
-.wordmark-track{display:flex;align-items:center;width:max-content;animation:wm-scroll 72s linear infinite}
+/* will-change + backface + translate3d keyframes keep the (very wide) track on a stable,
+   continuously-composited GPU layer. Without this the long transform animation on an oversized
+   layer is dropped/not-repainted intermittently (blank strip until a hover forces a recomposite). */
+.wordmark-track{display:flex;align-items:center;width:max-content;animation:wm-scroll 72s linear infinite;will-change:transform;-webkit-backface-visibility:hidden;backface-visibility:hidden}
 .wordmark-marquee:hover .wordmark-track{animation-play-state:paused}
 .wordmark{font-weight:800;font-size:1.05rem;letter-spacing:.02em;color:#9a9a9a;text-transform:uppercase;transition:color .2s;white-space:nowrap}
 .wordmark:hover{color:var(--pp-ink)}
@@ -346,7 +349,7 @@
 .wordmark-logo{height:46px;width:auto;max-width:170px;object-fit:contain;opacity:.9;transition:opacity .2s;flex:0 0 auto;margin-right:3rem}
 .wordmark-logo:hover{opacity:1}
 @media(max-width:575px){.wordmark-logo{height:14px;max-width:64px;margin-right:1.5rem}.wordmark-track{animation-duration:44s}.wordmark-strip{padding:16px 0}}
-@keyframes wm-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes wm-scroll{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
 
 /* ----- Capability pill-tabs ----- */
 .cap-tabs{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem;margin-bottom:2.4rem}
