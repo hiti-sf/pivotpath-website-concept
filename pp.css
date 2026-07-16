@@ -817,13 +817,13 @@ body.brand-v2 .story-tag{
   /* Footer accordion: pp-mobile.js turns each link-group h6 into a toggle
      (Contact group exempt). Links hide via .fgrp-hidden. */
   .footer h6[role="button"]{cursor:pointer;position:relative;margin-bottom:var(--sp-1);
-    padding:.55rem 1.6rem .55rem 0}
-  .footer h6[role="button"]::after{content:"\203A";position:absolute;right:6px;top:50%;
+    padding:var(--sp-4) var(--sp-3) var(--sp-1) 0}
+  .footer h6[role="button"]::after{content:"\203A";position:absolute;right:var(--sp-2);top:50%;
     transform:translateY(-50%) rotate(90deg);color:var(--pp-accent);font-weight:800;
     font-size:1rem;transition:transform .15s}
   .footer h6[role="button"][aria-expanded="true"]::after{transform:translateY(-50%) rotate(-90deg)}
   .footer a.fgrp-hidden{display:none}
 }
-@media(prefers-reduced-motion:reduce){
+@media(max-width:768px) and (prefers-reduced-motion:reduce){
   .footer h6[role="button"]::after{transition:none}
 }
