@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-22 -22 71 71" width="101" height="101" role="img" aria-label="Pivot Path mark">
+  <defs>
+    <linearGradient id="pp-mark-grad" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#0e90a2"/>
+      <stop offset="0.32" stop-color="#19a574"/>
+      <stop offset="1" stop-color="#90c43c"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" vector-effect="non-scaling-stroke">
+    <polygon points="0,11.27 15.52,11.27 15.52,27.05 26.89,15.78 26.89,0 11.16,0 0,11.27"
+             stroke="url(#pp-mark-grad)" stroke-width="1" opacity=".2"
+             transform="translate(13.445 13.525) scale(2.5) translate(-13.445 -13.525)"
+             vector-effect="non-scaling-stroke"/>
+    <polygon points="0,11.27 15.52,11.27 15.52,27.05 26.89,15.78 26.89,0 11.16,0 0,11.27"
+             stroke="url(#pp-mark-grad)" stroke-width="1" opacity=".42"
+             transform="translate(13.445 13.525) scale(1.7) translate(-13.445 -13.525)"
+             vector-effect="non-scaling-stroke"/>
+  </g>
+  <polygon points="0,11.27 15.52,11.27 15.52,27.05 26.89,15.78 26.89,0 11.16,0 0,11.27"
+           fill="url(#pp-mark-grad)"/>
+</svg>
