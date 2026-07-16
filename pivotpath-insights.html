@@ -342,6 +342,7 @@
         var shown=0;
         cards.forEach(function(c){var m=(f==='all'||c.getAttribute('data-cat')===f);c.style.display=m?'':'none';if(m)shown++;});
         if(empty){empty.hidden=shown>0;empty.textContent=MSG[f]||'New content is coming soon.';}
+        window.dispatchEvent(new Event('resize'));
       }
       tabs.forEach(function(t){t.addEventListener('click',function(){
         tabs.forEach(function(x){x.classList.remove('active');});
