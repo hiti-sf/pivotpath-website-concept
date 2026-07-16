@@ -22,7 +22,7 @@
       upd();
     }
     document.querySelectorAll('.hscroll').forEach(function (w) {
-      wireH(w, w.querySelector('.cap-tabs'));
+      wireH(w, w.querySelector('.cap-tabs') || w.querySelector(':scope > .row'));
     });
     document.querySelectorAll('.anchor-nav').forEach(function (n) {
       wireH(n, n.querySelector('.inner'));

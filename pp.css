@@ -823,6 +823,21 @@ body.brand-v2 .story-tag{
     font-size:1rem;transition:transform .15s}
   .footer h6[role="button"][aria-expanded="true"]::after{transform:translateY(-50%) rotate(-90deg)}
   .footer a.fgrp-hidden{display:none}
+
+  /* Card rows wrapped in .hscroll: one-row scroll strips (cue wired by pp-mobile.js).
+     !important outguns ID-scoped grid rules (e.g. `#platforms .row > [class*=col-]`). */
+  .hscroll>.row{flex-wrap:nowrap;overflow-x:auto;scroll-snap-type:x proximity;
+    -webkit-overflow-scrolling:touch;padding:0 2.6rem var(--sp-2) 0;scrollbar-width:none}
+  .hscroll>.row::-webkit-scrollbar{display:none}
+  .hscroll>.row>[class*="col-"]{flex:0 0 78vw!important;max-width:78vw!important;
+    scroll-snap-align:start}
+  /* Right-edge fade matches the section background (all pages are body.brand-v2:
+     .grey renders #F1F1EA); on dark bands drop the fade and whiten the chevron. */
+  .grey .hscroll::after{background:linear-gradient(90deg,rgba(241,241,234,0),#F1F1EA 72%)}
+  .section-teal .hscroll::after,.stat-band .hscroll::after,
+  .risk-band .hscroll::after,.spotlight .hscroll::after{display:none}
+  .section-teal .hscroll::before,.stat-band .hscroll::before,
+  .risk-band .hscroll::before,.spotlight .hscroll::before{color:#fff}
 }
 @media(max-width:768px) and (prefers-reduced-motion:reduce){
   .footer h6[role="button"]::after{transition:none}
