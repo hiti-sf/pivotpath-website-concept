@@ -111,8 +111,45 @@
       });
     }
 
+    function setupAcc(on) {
+      document.querySelectorAll('.m-acc').forEach(function (acc) {
+        Array.prototype.forEach.call(acc.children, function (item, i) {
+          var head = item.querySelector('h3,h4,h5,.ph,.vt');
+          if (!head) return;
+          item.classList.add('m-item');
+          var sib = head.nextElementSibling;
+          while (sib) { sib.classList.add('m-body'); sib = sib.nextElementSibling; }
+          if (on) {
+            head.classList.add('m-toggle');
+            head.setAttribute('role', 'button');
+            head.setAttribute('tabindex', '0');
+            var open = i === 0;
+            item.classList.toggle('m-open', open);
+            head.setAttribute('aria-expanded', String(open));
+            if (!head.ppWired) {
+              head.ppWired = true;
+              var toggle = function () {
+                var o = item.classList.toggle('m-open');
+                head.setAttribute('aria-expanded', String(o));
+              };
+              head.addEventListener('click', toggle);
+              head.addEventListener('keydown', function (e) {
+                if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
+              });
+            }
+          } else {
+            head.classList.remove('m-toggle');
+            head.removeAttribute('role');
+            head.removeAttribute('tabindex');
+            head.removeAttribute('aria-expanded');
+          }
+        });
+      });
+    }
+
     function applyMobile() {
       setupFooter(mq.matches);
+      setupAcc(mq.matches);
     }
     if (mq.addEventListener) mq.addEventListener('change', applyMobile);
     else mq.addListener(applyMobile);

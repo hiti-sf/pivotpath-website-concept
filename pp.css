@@ -838,7 +838,21 @@ body.brand-v2 .story-tag{
   .risk-band .hscroll::after,.spotlight .hscroll::after{display:none}
   .section-teal .hscroll::before,.stat-band .hscroll::before,
   .risk-band .hscroll::before,.spotlight .hscroll::before{color:#fff}
+
+  /* m-acc: opt-in disclosure for prose blocks — headings always visible,
+     bodies expand on tap; first item open (pp-mobile.js). */
+  .m-acc .m-toggle{cursor:pointer;position:relative;padding-right:var(--sp-4)}
+  .m-acc .m-toggle::after{content:"\203A";position:absolute;right:var(--sp-1);top:50%;
+    transform:translateY(-50%) rotate(90deg);color:var(--pp-accent);font-weight:800;
+    font-size:1.05rem;transition:transform .15s}
+  .m-acc .m-item.m-open .m-toggle::after{transform:translateY(-50%) rotate(-90deg)}
+  .m-acc .m-item:not(.m-open) .m-body{display:none}
+  .m-acc .proc-step .pic{display:none}
+  .risk-band .m-acc .m-toggle::after,.stat-band .m-acc .m-toggle::after{color:#fff}
+  /* Spotlight browser-mockup SVG: decorative on phones; the text column carries
+     all information. */
+  .spotlight .shot{display:none}
 }
 @media(max-width:768px) and (prefers-reduced-motion:reduce){
-  .footer h6[role="button"]::after{transition:none}
+  .footer h6[role="button"]::after,.m-acc .m-toggle::after{transition:none}
 }
