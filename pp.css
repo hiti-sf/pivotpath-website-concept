@@ -807,3 +807,23 @@ body.brand-v2 .story-tag{
   font-size:var(--fs-eyebrow);letter-spacing:.12em;text-transform:uppercase;
   font-weight:700;color:var(--pp-muted);
 }
+
+/* ===================================================================
+   MOBILE SCROLL-REDUCTION PASS (2026-07-16) — all rules mobile-gated.
+   Footer accordion + .hscroll card strips + .m-acc disclosure.
+   Spec: docs/superpowers/specs/2026-07-16-mobile-scroll-reduction-design.md
+   =================================================================== */
+@media(max-width:768px){
+  /* Footer accordion: pp-mobile.js turns each link-group h6 into a toggle
+     (Contact group exempt). Links hide via .fgrp-hidden. */
+  .footer h6[role="button"]{cursor:pointer;position:relative;margin-bottom:var(--sp-1);
+    padding:.55rem 1.6rem .55rem 0}
+  .footer h6[role="button"]::after{content:"\203A";position:absolute;right:6px;top:50%;
+    transform:translateY(-50%) rotate(90deg);color:var(--pp-accent);font-weight:800;
+    font-size:1rem;transition:transform .15s}
+  .footer h6[role="button"][aria-expanded="true"]::after{transform:translateY(-50%) rotate(-90deg)}
+  .footer a.fgrp-hidden{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+  .footer h6[role="button"]::after{transition:none}
+}

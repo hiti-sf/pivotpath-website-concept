@@ -63,5 +63,59 @@
         });
       });
     });
+
+    // 5) Mobile-only progressive disclosure. Enhancements are applied while the
+    // mobile media query matches and stripped when it stops matching, so
+    // desktop DOM semantics stay untouched. CSS lives in the pp.css mobile pass.
+    var mq = window.matchMedia('(max-width:768px)');
+
+    function footerGroups() {
+      var groups = [];
+      document.querySelectorAll('.footer .row [class*="col-"]').forEach(function (col) {
+        var current = null;
+        Array.prototype.forEach.call(col.children, function (ch) {
+          if (ch.tagName === 'H6') { current = { h: ch, links: [] }; groups.push(current); }
+          else if (current && ch.tagName === 'A') { current.links.push(ch); }
+        });
+      });
+      return groups.filter(function (g) {
+        return g.links.length && g.h.textContent.trim() !== 'Contact';
+      });
+    }
+
+    function setupFooter(on) {
+      footerGroups().forEach(function (g) {
+        if (on) {
+          g.h.setAttribute('role', 'button');
+          g.h.setAttribute('tabindex', '0');
+          g.h.setAttribute('aria-expanded', 'false');
+          g.links.forEach(function (a) { a.classList.add('fgrp-hidden'); });
+          if (!g.h.ppWired) {
+            g.h.ppWired = true;
+            var toggle = function () {
+              var open = g.h.getAttribute('aria-expanded') === 'true';
+              g.h.setAttribute('aria-expanded', String(!open));
+              g.links.forEach(function (a) { a.classList.toggle('fgrp-hidden', open); });
+            };
+            g.h.addEventListener('click', toggle);
+            g.h.addEventListener('keydown', function (e) {
+              if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
+            });
+          }
+        } else {
+          g.h.removeAttribute('role');
+          g.h.removeAttribute('tabindex');
+          g.h.removeAttribute('aria-expanded');
+          g.links.forEach(function (a) { a.classList.remove('fgrp-hidden'); });
+        }
+      });
+    }
+
+    function applyMobile() {
+      setupFooter(mq.matches);
+    }
+    if (mq.addEventListener) mq.addEventListener('change', applyMobile);
+    else mq.addListener(applyMobile);
+    applyMobile();
   });
 })();
