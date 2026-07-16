@@ -817,7 +817,7 @@ body.brand-v2 .story-tag{
   /* Footer accordion: pp-mobile.js turns each link-group h6 into a toggle
      (Contact group exempt). Links hide via .fgrp-hidden. */
   .footer h6[role="button"]{cursor:pointer;position:relative;margin-bottom:var(--sp-1);
-    padding:var(--sp-4) var(--sp-3) var(--sp-1) 0}
+    padding:var(--sp-3) var(--sp-3) var(--sp-3) 0}
   .footer h6[role="button"]::after{content:"\203A";position:absolute;right:var(--sp-2);top:50%;
     transform:translateY(-50%) rotate(90deg);color:var(--pp-accent);font-weight:800;
     font-size:1rem;transition:transform .15s}
