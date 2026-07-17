@@ -154,5 +154,41 @@
     if (mq.addEventListener) mq.addEventListener('change', applyMobile);
     else mq.addListener(applyMobile);
     applyMobile();
+
+    // 6) Homepage capability panels become a swipeable card strip on mobile (CSS).
+    //    Keep the active pill in sync with the scrolled card, and scroll to a card
+    //    when its pill is tapped. Desktop tab behaviour (inline script) is untouched.
+    (function () {
+      var strip = document.querySelector('#services .cap-panels');
+      var tabs = [].slice.call(document.querySelectorAll('#services .cap-tab'));
+      if (!strip || !tabs.length) return;
+      var panels = [].slice.call(strip.querySelectorAll('.cap-panel'));
+
+      tabs.forEach(function (t, i) {
+        t.addEventListener('click', function () {
+          if (!mq.matches || !panels[i]) return;
+          panels[i].scrollIntoView({ inline: 'center', block: 'nearest', behavior: 'smooth' });
+        });
+      });
+
+      var raf = 0;
+      function syncPill() {
+        raf = 0;
+        if (!mq.matches) return;
+        var mid = strip.scrollLeft + strip.clientWidth / 2, best = 0, bestD = Infinity;
+        panels.forEach(function (p, i) {
+          var d = Math.abs((p.offsetLeft + p.offsetWidth / 2) - mid);
+          if (d < bestD) { bestD = d; best = i; }
+        });
+        tabs.forEach(function (t, i) {
+          t.setAttribute('aria-selected', i === best ? 'true' : 'false');
+          t.tabIndex = i === best ? 0 : -1;
+        });
+        if (tabs[best]) tabs[best].scrollIntoView({ inline: 'center', block: 'nearest' });
+      }
+      strip.addEventListener('scroll', function () {
+        if (!raf) raf = window.requestAnimationFrame(syncPill);
+      }, { passive: true });
+    })();
   });
 })();

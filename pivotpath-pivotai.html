@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PivotAI — The Compliant AI Layer Under Every Pivot Path Platform | Pivot Path</title>
+  <meta name="description" content="PivotAI runs nine AI capabilities, from retrieval-augmented generation and knowledge graphs to agentic workflows, on one compliant layer inside PivotOS, with a human reviewer in the chain for every regulated call." />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="preconnect" href="https://in.fw-cdn.com" />
+  <link rel="preload" href="pp.css?v=44" as="style" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="pp.css?v=44" />
+  <link rel="icon" type="image/png" href="assets/chevron.png" />
+  <style>
+    /* ==== EDITORIAL STORY LAYOUT (page-scoped; pp.css untouched) ==== */
+
+    /* Chapter: kicker + title left, prose right */
+    .ch-grid{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);column-gap:var(--sp-7);row-gap:var(--sp-4);align-items:start}
+    .ck{font-size:var(--fs-cap);letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--pp-accent);margin-bottom:var(--sp-2)}
+    .ch-grid h2.section-title{margin-bottom:0;max-width:14ch}
+    .prose p{font-size:var(--fs-lead);line-height:1.75;color:var(--pp-ink);max-width:62ch;margin:0 0 var(--sp-4)}
+    .prose p:last-child{margin-bottom:0}
+    .chapter{border-top:1px solid var(--pp-line)}
+
+    /* Big standalone statement + pull quote */
+    .statement{font-size:var(--fs-display);font-weight:800;line-height:1.1;letter-spacing:-.015em;color:var(--pp-ink);max-width:24ch;margin:0 0 var(--sp-5)}
+    .pull{font-size:var(--fs-h3);font-weight:800;line-height:1.25;max-width:24ch;margin:0 0 var(--sp-4)}
+
+    /* Icon tiles */
+    .pic48{flex:none;width:48px;height:48px;border-radius:var(--r-md);background:var(--pp-accent);display:flex;align-items:center;justify-content:center;margin-bottom:var(--sp-3)}
+    .pic48 svg{width:24px;height:24px;fill:none;stroke:#fff;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+    .pic48.grad{background:var(--pp-grad)}
+    .pic48.ink{background:var(--pp-ink)}
+
+    /* Value triptych: three hairline columns with icons */
+    .val3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:var(--sp-6)}
+    .val3 .v{padding:0 var(--sp-5);border-left:1px solid var(--pp-line)}
+    .val3 .v:first-child{border-left:0;padding-left:0}
+    .val3 .v:last-child{padding-right:0}
+    .val3 h3{font-size:var(--fs-h4);font-weight:700;margin:0 0 var(--sp-2);text-transform:none}
+    .val3 p{margin:0;color:var(--pp-muted);font-size:var(--fs-body);line-height:1.65}
+
+    /* Dense number strip */
+    .numrow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--pp-line);border-bottom:1px solid var(--pp-line);margin-top:var(--sp-6)}
+    .numrow .c{padding:var(--sp-4);border-left:1px solid var(--pp-line)}
+    .numrow .c:first-child{border-left:0;padding-left:0}
+    .numrow .n{font-size:1.6rem;font-weight:800;color:var(--pp-ink);line-height:1.1;font-variant-numeric:tabular-nums}
+    .numrow .l{font-size:var(--fs-sm);color:var(--pp-muted);margin-top:4px}
+    .numcap{font-size:var(--fs-sm);color:var(--pp-muted);margin-top:var(--sp-3)}
+
+    /* Premise convergence visual */
+    .hub{display:block;width:100%;max-width:560px;height:auto;margin:var(--sp-6) auto 0}
+
+    /* Capabilities: three grouped columns with per-capability icons */
+    .capgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:var(--sp-6)}
+    .capgrid .cg{padding:0 var(--sp-5);border-left:1px solid var(--pp-line)}
+    .capgrid .cg:first-child{border-left:0;padding-left:0}
+    .capgrid .cg:last-child{padding-right:0}
+    .capgrid .cg > h3{font-size:var(--fs-h4);font-weight:700;margin:0 0 var(--sp-3);text-transform:none}
+    .cap-i{display:grid;grid-template-columns:20px minmax(0,1fr);column-gap:12px;padding:var(--sp-3) 0;border-top:1px solid var(--pp-line);align-items:start}
+    .cap-i svg{width:18px;height:18px;margin-top:3px;fill:none;stroke:var(--pp-accent);stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+    .cap-i h4{font-size:var(--fs-h5);font-weight:700;margin:0 0 2px;text-transform:none}
+    .cap-i p{margin:0;color:var(--pp-muted);font-size:var(--fs-sm);line-height:1.6}
+
+    /* Proof: four product columns with logos */
+    .prod4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:var(--sp-6)}
+    .prod4 .p4{padding:0 var(--sp-5);border-left:1px solid var(--pp-line)}
+    .prod4 .p4:first-child{border-left:0;padding-left:0}
+    .prod4 .p4:last-child{padding-right:0}
+    .prod4 img{height:26px;width:auto;display:block;margin-bottom:var(--sp-3)}
+    .prod4 .role{color:var(--pp-muted);font-size:var(--fs-sm);line-height:1.6;margin:0 0 var(--sp-2)}
+    .prod4 .stat{font-weight:700;color:var(--pp-ink);font-size:var(--fs-sm);margin:0 0 var(--sp-2)}
+    a.pl-link{display:inline-block;font-size:var(--fs-sm);font-weight:700;color:var(--pp-accent);text-decoration:none}
+    a.pl-link:hover{text-decoration:underline}
+
+    /* Foundation band: mini iso + prose */
+    .arch{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:var(--sp-6) var(--sp-7);align-items:center}
+    .iso{display:block;width:100%;max-width:340px;height:auto;margin-inline:auto}
+
+    /* Dark punctuation bands */
+    .band{background:var(--pp-section);color:#fff}
+    .band h2.section-title{color:#fff}
+    .band .prose p{color:rgba(255,255,255,.82)}
+    .band .ck{color:#fff;opacity:.75}
+    .band a{color:#fff}
+    .band a.pl-link{color:#fff}
+
+    /* Closing rule line */
+    .rule-line{font-size:var(--fs-h4);font-weight:700;color:var(--pp-ink);border-top:1px solid var(--pp-line);padding-top:var(--sp-4);margin-top:var(--sp-6)}
+
+    @media (max-width:991.98px){
+      .ch-grid{grid-template-columns:1fr}
+      .ch-grid h2.section-title{max-width:none;margin-bottom:var(--sp-3)}
+      .val3,.capgrid{grid-template-columns:1fr}
+      .val3 .v,.capgrid .cg{border-left:0;padding:var(--sp-4) 0;border-top:1px solid var(--pp-line)}
+      .val3 .v:first-child,.capgrid .cg:first-child{border-top:0;padding-top:0}
+      .val3 .v:last-child,.capgrid .cg:last-child{padding-bottom:0}
+      .numrow{grid-template-columns:1fr 1fr}
+      .numrow .c:nth-child(odd){border-left:0;padding-left:0}
+      .numrow .c:nth-child(n+3){border-top:1px solid var(--pp-line)}
+      .prod4{grid-template-columns:1fr 1fr}
+      .prod4 .p4{padding:var(--sp-4) var(--sp-4) var(--sp-4) 0;border-left:0;border-top:1px solid var(--pp-line)}
+      .prod4 .p4:nth-child(-n+2){border-top:0;padding-top:0}
+      .arch{grid-template-columns:1fr}
+      .iso{max-width:280px}
+    }
+  </style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "name": "PivotAI",
+      "description": "PivotAI runs nine AI capabilities, from retrieval-augmented generation and knowledge graphs to agentic workflows, on one compliant layer inside PivotOS, with a human reviewer in the chain for every regulated call.",
+      "url": "https://pivotpath.com/pivotpath-pivotai.html",
+      "provider": {
+        "@type": "Organization",
+        "@id": "https://pivotpath.com/#organization",
+        "name": "Pivot Path",
+        "url": "https://pivotpath.com/"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://pivotpath.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "PivotAI",
+          "item": "https://pivotpath.com/pivotpath-pivotai.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is PivotAI a chatbot?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. PivotAI is the AI capability layer our platforms call on: retrieval, extraction, analysis and multi-step workflows running behind NovaVigil, NoteIQ, AnomIQ, InvestigationIQ and the rest. Where a conversational interface appears in a product, PivotAI is what answers, grounded in your approved content."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which AI models does PivotAI use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A model-agnostic architecture that supports leading enterprise providers — OpenAI GPT, Anthropic Claude and AWS Bedrock-hosted models — as well as customer-approved private and local LLM deployments. Model selection aligns with your security, compliance and data-residency requirements."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can PivotAI agents act on their own?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Agents carry multi-step tasks such as investigations, signal triage and document review across systems, but every agent runs with a human reviewer in the chain. AI cannot approve records, apply e-signatures or finalise workflows; every regulated decision stays with an authorised person."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can we license PivotAI on its own?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "PivotAI ships inside the platforms. You buy a platform, or contract an operation, and the AI layer comes with it, already integrated, already governed and already running on PivotOS."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does PivotAI train on our data?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Customer content is not used to train foundation models and stays within your tenant boundary. The full data-handling and governance detail is in our AI Trust Centre."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is PivotAI validated?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "PivotAI inherits PivotOS's validation posture and adds validation by design at the model level: outputs are versioned, traceable and re-runnable, so how a decision was reached can be shown on demand. Validation deliverables can be provided to support your own validation activities."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <script src="pp-analytics.js" defer></script>
+  <!-- Freshworks (Freshmarketer / Freshchat) -->
+  <script src="//in.fw-cdn.com/32228802/1191962.js" chat="true" defer></script>
+  <script src="pp-crm.js" defer></script>
+</head>
+<body class="brand-v2">
+  <div class="pp-topbar"></div>
+
+  <!-- ============ HEADER ============ -->
+  <header class="grey-header navbar navbar-expand-xl navbar-light sticky-top py-3">
+    <div class="container">
+      <a class="navbar-brand p-0" href="pivotpath-home.html">
+        <img src="pp-logo-black.svg" alt="Pivot Path" class="pp-logo" />
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav ms-auto align-items-xl-center gap-xl-2">
+          <li class="nav-item"><a class="nav-link" href="pivotpath-leadership.html">About</a></li>
+          <li class="nav-item dropdown position-static">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Services</a>
+            <div class="dropdown-menu mega-menu">
+              <div class="mega-grid">
+                <div class="mega-col">
+                  <a class="mega-head" href="pivotpath-drug-safety.html">Patient Safety</a>
+                  <a class="mega-sub" href="pivotpath-drug-safety.html">Global Pharmacovigilance</a>
+                </div>
+                <div class="mega-col">
+                  <a class="mega-head" href="pivotpath-svc-ip-consulting.html">Intellectual Property</a>
+                  <a class="mega-sub" href="pivotpath-svc-ip-consulting.html">Intellectual Property Consulting</a>
+                </div>
+                <div class="mega-col">
+                  <a class="mega-head" href="pivotpath-svc-clinical-operations.html">Clinical Operations</a>
+                  <a class="mega-sub" href="pivotpath-svc-clinical-operations.html">Clinical Operations</a>
+                  <a class="mega-sub" href="pivotpath-svc-mobile-clinical.html">Ambulatory Services</a>
+                </div>
+                <div class="mega-col">
+                  <a class="mega-head" href="pivotpath-quality-compliance.html">Quality &amp; Digital Compliance</a>
+                  <a class="mega-sub" href="pivotpath-svc-quality-compliance.html">Quality Assurance</a>
+                  <a class="mega-sub" href="pivotpath-svc-csv.html">Integrated Validation Services</a>
+                  <a class="mega-sub" href="pivotpath-svc-operational-excellence.html">Operational Excellence</a>
+                </div>
+                <div class="mega-col">
+                  <a class="mega-head" href="pivotpath-digital-innovation.html">Digital Transformation</a>
+                  <a class="mega-sub" href="pivotpath-svc-digital-manufacturing.html">Digital Manufacturing</a>
+                  <a class="mega-sub" href="pivotpath-svc-track-trace.html">Track &amp; Trace Solutions</a>
+                  <a class="mega-sub" href="pivotpath-svc-it-operations.html">IT Operations</a>
+                  <a class="mega-sub" href="pivotpath-svc-quality-apps.html">Quality Apps</a>
+                  <a class="mega-sub" href="pivotpath-svc-sap-coe.html">SAP COE</a>
+                </div>
+                <div class="mega-col">
+                  <a class="mega-head" href="pivotpath-human-capital.html">Human Capital</a>
+                  <a class="mega-sub" href="pivotpath-svc-hc-consulting.html">Human Capital Consulting</a>
+                  <a class="mega-sub" href="pivotpath-svc-hc-digitisation.html">Human Capital Digitisation</a>
+                  <a class="mega-sub" href="pivotpath-svc-talent-acquisition.html">Talent Acquisition Services</a>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">How We Operate</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="pivotpath-how-we-operate.html">Across the value chain</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="pivotpath-svc-ip-consulting.html">Discovery</a></li>
+              <li><a class="dropdown-item" href="pivotpath-svc-clinical-operations.html">Clinical</a></li>
+              <li><a class="dropdown-item" href="pivotpath-digital-innovation.html">Manufacturing</a></li>
+              <li><a class="dropdown-item" href="pivotpath-golanzar.html">Supply chain &amp; launch</a></li>
+              <li><a class="dropdown-item" href="pivotpath-drug-safety.html">Patient Safety</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown position-static">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Platforms</a>
+            <div class="dropdown-menu mega-menu mega-products">
+              <div class="mega-grid mega-grid-products">
+                <div class="mega-col">
+                  <span class="mega-head">Technology Foundation</span>
+                  <a class="dropdown-item" href="pivotpath-pivotos.html">PivotOS</a>
+                  <a class="dropdown-item active" href="pivotpath-pivotai.html">PivotAI</a>
+                </div>
+                <div class="mega-col">
+                  <span class="mega-head">Patient Safety</span>
+                  <a class="dropdown-item" href="pivotpath-novavigil.html">NovaVigil</a>
+                </div>
+                <div class="mega-col">
+                  <span class="mega-head">Quality &amp; Compliance</span>
+                  <a class="dropdown-item" href="pivotpath-noteiq.html">NoteIQ</a>
+                  <a class="dropdown-item" href="pivotpath-investigationiq.html">InvestigationIQ</a>
+                  <a class="dropdown-item" href="pivotpath-anomiq.html">AnomIQ</a>
+                </div>
+                <div class="mega-col">
+                  <span class="mega-head">Launch Management</span>
+                  <a class="dropdown-item" href="pivotpath-golanzar.html">GoLanzar</a>
+                </div>
+                <div class="mega-col">
+                  <span class="mega-head">Finance &amp; Procurement</span>
+                  <a class="dropdown-item" href="pivotpath-inlumin.html">InLumin</a>
+                </div>
+                <div class="mega-col">
+                  <span class="mega-head">Human Capital</span>
+                  <a class="dropdown-item" href="pivotpath-arete.html">Arete</a>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="pivotpath-insights.html">Insights</a></li>
+          <li class="nav-item"><a class="nav-link" href="pivotpath-ai-trust.html">AI Trust</a></li>
+          <li class="nav-item"><a class="nav-link" href="pivotpath-home.html#why">Why Us</a></li>
+          <li class="nav-item ms-xl-2"><a class="btns2" href="#contact">Talk to our experts</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ PAGE HERO ============ -->
+  <section class="page-hero pad80" id="overview">
+    <div class="container">
+      <div class="crumb"><a href="pivotpath-home.html">Home</a> &nbsp;/&nbsp; <a href="pivotpath-pivotos.html">PivotOS</a> &nbsp;/&nbsp; PivotAI</div>
+      <h1>PivotAI: the AI layer<br>underneath.</h1>
+      <p class="lead">One compliant AI layer we built ourselves, running every AI workflow across our platforms. Grounded, traceable and human-reviewed.</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btns2 solid-light">Talk to our experts</a>
+        <a href="pivotpath-pivotos.html" class="btns-line">The PivotOS story</a>
+        <a href="pivotpath-ai-trust.html" class="btns-line">AI Trust Centre</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CH 1 — THE VALUE ============ -->
+  <section class="pad80" id="value">
+    <div class="container">
+      <p class="statement reveal">Every AI company in pharma is trying to learn the industry. <span class="grad-text">We started inside it.</span></p>
+      <div class="ch-grid reveal">
+        <div>
+          <div class="ck">The value</div>
+          <h2 class="section-title">What one AI layer changes.</h2>
+        </div>
+        <div class="prose">
+          <p>PivotAI is the intelligence layer inside PivotOS: nine capabilities, built once, shared by every platform we ship. For the teams that run on it, that means three things.</p>
+        </div>
+      </div>
+      <div class="val3 reveal">
+        <div class="v">
+          <div class="pic48"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="4" rx="1.5"/><rect x="4" y="10" width="16" height="4" rx="1.5"/><rect x="4" y="16" width="10" height="4" rx="1.5"/></svg></div>
+          <h3>Volume work, off your desk</h3>
+          <p>Screening, extraction, drafting and monitoring run at machine scale, so qualified people spend their time on judgement, not reading.</p>
+        </div>
+        <div class="v">
+          <div class="pic48"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3.5 8-7 10-3.5-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
+          <h3>Answers you can defend</h3>
+          <p>Every output is grounded in your approved content, cited, confidence-scored and traceable end to end.</p>
+        </div>
+        <div class="v">
+          <div class="pic48"><svg viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></svg></div>
+          <h3>New use cases, not new systems</h3>
+          <p>Each capability lands on the same validated layer, so adding AI is an addition to the stack, not another vendor to qualify.</p>
+        </div>
+      </div>
+      <div class="numrow reveal">
+        <div class="c"><div class="n">63%</div><div class="l">Faster literature reviews</div></div>
+        <div class="c"><div class="n">85%</div><div class="l">Faster anomaly detection</div></div>
+        <div class="c"><div class="n">40&ndash;60%</div><div class="l">Shorter investigation cycles</div></div>
+        <div class="c"><div class="n">9</div><div class="l">Capabilities on one layer</div></div>
+      </div>
+      <p class="numcap reveal">As shipped in NovaVigil, AnomIQ and InvestigationIQ today.</p>
+    </div>
+  </section>
+
+  <!-- ============ CH 2 — THE PREMISE ============ -->
+  <section class="pad80 grey chapter" id="premise">
+    <div class="container">
+      <div class="ch-grid reveal">
+        <div>
+          <div class="ck">The premise</div>
+          <h2 class="section-title">One layer, not seven bolt-ons.</h2>
+        </div>
+        <div class="prose">
+          <p>We did not attach a chatbot to each product and call it a strategy. We built one foundational platform that runs all our AI and ML workflows in one compliance-controlled environment, and every product we ship sits on top of it. That is why every platform's AI behaves the same way when an inspector starts asking questions.</p>
+        </div>
+      </div>
+      <svg class="hub reveal" viewBox="0 0 520 300" role="img" aria-label="Seven Pivot Path platforms all drawing on one PivotAI layer, which runs on PivotOS" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Roboto,Arial,sans-serif">
+        <defs>
+          <linearGradient id="hubg" x1="0" y1="1" x2="1" y2="0">
+            <stop offset="0" stop-color="#71bf44"/><stop offset=".55" stop-color="#20a676"/><stop offset="1" stop-color="#1b91a3"/>
+          </linearGradient>
+        </defs>
+        <!-- seven app tiles -->
+        <g>
+          <g transform="translate(68,20)"><rect x="-20" y="0" width="40" height="40" rx="9" fill="#fff" stroke="#dfe3df"/><circle cx="0" cy="13" r="3.2" fill="#20a676"/><rect x="-9" y="22" width="18" height="2.6" rx="1.3" fill="#c9cfc9"/><rect x="-6" y="28" width="12" height="2.6" rx="1.3" fill="#dfe3df"/></g>
+          <g transform="translate(132,20)"><rect x="-20" y="0" width="40" height="40" rx="9" fill="#fff" stroke="#dfe3df"/><circle cx="0" cy="13" r="3.2" fill="#20a676"/><rect x="-9" y="22" width="18" height="2.6" rx="1.3" fill="#c9cfc9"/><rect x="-6" y="28" width="12" height="2.6" rx="1.3" fill="#dfe3df"/></g>
+          <g transform="translate(196,20)"><rect x="-20" y="0" width="40" height="40" rx="9" fill="#fff" stroke="#dfe3df"/><circle cx="0" cy="13" r="3.2" fill="#20a676"/><rect x="-9" y="22" width="18" height="2.6" rx="1.3" fill="#c9cfc9"/><rect x="-6" y="28" width="12" height="2.6" rx="1.3" fill="#dfe3df"/></g>
+          <g transform="translate(260,20)"><rect x="-20" y="0" width="40" height="40" rx="9" fill="#fff" stroke="#dfe3df"/><circle cx="0" cy="13" r="3.2" fill="#20a676"/><rect x="-9" y="22" width="18" height="2.6" rx="1.3" fill="#c9cfc9"/><rect x="-6" y="28" width="12" height="2.6" rx="1.3" fill="#dfe3df"/></g>
+          <g transform="translate(324,20)"><rect x="-20" y="0" width="40" height="40" rx="9" fill="#fff" stroke="#dfe3df"/><circle cx="0" cy="13" r="3.2" fill="#20a676"/><rect x="-9" y="22" width="18" height="2.6" rx="1.3" fill="#c9cfc9"/><rect x="-6" y="28" width="12" height="2.6" rx="1.3" fill="#dfe3df"/></g>
+          <g transform="translate(388,20)"><rect x="-20" y="0" width="40" height="40" rx="9" fill="#fff" stroke="#dfe3df"/><circle cx="0" cy="13" r="3.2" fill="#20a676"/><rect x="-9" y="22" width="18" height="2.6" rx="1.3" fill="#c9cfc9"/><rect x="-6" y="28" width="12" height="2.6" rx="1.3" fill="#dfe3df"/></g>
+          <g transform="translate(452,20)"><rect x="-20" y="0" width="40" height="40" rx="9" fill="#fff" stroke="#dfe3df"/><circle cx="0" cy="13" r="3.2" fill="#20a676"/><rect x="-9" y="22" width="18" height="2.6" rx="1.3" fill="#c9cfc9"/><rect x="-6" y="28" width="12" height="2.6" rx="1.3" fill="#dfe3df"/></g>
+        </g>
+        <!-- converging connectors -->
+        <g fill="none" stroke="#aeb8b0" stroke-width="1.4">
+          <path d="M68 62 C68 100 140 104 140 138"/>
+          <path d="M132 62 C132 100 180 104 180 138"/>
+          <path d="M196 62 C196 100 220 104 220 138"/>
+          <path d="M260 62 C260 100 260 104 260 138"/>
+          <path d="M324 62 C324 100 300 104 300 138"/>
+          <path d="M388 62 C388 100 340 104 340 138"/>
+          <path d="M452 62 C452 100 380 104 380 138"/>
+        </g>
+        <!-- PivotAI layer -->
+        <g>
+          <rect x="100" y="140" width="320" height="52" rx="12" fill="url(#hubg)"/>
+          <g transform="translate(216,166)" fill="#fff">
+            <path d="M0 -9 C0.9 -3.6 3.6 -0.9 9 0 C3.6 0.9 0.9 3.6 0 9 C-0.9 3.6 -3.6 0.9 -9 0 C-3.6 -0.9 -0.9 -3.6 0 -9 Z"/>
+          </g>
+          <text x="232" y="171" font-size="13" font-weight="800" letter-spacing="3" fill="#ffffff">PIVOTAI</text>
+        </g>
+        <!-- vertical ties -->
+        <g stroke="#9aa3ab" stroke-width="1.6">
+          <path d="M180 196 v20M260 196 v20M340 196 v20"/>
+        </g>
+        <!-- PivotOS layer -->
+        <g>
+          <rect x="80" y="220" width="360" height="48" rx="12" fill="#10161d"/>
+          <text x="260" y="249" text-anchor="middle" font-size="13" font-weight="800" letter-spacing="3" fill="#8b95a0">PIVOTOS</text>
+        </g>
+      </svg>
+      <p class="numcap reveal text-center">Seven platforms. One AI layer. One validated foundation.</p>
+    </div>
+  </section>
+
+  <!-- ============ CH 3 — THE CAPABILITIES ============ -->
+  <section class="pad80" id="capabilities">
+    <div class="container">
+      <div class="ch-grid reveal">
+        <div>
+          <div class="ck">The capabilities</div>
+          <h2 class="section-title">Nine capabilities, one layer.</h2>
+        </div>
+        <div class="prose">
+          <p>Not a feature list. A division of labour: three capabilities that ground what the system says, three that read what the industry writes, and three that act without ever acting alone.</p>
+        </div>
+      </div>
+      <div class="capgrid reveal">
+        <div class="cg">
+          <div class="pic48 grad"><svg viewBox="0 0 24 24"><path d="M12 3v14"/><path d="M12 21a4 4 0 0 0 4-4H8a4 4 0 0 0 4 4z"/><path d="M5 8h14M7 8c0 2.5 1 4 2.5 4M17 8c0 2.5-1 4-2.5 4"/></svg></div>
+          <h3>Grounding what it says</h3>
+          <div class="cap-i">
+            <svg viewBox="0 0 24 24"><path d="M7 16V8m0 8l-3-3m3 3l3-3M17 8v8m0-8l-3 3m3-3l3 3"/></svg>
+            <div><h4>Multi-model access</h4><p>The right model for the right task, swapped as the landscape shifts.</p></div>
+          </div>
+          <div class="cap-i">
+            <svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></svg>
+            <div><h4>Retrieval-augmented generation</h4><p>Answers grounded in your SOPs, batch records and history, with sources attached.</p></div>
+          </div>
+          <div class="cap-i">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="M20 20l-3.5-3.5"/></svg>
+            <div><h4>Vector database</h4><p>Semantic search across documents that do not share keywords.</p></div>
+          </div>
+        </div>
+        <div class="cg">
+          <div class="pic48 grad"><svg viewBox="0 0 24 24"><path d="M12 6c-2-2-5-2.5-8-2v15c3-.5 6 0 8 2 2-2 5-2.5 8-2V4c-3-.5-6 0-8 2z"/><path d="M12 6v15"/></svg></div>
+          <h3>Reading what the industry writes</h3>
+          <div class="cap-i">
+            <svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="12" cy="18" r="2.5"/><path d="M7.8 7.8L12 15.5M16.2 7.8L12 15.5M8.5 6h7"/></svg>
+            <div><h4>Knowledge graph</h4><p>The links between products, sites, suppliers and signals that flat databases lose.</p></div>
+          </div>
+          <div class="cap-i">
+            <svg viewBox="0 0 24 24"><path d="M4 6h16M4 11h10M4 16h13M4 21h7"/></svg>
+            <div><h4>Natural language processing</h4><p>Structured data out of adverse events, letters and narratives, at volume.</p></div>
+          </div>
+          <div class="cap-i">
+            <svg viewBox="0 0 24 24"><path d="M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3M3 12h18"/></svg>
+            <div><h4>Document intelligence</h4><p>BMRs, COAs and validation reports, from filing cabinet to data pipeline.</p></div>
+          </div>
+        </div>
+        <div class="cg">
+          <div class="pic48 grad"><svg viewBox="0 0 24 24"><path d="M13 2L4 14h6l-1 8 9-12h-6z"/></svg></div>
+          <h3>Acting, never alone</h3>
+          <div class="cap-i">
+            <svg viewBox="0 0 24 24"><path d="M4 12h6m4 0h6M10 12a2 2 0 1 0 4 0 2 2 0 0 0-4 0zM17 5l3 3-3 3M17 13l3 3-3 3"/></svg>
+            <div><h4>Agentic workflows</h4><p>Multi-step tasks across systems, always with a human reviewer in the chain.</p></div>
+          </div>
+          <div class="cap-i">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9S14.5 18.5 12 21c-2.5-2.5-3.8-5.6-3.8-9S9.5 5.5 12 3z"/></svg>
+            <div><h4>Web intelligence</h4><p>FDA, EMA and CDSCO changes captured as a pipeline, not a reading list.</p></div>
+          </div>
+          <div class="cap-i">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M9 12l2 2 4-4"/></svg>
+            <div><h4>Validation by design</h4><p>Outputs versioned, traceable and re-runnable, reconstructable on demand.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CH 4 — THE GROUNDING RULE ============ -->
+  <section class="pad80 grey" id="grounding">
+    <div class="container">
+      <div class="ch-grid reveal">
+        <div>
+          <div class="ck">The grounding rule</div>
+          <p class="pull grad-text">A system citing, not a chatbot guessing.</p>
+        </div>
+        <div class="prose">
+          <p>Every generated answer traces back to the approved content it drew on. Confidence is scored, sources are shown, and anything the system cannot ground in your documents, it does not assert.</p>
+          <p>Your content stays yours: prompts, documents, embeddings and outputs remain inside your tenant boundary, and none of it trains foundation models.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CH 5 — THE DIVISION OF LABOUR ============ -->
+  <section class="pad80" id="human">
+    <div class="container">
+      <div class="ch-grid reveal">
+        <div>
+          <div class="ck">The division of labour</div>
+          <h2 class="section-title">AI does the volume. People make the calls.</h2>
+        </div>
+        <div class="prose">
+          <p>PivotAI works at a scale no team can staff. Authority is a different matter: it stays with people, and the page trail proves it.</p>
+        </div>
+      </div>
+      <div class="val3 reveal">
+        <div class="v">
+          <div class="pic48"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="4" rx="1.5"/><rect x="4" y="10" width="16" height="4" rx="1.5"/><rect x="4" y="16" width="10" height="4" rx="1.5"/></svg></div>
+          <h3>AI does the volume work</h3>
+          <p>Screening, extraction, drafting and monitoring, running continuously across your data.</p>
+        </div>
+        <div class="v">
+          <div class="pic48"><svg viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></div>
+          <h3>People make the calls</h3>
+          <p>Signal validation, deviation closure, batch release: the decisions that matter stay with qualified, authorised people.</p>
+        </div>
+        <div class="v">
+          <div class="pic48"><svg viewBox="0 0 24 24"><rect x="6" y="3" width="12" height="18" rx="2"/><path d="M9 9h6M9 13h6M9 17l2 2 4-4" transform="translate(0,-3)"/></svg></div>
+          <h3>The reviewer is in the record</h3>
+          <p>Every accept, edit or reject is captured in the audit trail, as traceable as the machine's draft.</p>
+        </div>
+      </div>
+      <p class="rule-line reveal">Nothing critical ships without a human reviewer in the chain.</p>
+    </div>
+  </section>
+
+  <!-- ============ BAND — THE AUDITOR MOMENT ============ -->
+  <section class="pad80 band" id="regulated">
+    <div class="container">
+      <div class="ch-grid reveal">
+        <div>
+          <div class="ck">The auditor moment</div>
+          <h2 class="section-title">When the auditor asks, we have an answer.</h2>
+        </div>
+        <div class="prose">
+          <p>Every capability above carries the controls your inspectors expect: audit trails, e-signatures, traceable decisions. Model outputs are versioned and re-runnable, so how a decision was reached can be shown, not argued.</p>
+          <p>Designed and built to align with 21 CFR Part 11, EU Annex 11, GAMP 5 and CSA from the first line of code.</p>
+          <div style="margin-top:var(--sp-4)">
+            <span class="chip-dark">21 CFR Part 11</span>
+            <span class="chip-dark">EU Annex 11</span>
+            <span class="chip-dark">GAMP 5</span>
+            <span class="chip-dark">CSV / CSA</span>
+            <span class="chip-dark">ALCOA+</span>
+          </div>
+          <p style="margin-top:var(--sp-4)">The full governance story is in the <a href="pivotpath-ai-trust.html">AI Trust Centre</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CH 6 — THE PROOF ============ -->
+  <section class="pad80" id="products">
+    <div class="container">
+      <div class="ch-grid reveal">
+        <div>
+          <div class="ck">The proof</div>
+          <h2 class="section-title">Where you already meet PivotAI.</h2>
+        </div>
+        <div class="prose">
+          <p>None of this is a roadmap. The layer is in production today, behind platforms doing regulated work in the field.</p>
+        </div>
+      </div>
+      <div class="prod4 reveal">
+        <div class="p4">
+          <img src="assets/fp-novavigil.png" alt="NovaVigil" loading="lazy">
+          <p class="role">Literature and case review in patient safety.</p>
+          <p class="stat">63% faster reviews &middot; 50% lower FTE overhead</p>
+          <a href="pivotpath-novavigil.html" class="pl-link">Explore NovaVigil →</a>
+        </div>
+        <div class="p4">
+          <img src="assets/fp-anomiq.png" alt="AnomIQ" loading="lazy">
+          <p class="role">Anomaly detection across manufacturing and quality data.</p>
+          <p class="stat">60&ndash;70% less manual effort &middot; 85% faster detection</p>
+          <a href="pivotpath-anomiq.html" class="pl-link">Explore AnomIQ →</a>
+        </div>
+        <div class="p4">
+          <img src="assets/fp-investigationiq.png" alt="InvestigationIQ" loading="lazy">
+          <p class="role">Root-cause and CAPA investigations grounded in your records.</p>
+          <p class="stat">Around 40&ndash;60% shorter investigation cycles</p>
+          <a href="pivotpath-investigationiq.html" class="pl-link">Explore InvestigationIQ →</a>
+        </div>
+        <div class="p4">
+          <img src="assets/fp-noteiq.png" alt="NoteIQ" loading="lazy">
+          <p class="role">RegIntel: regulatory web intelligence as a monitored pipeline.</p>
+          <p class="stat">Agency changes captured, classified and routed</p>
+          <a href="pivotpath-noteiq-regintel.html" class="pl-link">Explore RegIntel →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BAND — THE FOUNDATION ============ -->
+  <section class="pad80 band" id="foundation">
+    <div class="container">
+      <div class="arch reveal">
+        <svg class="iso" viewBox="0 0 360 330" role="img" aria-label="The PivotAI layer sitting on the PivotOS foundation" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Roboto,Arial,sans-serif">
+          <defs>
+            <linearGradient id="fnd" x1="0" y1="1" x2="1" y2="0">
+              <stop offset="0" stop-color="#71bf44"/><stop offset=".55" stop-color="#20a676"/><stop offset="1" stop-color="#1b91a3"/>
+            </linearGradient>
+          </defs>
+          <!-- PivotOS (bottom) -->
+          <g>
+            <path d="M35 240 L35 256 L180 316 L180 300 Z" fill="#141c26"/>
+            <path d="M325 240 L325 256 L180 316 L180 300 Z" fill="#1a2430"/>
+            <path d="M180 180 L325 240 L180 300 L35 240 Z" fill="#222d3a" stroke="rgba(255,255,255,.25)" stroke-width="1"/>
+            <g transform="translate(180,226)" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M0 -10 l9 5 -9 5 -9 -5 z"/>
+              <path d="M-9 4 l9 5 9 -5"/>
+            </g>
+            <text x="180" y="266" text-anchor="middle" font-size="11" font-weight="700" letter-spacing="2.5" fill="#8b95a0">PIVOTOS</text>
+          </g>
+          <!-- PivotAI (top) -->
+          <g>
+            <path d="M35 85 L35 101 L180 177 L180 161 Z" fill="#157f68"/>
+            <path d="M325 85 L325 101 L180 177 L180 161 Z" fill="#1b8f79"/>
+            <path d="M180 25 L325 85 L180 145 L35 85 Z" fill="url(#fnd)"/>
+            <g transform="translate(180,71)" fill="#fff">
+              <path d="M0 -12 C1.2 -4.8 4.8 -1.2 12 0 C4.8 1.2 1.2 4.8 0 12 C-1.2 4.8 -4.8 1.2 -12 0 C-4.8 -1.2 -1.2 -4.8 0 -12 Z"/>
+              <path d="M11 -13 C11.5 -10 13 -8.5 16 -8 C13 -7.5 11.5 -6 11 -3 C10.5 -6 9 -7.5 6 -8 C9 -8.5 10.5 -10 11 -13 Z"/>
+            </g>
+            <text x="180" y="111" text-anchor="middle" font-size="11" font-weight="700" letter-spacing="2.5" fill="#ffffff">PIVOTAI</text>
+          </g>
+        </svg>
+        <div>
+          <div class="ck">The foundation</div>
+          <h2 class="section-title" style="margin-bottom:var(--sp-4)">It runs on PivotOS.</h2>
+          <div class="prose">
+            <p>PivotAI does not bring its own compliance story; it inherits one. The same access controls, the same audit trail, the same validated environment as everything else we ship, because it runs inside PivotOS, the foundation we built first.</p>
+            <p style="margin-top:var(--sp-4)"><a href="pivotpath-pivotos.html" class="btns-line">Read the PivotOS story</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="pad80 grey" id="faq">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title reveal">PivotAI, <span class="grad-text">Explained</span></h2>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-9">
+          <div class="accordion reveal" id="faqAcc">
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q1">Is PivotAI a chatbot?</button></h2>
+              <div id="q1" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">No. PivotAI is the AI capability layer our platforms call on: retrieval, extraction, analysis and multi-step workflows running behind NovaVigil, NoteIQ, AnomIQ, InvestigationIQ and the rest. Where a conversational interface appears in a product, PivotAI is what answers, grounded in your approved content.</div></div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2">Which AI models does PivotAI use?</button></h2>
+              <div id="q2" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">A model-agnostic architecture that supports leading enterprise providers, OpenAI GPT, Anthropic Claude and AWS Bedrock-hosted models, as well as customer-approved private and local LLM deployments. Model selection aligns with your security, compliance and data-residency requirements.</div></div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q3">Can PivotAI agents act on their own?</button></h2>
+              <div id="q3" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Agents carry multi-step tasks such as investigations, signal triage and document review across systems, but every agent runs with a human reviewer in the chain. AI cannot approve records, apply e-signatures or finalise workflows; every regulated decision stays with an authorised person.</div></div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q4">Can we license PivotAI on its own?</button></h2>
+              <div id="q4" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">PivotAI ships inside the platforms. You buy a platform, or contract an operation, and the AI layer comes with it, already integrated, already governed and already running on <a href="pivotpath-pivotos.html">PivotOS</a>.</div></div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q5">Does PivotAI train on our data?</button></h2>
+              <div id="q5" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">No. Customer content is not used to train foundation models and stays within your tenant boundary. The full data-handling and governance detail is in our <a href="pivotpath-ai-trust.html">AI Trust Centre</a>.</div></div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q6">How is PivotAI validated?</button></h2>
+              <div id="q6" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">PivotAI inherits PivotOS's validation posture and adds validation by design at the model level: outputs are versioned, traceable and re-runnable, so how a decision was reached can be shown on demand. Validation deliverables can be provided to support your own validation activities.</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FINAL CTA ============ -->
+  <section class="pad80 final-cta text-center" id="contact">
+    <div class="container">
+      <h2 class="section-title text-white reveal mb-3">Put a Compliant AI Layer Under Your Operation.</h2>
+      <p class="text-white-50 reveal mb-4" style="max-width:640px;margin-inline:auto">Talk to us about where PivotAI already fits your workflows, and what it would take to validate it in your environment.</p>
+      <div class="hero-ctas justify-content-center reveal">
+        <a href="mailto:info@pivotpath.com" class="btns2 solid-light">Talk to our experts</a>
+        <a href="pivotpath-ai-trust.html" class="btns-line">Read the AI Trust Centre</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+
+  <footer class="footer pad60">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-3">
+          <img src="pp-logo-white.svg" alt="Pivot Path — Life. Science. Possibilities." class="pp-logo-footer" />
+          <p>Born in Pharma. Built to Run It. The integrated life sciences partner for safety, quality, manufacturing and talent — from molecule to launch.</p>
+          <div class="newsletter mt-3">
+            <label class="d-block mb-2" style="font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:#fff">Join our newsletter</label>
+            <div class="input-group" style="max-width:340px">
+              <input type="email" class="form-control" placeholder="Work email" />
+              <button class="btns2" style="border-left:0">Subscribe</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h6>Company</h6>
+          <a href="pivotpath-home.html#about">Overview</a>
+          <a href="pivotpath-home.html#about">Vision & Values</a>
+          <a href="pivotpath-leadership.html">Leadership</a>
+          <a href="pivotpath-ai-trust.html">AI Trust Centre</a>
+          <a href="pivotpath-home.html#clients">Clients</a>
+          <a href="#">Careers</a>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h6>Services</h6>
+          <a href="pivotpath-drug-safety.html">Patient Safety</a>
+          <a href="pivotpath-quality-compliance.html">Quality & Digital Compliance</a>
+          <a href="pivotpath-digital-innovation.html">Digital Transformation</a>
+          <a href="pivotpath-svc-ip-consulting.html">Intellectual Property</a>
+          <a href="pivotpath-svc-clinical-operations.html">Clinical Operations</a>
+          <a href="pivotpath-human-capital.html">Human Capital</a>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h6>Products</h6>
+          <a href="pivotpath-pivotos.html">PivotOS</a>
+          <a href="pivotpath-pivotai.html">PivotAI</a>
+          <a href="pivotpath-novavigil.html">NovaVigil</a>
+          <a href="pivotpath-noteiq.html">NoteIQ</a>
+          <a href="pivotpath-anomiq.html">AnomIQ</a>
+          <a href="pivotpath-golanzar.html">GoLanzar</a>
+          <a href="pivotpath-inlumin.html">InLumin</a>
+          <a href="pivotpath-arete.html">Arete</a>
+          <a href="pivotpath-investigationiq.html">InvestigationIQ</a>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h6>Insights</h6>
+          <a href="pivotpath-insights.html">All Insights</a>
+          <a href="pivotpath-zero-touch-it.html">Zero-Touch IT (CDMO)</a>
+          <a href="pivotpath-pharma-4-0.html">Pharma 4.0 Transformation</a>
+          <a href="pivotpath-identity-user-management.html">Identity &amp; User Management</a>
+          <h6 class="mt-4">Contact</h6>
+          <a href="mailto:info@pivotpath.com">info@pivotpath.com</a>
+          <a href="#">Bengaluru · Hyderabad · Mysuru</a>
+        </div>
+      </div>
+      <div class="footer-bottom mt-5 pt-4 d-flex flex-wrap justify-content-between gap-2">
+        <span>© 2026 Pivot Path Private Limited. Demerged entity of Arcolab.</span>
+        <span>Privacy · Terms · ISO 27001 & 27701 Certified</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+  <script>
+    // ---- Reveal on scroll ----
+    (function(){
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+      document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+    })();
+  </script>
+  <script src="pp-mobile.js" defer></script>
+</body>
+</html>

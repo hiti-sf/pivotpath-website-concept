@@ -83,8 +83,8 @@
 
     /* Breadcrumb / page hero */
     .page-hero{background:#000;color:#fff;background-image:linear-gradient(135deg,#0a0a0a,#2a2a2a);position:relative}
-    .page-hero .crumb{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#9a9a9a}
-    .page-hero .crumb a{color:#9a9a9a;text-decoration:none}
+    .page-hero .crumb{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.85)}
+    .page-hero .crumb a{color:rgba(255,255,255,.85);text-decoration:none}
     .page-hero .crumb a:hover{color:#fff}
     .page-hero h1{font-weight:800;font-size:var(--fs-display);line-height:1.08;margin:1rem 0}
     .page-hero .lead{font-size:var(--fs-lead);max-width:760px;color:#e8e8e8}
@@ -331,7 +331,7 @@
 
 /* ----- Single hero ----- */
 .hero-single{background:var(--pp-grad-bg);color:#fff}
-.hero-single-inner{padding:48px 0 32px;max-width:900px}
+.hero-single-inner{padding:clamp(64px,7vw,92px) 0 clamp(48px,5vw,72px);max-width:900px}
 .hero-single h1{font-weight:800;font-size:var(--fs-display);line-height:1.08;margin-bottom:1.1rem}
 .hero-sub{font-size:var(--fs-lead);color:#f0f0f0;max-width:640px;margin:0 auto 2rem;white-space:nowrap}
 @media(max-width:768px){.hero-sub{white-space:normal}}
@@ -359,10 +359,10 @@
 @keyframes wm-scroll{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
 
 /* ----- Capability pill-tabs ----- */
-.cap-tabs{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem;margin-bottom:2.4rem}
-.cap-tab{border-radius:var(--r-pill);border:1.5px solid var(--pp-line);background:#fff;color:var(--pp-muted);padding:.6rem 1.3rem;font-weight:700;font-size:.82rem;letter-spacing:.02em;cursor:pointer;transition:.2s}
-.cap-tab:hover{border-color:var(--pp-accent);color:var(--pp-ink)}
-.cap-tab[aria-selected="true"]{background:var(--pp-ink);border-color:transparent;color:#fff}
+.cap-tabs{display:flex;flex-wrap:wrap;justify-content:center;gap:.7rem;margin-bottom:2.4rem}
+.cap-tab{border-radius:var(--r-pill);border:1.5px solid var(--pp-line);background:#fff;color:var(--pp-muted);padding:.72rem 1.4rem;font-weight:700;font-size:.84rem;letter-spacing:.01em;cursor:pointer;transition:background .2s,color .2s,border-color .2s,box-shadow .2s}
+.cap-tab:hover{border-color:var(--pp-accent);color:var(--pp-ink);background:rgba(14,142,134,.06)}
+.cap-tab[aria-selected="true"],.cap-tab.active{background:var(--pp-grad);border-color:transparent;color:#fff;box-shadow:var(--pp-shadow)}
 /* Brand-green primary actions: nav CTA + FAQ CTA (selected pill above) */
 .navbar .btns2{background:var(--pp-grad);border-color:transparent;color:#fff}
 .navbar .btns2:hover{background:var(--pp-grad);color:#fff}
@@ -472,9 +472,9 @@
 
 /* ----- Responsive + reduced-motion for redesign components ----- */
 @media(max-width:575px){
-  .cap-tab{font-size:.76rem;padding:.5rem 1rem}
+  .cap-tab{font-size:.78rem;padding:.6rem 1.15rem}
   .wordmark{font-size:.92rem}
-  .hero-single-inner{padding:48px 0 40px}
+  .hero-single-inner{padding:60px 0 36px}
 }
 @media(prefers-reduced-motion:reduce){
   .cap-panel{animation:none}
@@ -524,14 +524,17 @@
      !important overrides Bootstrap's .py-3 utility, which is itself !important. */
   .pp-logo{height:27px}
   .grey-header.navbar{padding-top:.7rem!important;padding-bottom:.7rem!important}
-  /* Hero: a little more top padding now the bar is shorter */
-  .hero-single-inner{padding:32px 0 20px}
+  /* Hero: match the interior page-hero height (top clears the shorter bar) */
+  .hero-single-inner{padding:60px 0 36px}
   .hero-inner{padding:52px 0}
   .page-hero.pad80{padding-top:64px}
   .hero-single h1,.hero h1,.page-hero h1{font-size:clamp(1.7rem,6vw,2.2rem)}
   .hero-sub,.page-hero .lead{margin-bottom:1.4rem}
   /* Homepage hero CTAs hidden on mobile (nav CTA still reachable) */
   .hero-single .hero-ctas{display:none}
+  /* Rationalised CTAs (2026-07-17): interior hero shows only its primary button on phones;
+     the secondary (navigation) CTA is hidden. The sticky-nav CTA still carries lead-gen. */
+  .page-hero .hero-ctas > a:not(:first-child){display:none}
   /* Hero contrast: deepen overlay so text stays legible over the light gradient end */
   .hero-single,.page-hero{position:relative}
   .hero-single::before,.page-hero::before{content:"";position:absolute;inset:0;
@@ -547,12 +550,18 @@
   /* First-paint fold: homepage pills sit right under the title, no full mb-5 gap */
   #services.pad60{padding-top:var(--sp-2)}
   #services .text-center:has(> .section-title){margin-bottom:var(--sp-2)!important}
-  /* Homepage capability pills: all 5 always visible, wrap instead of scroll (no chevron cue needed).
-     flex-basis forces a steady 3-across grid (3+2) instead of ragged single-line packing. */
-  #services .cap-tabs{flex-wrap:wrap;justify-content:center;overflow-x:visible;
-    padding:.1rem 0 .5rem;gap:.3rem;scroll-snap-type:none}
-  #services .cap-tab{scroll-snap-align:none;flex:1 1 30%;min-width:0;text-align:center;
-    padding:.32rem .3rem;font-size:.66rem;line-height:1.1}
+  /* Homepage capability section (mobile): pills scroll in one readable line (generic
+     .cap-tabs rule above + the .hscroll chevron cue); the panels below become a
+     swipeable card strip (one card per capability; peek signals more). Active pill
+     syncs to the scrolled card via pp-mobile.js. */
+  #services .cap-panels{max-width:none;margin:0;background:none;border:0;box-shadow:none;
+    padding:0 0 .6rem;display:flex;gap:.8rem;overflow-x:auto;scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;scrollbar-width:none}
+  #services .cap-panels::-webkit-scrollbar{display:none}
+  #services .cap-panel,#services .cap-panel[hidden]{display:flex!important;flex-direction:column;
+    flex:0 0 86vw;max-width:86vw;scroll-snap-align:center;
+    background:#fff;border:1px solid #ededed;border-radius:var(--r-md);box-shadow:var(--pp-shadow);
+    padding:24px 20px;animation:none}
 
   /* Anchor-nav: snap + room for the chevron (cue from .anchor-nav above) */
   .anchor-nav .inner{scroll-snap-type:x proximity;padding-right:2.6rem}
@@ -722,7 +731,13 @@ body.brand-v2 .grad-text{
    (never half on dark / half on light). Top margin separates it from the section content;
    negative bottom margin pulls it down into the section's own bottom padding (same bg). */
 body.brand-v2 .divider_line{position:relative;text-align:center;padding:var(--sp-2) 0;margin:var(--sp-6) 0 calc(-1 * var(--sp-5))}
-body.brand-v2 .divider_line::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:var(--pp-grad-text)}
+/* Two hairline segments that stop short of centre, leaving a gap around the chevron
+   so the line breaks around the mark on ANY background (cream / dark / teal) —
+   no per-section colour matching needed. */
+body.brand-v2 .divider_line::before,
+body.brand-v2 .divider_line::after{content:"";position:absolute;top:50%;height:1px;background:var(--pp-grad-text)}
+body.brand-v2 .divider_line::before{left:0;right:calc(50% + 42px)}
+body.brand-v2 .divider_line::after{left:calc(50% + 42px);right:0}
 /* No background/mask: the chevron overlays the hairline + section directly (dark or light) */
 body.brand-v2 .divider_line img{position:relative;z-index:1;height:52px;width:auto;vertical-align:middle}
 
@@ -774,7 +789,7 @@ body.brand-v2 .page-hero{
   background:
     url(assets/chevron-hero.svg) right 30px top 26px / 88px no-repeat,
     linear-gradient(100deg, rgba(0,0,0,.34) 0%, rgba(0,0,0,.12) 46%, rgba(0,0,0,0) 74%),
-    linear-gradient(120deg,#57b25a 0%,#7DC24A 100%);
+    linear-gradient(120deg,#1B91A3 0%,#20A676 45%,#71BF44 100%);
 }
 /* Neutralise the old baked --pp-grad-bg overlay leftovers + the mobile ::before scrim */
 body.brand-v2 .hero-single::before,
@@ -785,7 +800,7 @@ body.brand-v2 .page-hero::before{display:none}
   body.brand-v2 .page-hero{
     background:
       linear-gradient(100deg, rgba(0,0,0,.34) 0%, rgba(0,0,0,.12) 46%, rgba(0,0,0,0) 74%),
-      linear-gradient(120deg,#57b25a 0%,#7DC24A 100%);
+      linear-gradient(120deg,#1B91A3 0%,#20A676 45%,#71BF44 100%);
   }
 }
 
@@ -836,8 +851,11 @@ body.brand-v2 .story-tag{
   .grey .hscroll::after{background:linear-gradient(90deg,rgba(241,241,234,0),#F1F1EA 72%)}
   .section-teal .hscroll::after,.stat-band .hscroll::after,
   .risk-band .hscroll::after,.spotlight .hscroll::after{display:none}
-  .section-teal .hscroll::before,.stat-band .hscroll::before,
+  .stat-band .hscroll::before,
   .risk-band .hscroll::before,.spotlight .hscroll::before{color:#fff}
+  /* Platform stack: dark section but WHITE cards, so a white chevron vanishes over
+     the peeking card. Use the brand accent, readable on white. */
+  .section-teal .hscroll::before{color:var(--pp-accent);text-shadow:0 0 3px rgba(255,255,255,.6)}
 
   /* m-acc: opt-in disclosure for prose blocks — headings always visible,
      bodies expand on tap; first item open (pp-mobile.js). */

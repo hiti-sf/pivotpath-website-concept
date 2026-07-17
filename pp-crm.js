@@ -25,7 +25,7 @@
     var txt = (a.textContent || "").trim().toLowerCase();
     var href = (a.getAttribute("href") || "").toLowerCase();
     if (href.indexOf("mailto:") === 0) return true;
-    return /talk to our|book a[n]? .*demo|submit rfp/.test(txt);
+    return /talk to our|book a[n]? .*demo|submit rfp|^discuss\b/.test(txt);
   }
 
   function build() {
@@ -69,6 +69,8 @@
               : /submit rfp/i.test(label) ? "Submit an RFP" : "Talk to our experts";
     modal.querySelector("#pp-lead-title").textContent = title;
     modal.querySelector(".pp-lead-ctx").textContent = "Enquiry: " + label;
+    modal.querySelector("#pp-lead-title").hidden = false;
+    modal.querySelector(".pp-lead-sub").hidden = false;
     modal.querySelector("#pp-lead-form").hidden = false;
     modal.querySelector(".pp-lead-done").hidden = true;
     modal.querySelector(".pp-lead-err").textContent = "";
@@ -119,6 +121,10 @@
     if (window.ppTrackLead) window.ppTrackLead(ctx.cta, ctx.page);   // GA4 / Ads / Bing conversion
 
     f.hidden = true;
+    // Confirmation view shows only the done state: hide the form title + subtitle
+    // (they are siblings of the form, not children, so they'd otherwise remain visible).
+    modal.querySelector("#pp-lead-title").hidden = true;
+    modal.querySelector(".pp-lead-sub").hidden = true;
     modal.querySelector(".pp-lead-done").hidden = false;
   }
 

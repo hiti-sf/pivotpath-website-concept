@@ -45,6 +45,7 @@ PRODUCT_TOGGLE_PAGES: Set[str] = {
     "pivotpath-noteiq-dms.html", "pivotpath-noteiq-regintel.html",
     "pivotpath-noteiq-tms.html", "pivotpath-noteiq-vms.html", "pivotpath-noteiq.html",
     "pivotpath-platforms.html", "pivotpath-novavigil.html",
+    "pivotpath-pivotos.html", "pivotpath-pivotai.html",
 }
 # The two homepages. They use RELATIVE in-page anchors (#services, #platforms, #why, #about,
 # #clients) and a brand href of "#"; every other page is a sub-page that rewrites those anchors to
