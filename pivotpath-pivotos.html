@@ -7,16 +7,15 @@
   <meta name="description" content="PivotOS is Pivot Path's GxP-ready cloud foundation: one governed stack for data, AI and applications. Every Pivot Path platform runs on it and inherits its controls, audit trail and validation posture." />
   <link rel="preconnect" href="https://cdn.jsdelivr.net" />
   <link rel="preconnect" href="https://in.fw-cdn.com" />
-  <link rel="preload" href="pp.css?v=44" as="style" />
+  <link rel="preload" href="pp.css?v=45" as="style" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="pp.css?v=44" />
+  <link rel="stylesheet" href="pp.css?v=45" />
   <link rel="icon" type="image/png" href="assets/chevron.png" />
   <style>
     /* ==== EDITORIAL STORY LAYOUT (page-scoped; pp.css untouched) ==== */
 
     /* Chapter: kicker + title left, prose right */
     .ch-grid{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);column-gap:var(--sp-7);row-gap:var(--sp-4);align-items:start}
-    .ck{font-size:var(--fs-cap);letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--pp-accent);margin-bottom:var(--sp-2)}
     .ch-grid h2.section-title{margin-bottom:0;max-width:14ch}
     .prose p{font-size:var(--fs-lead);line-height:1.75;color:var(--pp-ink);max-width:62ch;margin:0 0 var(--sp-4)}
     .prose p:last-child{margin-bottom:0}
@@ -75,15 +74,16 @@
     .dl-r h3{font-size:var(--fs-h4);font-weight:700;margin:0;text-transform:none}
     .dl-r p{margin:0;color:var(--pp-muted);font-size:var(--fs-body);line-height:1.65}
 
+    .tt-none{text-transform:none}
+
     /* Dark punctuation bands */
     .band{background:var(--pp-section);color:#fff}
     .band h2.section-title{color:#fff}
     .band .prose p{color:rgba(255,255,255,.82)}
-    .band .ck{color:#fff;opacity:.75}
-    .band a{color:#fff}
+    .band    .band a{color:#fff}
 
     /* Platform links, inline */
-    a.chip-light{text-decoration:none}
+    a.chip-light{text-decoration:none;text-transform:none;letter-spacing:.02em}
     a.chip-light:hover{border-color:var(--pp-accent);color:var(--pp-accent)}
 
     @media (max-width:991.98px){
@@ -168,7 +168,7 @@
           "name": "What does the full PivotOS stack include?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Seven layers: enterprise data sources; data integration through APIs, connectors, batch ingestion and real-time streaming; data platform and storage for structured, unstructured and vector data with lineage kept; processing and orchestration; the PivotAI layer for AI and ML; GenAI use cases such as document intelligence, anomaly detection and root-cause analysis; and the business applications on top. Engineering and assurance disciplines, from multi-cloud and DevOps to audit, data quality and compliance, run the full height of the stack."
+            "text": "Seven layers: enterprise data sources; data integration through APIs, connectors, batch ingestion and real-time streaming; data platform and storage for structured, unstructured and vector data with lineage kept; processing and orchestration; the PivotAI layer for AI and ML; GenAI use cases such as document intelligence, anomaly detection and root-cause analysis; and the platforms on top. Engineering and assurance disciplines, from multi-cloud and DevOps to audit, data quality and compliance, run the full height of the stack."
           }
         },
         {
@@ -289,13 +289,14 @@
             </ul>
           </li>
           <li class="nav-item dropdown position-static">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Platforms</a>
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" style="text-transform:none">PivotOS</a>
             <div class="dropdown-menu mega-menu mega-products">
               <div class="mega-grid mega-grid-products">
                 <div class="mega-col">
                   <span class="mega-head">Technology Foundation</span>
                   <a class="dropdown-item active" href="pivotpath-pivotos.html">PivotOS</a>
                   <a class="dropdown-item" href="pivotpath-pivotai.html">PivotAI</a>
+                  <a class="dropdown-item" href="pivotpath-ai-trust.html">AI Trust Centre</a>
                 </div>
                 <div class="mega-col">
                   <span class="mega-head">Patient Safety</span>
@@ -323,7 +324,6 @@
             </div>
           </li>
           <li class="nav-item"><a class="nav-link" href="pivotpath-insights.html">Insights</a></li>
-          <li class="nav-item"><a class="nav-link" href="pivotpath-ai-trust.html">AI Trust</a></li>
           <li class="nav-item"><a class="nav-link" href="pivotpath-home.html#why">Why Us</a></li>
           <li class="nav-item ms-xl-2"><a class="btns2" href="#contact">Talk to our experts</a></li>
         </ul>
@@ -334,13 +334,12 @@
   <!-- ============ PAGE HERO ============ -->
   <section class="page-hero pad80" id="overview">
     <div class="container">
-      <div class="crumb"><a href="pivotpath-home.html">Home</a> &nbsp;/&nbsp; PivotOS</div>
-      <h1>PivotOS: the foundation<br>we had to build.</h1>
-      <p class="lead">The validated, GxP-ready environment underneath everything we ship. Every platform arrives with its controls already in place.</p>
+      <div class="crumb"><a href="pivotpath-home.html">Home</a> &nbsp;/&nbsp; <span class="tt-none">PivotOS</span></div>
+      <h1>PivotOS: the validated foundation<br>our platforms run on.</h1>
+      <p class="lead">PivotOS is Pivot Path's GxP-ready cloud environment: one validated foundation for data, AI and applications, and every platform we ship runs on it.</p>
       <div class="hero-ctas">
         <a href="#contact" class="btns2 solid-light">Talk to our experts</a>
         <a href="#stack" class="btns-line">See the architecture</a>
-        <a href="pivotpath-pivotai.html" class="btns-line">The PivotAI story</a>
       </div>
     </div>
   </section>
@@ -351,7 +350,6 @@
       <p class="statement reveal">Build once. Validate once. <span class="grad-text">Inherit everywhere.</span></p>
       <div class="ch-grid reveal">
         <div>
-          <div class="ck">The value</div>
           <h2 class="section-title">What one foundation changes.</h2>
         </div>
         <div class="prose">
@@ -366,7 +364,7 @@
         </div>
         <div class="v">
           <div class="pic48"><svg viewBox="0 0 24 24"><path d="M4 14a8 8 0 1 1 16 0"/><path d="M12 14l4-4"/><circle cx="12" cy="14" r="1.6"/></svg></div>
-          <h3>Validation starts ahead of zero</h3>
+          <h3>A reduced validation burden</h3>
           <p>A new use case lands on an already-qualified stack, with the URS, traceability and IQ/OQ deliverables that describe it.</p>
         </div>
         <div class="v">
@@ -390,15 +388,14 @@
     <div class="container">
       <div class="ch-grid reveal">
         <div>
-          <div class="ck">The architecture</div>
           <h2 class="section-title">The shape of the stack.</h2>
         </div>
         <div class="prose">
-          <p>The full stack runs seven layers deep; the detail lives in the FAQ. What matters is the shape: one governed data core, one intelligence layer, and every application drawing on both.</p>
+          <p>The full stack runs seven layers deep. Its shape is what matters: one governed data core, one intelligence layer, and every platform drawing on both.</p>
         </div>
       </div>
       <div class="arch reveal">
-        <svg class="iso" viewBox="0 0 360 480" role="img" aria-label="The PivotOS stack: applications on top, the PivotAI intelligence layer in the middle, one governed data core underneath" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Roboto,Arial,sans-serif">
+        <svg class="iso" viewBox="0 0 360 480" role="img" aria-label="The PivotOS stack: platforms on top, the PivotAI intelligence layer in the middle, one governed data core underneath" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Roboto,Arial,sans-serif">
           <defs>
             <linearGradient id="osg" x1="0" y1="1" x2="1" y2="0">
               <stop offset="0" stop-color="#71bf44"/><stop offset=".55" stop-color="#20a676"/><stop offset="1" stop-color="#1b91a3"/>
@@ -415,7 +412,7 @@
               <path d="M-11 -7 v13 c0 2.5 4.9 4.5 11 4.5 s11 -2 11 -4.5 v-13"/>
               <path d="M-11 -0.5 c0 2.5 4.9 4.5 11 4.5 s11 -2 11 -4.5"/>
             </g>
-            <text x="180" y="406" text-anchor="middle" font-size="11" font-weight="700" letter-spacing="2.5" fill="#8b95a0">DATA CORE</text>
+            <text x="180" y="406" text-anchor="middle" font-size="12.5" font-weight="700" letter-spacing="0.3" fill="#8b95a0">Data core</text>
           </g>
           <!-- intelligence (middle) -->
           <g>
@@ -426,7 +423,7 @@
               <path d="M0 -12 C1.2 -4.8 4.8 -1.2 12 0 C4.8 1.2 1.2 4.8 0 12 C-1.2 4.8 -4.8 1.2 -12 0 C-4.8 -1.2 -1.2 -4.8 0 -12 Z"/>
               <path d="M11 -13 C11.5 -10 13 -8.5 16 -8 C13 -7.5 11.5 -6 11 -3 C10.5 -6 9 -7.5 6 -8 C9 -8.5 10.5 -10 11 -13 Z"/>
             </g>
-            <text x="180" y="251" text-anchor="middle" font-size="11" font-weight="700" letter-spacing="2.5" fill="#ffffff">PIVOTAI</text>
+            <text x="180" y="251" text-anchor="middle" font-size="13" font-weight="800" letter-spacing="0.3" fill="#ffffff">PivotAI</text>
           </g>
           <!-- applications (top) -->
           <g>
@@ -437,15 +434,15 @@
               <rect x="-14" y="-11" width="28" height="17" rx="2"/>
               <path d="M-5 11 H5 M0 6 V11"/>
             </g>
-            <text x="180" y="96" text-anchor="middle" font-size="11" font-weight="700" letter-spacing="2.5" fill="#6b7280">APPLICATIONS</text>
+            <text x="180" y="96" text-anchor="middle" font-size="12.5" font-weight="700" letter-spacing="0.3" fill="#6b7280">Platforms</text>
           </g>
         </svg>
         <div>
           <div class="plane">
             <div class="pic48 ink"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
             <div>
-              <h3>Applications</h3>
-              <p>Seven platforms, dashboards and AI assistants, all served from one foundation. Your teams see the products; the products stand on everything below.</p>
+              <h3>Platforms</h3>
+              <p>Seven platforms, dashboards and AI assistants, all served from one foundation and inheriting the same controls.</p>
             </div>
           </div>
           <div class="plane">
@@ -492,11 +489,10 @@
     <div class="container">
       <div class="ch-grid reveal">
         <div>
-          <div class="ck">The controls</div>
           <h2 class="section-title">Governed at every layer.</h2>
         </div>
         <div class="prose">
-          <p>Ask any quality leader what they distrust about new technology and the answer is rarely the features. It is the controls. These are the four that PivotOS carries everywhere, named plainly.</p>
+          <p>When you assess a new environment, the first questions are about controls, not features. These are the four PivotOS carries at every layer.</p>
         </div>
       </div>
       <div class="dl reveal">
@@ -538,11 +534,10 @@
     <div class="container">
       <div class="ch-grid reveal">
         <div>
-          <div class="ck">The economics</div>
           <h2 class="section-title">Validate once. Reuse everywhere.</h2>
         </div>
         <div class="prose">
-          <p>Here is what the foundation changes commercially. A new use case lands on an already-qualified stack instead of re-validating infrastructure from scratch: the environment, the audit framework and the access model are in place, and the validation deliverables that describe them, URS support, traceability and IQ/OQ artefacts, come with it.</p>
+          <p>A new use case lands on an already-qualified stack instead of re-validating infrastructure from scratch: the environment, the audit framework and the access model are in place, and the validation deliverables that describe them, URS support, traceability and IQ/OQ artefacts, come with it.</p>
           <p>Final validation responsibility still depends on your intended use. What changes is how much of the work is already done before you start.</p>
           <div style="margin-top:var(--sp-4)">
             <span class="chip-dark">21 CFR Part 11</span>
@@ -561,12 +556,11 @@
     <div class="container">
       <div class="ch-grid reveal">
         <div>
-          <div class="ck">The honest part</div>
           <h2 class="section-title">Seven platforms, one environment.</h2>
         </div>
         <div class="prose">
-          <p>Each platform deploys and is contracted on its own. What they share is the environment, the controls and the AI layer, not a forced suite. Integration between platforms is scoped per engagement, designed for your landscape rather than switched on by default.</p>
-          <p>One foundation does not mean one lock-in.</p>
+          <p>Each platform deploys independently, and what they share is the environment, the controls and the AI layer. The security and compliance answers you receive for one platform hold for all of them, so the foundation is assessed once, not seven times.</p>
+          <p>Integration between platforms is scoped per engagement, designed for your landscape rather than switched on by default.</p>
           <div style="margin-top:var(--sp-4)">
             <a class="chip-light" href="pivotpath-novavigil.html">NovaVigil</a>
             <a class="chip-light" href="pivotpath-noteiq.html">NoteIQ</a>
@@ -587,12 +581,11 @@
     <div class="container">
       <div class="ch-grid reveal">
         <div>
-          <div class="ck">Inside the stack</div>
           <h2 class="section-title">The AI layer underneath.</h2>
         </div>
         <div class="prose">
-          <p>Where AI genuinely adds value, it runs on one compliant AI layer we built ourselves: nine capabilities, one layer, every platform. It inherits everything you have just read about, and it has a story of its own.</p>
-          <p style="margin-top:var(--sp-4)"><a href="pivotpath-pivotai.html" class="btns-line">Read the PivotAI story</a></p>
+          <p>Where AI genuinely adds value, it runs on one compliant AI layer we built ourselves: nine capabilities, one layer, every platform. It inherits every control described above.</p>
+          <p style="margin-top:var(--sp-4)"><a href="pivotpath-pivotai.html" class="btns-line">Explore <span class="tt-none">PivotAI</span></a></p>
         </div>
       </div>
     </div>
@@ -621,7 +614,7 @@
             </div>
             <div class="accordion-item">
               <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q4">What does the full PivotOS stack include?</button></h2>
-              <div id="q4" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Seven layers: enterprise data sources; data integration through APIs, connectors, batch ingestion and real-time streaming; data platform and storage for structured, unstructured and vector data with lineage kept; processing and orchestration; the <a href="pivotpath-pivotai.html">PivotAI</a> layer for AI and ML; GenAI use cases such as document intelligence, anomaly detection and root-cause analysis; and the business applications on top. Engineering and assurance disciplines, from multi-cloud and DevOps to audit, data quality and compliance, run the full height of the stack.</div></div>
+              <div id="q4" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Seven layers: enterprise data sources; data integration through APIs, connectors, batch ingestion and real-time streaming; data platform and storage for structured, unstructured and vector data with lineage kept; processing and orchestration; the <a href="pivotpath-pivotai.html">PivotAI</a> layer for AI and ML; GenAI use cases such as document intelligence, anomaly detection and root-cause analysis; and the platforms on top. Engineering and assurance disciplines, from multi-cloud and DevOps to audit, data quality and compliance, run the full height of the stack.</div></div>
             </div>
             <div class="accordion-item">
               <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q5">Do the seven platforms share data out of the box?</button></h2>

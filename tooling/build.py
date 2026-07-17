@@ -52,8 +52,9 @@ PRODUCT_TOGGLE_PAGES: Set[str] = {
 # point back at the homepage's sections (pivotpath-home.html#...) and links the brand to the homepage.
 HOMEPAGE: Set[str] = {"index.html", "pivotpath-home.html"}
 # Pages that mark a top-level nav-link active -> {page: href of the link to activate}.
+# (ai-trust no longer has a top-level item — it lives in the PivotOS mega's Technology
+# Foundation column and gets its active dropdown-item state automatically.)
 NAVLINK_ACTIVE: Dict[str, str] = {
-    "pivotpath-ai-trust.html": "pivotpath-ai-trust.html",
     "pivotpath-insights.html": "pivotpath-insights.html",
     "pivotpath-identity-user-management.html": "pivotpath-insights.html",
     "pivotpath-pharma-4-0.html": "pivotpath-insights.html",

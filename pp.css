@@ -75,7 +75,7 @@
     /* Platforms mega-menu: same full-width single-row card as Services (service-line header + its
        products beneath). Products stay .dropdown-item (build.py active hook) but read like .mega-sub.
        Placed before the mobile query so the 1fr collapse wins. */
-    .mega-grid-products{grid-template-columns:repeat(5,minmax(0,1fr))}
+    .mega-grid-products{grid-template-columns:repeat(6,minmax(0,1fr))}
     .mega-products .mega-head{margin-bottom:.4rem}
     .mega-products .dropdown-item{text-transform:none;letter-spacing:0;font-size:.8rem;font-weight:600;color:var(--pp-muted);padding:.15rem 0}
     .mega-products .dropdown-item:hover,.mega-products .dropdown-item:focus,.mega-products .dropdown-item.active{color:var(--pp-accent);background:transparent}
