@@ -874,3 +874,20 @@ body.brand-v2 .story-tag{
 @media(max-width:768px) and (prefers-reduced-motion:reduce){
   .footer h6[role="button"]::after,.m-acc .m-toggle::after{transition:none}
 }
+
+/* ===== Homepage platform-stack foundation band (iso 3-layer + featured list, 2026-07-17) ===== */
+.found-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:var(--sp-6) var(--sp-7);align-items:center}
+.found-iso{display:block;width:100%;max-width:340px;height:auto;margin-inline:auto}
+.found-quote{font-size:var(--fs-h3);font-weight:800;line-height:1.3;color:#fff;margin:0 0 var(--sp-5);max-width:26ch}
+.found-quote a{color:#fff;text-decoration:underline;text-decoration-color:rgba(255,255,255,.45);text-underline-offset:4px}
+.found-quote a:hover{text-decoration-color:#fff}
+.found-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--sp-4)}
+.found-cards .fc{display:block;background:#fff;border-radius:var(--r-md);padding:var(--sp-4);text-decoration:none;transition:transform .2s ease,box-shadow .2s ease}
+.found-cards .fc:hover{transform:translateY(-3px);box-shadow:var(--pp-shadow-sm)}
+.found-cards .fc img{height:24px;width:auto;display:block;margin-bottom:var(--sp-2)}
+.found-cards .fc span{display:block;font-size:var(--fs-sm);color:var(--pp-muted);line-height:1.55}
+@media (max-width:991.98px){
+  .found-grid{grid-template-columns:1fr}
+  .found-iso{max-width:260px}
+  .found-cards{gap:var(--sp-3)}
+}
