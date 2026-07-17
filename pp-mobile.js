@@ -22,7 +22,7 @@
       upd();
     }
     document.querySelectorAll('.hscroll').forEach(function (w) {
-      wireH(w, w.querySelector('.cap-tabs'));
+      wireH(w, w.querySelector('.cap-tabs') || w.querySelector(':scope > .row'));
     });
     document.querySelectorAll('.anchor-nav').forEach(function (n) {
       wireH(n, n.querySelector('.inner'));
@@ -63,5 +63,96 @@
         });
       });
     });
+
+    // 5) Mobile-only progressive disclosure. Enhancements are applied while the
+    // mobile media query matches and stripped when it stops matching, so
+    // desktop DOM semantics stay untouched. CSS lives in the pp.css mobile pass.
+    var mq = window.matchMedia('(max-width:768px)');
+
+    function footerGroups() {
+      var groups = [];
+      document.querySelectorAll('.footer .row [class*="col-"]').forEach(function (col) {
+        var current = null;
+        Array.prototype.forEach.call(col.children, function (ch) {
+          if (ch.tagName === 'H6') { current = { h: ch, links: [] }; groups.push(current); }
+          else if (current && ch.tagName === 'A') { current.links.push(ch); }
+        });
+      });
+      return groups.filter(function (g) {
+        return g.links.length && g.h.textContent.trim() !== 'Contact';
+      });
+    }
+
+    function setupFooter(on) {
+      footerGroups().forEach(function (g) {
+        if (on) {
+          g.h.setAttribute('role', 'button');
+          g.h.setAttribute('tabindex', '0');
+          g.h.setAttribute('aria-expanded', 'false');
+          g.links.forEach(function (a) { a.classList.add('fgrp-hidden'); });
+          if (!g.h.ppWired) {
+            g.h.ppWired = true;
+            var toggle = function () {
+              var open = g.h.getAttribute('aria-expanded') === 'true';
+              g.h.setAttribute('aria-expanded', String(!open));
+              g.links.forEach(function (a) { a.classList.toggle('fgrp-hidden', open); });
+            };
+            g.h.addEventListener('click', toggle);
+            g.h.addEventListener('keydown', function (e) {
+              if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
+            });
+          }
+        } else {
+          g.h.removeAttribute('role');
+          g.h.removeAttribute('tabindex');
+          g.h.removeAttribute('aria-expanded');
+          g.links.forEach(function (a) { a.classList.remove('fgrp-hidden'); });
+        }
+      });
+    }
+
+    function setupAcc(on) {
+      document.querySelectorAll('.m-acc').forEach(function (acc) {
+        Array.prototype.forEach.call(acc.children, function (item, i) {
+          var head = item.querySelector('h3,h4,h5,.ph,.vt');
+          if (!head) return;
+          item.classList.add('m-item');
+          var sib = head.nextElementSibling;
+          while (sib) { sib.classList.add('m-body'); sib = sib.nextElementSibling; }
+          if (on) {
+            head.classList.add('m-toggle');
+            head.setAttribute('role', 'button');
+            head.setAttribute('tabindex', '0');
+            var open = i === 0;
+            item.classList.toggle('m-open', open);
+            head.setAttribute('aria-expanded', String(open));
+            if (!head.ppWired) {
+              head.ppWired = true;
+              var toggle = function () {
+                var o = item.classList.toggle('m-open');
+                head.setAttribute('aria-expanded', String(o));
+              };
+              head.addEventListener('click', toggle);
+              head.addEventListener('keydown', function (e) {
+                if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
+              });
+            }
+          } else {
+            head.classList.remove('m-toggle');
+            head.removeAttribute('role');
+            head.removeAttribute('tabindex');
+            head.removeAttribute('aria-expanded');
+          }
+        });
+      });
+    }
+
+    function applyMobile() {
+      setupFooter(mq.matches);
+      setupAcc(mq.matches);
+    }
+    if (mq.addEventListener) mq.addEventListener('change', applyMobile);
+    else mq.addListener(applyMobile);
+    applyMobile();
   });
 })();

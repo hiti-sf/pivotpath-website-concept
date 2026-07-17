@@ -807,3 +807,52 @@ body.brand-v2 .story-tag{
   font-size:var(--fs-eyebrow);letter-spacing:.12em;text-transform:uppercase;
   font-weight:700;color:var(--pp-muted);
 }
+
+/* ===================================================================
+   MOBILE SCROLL-REDUCTION PASS (2026-07-16) — all rules mobile-gated.
+   Footer accordion + .hscroll card strips + .m-acc disclosure.
+   Spec: docs/superpowers/specs/2026-07-16-mobile-scroll-reduction-design.md
+   =================================================================== */
+@media(max-width:768px){
+  /* Footer accordion: pp-mobile.js turns each link-group h6 into a toggle
+     (Contact group exempt). Links hide via .fgrp-hidden. */
+  .footer h6[role="button"]{cursor:pointer;position:relative;margin-bottom:var(--sp-1);
+    padding:var(--sp-3) var(--sp-3) var(--sp-3) 0}
+  .footer h6[role="button"]::after{content:"\203A";position:absolute;right:var(--sp-2);top:50%;
+    transform:translateY(-50%) rotate(90deg);color:var(--pp-accent);font-weight:800;
+    font-size:1rem;transition:transform .15s}
+  .footer h6[role="button"][aria-expanded="true"]::after{transform:translateY(-50%) rotate(-90deg)}
+  .footer a.fgrp-hidden{display:none}
+
+  /* Card rows wrapped in .hscroll: one-row scroll strips (cue wired by pp-mobile.js).
+     !important outguns ID-scoped grid rules (e.g. `#platforms .row > [class*=col-]`). */
+  .hscroll>.row{flex-wrap:nowrap;overflow-x:auto;scroll-snap-type:x proximity;
+    -webkit-overflow-scrolling:touch;padding:0 2.6rem var(--sp-2) 0;scrollbar-width:none}
+  .hscroll>.row::-webkit-scrollbar{display:none}
+  .hscroll>.row>[class*="col-"]{flex:0 0 78vw!important;max-width:78vw!important;
+    scroll-snap-align:start}
+  /* Right-edge fade matches the section background (all pages are body.brand-v2:
+     .grey renders #F1F1EA); on dark bands drop the fade and whiten the chevron. */
+  .grey .hscroll::after{background:linear-gradient(90deg,rgba(241,241,234,0),#F1F1EA 72%)}
+  .section-teal .hscroll::after,.stat-band .hscroll::after,
+  .risk-band .hscroll::after,.spotlight .hscroll::after{display:none}
+  .section-teal .hscroll::before,.stat-band .hscroll::before,
+  .risk-band .hscroll::before,.spotlight .hscroll::before{color:#fff}
+
+  /* m-acc: opt-in disclosure for prose blocks — headings always visible,
+     bodies expand on tap; first item open (pp-mobile.js). */
+  .m-acc .m-toggle{cursor:pointer;position:relative;padding-right:var(--sp-4)}
+  .m-acc .m-toggle::after{content:"\203A";position:absolute;right:var(--sp-1);top:50%;
+    transform:translateY(-50%) rotate(90deg);color:var(--pp-accent);font-weight:800;
+    font-size:1.05rem;transition:transform .15s}
+  .m-acc .m-item.m-open .m-toggle::after{transform:translateY(-50%) rotate(-90deg)}
+  .m-acc .m-item:not(.m-open) .m-body{display:none}
+  .m-acc .proc-step .pic{display:none}
+  .risk-band .m-acc .m-toggle::after,.stat-band .m-acc .m-toggle::after{color:#fff}
+  /* Spotlight browser-mockup SVG: decorative on phones; the text column carries
+     all information. */
+  .spotlight .shot{display:none}
+}
+@media(max-width:768px) and (prefers-reduced-motion:reduce){
+  .footer h6[role="button"]::after,.m-acc .m-toggle::after{transition:none}
+}
