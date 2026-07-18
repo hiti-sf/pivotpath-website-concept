@@ -107,12 +107,13 @@
       .numrow{grid-template-columns:1fr}
       .numrow .c{border-left:0;padding-left:0}
       .numrow .c + .c{border-top:1px solid var(--pp-line)}
-      .vlife{grid-template-columns:1fr}
-      .vlife::before{top:0;bottom:0;left:23px;right:auto;width:2px;height:auto}
-      .vl{display:grid;grid-template-columns:48px 1fr;column-gap:14px;text-align:left;align-items:center;padding:var(--sp-2) 0}
-      .vl .vp{margin:0;grid-row:span 2}
-      .vl h3{align-self:end}
-      .vl span{grid-column:2;align-self:start;margin-top:0}
+      /* Horizontal scroll strip: keeps the lifecycle rail, short height, next-node peek */
+      .vlife{display:flex;overflow-x:auto;align-items:flex-start;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;scrollbar-width:none;margin-top:var(--sp-5)}
+      .vlife::-webkit-scrollbar{display:none}
+      .vlife::before{display:none}
+      .vl{flex:0 0 84px;scroll-snap-align:start;padding:0}
+      .vl::after{content:"";position:absolute;top:23px;left:50%;width:100%;height:2px;background:var(--pp-grad);z-index:0}
+      .vl:last-child::after{display:none}
     }
   </style>
   <script type="application/ld+json">
