@@ -42,6 +42,14 @@
     .val3 h3{font-size:var(--fs-h4);font-weight:700;margin:0 0 var(--sp-2);text-transform:none}
     .val3 p{margin:0;color:var(--pp-muted);font-size:var(--fs-body);line-height:1.65}
 
+    /* Four-column variant: adoption / scale points */
+    .val4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:var(--sp-6)}
+    .val4 .v{padding:0 var(--sp-4);border-left:1px solid var(--pp-line)}
+    .val4 .v:first-child{border-left:0;padding-left:0}
+    .val4 .v:last-child{padding-right:0}
+    .val4 h3{font-size:var(--fs-h5);font-weight:700;margin:0 0 var(--sp-2);text-transform:none}
+    .val4 p{margin:0;color:var(--pp-muted);font-size:var(--fs-sm);line-height:1.6}
+
     /* Caption line under a chapter's structured content */
     .numcap{font-size:var(--fs-sm);color:var(--pp-muted);margin-top:var(--sp-3)}
 
@@ -99,6 +107,10 @@
       .val3 .v{border-left:0;padding:var(--sp-4) 0;border-top:1px solid var(--pp-line)}
       .val3 .v:first-child{border-top:0;padding-top:0}
       .val3 .v:last-child{padding-bottom:0}
+      .val4{grid-template-columns:1fr}
+      .val4 .v{border-left:0;padding:var(--sp-4) 0;border-top:1px solid var(--pp-line)}
+      .val4 .v:first-child{border-top:0;padding-top:0}
+      .val4 .v:last-child{padding-bottom:0}
       /* Horizontal scroll strip: keeps the lifecycle rail, short height, next-node peek */
       .vlife{display:flex;overflow-x:auto;align-items:flex-start;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;scrollbar-width:none;margin-top:var(--sp-5)}
       .vlife::-webkit-scrollbar{display:none}
@@ -449,8 +461,44 @@
     </div>
   </section>
 
+  <!-- ============ CH 3.75 — ADOPTION & SCALE (easy to run and grow) ============ -->
+  <section class="pad80 chapter" id="adopt">
+    <div class="container">
+      <div class="ch-grid reveal">
+        <div>
+          <h2 class="section-title">Quick to deploy, and built to grow.</h2>
+        </div>
+        <div class="prose">
+          <p>NoteIQ is cloud-native, so it goes live quickly and runs the same way at every site. Workflows, roles and templates are set up through configuration, and new workflows are added as your operation grows, without custom development.</p>
+        </div>
+      </div>
+      <div class="val4 reveal m-acc">
+        <div class="v">
+          <div class="pic48"><svg viewBox="0 0 24 24"><path d="M5 15a4 4 0 0 1 1-7.9A5 5 0 0 1 16 6a4 4 0 0 1 2.5 7.2"/><path d="M12 12v8M9 15l3-3 3 3"/></svg></div>
+          <h3>Quick to deploy</h3>
+          <p>Cloud-native, so it goes live without a lengthy infrastructure build.</p>
+        </div>
+        <div class="v">
+          <div class="pic48"><svg viewBox="0 0 24 24"><path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2.4"/><circle cx="9" cy="17" r="2.4"/></svg></div>
+          <h3>Configured, not coded</h3>
+          <p>Workflows, roles and templates are set up through configuration, not custom development.</p>
+        </div>
+        <div class="v">
+          <div class="pic48"><svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.3"/><circle cx="18" cy="6" r="2.3"/><circle cx="12" cy="18" r="2.3"/><path d="M8 6h8M7.4 8 11 15.6M16.6 8 13 15.6"/></svg></div>
+          <h3>Consistent across sites</h3>
+          <p>One platform extends from a single site to a global network, with the same controls everywhere.</p>
+        </div>
+        <div class="v">
+          <div class="pic48"><svg viewBox="0 0 24 24"><path d="M5 4v10a3 3 0 0 0 3 3h6"/><path d="M12 14l3 3-3 3"/><path d="M18 4v6M15 7h6"/></svg></div>
+          <h3>Extends as you grow</h3>
+          <p>Add new validation workflows on the same platform as your operation grows.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ CH 4 — HOW WE USE AI (division of labour) ============ -->
-  <section class="pad80 chapter" id="ai">
+  <section class="pad80 grey chapter" id="ai">
     <div class="container">
       <div class="ch-grid reveal">
         <div>
@@ -458,7 +506,7 @@
         </div>
         <div class="prose">
           <p>NoteIQ scans documents for gaps before execution, drafts IQ, OQ and PQ deliverables from your approved templates, and summarises them for review. Every qualification decision stays with a qualified person. The AI capabilities run on <a href="pivotpath-pivotai.html">PivotAI</a>, the AI layer inside <a href="pivotpath-pivotos.html">PivotOS</a>.</p>
-          <p>Your content stays yours: it is never used to train foundation models and stays tenant-isolated.</p>
+          <p>Your content stays yours: it is never used to train foundation models and stays isolated to your organisation.</p>
         </div>
       </div>
       <div class="val3 reveal m-acc">
