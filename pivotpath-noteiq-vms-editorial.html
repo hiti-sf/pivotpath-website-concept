@@ -42,12 +42,7 @@
     .val3 h3{font-size:var(--fs-h4);font-weight:700;margin:0 0 var(--sp-2);text-transform:none}
     .val3 p{margin:0;color:var(--pp-muted);font-size:var(--fs-body);line-height:1.65}
 
-    /* Dense number strip */
-    .numrow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--pp-line);border-bottom:1px solid var(--pp-line);margin-top:var(--sp-6)}
-    .numrow .c{padding:var(--sp-4);border-left:1px solid var(--pp-line)}
-    .numrow .c:first-child{border-left:0;padding-left:0}
-    .numrow .n{font-size:1.6rem;font-weight:800;color:var(--pp-ink);line-height:1.1;font-variant-numeric:tabular-nums}
-    .numrow .l{font-size:var(--fs-sm);color:var(--pp-muted);margin-top:4px}
+    /* Caption line under a chapter's structured content */
     .numcap{font-size:var(--fs-sm);color:var(--pp-muted);margin-top:var(--sp-3)}
 
     /* Validation lifecycle — horizontal gradient-spine timeline */
@@ -104,9 +99,6 @@
       .val3 .v{border-left:0;padding:var(--sp-4) 0;border-top:1px solid var(--pp-line)}
       .val3 .v:first-child{border-top:0;padding-top:0}
       .val3 .v:last-child{padding-bottom:0}
-      .numrow{grid-template-columns:1fr}
-      .numrow .c{border-left:0;padding-left:0}
-      .numrow .c + .c{border-top:1px solid var(--pp-line)}
       /* Horizontal scroll strip: keeps the lifecycle rail, short height, next-node peek */
       .vlife{display:flex;overflow-x:auto;align-items:flex-start;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;scrollbar-width:none;margin-top:var(--sp-5)}
       .vlife::-webkit-scrollbar{display:none}
@@ -362,12 +354,6 @@
           <p>Every step, signature and discrepancy is timestamped, aligned to 21 CFR Part 11 and EU Annex 11.</p>
         </div>
       </div>
-      <div class="numrow reveal">
-        <div class="c"><div class="n">Days &rarr; minutes</div><div class="l">Deliverable authoring</div></div>
-        <div class="c"><div class="n">Auto-built</div><div class="l">Traceability matrix</div></div>
-        <div class="c"><div class="n">21 CFR Part 11</div><div class="l">Immutable audit trails</div></div>
-      </div>
-      <p class="numcap reveal">One system for every validation type your teams run, from CSV to quality risk assessments.</p>
     </div>
   </section>
 
