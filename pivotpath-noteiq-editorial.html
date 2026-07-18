@@ -59,6 +59,10 @@
     .stackkey h4 a:hover{text-decoration:underline}
     .stackkey p{margin:0;color:var(--pp-muted);font-size:var(--fs-body);line-height:1.6}
 
+    /* Compact "scale" progression, under the heading */
+    .scaleprog{max-width:225px;margin:var(--sp-5) 0 0}
+    .scaleprog svg{display:block;width:100%;height:auto}
+
     .tt-none{text-transform:none}
 
     .band{background:var(--pp-section);color:#fff}
@@ -75,10 +79,16 @@
       .val3 .v{border-left:0;padding:var(--sp-4) 0;border-top:1px solid var(--pp-line)}
       .val3 .v:first-child{border-top:0;padding-top:0}
       .val3 .v:last-child{padding-bottom:0}
-      .mods{grid-template-columns:1fr}
-      .mods .m{border-left:0;padding:var(--sp-4) 0;border-top:1px solid var(--pp-line)}
-      .mods .m:first-child{border-top:0;padding-top:0}
-      .stackrow{grid-template-columns:1fr;gap:var(--sp-5)}
+      .mods{grid-template-columns:1fr 1fr;column-gap:0}
+      .mods .m{border-left:1px solid var(--pp-line);border-top:0;padding:var(--sp-4) var(--sp-3)}
+      .mods .m:nth-child(odd){border-left:0;padding-left:0}
+      .mods .m:nth-child(n+3){border-top:1px solid var(--pp-line)}
+      /* Compact labels-only key beside a larger stack (subtext hidden on mobile) */
+      .stackrow{grid-template-columns:minmax(0,3fr) minmax(0,2fr);column-gap:var(--sp-3);align-items:center}
+      .stackrow .fig{max-width:none}
+      .stackkey .lg{padding:var(--sp-3) 0}
+      .stackkey h4{font-size:var(--fs-h5)}
+      .stackkey p{display:none}
     }
   </style>
   <script type="application/ld+json">
@@ -402,7 +412,7 @@
           </svg>
         </div>
         <div class="stackkey">
-          <div class="lg"><span class="sw" style="background:#fff;border:1px solid var(--pp-line)"></span><div><h4>Four modules</h4><p>Validation, documents, training and regulatory intelligence, each a full system in its own right.</p></div></div>
+          <div class="lg"><span class="sw" style="background:#fff;border:1px solid var(--pp-line)"></span><div><h4>NoteIQ</h4><p>Four modules: validation, documents, training and regulatory intelligence.</p></div></div>
           <div class="lg"><span class="sw" style="background:var(--pp-grad)"></span><div><h4><a href="pivotpath-pivotai.html">PivotAI</a></h4><p>The shared AI layer every module runs on.</p></div></div>
           <div class="lg"><span class="sw" style="background:#0f141b"></span><div><h4><a href="pivotpath-pivotos.html">PivotOS</a></h4><p>The validated foundation, aligned to 21 CFR Part 11 and EU Annex 11.</p></div></div>
         </div>
@@ -473,6 +483,31 @@
       <div class="ch-grid reveal">
         <div>
           <h2 class="section-title">Start with one. Scale to all.</h2>
+          <div class="scaleprog" aria-hidden="true">
+            <svg viewBox="0 0 520 200" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="scale-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#71bf44" />
+                  <stop offset="50%" stop-color="#20a676" />
+                  <stop offset="100%" stop-color="#1b91a3" />
+                </linearGradient>
+                <rect id="sc-fill" width="40" height="40" rx="10" fill="url(#scale-grad)" />
+                <rect id="sc-out" width="38.5" height="38.5" x="0.75" y="0.75" rx="9" fill="none" stroke="#94a3b8" stroke-width="1.5" />
+                <path id="sc-chev" d="M -6 -14 L 8 0 L -6 14" fill="none" stroke="#20a676" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+              </defs>
+              <g transform="translate(92, 100)">
+                <use href="#sc-fill" x="-44" y="-44" /><use href="#sc-out" x="4" y="-44" /><use href="#sc-out" x="-44" y="4" /><use href="#sc-out" x="4" y="4" />
+              </g>
+              <use href="#sc-chev" x="176" y="100" />
+              <g transform="translate(260, 100)">
+                <use href="#sc-fill" x="-44" y="-44" /><use href="#sc-out" x="4" y="-44" /><use href="#sc-fill" x="-44" y="4" /><use href="#sc-out" x="4" y="4" />
+              </g>
+              <use href="#sc-chev" x="344" y="100" />
+              <g transform="translate(428, 100)">
+                <use href="#sc-fill" x="-44" y="-44" /><use href="#sc-fill" x="4" y="-44" /><use href="#sc-fill" x="-44" y="4" /><use href="#sc-fill" x="4" y="4" />
+              </g>
+            </svg>
+          </div>
         </div>
         <div class="prose">
           <p>Adopt the module you need first, validation, documents, training or regulatory intelligence, and expand into any other, or all four, when it suits you. It is the same platform, the same compliance framework and the same AI layer throughout, so growth adds capability without adding complexity.</p>
