@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>NoteIQ: Training Management, Built for Compliance | Pivot Path</title>
+  <meta name="description" content="NoteIQ training management assigns, delivers, tests and proves training on one audit-ready system: SCORM, e-learning, classroom and virtual, with AI-generated exams, certificates and e-signatures. It works on its own, and links to your documents when you run NoteIQ document management." />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="preconnect" href="https://in.fw-cdn.com" />
+  <link rel="preload" href="pp.css?v=47" as="style" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="pp.css?v=47" />
+  <link rel="icon" type="image/png" href="assets/chevron.png" />
+  <style>
+    /* ==== EDITORIAL STORY LAYOUT (page-scoped; pp.css untouched) ==== */
+
+    .ch-grid{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);column-gap:var(--sp-7);row-gap:var(--sp-4);align-items:start}
+    .ch-grid h2.section-title{margin-bottom:0;max-width:14ch}
+    .prose p{font-size:var(--fs-lead);line-height:1.75;color:var(--pp-ink);max-width:62ch;margin:0 0 var(--sp-4)}
+    .prose p:last-child{margin-bottom:0}
+    .chapter{border-top:1px solid var(--pp-line)}
+
+    .statement{font-size:var(--fs-display);font-weight:800;line-height:1.1;letter-spacing:-.015em;color:var(--pp-ink);max-width:24ch;margin:0 0 var(--sp-5)}
+
+    .pic48{flex:none;width:48px;height:48px;border-radius:var(--r-md);background:var(--pp-accent);display:flex;align-items:center;justify-content:center;margin-bottom:var(--sp-3)}
+    .pic48 svg{width:24px;height:24px;fill:none;stroke:#fff;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+    .pic48.grad{background:var(--pp-grad)}
+
+    .val3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:var(--sp-6)}
+    .val3 .v{padding:0 var(--sp-5);border-left:1px solid var(--pp-line)}
+    .val3 .v:first-child{border-left:0;padding-left:0}
+    .val3 .v:last-child{padding-right:0}
+    .val3 h3{font-size:var(--fs-h4);font-weight:700;margin:0 0 var(--sp-2);text-transform:none}
+    .val3 p{margin:0;color:var(--pp-muted);font-size:var(--fs-body);line-height:1.65}
+
+    .numcap{font-size:var(--fs-sm);color:var(--pp-muted);margin-top:var(--sp-3)}
+
+    .pshot{border:1px solid var(--pp-line);border-radius:14px;overflow:hidden;box-shadow:0 14px 34px rgba(0,0,0,.09);background:#fff;margin-inline:auto}
+    .pshot picture{display:block}
+    .pshot img{display:block;width:100%;height:auto}
+    .shot-hero{max-width:1000px;margin-top:var(--sp-6)}
+    .shot-cap{font-size:var(--fs-sm);color:var(--pp-muted);text-align:center;margin-top:var(--sp-3)}
+
+    /* "NoteIQ, at work" feature carousel */
+    .cwrap{position:relative;margin-top:var(--sp-7)}
+    .ctrack{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+    .ctrack::-webkit-scrollbar{display:none}
+    .cslide{flex:0 0 100%;min-width:0;scroll-snap-align:start}
+    .cslide-in{max-width:1040px;margin-inline:auto;width:100%}
+    .cslide h3{font-size:var(--fs-h4);font-weight:700;margin:0 0 var(--sp-2);text-transform:none}
+    .cslide p{margin:0 0 var(--sp-4);color:var(--pp-muted);font-size:var(--fs-body);line-height:1.7;max-width:64ch}
+    .cslide .pshot{width:100%}
+    .cctrls{display:flex;align-items:center;justify-content:center;gap:var(--sp-3);margin-top:var(--sp-5)}
+    .cbtn{width:40px;height:40px;border-radius:50%;border:1px solid var(--pp-line);background:#fff;color:var(--pp-ink);font-size:1.3rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:border-color .15s,color .15s}
+    .cbtn:hover{border-color:var(--pp-accent);color:var(--pp-accent)}
+    .cdots{display:flex;align-items:center;gap:8px}
+    .cdot{width:8px;height:8px;padding:0;border:0;border-radius:50%;background:var(--pp-line);cursor:pointer;transition:width .2s,background .2s}
+    .cdot.active{width:22px;border-radius:5px;background:var(--pp-accent)}
+
+    .tt-none{text-transform:none}
+
+    .band{background:var(--pp-section);color:#fff}
+    .band h2.section-title{color:#fff}
+    .band .prose p{color:rgba(255,255,255,.82)}
+    .band a{color:#fff}
+
+    .rule-line{font-size:var(--fs-h4);font-weight:700;color:var(--pp-ink);border-top:1px solid var(--pp-line);padding-top:var(--sp-4);margin-top:var(--sp-6)}
+
+    @media (max-width:991.98px){
+      .ch-grid{grid-template-columns:1fr}
+      .ch-grid h2.section-title{max-width:none;margin-bottom:var(--sp-3)}
+      .val3{grid-template-columns:1fr}
+      .val3 .v{border-left:0;padding:var(--sp-4) 0;border-top:1px solid var(--pp-line)}
+      .val3 .v:first-child{border-top:0;padding-top:0}
+      .val3 .v:last-child{padding-bottom:0}
+    }
+  </style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "name": "NoteIQ Training Management",
+      "description": "NoteIQ training management assigns, delivers, tests and proves training on one audit-ready system, and links to your documents when you run NoteIQ document management.",
+      "url": "https://pivotpath.com/pivotpath-noteiq-tms-editorial.html",
+      "provider": {
+        "@type": "Organization",
+        "@id": "https://pivotpath.com/#organization",
+        "name": "Pivot Path",
+        "url": "https://pivotpath.com/"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pivotpath.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://pivotpath.com/#platforms" },
+        { "@type": "ListItem", "position": 3, "name": "NoteIQ", "item": "https://pivotpath.com/pivotpath-noteiq.html" },
+        { "@type": "ListItem", "position": 4, "name": "Training Management", "item": "https://pivotpath.com/pivotpath-noteiq-tms-editorial.html" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What does NoteIQ training management cover?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The whole training cycle on one system: assign, deliver, assess and certify, with SCORM and e-learning, classroom and virtual delivery, exams, competency management, retraining and audit-ready records."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does it need NoteIQ document management?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. NoteIQ training management works on its own. If you also run NoteIQ document management, the two connect: when a document such as an SOP is approved or revised, the training is assigned automatically, so people are always trained on the current version."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which training types does it support?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "SCORM and e-learning packages, classroom sessions and virtual training, all launched and tracked from one catalogue."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does AI build assessments?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "AI drafts exam questions from your training content, in multiple-choice, single-choice and true/false formats, for pre and post-assessment. A trainer reviews and approves the questions before they are used."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does it prove compliance?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Completion, competency, certificates and e-signatures are recorded, with a library of reports from completion status to curriculum qualification and SCORM, aligned to 21 CFR Part 11 and defensible at inspection."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does Pivot Path use AI responsibly and safely?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "AI here is assistive and human-reviewed. It drafts questions and content, but a qualified person reviews and approves every regulated decision. Outputs are grounded in your approved content, fully audit-trailed, and your data is never used to train foundation models. These capabilities run on PivotAI, the AI layer every Pivot Path platform runs on. See our AI Trust Centre for how we use AI responsibly."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <script src="pp-analytics.js" defer></script>
+  <!-- Freshworks (Freshmarketer / Freshchat) -->
+  <script src="//in.fw-cdn.com/32228802/1191962.js" chat="true" defer></script>
+  <script src="pp-crm.js" defer></script>
+</head>
+<body class="brand-v2">
+  <div class="pp-topbar"></div>
+
+  <!-- ============ HEADER ============ -->
+  <header class="grey-header navbar navbar-expand-xl navbar-light sticky-top py-3">
+    <div class="container">
+      <a class="navbar-brand p-0" href="pivotpath-home.html">
+        <img src="pp-logo-black.svg" alt="Pivot Path" class="pp-logo" />
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav ms-auto align-items-xl-center gap-xl-2">
+          <li class="nav-item"><a class="nav-link" href="pivotpath-leadership.html">About</a></li>
+          <li class="nav-item dropdown position-static">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Services</a>
+            <div class="dropdown-menu mega-menu">
+              <div class="mega-grid">
+                <div class="mega-col">
+                  <a class="mega-head" href="pivotpath-drug-safety.html">Patient Safety</a>
+                  <a class="mega-sub" href="pivotpath-drug-safety.html">Global Pharmacovigilance</a>
+                </div>
+                <div class="mega-col">
+                  <a class="mega-head" href="pivotpath-svc-ip-consulting.html">Intellectual Property</a>
+                  <a class="mega-sub" href="pivotpath-svc-ip-consulting.html">Intellectual Property Consulting</a>
+                </div>
+                <div class="mega-col">
+                  <a class="mega-head" href="pivotpath-svc-clinical-operations.html">Clinical Operations</a>
+                  <a class="mega-sub" href="pivotpath-svc-clinical-operations.html">Clinical Operations</a>
+                  <a class="mega-sub" href="pivotpath-svc-mobile-clinical.html">Ambulatory Services</a>
+                </div>
+                <div class="mega-col">
+                  <a class="mega-head" href="pivotpath-quality-compliance.html">Quality &amp; Digital Compliance</a>
+                  <a class="mega-sub" href="pivotpath-svc-quality-compliance.html">Quality Assurance</a>
+                  <a class="mega-sub" href="pivotpath-svc-csv.html">Integrated Validation Services</a>
+                  <a class="mega-sub" href="pivotpath-svc-operational-excellence.html">Operational Excellence</a>
+                </div>
+                <div class="mega-col">
+                  <a class="mega-head" href="pivotpath-digital-innovation.html">Digital Transformation</a>
+                  <a class="mega-sub" href="pivotpath-svc-digital-manufacturing.html">Digital Manufacturing</a>
+                  <a class="mega-sub" href="pivotpath-svc-track-trace.html">Track &amp; Trace Solutions</a>
+                  <a class="mega-sub" href="pivotpath-svc-it-operations.html">IT Operations</a>
+                  <a class="mega-sub" href="pivotpath-svc-quality-apps.html">Quality Apps</a>
+                  <a class="mega-sub" href="pivotpath-svc-sap-coe.html">SAP COE</a>
+                </div>
+                <div class="mega-col">
+                  <a class="mega-head" href="pivotpath-human-capital.html">Human Capital</a>
+                  <a class="mega-sub" href="pivotpath-svc-hc-consulting.html">Human Capital Consulting</a>
+                  <a class="mega-sub" href="pivotpath-svc-hc-digitisation.html">Human Capital Digitisation</a>
+                  <a class="mega-sub" href="pivotpath-svc-talent-acquisition.html">Talent Acquisition Services</a>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">How We Operate</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="pivotpath-how-we-operate.html">Across the value chain</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="pivotpath-svc-ip-consulting.html">Discovery</a></li>
+              <li><a class="dropdown-item" href="pivotpath-svc-clinical-operations.html">Clinical</a></li>
+              <li><a class="dropdown-item" href="pivotpath-digital-innovation.html">Manufacturing</a></li>
+              <li><a class="dropdown-item" href="pivotpath-golanzar.html">Supply chain &amp; launch</a></li>
+              <li><a class="dropdown-item" href="pivotpath-drug-safety.html">Patient Safety</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown position-static">
+            <a class="nav-link dropdown-toggle" href="pivotpath-home.html#platforms" role="button" data-bs-toggle="dropdown" style="text-transform:none">PivotOS</a>
+            <div class="dropdown-menu mega-menu mega-products">
+              <div class="mega-grid mega-grid-products">
+                <div class="mega-col">
+                  <span class="mega-head">Technology Foundation</span>
+                  <a class="dropdown-item" href="pivotpath-pivotos.html">PivotOS</a>
+                  <a class="dropdown-item" href="pivotpath-pivotai.html">PivotAI</a>
+                  <a class="dropdown-item" href="pivotpath-ai-trust.html">AI Trust Centre</a>
+                </div>
+                <div class="mega-col">
+                  <span class="mega-head">Patient Safety</span>
+                  <a class="dropdown-item" href="pivotpath-novavigil.html">NovaVigil</a>
+                </div>
+                <div class="mega-col">
+                  <span class="mega-head">Quality &amp; Compliance</span>
+                  <a class="dropdown-item active" href="pivotpath-noteiq.html">NoteIQ</a>
+                  <a class="dropdown-item" href="pivotpath-investigationiq.html">InvestigationIQ</a>
+                  <a class="dropdown-item" href="pivotpath-anomiq.html">AnomIQ</a>
+                </div>
+                <div class="mega-col">
+                  <span class="mega-head">Launch Management</span>
+                  <a class="dropdown-item" href="pivotpath-golanzar.html">GoLanzar</a>
+                </div>
+                <div class="mega-col">
+                  <span class="mega-head">Finance &amp; Procurement</span>
+                  <a class="dropdown-item" href="pivotpath-inlumin.html">InLumin</a>
+                </div>
+                <div class="mega-col">
+                  <span class="mega-head">Human Capital</span>
+                  <a class="dropdown-item" href="pivotpath-arete.html">Arete</a>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="pivotpath-insights.html">Insights</a></li>
+          <li class="nav-item"><a class="nav-link" href="pivotpath-home.html#why">Why Us</a></li>
+          <li class="nav-item ms-xl-2"><a class="btns2" href="#contact">Talk to our experts</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ PAGE HERO — define before you narrate ============ -->
+  <section class="page-hero pad80" id="overview">
+    <div class="container">
+      <div class="crumb"><a href="pivotpath-home.html">Home</a> &nbsp;/&nbsp; <a href="pivotpath-home.html#platforms">Products</a> &nbsp;/&nbsp; <a href="pivotpath-noteiq.html" class="tt-none">NoteIQ</a> &nbsp;/&nbsp; Training Management</div>
+      <h1>NoteIQ: training management,<br>built for compliance.</h1>
+      <p class="lead">NoteIQ assigns, delivers, tests and proves training on one audit-ready system, with an optional link to your NoteIQ documents.</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btns2 solid-light">Book a <span class="tt-none">NoteIQ</span> demo</a>
+        <a href="pivotpath-noteiq.html" class="btns-line">Back to <span class="tt-none">NoteIQ</span> platform</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CH 1 — THE VALUE (compliance-first, standalone) ============ -->
+  <section class="pad80" id="value">
+    <div class="container">
+      <p class="statement reveal">Train your people. <span class="grad-text">Prove it just as easily.</span></p>
+      <div class="ch-grid reveal">
+        <div>
+          <h2 class="section-title">What NoteIQ changes.</h2>
+        </div>
+        <div class="prose">
+          <p>NoteIQ runs the whole training cycle, assign, deliver, assess and certify, and keeps every step audit-ready: exams, completion, competency and e-signatures on the record. It works on its own, and when you also run <a href="pivotpath-noteiq-dms-editorial.html">NoteIQ document management</a>, training follows your documents automatically.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CH 2 — THE PLATFORM (hero screenshot) ============ -->
+  <section class="pad80 grey chapter" id="platform">
+    <div class="container">
+      <div class="ch-grid reveal">
+        <div>
+          <h2 class="section-title">One place to run every training programme.</h2>
+        </div>
+        <div class="prose">
+          <p>Training items, exams, assignments, due dates and retraining, and a catalogue of SCORM courses to launch, all in one place. What is assigned, what is due and who has completed it is always in view.</p>
+        </div>
+      </div>
+      <div class="pshot shot-hero reveal">
+        <picture>
+          <source media="(max-width:991.98px)" srcset="assets/tms-shot-training-sm.png" />
+          <img src="assets/tms-shot-training.png" alt="NoteIQ training management: tabs for training items, exams, assignments, due dates and retraining, and a training catalogue with a SCORM course card" loading="lazy" />
+        </picture>
+      </div>
+      <p class="shot-cap reveal">Training management: items, exams, assignments and a SCORM catalogue in one view.</p>
+    </div>
+  </section>
+
+  <!-- ============ CH 3 — THE COMPLETE CYCLE (deliver, assess, prove) ============ -->
+  <section class="pad80 chapter" id="cycle">
+    <div class="container">
+      <div class="ch-grid reveal">
+        <div>
+          <h2 class="section-title">Deliver, assess, and prove it.</h2>
+        </div>
+        <div class="prose">
+          <p>The full training cycle on one system, built so that when the training is done, you can show it, not just assert it.</p>
+        </div>
+      </div>
+      <div class="val3 reveal m-acc">
+        <div class="v">
+          <div class="pic48"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M10 8.5l4 2.5-4 2.5z"/><path d="M8 21h8"/></svg></div>
+          <h3>Deliver any way people learn</h3>
+          <p>SCORM and e-learning, classroom and virtual sessions, launched and tracked from one catalogue.</p>
+        </div>
+        <div class="v">
+          <div class="pic48"><svg viewBox="0 0 24 24"><rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 4V3h6v1"/><path d="M9 12l2 2 4-4"/></svg></div>
+          <h3>Assess what they know</h3>
+          <p>Exams before and after training, with question types you control and AI-generated questions on hand.</p>
+        </div>
+        <div class="v">
+          <div class="pic48"><svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="5"/><path d="M9.5 13l-1.5 7 4-2.5 4 2.5-1.5-7"/><path d="M10 9l1.5 1.5L14 8"/></svg></div>
+          <h3>Prove it, on demand</h3>
+          <p>Completion, competency, certificates and e-signatures on the record, ready to show whenever you are asked.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CH 3.5 — NoteIQ, AT WORK (real product screenshots) ============ -->
+  <section class="pad80 grey chapter" id="closer">
+    <div class="container">
+      <div class="ch-grid reveal">
+        <div>
+          <h2 class="section-title">NoteIQ, at work.</h2>
+        </div>
+        <div class="prose">
+          <p>The same platform, three views: building an exam with AI drafting the questions, the library of reports that prove completion, and the optional link to your documents.</p>
+        </div>
+      </div>
+      <!-- Feature carousel: one feature per slide (swipe / arrows / dots). Every shot is responsive:
+           <picture> serves a zoomed mobile/tablet variant (assets/<name>-sm.png) at <=991.98px and
+           the full desktop crop (<name>.png) above. Adding a shot = one more .cslide. -->
+      <div class="cwrap reveal">
+        <div class="ctrack" id="closerTrack">
+          <div class="cslide">
+            <div class="cslide-in">
+              <h3>Build an exam, or let AI draft the questions</h3>
+              <p>Set pre and post-assessment, question totals and the mix of multiple-choice, single-choice and true/false, then generate the questions yourself or with AI.</p>
+              <div class="pshot"><picture><source media="(max-width:991.98px)" srcset="assets/tms-shot-exam-sm.png" /><img src="assets/tms-shot-exam.png" alt="NoteIQ create-exam screen: pre and post-assessment options, question totals, an objective-type breakdown, and generate-questions and generate-with-AI buttons" loading="lazy" /></picture></div>
+            </div>
+          </div>
+          <div class="cslide">
+            <div class="cslide-in">
+              <h3>Prove completion, many ways</h3>
+              <p>A library of reports, from training completion status and curriculum qualification to certificates and SCORM, ready to run for any period.</p>
+              <div class="pshot"><picture><source media="(max-width:991.98px)" srcset="assets/tms-shot-reports-sm.png" /><img src="assets/tms-shot-reports.png" alt="NoteIQ training reports: a report picker listing completion status, curriculum qualification, certificates, event training and SCORM reports" loading="lazy" /></picture></div>
+            </div>
+          </div>
+          <div class="cslide">
+            <div class="cslide-in">
+              <h3>Connect it to your documents, if you want to</h3>
+              <p>An optional integration: point NoteIQ training management at your NoteIQ documents and choose which document types and lifecycle states assign training.</p>
+              <div class="pshot"><picture><source media="(max-width:991.98px)" srcset="assets/tms-shot-integration-sm.png" /><img src="assets/tms-shot-integration.png" alt="NoteIQ training integration settings: a document-management integration with document type, lifecycle state and fetch type, and an integrations dashboard" loading="lazy" /></picture></div>
+            </div>
+          </div>
+        </div>
+        <div class="cctrls">
+          <button class="cbtn" type="button" data-cdir="-1" aria-label="Previous feature">&lsaquo;</button>
+          <div class="cdots" id="closerDots" aria-label="Feature slides"></div>
+          <button class="cbtn" type="button" data-cdir="1" aria-label="Next feature">&rsaquo;</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CH 4 — OPTIONAL: LINKED TO YOUR DOCUMENTS ============ -->
+  <section class="pad80 chapter" id="linked">
+    <div class="container">
+      <div class="ch-grid reveal">
+        <div>
+          <h2 class="section-title">Better still, tied to your documents.</h2>
+        </div>
+        <div class="prose">
+          <p>On its own, NoteIQ manages training end to end. Run it alongside <a href="pivotpath-noteiq-dms-editorial.html">NoteIQ document management</a> and it does more: when a document such as an SOP is approved or a new version is released, the training is assigned automatically, so your people are always trained on the current version. The link is optional, and NoteIQ works without it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CH 5 — HOW WE USE AI (division of labour) ============ -->
+  <section class="pad80 grey chapter" id="ai">
+    <div class="container">
+      <div class="ch-grid reveal">
+        <div>
+          <h2 class="section-title">AI does the volume. People make the calls.</h2>
+        </div>
+        <div class="prose">
+          <p>NoteIQ drafts exam questions from your training content, in the formats and totals you set, so building an assessment takes minutes. A trainer reviews and approves every question. The AI capabilities run on <a href="pivotpath-pivotai.html">PivotAI</a>, the AI layer inside <a href="pivotpath-pivotos.html">PivotOS</a>.</p>
+          <p>Your content stays yours: it is never used to train foundation models and stays isolated to your organisation.</p>
+        </div>
+      </div>
+      <div class="val3 reveal m-acc">
+        <div class="v">
+          <div class="pic48"><svg viewBox="0 0 24 24"><path d="M12 3l1.6 4.9L18.5 9l-4.9 1.6L12 15l-1.6-4.4L5.5 9l4.9-1.1z"/><path d="M18 15l.8 2.2L21 18l-2.2.8L18 21l-.8-2.2L15 18l2.2-.8z"/></svg></div>
+          <h3>AI drafts the questions</h3>
+          <p>From your training content, in multiple-choice, single-choice and true/false.</p>
+        </div>
+        <div class="v">
+          <div class="pic48"><svg viewBox="0 0 24 24"><circle cx="11" cy="8" r="3.4"/><path d="M4.5 20a6.5 6.5 0 0 1 11-4.7"/><path d="M15 19l2 2 4-4"/></svg></div>
+          <h3>A trainer approves them</h3>
+          <p>Every question is reviewed and approved before it is used in an assessment.</p>
+        </div>
+        <div class="v">
+          <div class="pic48"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></div>
+          <h3>Grounded, not guessed</h3>
+          <p>Questions come from your approved training material, not invented facts.</p>
+        </div>
+      </div>
+      <p class="rule-line reveal">Nothing critical is released without a human reviewer in the chain.</p>
+    </div>
+  </section>
+
+  <!-- ============ CH 6 — THE AUDITOR MOMENT (dark conviction band) ============ -->
+  <section class="pad80 band" id="assurance">
+    <div class="container">
+      <div class="ch-grid reveal">
+        <div>
+          <h2 class="section-title">When the inspector asks who is trained, the answer is on the record.</h2>
+        </div>
+        <div class="prose">
+          <p>Every assignment, exam, completion and e-signature is timestamped and traceable, aligned to 21 CFR Part 11. Not a spreadsheet of good intentions, a record you can stake an inspection on.</p>
+          <p><a href="pivotpath-ai-trust.html">Read the AI Trust Centre</a> for how we govern AI in regulated work.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ (backstory lives here) ============ -->
+  <section class="pad80 grey" id="faq">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title reveal"><span class="tt-none">NoteIQ</span> training management, <span class="grad-text">explained</span></h2>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-9">
+          <div class="accordion reveal" id="faqAcc">
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q1">What does NoteIQ training management cover?</button></h2>
+              <div id="q1" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">The whole training cycle on one system: assign, deliver, assess and certify, with SCORM and e-learning, classroom and virtual delivery, exams, competency management, retraining and audit-ready records.</div></div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2">Does it need NoteIQ document management?</button></h2>
+              <div id="q2" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">No. NoteIQ training management works on its own. If you also run <a href="pivotpath-noteiq-dms-editorial.html">NoteIQ document management</a>, the two connect: when a document such as an SOP is approved or revised, the training is assigned automatically, so people are always trained on the current version.</div></div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q3">Which training types does it support?</button></h2>
+              <div id="q3" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">SCORM and e-learning packages, classroom sessions and virtual training, all launched and tracked from one catalogue.</div></div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q4">How does AI build assessments?</button></h2>
+              <div id="q4" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">AI drafts exam questions from your training content, in multiple-choice, single-choice and true/false formats, for pre and post-assessment. A trainer reviews and approves the questions before they are used.</div></div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q5">How does it prove compliance?</button></h2>
+              <div id="q5" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Completion, competency, certificates and e-signatures are recorded, with a library of reports from completion status to curriculum qualification and SCORM, aligned to 21 CFR Part 11 and defensible at inspection.</div></div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q6">How does Pivot Path use AI responsibly and safely?</button></h2>
+              <div id="q6" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">AI here is assistive and human-reviewed. It drafts questions and content, but a qualified person reviews and approves every regulated decision. Outputs are grounded in your approved content, fully audit-trailed, and your data is never used to train foundation models. These capabilities run on <a href="pivotpath-pivotai.html">PivotAI</a>, the AI layer every Pivot Path platform runs on. See our <a href="pivotpath-ai-trust.html">AI Trust Centre</a> for how we use AI responsibly.</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FINAL CTA ============ -->
+  <section class="pad80 final-cta text-center" id="contact">
+    <div class="container">
+      <h2 class="section-title text-white reveal mb-3">See <span class="tt-none">NoteIQ</span> <span class="grad-text">on your training programme.</span></h2>
+      <p class="text-white-50 reveal mb-4" style="max-width:640px;margin-inline:auto">We will show assignment, AI-built exams and audit-ready proof on your own curriculum.</p>
+      <div class="hero-ctas justify-content-center reveal">
+        <a href="mailto:info@pivotpath.com" class="btns2 solid-light">Book a <span class="tt-none">NoteIQ</span> demo</a>
+        <a href="pivotpath-noteiq.html" class="btns-line">Back to <span class="tt-none">NoteIQ</span> platform</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+
+  <footer class="footer pad60">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-3">
+          <img src="pp-logo-white.svg" alt="Pivot Path — Life. Science. Possibilities." class="pp-logo-footer" />
+          <p>Born in Pharma. Built to Run It. The integrated life sciences partner for safety, quality, manufacturing and talent — from molecule to launch.</p>
+          <div class="newsletter mt-3">
+            <label class="d-block mb-2" style="font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:#fff">Join our newsletter</label>
+            <div class="input-group" style="max-width:340px">
+              <input type="email" class="form-control" placeholder="Work email" />
+              <button class="btns2" style="border-left:0">Subscribe</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h6>Company</h6>
+          <a href="pivotpath-home.html#about">Overview</a>
+          <a href="pivotpath-home.html#about">Vision & Values</a>
+          <a href="pivotpath-leadership.html">Leadership</a>
+          <a href="pivotpath-ai-trust.html">AI Trust Centre</a>
+          <a href="pivotpath-home.html#clients">Clients</a>
+          <a href="#">Careers</a>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h6>Services</h6>
+          <a href="pivotpath-drug-safety.html">Patient Safety</a>
+          <a href="pivotpath-quality-compliance.html">Quality & Digital Compliance</a>
+          <a href="pivotpath-digital-innovation.html">Digital Transformation</a>
+          <a href="pivotpath-svc-ip-consulting.html">Intellectual Property</a>
+          <a href="pivotpath-svc-clinical-operations.html">Clinical Operations</a>
+          <a href="pivotpath-human-capital.html">Human Capital</a>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h6>Products</h6>
+          <a href="pivotpath-pivotos.html">PivotOS</a>
+          <a href="pivotpath-pivotai.html">PivotAI</a>
+          <a href="pivotpath-novavigil.html">NovaVigil</a>
+          <a href="pivotpath-noteiq.html">NoteIQ</a>
+          <a href="pivotpath-anomiq.html">AnomIQ</a>
+          <a href="pivotpath-golanzar.html">GoLanzar</a>
+          <a href="pivotpath-inlumin.html">InLumin</a>
+          <a href="pivotpath-arete.html">Arete</a>
+          <a href="pivotpath-investigationiq.html">InvestigationIQ</a>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h6>Insights</h6>
+          <a href="pivotpath-insights.html">All Insights</a>
+          <a href="pivotpath-zero-touch-it.html">Zero-Touch IT (CDMO)</a>
+          <a href="pivotpath-pharma-4-0.html">Pharma 4.0 Transformation</a>
+          <a href="pivotpath-identity-user-management.html">Identity &amp; User Management</a>
+          <h6 class="mt-4">Contact</h6>
+          <a href="mailto:info@pivotpath.com">info@pivotpath.com</a>
+          <a href="#">Bengaluru · Hyderabad · Mysuru</a>
+        </div>
+      </div>
+      <div class="footer-bottom mt-5 pt-4 d-flex flex-wrap justify-content-between gap-2">
+        <span>© 2026 Pivot Path Private Limited. Demerged entity of Arcolab.</span>
+        <span>Privacy · Terms · ISO 27001 & 27701 Certified</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+  <script>
+    // ---- Reveal on scroll ----
+    (function(){
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+      document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+    })();
+
+    // ---- "NoteIQ, at work" feature carousel (framework-free: arrows + dots + swipe) ----
+    (function(){
+      var track=document.getElementById('closerTrack');
+      var dotsWrap=document.getElementById('closerDots');
+      if(!track||!dotsWrap)return;
+      var slides=[].slice.call(track.children);
+      var wrap=track.closest('.cwrap');
+      slides.forEach(function(s,i){
+        var d=document.createElement('button');
+        d.type='button';d.className='cdot'+(i===0?' active':'');
+        d.setAttribute('aria-label','Go to feature '+(i+1));
+        d.addEventListener('click',function(){track.scrollTo({left:i*track.clientWidth,behavior:'smooth'});});
+        dotsWrap.appendChild(d);
+      });
+      var dots=[].slice.call(dotsWrap.children);
+      wrap.querySelectorAll('[data-cdir]').forEach(function(b){
+        b.addEventListener('click',function(){
+          track.scrollBy({left:parseInt(b.getAttribute('data-cdir'),10)*track.clientWidth,behavior:'smooth'});
+        });
+      });
+      var raf=0;
+      track.addEventListener('scroll',function(){
+        if(raf)return;
+        raf=requestAnimationFrame(function(){raf=0;
+          var idx=Math.round(track.scrollLeft/track.clientWidth);
+          dots.forEach(function(d,i){d.classList.toggle('active',i===idx);});
+        });
+      },{passive:true});
+    })();
+  </script>
+  <script src="pp-mobile.js" defer></script>
+</body>
+</html>
