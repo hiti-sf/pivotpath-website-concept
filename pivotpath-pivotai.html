@@ -21,9 +21,8 @@
     .prose p:last-child{margin-bottom:0}
     .chapter{border-top:1px solid var(--pp-line)}
 
-    /* Big standalone statement + pull quote */
+    /* Big standalone statement */
     .statement{font-size:var(--fs-display);font-weight:800;line-height:1.1;letter-spacing:-.015em;color:var(--pp-ink);max-width:24ch;margin:0 0 var(--sp-5)}
-    .pull{font-size:var(--fs-h3);font-weight:800;line-height:1.25;max-width:24ch;margin:0 0 var(--sp-4)}
 
     /* Icon tiles */
     .pic48{flex:none;width:48px;height:48px;border-radius:var(--r-md);background:var(--pp-accent);display:flex;align-items:center;justify-content:center;margin-bottom:var(--sp-3)}
@@ -47,8 +46,6 @@
     .numrow .l{font-size:var(--fs-sm);color:var(--pp-muted);margin-top:4px}
     .numcap{font-size:var(--fs-sm);color:var(--pp-muted);margin-top:var(--sp-3)}
 
-    /* Premise convergence visual */
-    .hub{display:block;width:100%;max-width:560px;height:auto;margin:var(--sp-6) auto 0}
 
     /* Capabilities: three grouped columns with per-capability icons */
     .capgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:var(--sp-6)}
@@ -71,10 +68,6 @@
     .prod4 .stat{font-weight:700;color:var(--pp-ink);font-size:var(--fs-sm);margin:0 0 var(--sp-2)}
     a.pl-link{display:inline-block;font-size:var(--fs-sm);font-weight:700;color:var(--pp-accent);text-decoration:none}
     a.pl-link:hover{text-decoration:underline}
-
-    /* Foundation band: mini iso + prose */
-    .arch{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:var(--sp-6) var(--sp-7);align-items:center}
-    .iso{display:block;width:100%;max-width:340px;height:auto;margin-inline:auto}
 
     .tt-none{text-transform:none}
 
@@ -101,8 +94,6 @@
       .prod4{grid-template-columns:1fr 1fr}
       .prod4 .p4{padding:var(--sp-4) var(--sp-4) var(--sp-4) 0;border-left:0;border-top:1px solid var(--pp-line)}
       .prod4 .p4:nth-child(-n+2){border-top:0;padding-top:0}
-      .arch{grid-template-columns:1fr}
-      .iso{max-width:280px}
     }
   </style>
   <script type="application/ld+json">
@@ -178,7 +169,7 @@
           "name": "Does PivotAI train on our data?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No. Customer content is not used to train foundation models and stays within your tenant boundary. The full data-handling and governance detail is in our AI Trust Centre."
+            "text": "No. Customer content is not used to train foundation models and stays within your own environment. The full data-handling and governance detail is in our AI Trust Centre."
           }
         },
         {
@@ -361,80 +352,22 @@
     </div>
   </section>
 
-  <!-- ============ CH 2 — THE PREMISE ============ -->
-  <section class="pad80 grey chapter" id="premise">
+  <!-- ============ CH 2 — ONE LAYER, EVERY CAPABILITY (premise + capabilities merged) ============ -->
+  <section class="pad80 grey chapter" id="capabilities">
     <div class="container">
       <div class="ch-grid reveal">
         <div>
-          <h2 class="section-title">One layer, not a separate system per product.</h2>
+          <h2 class="section-title">One layer, every capability.</h2>
         </div>
         <div class="prose">
-          <p>A unified AI layer that powers intelligence across Pivot products while maintaining compliance, governance, and customer data isolation.</p>
+          <p>One compliant layer that every Pivot Path product runs its AI and ML on, with the same compliance, governance and data isolation across all of them. Grouped by what it does: grounding answers in your approved content, reading the industry's documents at scale, and acting only under human oversight.</p>
         </div>
       </div>
-      <svg class="hub reveal" viewBox="0 0 520 300" role="img" aria-label="Pivot Path platforms all drawing on one PivotAI layer, which runs on PivotOS" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Roboto,Arial,sans-serif">
-        <defs>
-          <linearGradient id="hubg" x1="0" y1="1" x2="1" y2="0">
-            <stop offset="0" stop-color="#71bf44"/><stop offset=".55" stop-color="#20a676"/><stop offset="1" stop-color="#1b91a3"/>
-          </linearGradient>
-        </defs>
-        <!-- seven app tiles -->
-        <g>
-          <g transform="translate(68,20)"><rect x="-20" y="0" width="40" height="40" rx="9" fill="#fff" stroke="#dfe3df"/><circle cx="0" cy="13" r="3.2" fill="#20a676"/><rect x="-9" y="22" width="18" height="2.6" rx="1.3" fill="#c9cfc9"/><rect x="-6" y="28" width="12" height="2.6" rx="1.3" fill="#dfe3df"/></g>
-          <g transform="translate(132,20)"><rect x="-20" y="0" width="40" height="40" rx="9" fill="#fff" stroke="#dfe3df"/><circle cx="0" cy="13" r="3.2" fill="#20a676"/><rect x="-9" y="22" width="18" height="2.6" rx="1.3" fill="#c9cfc9"/><rect x="-6" y="28" width="12" height="2.6" rx="1.3" fill="#dfe3df"/></g>
-          <g transform="translate(196,20)"><rect x="-20" y="0" width="40" height="40" rx="9" fill="#fff" stroke="#dfe3df"/><circle cx="0" cy="13" r="3.2" fill="#20a676"/><rect x="-9" y="22" width="18" height="2.6" rx="1.3" fill="#c9cfc9"/><rect x="-6" y="28" width="12" height="2.6" rx="1.3" fill="#dfe3df"/></g>
-          <g transform="translate(260,20)"><rect x="-20" y="0" width="40" height="40" rx="9" fill="#fff" stroke="#dfe3df"/><circle cx="0" cy="13" r="3.2" fill="#20a676"/><rect x="-9" y="22" width="18" height="2.6" rx="1.3" fill="#c9cfc9"/><rect x="-6" y="28" width="12" height="2.6" rx="1.3" fill="#dfe3df"/></g>
-          <g transform="translate(324,20)"><rect x="-20" y="0" width="40" height="40" rx="9" fill="#fff" stroke="#dfe3df"/><circle cx="0" cy="13" r="3.2" fill="#20a676"/><rect x="-9" y="22" width="18" height="2.6" rx="1.3" fill="#c9cfc9"/><rect x="-6" y="28" width="12" height="2.6" rx="1.3" fill="#dfe3df"/></g>
-          <g transform="translate(388,20)"><rect x="-20" y="0" width="40" height="40" rx="9" fill="#fff" stroke="#dfe3df"/><circle cx="0" cy="13" r="3.2" fill="#20a676"/><rect x="-9" y="22" width="18" height="2.6" rx="1.3" fill="#c9cfc9"/><rect x="-6" y="28" width="12" height="2.6" rx="1.3" fill="#dfe3df"/></g>
-          <g transform="translate(452,20)"><rect x="-20" y="0" width="40" height="40" rx="9" fill="#fff" stroke="#dfe3df"/><circle cx="0" cy="13" r="3.2" fill="#20a676"/><rect x="-9" y="22" width="18" height="2.6" rx="1.3" fill="#c9cfc9"/><rect x="-6" y="28" width="12" height="2.6" rx="1.3" fill="#dfe3df"/></g>
-        </g>
-        <!-- converging connectors -->
-        <g fill="none" stroke="#aeb8b0" stroke-width="1.4">
-          <path d="M68 62 C68 100 140 104 140 138"/>
-          <path d="M132 62 C132 100 180 104 180 138"/>
-          <path d="M196 62 C196 100 220 104 220 138"/>
-          <path d="M260 62 C260 100 260 104 260 138"/>
-          <path d="M324 62 C324 100 300 104 300 138"/>
-          <path d="M388 62 C388 100 340 104 340 138"/>
-          <path d="M452 62 C452 100 380 104 380 138"/>
-        </g>
-        <!-- PivotAI layer -->
-        <g>
-          <rect x="100" y="140" width="320" height="52" rx="12" fill="url(#hubg)"/>
-          <g transform="translate(216,166)" fill="#fff">
-            <path d="M0 -9 C0.9 -3.6 3.6 -0.9 9 0 C3.6 0.9 0.9 3.6 0 9 C-0.9 3.6 -3.6 0.9 -9 0 C-3.6 -0.9 -0.9 -3.6 0 -9 Z"/>
-          </g>
-          <text x="232" y="171" font-size="14" font-weight="800" letter-spacing="0.3" fill="#ffffff">PivotAI</text>
-        </g>
-        <!-- vertical ties -->
-        <g stroke="#9aa3ab" stroke-width="1.6">
-          <path d="M180 196 v20M260 196 v20M340 196 v20"/>
-        </g>
-        <!-- PivotOS layer -->
-        <g>
-          <rect x="80" y="220" width="360" height="48" rx="12" fill="#10161d"/>
-          <text x="260" y="249" text-anchor="middle" font-size="14" font-weight="800" letter-spacing="0.3" fill="#8b95a0">PivotOS</text>
-        </g>
-      </svg>
       <p class="numcap reveal text-center">Every platform. One AI layer. One validated foundation.</p>
-    </div>
-  </section>
-
-  <!-- ============ CH 3 — THE CAPABILITIES ============ -->
-  <section class="pad80" id="capabilities">
-    <div class="container">
-      <div class="ch-grid reveal">
-        <div>
-          <h2 class="section-title">Every capability, one layer.</h2>
-        </div>
-        <div class="prose">
-          <p>Grouped by what they do: grounding answers in your approved content, reading the industry's documents at scale, and acting only under human oversight.</p>
-        </div>
-      </div>
       <div class="capgrid reveal">
         <div class="cg">
           <div class="pic48 grad"><svg viewBox="0 0 24 24"><path d="M12 3v14"/><path d="M12 21a4 4 0 0 0 4-4H8a4 4 0 0 0 4 4z"/><path d="M5 8h14M7 8c0 2.5 1 4 2.5 4M17 8c0 2.5-1 4-2.5 4"/></svg></div>
-          <h3>Grounded intelligence</h3>
+          <h3>Grounding what it says</h3>
           <div class="cap-i">
             <svg viewBox="0 0 24 24"><path d="M7 16V8m0 8l-3-3m3 3l3-3M17 8v8m0-8l-3 3m3-3l3 3"/></svg>
             <div><h4>Multi-model access</h4><p>The right model per task, swapped as the landscape shifts.</p></div>
@@ -450,7 +383,7 @@
         </div>
         <div class="cg">
           <div class="pic48 grad"><svg viewBox="0 0 24 24"><path d="M12 6c-2-2-5-2.5-8-2v15c3-.5 6 0 8 2 2-2 5-2.5 8-2V4c-3-.5-6 0-8 2z"/><path d="M12 6v15"/></svg></div>
-          <h3>Document and data understanding</h3>
+          <h3>Reading what the industry writes</h3>
           <div class="cap-i">
             <svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="12" cy="18" r="2.5"/><path d="M7.8 7.8L12 15.5M16.2 7.8L12 15.5M8.5 6h7"/></svg>
             <div><h4>Knowledge graph</h4><p>The links between products, sites, suppliers and signals that flat databases lose.</p></div>
@@ -466,7 +399,7 @@
         </div>
         <div class="cg">
           <div class="pic48 grad"><svg viewBox="0 0 24 24"><path d="M13 2L4 14h6l-1 8 9-12h-6z"/></svg></div>
-          <h3>Supervised execution</h3>
+          <h3>Acting, never alone</h3>
           <div class="cap-i">
             <svg viewBox="0 0 24 24"><path d="M4 12h6m4 0h6M10 12a2 2 0 1 0 4 0 2 2 0 0 0-4 0zM17 5l3 3-3 3M17 13l3 3-3 3"/></svg>
             <div><h4>Agentic workflows</h4><p>Multi-step tasks across systems, always with a human reviewer in the chain.</p></div>
@@ -488,6 +421,7 @@
         <span class="chip-light">GAMP 5</span>
         <span class="chip-light">CSV / CSA</span>
         <span class="chip-light">ALCOA+</span>
+        <p class="numcap" style="margin:var(--sp-3) 0 0">Validation deliverables (URS support, traceability, IQ/OQ artefacts) come with it, to support and reduce your own validation effort.</p>
       </div>
     </div>
   </section>
@@ -501,8 +435,8 @@
           <h2 class="section-title">AI does the volume. People make the calls.</h2>
         </div>
         <div class="prose">
-          <p>When your data is connected and governed, teams can move faster with confidence. Authority stays with qualified people; the audit trail records every decision.</p>
-          <p>Your content stays yours: prompts, documents, embeddings and outputs stay inside your tenant boundary, and none of it trains foundation models.</p>
+          <p>AI carries the volume so your specialists spend their time on judgement, not manual review. Authority stays with them, and the audit trail records every decision.</p>
+          <p>Your content stays yours: prompts, documents, embeddings and outputs stay isolated in your own environment, are never shared across customers, and are never used to train foundation models.</p>
         </div>
       </div>
       <div class="val3 reveal">
@@ -595,7 +529,7 @@
             </div>
             <div class="accordion-item">
               <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q5">Does PivotAI train on our data?</button></h2>
-              <div id="q5" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">No. Customer content is not used to train foundation models and stays within your tenant boundary. The full data-handling and governance detail is in our <a href="pivotpath-ai-trust.html">AI Trust Centre</a>.</div></div>
+              <div id="q5" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">No. Customer content is not used to train foundation models and stays within your own environment. The full data-handling and governance detail is in our <a href="pivotpath-ai-trust.html">AI Trust Centre</a>.</div></div>
             </div>
             <div class="accordion-item">
               <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q6">How is PivotAI validated?</button></h2>
