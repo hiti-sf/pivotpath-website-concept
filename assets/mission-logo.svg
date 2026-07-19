@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 200 200">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#linear-gradient-2);
+      }
+
+      .cls-2 {
+        fill: url(#linear-gradient-4);
+      }
+
+      .cls-3 {
+        fill: url(#linear-gradient-3);
+      }
+
+      .cls-4 {
+        fill: url(#linear-gradient-5);
+      }
+
+      .cls-5 {
+        fill: url(#linear-gradient);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="-606.95" y1="727.62" x2="-602.91" y2="727.62" gradientTransform="translate(7730.07 9305.26) scale(12.73 -12.73)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0e90a2"/>
+      <stop offset=".32" stop-color="#19a574"/>
+      <stop offset="1" stop-color="#90c43c"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="-598.6" x2="-594.56" gradientTransform="translate(7766.34 9305.26) scale(12.73 -12.73)" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-3" x1="-606.95" y1="720.76" x2="-602.91" y2="720.76" gradientTransform="translate(7730.07 9335.54) scale(12.73 -12.73)" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-4" x1="-598.61" y1="720.76" x2="-594.57" y2="720.76" gradientTransform="translate(7767 9334.76) scale(12.73 -12.73)" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-5" x1="-628.65" y1="746.95" x2="-624.6" y2="746.95" gradientTransform="translate(14449.49 17322.02) scale(22.91 -23.05)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0e90a2"/>
+      <stop offset=".32" stop-color="#19a574"/>
+      <stop offset="1" stop-color="#90c43c"/>
+    </linearGradient>
+  </defs>
+  <g id="Group_15988" data-name="Group 15988">
+    <g id="Group_15798" data-name="Group 15798">
+      <path id="Path_26925" data-name="Path 26925" class="cls-5" d="M3.63,67.66h14.35V30.55h37.11v-14.35H3.63v51.46Z"/>
+      <path id="Path_26926" data-name="Path 26926" class="cls-1" d="M144.91,16.2v14.35h37.11v37.11h14.35V16.2h-51.46Z"/>
+    </g>
+    <g id="Group_15796" data-name="Group 15796">
+      <path id="Path_26924" data-name="Path 26924" class="cls-3" d="M17.98,132.33H3.63v51.47h51.46v-14.35H17.98v-37.11Z"/>
+      <path id="Path_26927" data-name="Path 26927" class="cls-2" d="M182.02,169.44h-37.11v14.35h51.47v-51.46h-14.35v37.11Z"/>
+    </g>
+    <path id="Path_26930" data-name="Path 26930" class="cls-4" d="M47.19,98.56h53.43v54.33l39.17-38.8v-54.36h-54.16l-38.44,38.83Z"/>
+  </g>
+</svg>
