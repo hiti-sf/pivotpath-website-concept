@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex, nofollow" />
-  <title>InvestigationIQ: Guided Root-Cause Investigation | Pivot Path</title>
-  <meta name="description" content="InvestigationIQ is Pivot Path's AI assistant for RCA and CAPA. It guides investigators through every standard framework, grounded in your own investigation history, saving up to around 7 hours an investigation." />
+  <title>GoLanzar: Pharmaceutical Launch Management | Pivot Path</title>
+  <meta name="description" content="GoLanzar is Pivot Path's pharmaceutical launch management platform. It puts every launch function on one critical-path plan with real-time tracking, so slippage shows before it costs the launch window." />
   <link rel="preconnect" href="https://cdn.jsdelivr.net" />
   <link rel="preconnect" href="https://in.fw-cdn.com" />
   <link rel="preload" href="pp.css?v=47" as="style" />
@@ -33,14 +33,21 @@
     .val3 h3{font-size:var(--fs-h4);font-weight:700;margin:0 0 var(--sp-2);text-transform:none}
     .val3 p{margin:0;color:var(--pp-muted);font-size:var(--fs-body);line-height:1.65}
 
+    /* Two-pillar duo (Coordinate / Track) */
+    .duo{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-7);margin-top:var(--sp-6)}
+    .duo .d{padding-left:var(--sp-5);border-left:1px solid var(--pp-line)}
+    .duo .d:first-child{border-left:0;padding-left:0}
+    .duo h3{font-size:var(--fs-h4);font-weight:700;margin:0 0 var(--sp-3);text-transform:none}
+    .duo ul{margin:0;padding-left:1.1rem;color:var(--pp-muted);font-size:var(--fs-body);line-height:1.9}
+
     .numrow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--pp-line);border-bottom:1px solid var(--pp-line);margin-top:var(--sp-6)}
     .numrow .c{padding:var(--sp-4);border-left:1px solid var(--pp-line)}
     .numrow .c:first-child{border-left:0;padding-left:0}
-    .numrow .n{font-size:1.6rem;font-weight:800;color:var(--pp-ink);line-height:1.1;font-variant-numeric:tabular-nums}
+    .numrow .n{font-size:1.6rem;font-weight:800;color:var(--pp-ink);line-height:1.1}
     .numrow .l{font-size:var(--fs-sm);color:var(--pp-muted);margin-top:4px}
     .numcap{font-size:var(--fs-sm);color:var(--pp-muted);margin-top:var(--sp-3)}
 
-    /* Manual-way vs InvestigationIQ contrast table */
+    /* Manual-way vs GoLanzar contrast table */
     .fromto{max-width:820px;margin:var(--sp-6) auto 0}
     .fromto .r{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:var(--sp-4);padding:var(--sp-4) 0;border-top:1px solid var(--pp-line)}
     .fromto .r:last-child{border-bottom:1px solid var(--pp-line)}
@@ -58,8 +65,6 @@
     .band h2.section-title{color:#fff}
     .band .prose p{color:rgba(255,255,255,.82)}
     .band a{color:#fff}
-
-    .rule-line{font-size:var(--fs-h4);font-weight:700;color:var(--pp-ink);border-top:1px solid var(--pp-line);padding-top:var(--sp-4);margin-top:var(--sp-6)}
 
     /* Real product screenshots */
     .pshot{border:1px solid var(--pp-line);border-radius:14px;overflow:hidden;box-shadow:0 14px 34px rgba(0,0,0,.09);background:#fff;margin-inline:auto}
@@ -85,10 +90,11 @@
     @media (max-width:991.98px){
       .ch-grid{grid-template-columns:1fr}
       .ch-grid h2.section-title{max-width:none;margin-bottom:var(--sp-3)}
-      .val3{grid-template-columns:1fr}
-      .val3 .v{border-left:0;padding:var(--sp-4) 0;border-top:1px solid var(--pp-line)}
-      .val3 .v:first-child{border-top:0;padding-top:0}
-      .val3 .v:last-child{padding-bottom:0}
+      .val3,.duo{grid-template-columns:1fr}
+      .val3 .v,.duo .d{border-left:0;padding:var(--sp-4) 0}
+      .val3 .v:first-child,.duo .d:first-child{padding-top:0}
+      .val3 .v{border-top:1px solid var(--pp-line)}
+      .val3 .v:first-child{border-top:0}
       .numrow{grid-template-columns:1fr 1fr}
       .numrow .c:nth-child(odd){border-left:0;padding-left:0}
       .numrow .c:nth-child(n+3){border-top:1px solid var(--pp-line)}
@@ -101,9 +107,9 @@
   "@graph": [
     {
       "@type": "WebPage",
-      "name": "InvestigationIQ",
-      "description": "InvestigationIQ is Pivot Path's AI assistant for RCA and CAPA. It guides investigators through every standard framework, grounded in your own investigation history.",
-      "url": "https://pivotpath.com/pivotpath-investigationiq-editorial.html",
+      "name": "GoLanzar",
+      "description": "GoLanzar is Pivot Path's pharmaceutical launch management platform. It puts every launch function on one critical-path plan with real-time tracking, so slippage shows before it costs the launch window.",
+      "url": "https://pivotpath.com/pivotpath-golanzar-editorial.html",
       "provider": {
         "@type": "Organization",
         "@id": "https://pivotpath.com/#organization",
@@ -116,7 +122,7 @@
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pivotpath.com/" },
         { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://pivotpath.com/#platforms" },
-        { "@type": "ListItem", "position": 3, "name": "InvestigationIQ", "item": "https://pivotpath.com/pivotpath-investigationiq-editorial.html" }
+        { "@type": "ListItem", "position": 3, "name": "GoLanzar", "item": "https://pivotpath.com/pivotpath-golanzar-editorial.html" }
       ]
     },
     {
@@ -124,50 +130,50 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "What problem does InvestigationIQ solve?",
+          "name": "What problem does GoLanzar solve?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Root-cause analysis is slow, inconsistent and depends on a few experienced people. InvestigationIQ guides every investigation through the standard frameworks and drafts from your own history, so investigations are thorough and consistent whoever runs them, and your specialists get their time back."
+            "text": "A pharmaceutical launch runs across a dozen functions, from regulatory to packaging to manufacturing, each on its own plan. They drift out of sync until a missed dependency costs the launch window. GoLanzar puts every function on one critical-path plan, so the whole launch and the one date are visible in one place."
           }
         },
         {
           "@type": "Question",
-          "name": "Does InvestigationIQ replace my investigators?",
+          "name": "Does GoLanzar replace my spreadsheets and status meetings?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No. It is an assistant. It recommends frameworks, drafts questions and retrieves relevant history, but your investigator does the reasoning and signs off the conclusion."
+            "text": "Yes. It replaces scattered spreadsheets and email with one accountable plan, so every function works from the same milestones and status is read from one source of truth, not rebuilt in meetings."
           }
         },
         {
           "@type": "Question",
-          "name": "Which frameworks does it support?",
+          "name": "How does it show me risk to the launch date?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Why-Why, Fishbone, 6M, Interviews and Gemba walks, plus Process Mapping, FMEA, Pareto, Fault Tree and Brainstorming. The assistant recommends the ones that fit the case, and the investigator chooses."
+            "text": "It maps every activity and dependency onto the critical path and tracks progress live. The path that actually sets the launch date is highlighted, so a slipping activity is visible and owned before it threatens the date."
           }
         },
         {
           "@type": "Question",
-          "name": "How much time does InvestigationIQ save?",
+          "name": "Does GoLanzar integrate with my ERP or QMS?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Up to around 7 hours on a single investigation, an estimated 40 to 60 percent cycle-time reduction. Across a year of investigations, that is hundreds of hours returned to your specialists. Time saved varies by case."
+            "text": "No. GoLanzar is a coordination and tracking layer, not a system integration. Your functions update progress against the one plan, so the launch view stays current without replacing or connecting into your ERP or QMS."
           }
         },
         {
           "@type": "Question",
-          "name": "Where do its suggestions come from?",
+          "name": "Who uses GoLanzar?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Your own past investigations and templates. InvestigationIQ retrieves and grounds its suggestions in your approved content rather than inventing them, so the reasoning reflects how your site actually works."
+            "text": "Launch, portfolio and commercial leads, with dashboards and executive visibility across every function."
           }
         },
         {
           "@type": "Question",
-          "name": "Will the investigation hold up in review?",
+          "name": "How is it different from a generic project tool?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. Every step is guided, recorded and grounded in your own evidence, so the investigation is complete and consistent and the corrective action that follows stands on a defensible root cause."
+            "text": "It is purpose-built for pharmaceutical launches, with launch-specific functions, milestones and critical-path tracking, not a generic task tracker."
           }
         },
         {
@@ -251,12 +257,12 @@
               <li><a class="dropdown-item" href="pivotpath-svc-ip-consulting.html">Discovery</a></li>
               <li><a class="dropdown-item" href="pivotpath-svc-clinical-operations.html">Clinical</a></li>
               <li><a class="dropdown-item" href="pivotpath-digital-innovation.html">Manufacturing</a></li>
-              <li><a class="dropdown-item" href="pivotpath-golanzar.html">Supply chain &amp; launch</a></li>
+              <li><a class="dropdown-item active" href="pivotpath-golanzar.html">Supply chain &amp; launch</a></li>
               <li><a class="dropdown-item" href="pivotpath-drug-safety.html">Patient Safety</a></li>
             </ul>
           </li>
           <li class="nav-item dropdown position-static">
-            <a class="nav-link dropdown-toggle" href="pivotpath-home.html#platforms" role="button" data-bs-toggle="dropdown" style="text-transform:none">PivotOS</a>
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" style="text-transform:none">PivotOS</a>
             <div class="dropdown-menu mega-menu mega-products">
               <div class="mega-grid mega-grid-products">
                 <div class="mega-col">
@@ -277,7 +283,7 @@
                 </div>
                 <div class="mega-col">
                   <span class="mega-head">Launch Management</span>
-                  <a class="dropdown-item" href="pivotpath-golanzar.html">GoLanzar</a>
+                  <a class="dropdown-item active" href="pivotpath-golanzar.html">GoLanzar</a>
                 </div>
                 <div class="mega-col">
                   <span class="mega-head">Finance &amp; Procurement</span>
@@ -301,12 +307,12 @@
   <!-- ============ PAGE HERO — define before you narrate ============ -->
   <section class="page-hero pad80" id="overview">
     <div class="container">
-      <div class="crumb"><a href="pivotpath-home.html">Home</a> &nbsp;/&nbsp; <a href="pivotpath-home.html#platforms">Products</a> &nbsp;/&nbsp; <span class="tt-none">InvestigationIQ</span></div>
-      <h1>InvestigationIQ: guided root-cause investigation,<br>grounded in your own history.</h1>
-      <p class="lead">InvestigationIQ is Pivot Path's AI assistant for RCA and CAPA. It guides investigators through every standard framework, drawing on your own past investigations.</p>
+      <div class="crumb"><a href="pivotpath-home.html">Home</a> &nbsp;/&nbsp; <a href="pivotpath-home.html#platforms">Products</a> &nbsp;/&nbsp; <span class="tt-none">GoLanzar</span></div>
+      <h1>GoLanzar: every launch function<br>on one accountable plan.</h1>
+      <p class="lead">GoLanzar is Pivot Path's launch management platform. It puts every launch function on one critical-path plan, so slippage shows before it costs the window.</p>
       <div class="hero-ctas">
-        <a href="#contact" class="btns2 solid-light">Book an InvestigationIQ demo</a>
-        <a href="pivotpath-quality-compliance.html" class="btns-line">Explore Quality &amp; Compliance services</a>
+        <a href="#contact" class="btns2 solid-light">Book a GoLanzar demo</a>
+        <a href="pivotpath-how-we-operate.html" class="btns-line">See how we operate</a>
       </div>
     </div>
   </section>
@@ -314,121 +320,115 @@
   <!-- ============ CH 1 — THE VALUE (value first) ============ -->
   <section class="pad80" id="value">
     <div class="container">
-      <p class="statement reveal">Your sharpest minds, <span class="grad-text">freed to do the thinking.</span></p>
+      <p class="statement reveal">One launch. One plan. <span class="grad-text">One date everyone can see.</span></p>
       <div class="ch-grid reveal">
         <div>
-          <h2 class="section-title">What InvestigationIQ changes.</h2>
+          <h2 class="section-title">What GoLanzar changes.</h2>
         </div>
         <div class="prose">
-          <p>Root-cause analysis is the work of your most curious, scientific people, and it is exactly the work that buries them in method and paperwork. InvestigationIQ takes that weight off the investigation without taking over the thinking. Three things follow.</p>
-          <p>Save up to around 7 hours on a single investigation, and across a year of them, that is hundreds of hours returned to the people you can least afford to have formatting documents.</p>
+          <p>A pharmaceutical launch runs across a dozen functions, each on its own plan, and they drift out of sync until a missed dependency costs the window. GoLanzar puts them on one plan and keeps the one date everyone is working towards in plain sight. Three things follow.</p>
         </div>
       </div>
       <div class="val3 reveal m-acc">
         <div class="v">
-          <div class="pic48"><svg viewBox="0 0 24 24"><path d="M4 6h9M4 12h9M4 18h9"/><path d="M16 6l1.6 1.6L21 4M16 16l1.6 1.6L21 14"/></svg></div>
-          <h3>Thorough every time</h3>
-          <p>Every investigation runs through the standard frameworks end to end, so nothing is skipped under deadline.</p>
+          <div class="pic48"><svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="2"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="12" r="2"/><path d="M8 6h3a4 4 0 0 1 4 4M8 18h3a4 4 0 0 0 4-4"/></svg></div>
+          <h3>Every function, one plan</h3>
+          <p>Regulatory, procurement, packaging, manufacturing and the rest work from a single launch plan, not a dozen spreadsheets.</p>
         </div>
         <div class="v">
-          <div class="pic48"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg></div>
-          <h3>Hours back per investigation</h3>
-          <p>The assistant drafts questions and surfaces likely causes, saving up to around 7 hours on a single investigation.</p>
+          <div class="pic48"><svg viewBox="0 0 24 24"><path d="M4 19V5M4 19h16M8 15l3-3 3 2 4-5"/></svg></div>
+          <h3>Slippage you see early</h3>
+          <p>The critical path shows which delay actually moves the launch date, so it is owned before it costs the window.</p>
         </div>
         <div class="v">
-          <div class="pic48"><svg viewBox="0 0 24 24"><path d="M6 4h9a2 2 0 0 1 2 2v14H8a2 2 0 0 1-2-2z"/><path d="M6 4v14"/><path d="M10 9h4M10 13h4"/></svg></div>
-          <h3>Grounded, not invented</h3>
-          <p>Suggestions are drawn from your own past investigations and templates, so the conclusion holds up in review.</p>
+          <div class="pic48"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M4 20c0-3.3 2.4-5.5 5-5.5"/><path d="M14 14l2.2 2.2L21 11.4"/></svg></div>
+          <h3>Accountable by step</h3>
+          <p>Every activity carries an owner and a live progress percentage, so nothing sits unassigned or unseen.</p>
         </div>
       </div>
       <div class="numrow reveal">
-        <div class="c"><div class="n">~40&ndash;60%</div><div class="l">Faster cycle time</div></div>
-        <div class="c"><div class="n">~7 hrs</div><div class="l">Saved per investigation</div></div>
-        <div class="c"><div class="n">Guided</div><div class="l">Every framework</div></div>
-        <div class="c"><div class="n">Grounded</div><div class="l">On your own history</div></div>
+        <div class="c"><div class="n">Critical-path</div><div class="l">Tracking</div></div>
+        <div class="c"><div class="n">Real-time</div><div class="l">Dashboards</div></div>
+        <div class="c"><div class="n">Every function</div><div class="l">One plan</div></div>
+        <div class="c"><div class="n">Owner + %</div><div class="l">On every step</div></div>
       </div>
-      <p class="numcap reveal">Estimated, from investigations run on InvestigationIQ; time saved varies by case.</p>
+      <p class="numcap reveal">One coordinated plan across every launch function.</p>
     </div>
   </section>
 
-  <!-- ============ CH 2 — ONE GUIDED PLAN (hero screenshot) ============ -->
-  <section class="pad80 grey chapter" id="tools">
+  <!-- ============ CH 2 — THE CRITICAL PATH (hero screenshot) ============ -->
+  <section class="pad80 grey chapter" id="plan">
     <div class="container">
       <div class="ch-grid reveal">
         <div>
-          <h2 class="section-title">One guided plan for the whole investigation.</h2>
+          <h2 class="section-title">The whole launch, as one critical path.</h2>
         </div>
         <div class="prose">
-          <p>From the event to the conclusion, InvestigationIQ recommends the frameworks that fit the case and walks the investigator through each one, so the method stays consistent no matter who runs it.</p>
+          <p>GoLanzar lays out every function and its dependencies as one graph, with the critical path, the sequence that actually sets the launch date, highlighted. You see at a glance where a delay costs you time and where it does not.</p>
         </div>
       </div>
       <div class="pshot shot-hero reveal">
         <picture>
-          <source media="(max-width:991.98px)" srcset="assets/iq-shot-tools-sm.png" />
-          <img src="assets/iq-shot-tools.png" alt="InvestigationIQ tool selection: a list of investigation frameworks with AI-recommended ones flagged and selected" loading="lazy" />
+          <source media="(max-width:991.98px)" srcset="assets/gl-shot-critical-sm.png" />
+          <img src="assets/gl-shot-critical.png" alt="GoLanzar critical-path graph: launch activities and dependencies, with the critical path highlighted in green" loading="lazy" />
         </picture>
       </div>
-      <p class="shot-cap reveal">Selecting the investigation tools, with AI-recommended frameworks for the case.</p>
+      <p class="shot-cap reveal">The launch as a critical-path graph; the highlighted path is the one that sets the date.</p>
     </div>
   </section>
 
-  <!-- ============ CH 3 — THE FRAMEWORKS ============ -->
+  <!-- ============ CH 3 — COORDINATE AND TRACK ============ -->
   <section class="pad80 chapter" id="what">
     <div class="container">
       <div class="ch-grid reveal">
         <div>
-          <h2 class="section-title">Every standard framework, in one place.</h2>
+          <h2 class="section-title">Coordinate and track. That is the job.</h2>
         </div>
         <div class="prose">
-          <p>The frameworks your investigators already trust, guided step by step and filled from your own evidence rather than a blank page.</p>
+          <p>GoLanzar does two things well, and does not pretend to do more. It coordinates every function onto one plan, and it tracks that plan against the launch date.</p>
         </div>
       </div>
-      <div class="val3 reveal m-acc">
-        <div class="v">
-          <div class="pic48 grad"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.2a2.5 2.5 0 1 1 3.4 2.3c-.8.4-1.1.9-1.1 1.8"/><path d="M12 16.4h.01"/></svg></div>
-          <h3>Structured questioning</h3>
-          <p>Why-Why drills from the symptom to the true cause, one question at a time, with each step recorded.</p>
+      <div class="duo reveal m-acc">
+        <div class="d">
+          <div class="pic48 grad"><svg viewBox="0 0 24 24"><circle cx="6" cy="5" r="2"/><circle cx="6" cy="12" r="2"/><circle cx="6" cy="19" r="2"/><circle cx="19" cy="12" r="2"/><path d="M8 5h3a4 4 0 0 1 4 4v0M8 12h9M8 19h3a4 4 0 0 0 4-4v0"/></svg></div>
+          <h3>Coordinate</h3>
+          <ul>
+            <li>Every launch function on one plan</li>
+            <li>Dependencies mapped between activities</li>
+            <li>A named owner on every step</li>
+          </ul>
         </div>
-        <div class="v">
-          <div class="pic48 grad"><svg viewBox="0 0 24 24"><path d="M3 12h17"/><path d="M20 12l-3-3M20 12l-3 3"/><path d="M8 12l-2-3M8 12l-2 3M13 12l-2-3M13 12l-2 3"/></svg></div>
-          <h3>Cause and effect, mapped</h3>
-          <p>Fishbone and 6M organise causes across Man, Method, Machine, Measurement, Material and Environment.</p>
-        </div>
-        <div class="v">
-          <div class="pic48 grad"><svg viewBox="0 0 24 24"><rect x="6" y="3" width="12" height="18" rx="2"/><path d="M9 3h6v3H9z"/><path d="M9 12l1.8 1.8L15 10"/></svg></div>
-          <h3>Evidence from the floor</h3>
-          <p>Interviews and Gemba-walk findings are captured against the investigation, not left in a notebook.</p>
+        <div class="d">
+          <div class="pic48 grad"><svg viewBox="0 0 24 24"><path d="M4 19V5M4 19h16M8 15l3-3 3 2 4-5"/><circle cx="20" cy="8" r="1.4"/></svg></div>
+          <h3>Track</h3>
+          <ul>
+            <li>Live progress on every activity</li>
+            <li>The critical path, tracked in real time</li>
+            <li>Slippage visible before it costs the window</li>
+          </ul>
         </div>
       </div>
-      <div class="reveal" style="margin-top:var(--sp-6)">
-        <p class="numcap" style="margin:0 0 var(--sp-2)">And more, such as</p>
-        <span class="chip-light">Process Mapping</span>
-        <span class="chip-light">FMEA</span>
-        <span class="chip-light">Pareto Analysis</span>
-        <span class="chip-light">Fault Tree Analysis</span>
-        <span class="chip-light">Brainstorming</span>
-      </div>
-      <p class="numcap reveal" style="margin-top:var(--sp-4)">Guided by AI, grounded in your own investigation history, and built and run on <a href="pivotpath-pivotos.html">PivotOS</a>, the validated GxP cloud foundation.</p>
+      <p class="numcap reveal" style="margin-top:var(--sp-5)">GoLanzar is built and run on <a href="pivotpath-pivotos.html">PivotOS</a>, the validated GxP cloud foundation.</p>
     </div>
   </section>
 
-  <!-- ============ CH 4 — GUIDED, NOT FROM A BLANK PAGE (from -> to) ============ -->
+  <!-- ============ CH 4 — COORDINATED, NOT CHASED (from -> to) ============ -->
   <section class="pad80 grey chapter" id="compare">
     <div class="container">
       <div class="ch-grid reveal">
         <div>
-          <h2 class="section-title">Guided, not from a blank page.</h2>
+          <h2 class="section-title">Coordinated, not chased.</h2>
         </div>
         <div class="prose">
-          <p>A manual investigation starts with an empty template and depends on who is holding the pen. InvestigationIQ changes that.</p>
+          <p>Without one plan, a launch is run from status meetings and a stack of spreadsheets. GoLanzar changes that.</p>
         </div>
       </div>
       <div class="fromto reveal">
-        <div class="r hd"><div class="hfrom">The manual way today</div><div class="ar"></div><div class="hto">With InvestigationIQ</div></div>
-        <div class="r"><div class="from">A blank template</div><div class="ar">&rarr;</div><div class="to">Guided, step by step</div></div>
-        <div class="r"><div class="from">Depends who runs it</div><div class="ar">&rarr;</div><div class="to">Consistent every time</div></div>
-        <div class="r"><div class="from">Memory and notebooks</div><div class="ar">&rarr;</div><div class="to">Grounded in your history</div></div>
-        <div class="r"><div class="from">Days per investigation</div><div class="ar">&rarr;</div><div class="to">Hours per investigation</div></div>
+        <div class="r hd"><div class="hfrom">The manual way today</div><div class="ar"></div><div class="hto">With GoLanzar</div></div>
+        <div class="r"><div class="from">Spreadsheets per function</div><div class="ar">&rarr;</div><div class="to">One plan for every function</div></div>
+        <div class="r"><div class="from">Status rebuilt in meetings</div><div class="ar">&rarr;</div><div class="to">Real-time progress</div></div>
+        <div class="r"><div class="from">Slippage found late</div><div class="ar">&rarr;</div><div class="to">Slippage visible early</div></div>
+        <div class="r"><div class="from">Who owns this?</div><div class="ar">&rarr;</div><div class="to">An owner on every step</div></div>
       </div>
     </div>
   </section>
@@ -438,90 +438,49 @@
     <div class="container">
       <div class="ch-grid reveal">
         <div>
-          <h2 class="section-title">InvestigationIQ, at work.</h2>
+          <h2 class="section-title">GoLanzar, at work.</h2>
         </div>
         <div class="prose">
-          <p>Three views from one investigation: the guided questioning, the cause-and-effect map, and the systematic categorisation behind the conclusion.</p>
+          <p>Two views from one launch: the product record that holds every function, and the activities beneath it with their owners and dependencies.</p>
         </div>
       </div>
-      <!-- Feature carousel: one framework per slide (swipe / arrows / dots). Fixed height.
+      <!-- Feature carousel: one view per slide (swipe / arrows / dots). Fixed height.
            Each shot is responsive: <picture> serves a zoomed mobile crop (-sm) at <=991.98px. -->
       <div class="cwrap reveal">
         <div class="ctrack" id="closerTrack">
           <div class="cslide">
             <div class="cslide-in">
-              <h3>Structured questioning, guided</h3>
-              <p>Why-Why walks the investigator from the symptom to the cause, one question at a time, with justification and answers captured on each step.</p>
-              <div class="pshot"><picture><source media="(max-width:991.98px)" srcset="assets/iq-shot-whywhy-sm.png" /><img src="assets/iq-shot-whywhy.png" alt="InvestigationIQ Why-Why form: the investigation question, an optional justification and an answer field, with framework tabs above" loading="lazy" /></picture></div>
+              <h3>Every launch function, one record</h3>
+              <p>Each launch product carries its market, dosage, pack and dates on one record, with the launch manager named and progress tracked from setup to dispatch.</p>
+              <div class="pshot"><picture><source media="(max-width:991.98px)" srcset="assets/gl-shot-product-sm.png" /><img src="assets/gl-shot-product.png" alt="GoLanzar launch product record: product and sub-product details with launch manager, market, pack type and progress" loading="lazy" /></picture></div>
             </div>
           </div>
           <div class="cslide">
             <div class="cslide-in">
-              <h3>The cause-and-effect map</h3>
-              <p>Fishbone gathers the candidate causes onto one diagram, grouped by category and pointing at the effect under investigation.</p>
-              <div class="pshot"><picture><source media="(max-width:991.98px)" srcset="assets/iq-shot-fishbone-sm.png" /><img src="assets/iq-shot-fishbone.png" alt="InvestigationIQ fishbone diagram: candidate causes grouped by category along the spine, pointing at the effect under investigation" loading="lazy" /></picture></div>
-            </div>
-          </div>
-          <div class="cslide">
-            <div class="cslide-in">
-              <h3>Systematic categorisation</h3>
-              <p>6M sorts every factor and sub-cause into categories with an applicability call and findings, so the analysis is complete and reviewable.</p>
-              <div class="pshot"><picture><source media="(max-width:991.98px)" srcset="assets/iq-shot-6m-sm.png" /><img src="assets/iq-shot-6m.png" alt="InvestigationIQ 6M root-cause table: categories, factors and sub-causes with applicability and remarks columns" loading="lazy" /></picture></div>
+              <h3>Owners and dependencies, step by step</h3>
+              <p>Each activity has a named owner, a progress percentage and its dependencies, so every team knows what unblocks the next.</p>
+              <div class="pshot"><picture><source media="(max-width:991.98px)" srcset="assets/gl-shot-activity-sm.png" /><img src="assets/gl-shot-activity.png" alt="GoLanzar activity editor: launch activities linked by dependency, each with a named owner and progress percentage" loading="lazy" /></picture></div>
             </div>
           </div>
         </div>
         <div class="cctrls">
-          <button class="cbtn" type="button" data-cdir="-1" aria-label="Previous framework">&lsaquo;</button>
-          <div class="cdots" id="closerDots" aria-label="Framework slides"></div>
-          <button class="cbtn" type="button" data-cdir="1" aria-label="Next framework">&rsaquo;</button>
+          <button class="cbtn" type="button" data-cdir="-1" aria-label="Previous view">&lsaquo;</button>
+          <div class="cdots" id="closerDots" aria-label="Product views"></div>
+          <button class="cbtn" type="button" data-cdir="1" aria-label="Next view">&rsaquo;</button>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ CH 6 — DIVISION OF LABOUR ============ -->
-  <section class="pad80 grey chapter" id="ai">
-    <div class="container">
-      <div class="ch-grid reveal">
-        <div>
-          <h2 class="section-title">AI does the legwork. People make the calls.</h2>
-        </div>
-        <div class="prose">
-          <p>Root-cause analysis is judgement work, and it stays that way. InvestigationIQ recommends the frameworks, drafts the questions and retrieves the relevant history, so your investigators spend their time reasoning, not formatting. The AI runs on <a href="pivotpath-pivotai.html">PivotAI</a>, the AI layer inside <a href="pivotpath-pivotos.html">PivotOS</a>.</p>
-          <p>Its suggestions are grounded in your own approved content, and your data is never used to train foundation models.</p>
-        </div>
-      </div>
-      <div class="val3 reveal m-acc">
-        <div class="v">
-          <div class="pic48"><svg viewBox="0 0 24 24"><path d="M4 20l4-1 9.5-9.5-3-3L5 16z"/><path d="M14 7l3 3"/></svg></div>
-          <h3>AI does the legwork</h3>
-          <p>Recommends frameworks, drafts questions and retrieves the relevant history for each case.</p>
-        </div>
-        <div class="v">
-          <div class="pic48"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M4 20c0-3.3 2.4-5.5 5-5.5"/><path d="M14 14l2.2 2.2L21 11.4"/></svg></div>
-          <h3>People make the calls</h3>
-          <p>Your investigator does the reasoning and signs off the conclusion.</p>
-        </div>
-        <div class="v">
-          <div class="pic48"><svg viewBox="0 0 24 24"><path d="M9 15l6-6"/><path d="M10.5 6.5l1-1a4 4 0 0 1 5.9 5.9l-1 1M13.5 17.5l-1 1a4 4 0 0 1-5.9-5.9l1-1"/></svg></div>
-          <h3>Grounded, not guessing</h3>
-          <p>Every suggestion traces back to your own investigation history and templates.</p>
-        </div>
-      </div>
-      <p class="rule-line reveal">Nothing critical is released without a human reviewer in the chain.</p>
-    </div>
-  </section>
-
-  <!-- ============ CH 7 — THE DEFENSIBLE CONCLUSION (dark band) ============ -->
+  <!-- ============ CH 6 — THE DATE (dark conviction band) ============ -->
   <section class="pad80 band" id="assurance">
     <div class="container">
       <div class="ch-grid reveal">
         <div>
-          <h2 class="section-title">A conclusion you can defend, and a CAPA that follows.</h2>
+          <h2 class="section-title">A slipping launch date stops being a surprise.</h2>
         </div>
         <div class="prose">
-          <p>Because every step is guided, recorded and grounded in your own evidence, the investigation is complete and consistent, and the corrective action that follows stands on a root cause you can defend in review.</p>
-          <p><a href="pivotpath-ai-trust.html">Read the AI Trust Centre</a> for how we govern AI in regulated work.</p>
+          <p>Because every function reports into one plan and the critical path is tracked live, a delay that threatens the launch date is visible and owned while there is still time to act, not discovered when the window has already closed.</p>
         </div>
       </div>
     </div>
@@ -531,34 +490,34 @@
   <section class="pad80 grey" id="faq">
     <div class="container">
       <div class="text-center mb-5">
-        <h2 class="section-title reveal">InvestigationIQ, <span class="grad-text">Explained</span></h2>
+        <h2 class="section-title reveal">GoLanzar, <span class="grad-text">Explained</span></h2>
       </div>
       <div class="row justify-content-center">
         <div class="col-lg-9">
           <div class="accordion reveal" id="faqAcc">
             <div class="accordion-item">
-              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q1">What problem does InvestigationIQ solve?</button></h2>
-              <div id="q1" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Root-cause analysis is slow, inconsistent and depends on a few experienced people. InvestigationIQ guides every investigation through the standard frameworks and drafts from your own history, so investigations are thorough and consistent whoever runs them, and your specialists get their time back.</div></div>
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q1">What problem does GoLanzar solve?</button></h2>
+              <div id="q1" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">A pharmaceutical launch runs across a dozen functions, from regulatory to packaging to manufacturing, each on its own plan. They drift out of sync until a missed dependency costs the launch window. GoLanzar puts every function on one critical-path plan, so the whole launch and the one date are visible in one place.</div></div>
             </div>
             <div class="accordion-item">
-              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2">Does InvestigationIQ replace my investigators?</button></h2>
-              <div id="q2" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">No. It is an assistant. It recommends frameworks, drafts questions and retrieves relevant history, but your investigator does the reasoning and signs off the conclusion.</div></div>
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2">Does GoLanzar replace my spreadsheets and status meetings?</button></h2>
+              <div id="q2" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Yes. It replaces scattered spreadsheets and email with one accountable plan, so every function works from the same milestones and status is read from one source of truth, not rebuilt in meetings.</div></div>
             </div>
             <div class="accordion-item">
-              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q3">Which frameworks does it support?</button></h2>
-              <div id="q3" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Why-Why, Fishbone, 6M, Interviews and Gemba walks, plus Process Mapping, FMEA, Pareto, Fault Tree and Brainstorming. The assistant recommends the ones that fit the case, and the investigator chooses.</div></div>
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q3">How does it show me risk to the launch date?</button></h2>
+              <div id="q3" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">It maps every activity and dependency onto the critical path and tracks progress live. The path that actually sets the launch date is highlighted, so a slipping activity is visible and owned before it threatens the date.</div></div>
             </div>
             <div class="accordion-item">
-              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q4">How much time does InvestigationIQ save?</button></h2>
-              <div id="q4" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Up to around 7 hours on a single investigation, an estimated 40 to 60 percent cycle-time reduction. Across a year of investigations, that is hundreds of hours returned to your specialists. Time saved varies by case.</div></div>
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q4">Does GoLanzar integrate with my ERP or QMS?</button></h2>
+              <div id="q4" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">No. GoLanzar is a coordination and tracking layer, not a system integration. Your functions update progress against the one plan, so the launch view stays current without replacing or connecting into your ERP or QMS.</div></div>
             </div>
             <div class="accordion-item">
-              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q5">Where do its suggestions come from?</button></h2>
-              <div id="q5" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Your own past investigations and templates. InvestigationIQ retrieves and grounds its suggestions in your approved content rather than inventing them, so the reasoning reflects how your site actually works.</div></div>
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q5">Who uses GoLanzar?</button></h2>
+              <div id="q5" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Launch, portfolio and commercial leads, with dashboards and executive visibility across every function.</div></div>
             </div>
             <div class="accordion-item">
-              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q6">Will the investigation hold up in review?</button></h2>
-              <div id="q6" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Yes. Every step is guided, recorded and grounded in your own evidence, so the investigation is complete and consistent and the corrective action that follows stands on a defensible root cause.</div></div>
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q6">How is it different from a generic project tool?</button></h2>
+              <div id="q6" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">It is purpose-built for pharmaceutical launches, with launch-specific functions, milestones and critical-path tracking, not a generic task tracker.</div></div>
             </div>
             <div class="accordion-item">
               <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q7">How does Pivot Path use AI responsibly and safely?</button></h2>
@@ -573,17 +532,17 @@
   <!-- ============ FINAL CTA ============ -->
   <section class="pad80 final-cta text-center" id="contact">
     <div class="container">
-      <h2 class="section-title text-white reveal mb-3">See InvestigationIQ <span class="grad-text">on your own investigation.</span></h2>
-      <p class="text-white-50 reveal mb-4" style="max-width:640px;margin-inline:auto">We will run a real root cause through the guided frameworks on your own templates.</p>
+      <h2 class="section-title text-white reveal mb-3">Plan your next launch <span class="grad-text">on GoLanzar.</span></h2>
+      <p class="text-white-50 reveal mb-4" style="max-width:640px;margin-inline:auto">See your whole launch on one critical-path plan.</p>
       <div class="hero-ctas justify-content-center reveal">
-        <a href="mailto:info@pivotpath.com" class="btns2 solid-light">Book an InvestigationIQ demo</a>
-        <a href="pivotpath-quality-compliance.html" class="btns-line">Explore Quality &amp; Compliance services</a>
+        <a href="mailto:info@pivotpath.com" class="btns2 solid-light">Book a GoLanzar demo</a>
+        <a href="pivotpath-how-we-operate.html" class="btns-line">See how we operate</a>
       </div>
     </div>
   </section>
 
   <!-- ver-switch: base/narrative review toggle -->
-  <div style="position:fixed;left:18px;bottom:18px;z-index:1050;display:inline-flex;align-items:center;gap:2px;background:#10161d;border-radius:999px;padding:4px;box-shadow:0 8px 24px rgba(0,0,0,.28)"><a href="pivotpath-investigationiq.html" style="padding:.5rem .95rem;border-radius:999px;color:#cfd6dd;font-size:.72rem;font-weight:700;text-decoration:none">base-page</a><span style="padding:.5rem .95rem;border-radius:999px;background:#fff;color:#10161d;font-size:.72rem;font-weight:800">narrative-page</span></div>
+  <div style="position:fixed;left:18px;bottom:18px;z-index:1050;display:inline-flex;align-items:center;gap:2px;background:#10161d;border-radius:999px;padding:4px;box-shadow:0 8px 24px rgba(0,0,0,.28)"><a href="pivotpath-golanzar.html" style="padding:.5rem .95rem;border-radius:999px;color:#cfd6dd;font-size:.72rem;font-weight:700;text-decoration:none">base-page</a><span style="padding:.5rem .95rem;border-radius:999px;background:#fff;color:#10161d;font-size:.72rem;font-weight:800">narrative-page</span></div>
 
   <!-- ============ FOOTER ============ -->
 
@@ -667,7 +626,7 @@
       slides.forEach(function(s,i){
         var d=document.createElement('button');
         d.type='button';d.className='cdot'+(i===0?' active':'');
-        d.setAttribute('aria-label','Go to framework '+(i+1));
+        d.setAttribute('aria-label','Go to view '+(i+1));
         d.addEventListener('click',function(){track.scrollTo({left:i*track.clientWidth,behavior:'smooth'});});
         dotsWrap.appendChild(d);
       });
