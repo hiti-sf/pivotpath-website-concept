@@ -19,3 +19,6 @@ screenshots/
 !tooling/build.py
 !tooling/partials/
 !tooling/partials/**
+
+# Playwright MCP session artifacts
+.playwright-mcp/

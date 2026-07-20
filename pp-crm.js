@@ -20,6 +20,13 @@
 
   function isEmail(v) { return /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v); }
 
+  // Path-aware privacy link (works from root pages and sub-dir pages like /eu/).
+  function privacyHref() {
+    var s = document.querySelector('script[src$="pp-crm.js"]');
+    var src = s ? s.getAttribute("src") : "pp-crm.js";
+    return src.replace(/pp-crm\.js.*$/, "") + "pivotpath-privacy-policy.html";
+  }
+
   // A lead CTA = "Talk to our ...", "Book a[n] ... demo", "Submit RFP", or any mailto.
   function isLeadCta(a) {
     var txt = (a.textContent || "").trim().toLowerCase();
@@ -48,6 +55,7 @@
           '<input name="phone" placeholder="Phone (optional)" autocomplete="tel">' +
           '<div class="pp-lead-err" role="alert"></div>' +
           '<button type="submit" class="pp-lead-submit">Submit</button>' +
+          '<p class="pp-lead-privacy">By submitting, you agree we may contact you about your enquiry. See our <a href="' + privacyHref() + '">Privacy Policy</a>.</p>' +
           '<p class="pp-lead-ctx"></p>' +
         '</form>' +
         '<div class="pp-lead-done" hidden><h3>Thank you</h3>' +
@@ -93,9 +101,11 @@
   }
 
   // Freshmarketer behavioural custom event (timeline / journeys / segmentation).
-  // No-op if FM isn't present. Works for anonymous visitors too (no email yet).
+  // Marketing-category tracking — only fires with marketing consent, and only if
+  // FM is present (the Freshworks widget loads under functional consent).
   function fmEvent(name, props) {
     try {
+      if (window.ppConsent && !ppConsent.get("marketing")) return;
       if (typeof FM !== "undefined" && FM.trackCustomEvent) FM.trackCustomEvent(name, props || {});
     } catch (e) { /* no-op */ }
   }
