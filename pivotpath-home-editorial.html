@@ -446,42 +446,108 @@
       <div class="arch reveal">
         <svg class="iso" viewBox="0 0 360 480" role="img" aria-label="Seven platforms on the PivotAI intelligence layer, on the PivotOS foundation" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Roboto,Arial,sans-serif">
           <defs>
-            <linearGradient id="hmg" x1="0" y1="1" x2="1" y2="0">
-              <stop offset="0" stop-color="#71bf44"/><stop offset=".55" stop-color="#20a676"/><stop offset="1" stop-color="#1b91a3"/>
+            <rect id="plate-rect" x="-75" y="-75" width="150" height="150" rx="16" />
+            <linearGradient id="brand-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#71bf44" />
+              <stop offset="50%" stop-color="#20a676" />
+              <stop offset="100%" stop-color="#1b91a3" />
             </linearGradient>
+            <filter id="shadow-blur" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="8" />
+            </filter>
           </defs>
-          <!-- PivotOS (bottom) -->
-          <g>
-            <path d="M35 380 L35 396 L180 472 L180 456 Z" fill="#141c26"/>
-            <path d="M325 380 L325 396 L180 472 L180 456 Z" fill="#1a2430"/>
-            <path d="M180 320 L325 380 L180 440 L35 380 Z" fill="#222d3a" stroke="rgba(255,255,255,.25)" stroke-width="1"/>
-            <g transform="translate(180,366)" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M0 -10 l9 5 -9 5 -9 -5 z"/>
-              <path d="M-9 4 l9 5 9 -5"/>
+          <ellipse cx="180" cy="415" rx="100" ry="30" fill="#000000" opacity="0.35" filter="url(#shadow-blur)" />
+          <!-- ===== BOTTOM PLATE (PivotOS) ===== -->
+          <g transform="translate(180, 360)">
+            <g fill="#141c26">
+              <g transform="translate(0, 12) scale(1, 0.5) rotate(45)"><use href="#plate-rect"/></g>
+              <g transform="translate(0, 11) scale(1, 0.5) rotate(45)"><use href="#plate-rect"/></g>
+              <g transform="translate(0, 10) scale(1, 0.5) rotate(45)"><use href="#plate-rect"/></g>
+              <g transform="translate(0, 9) scale(1, 0.5) rotate(45)"><use href="#plate-rect"/></g>
+              <g transform="translate(0, 8) scale(1, 0.5) rotate(45)"><use href="#plate-rect"/></g>
+              <g transform="translate(0, 7) scale(1, 0.5) rotate(45)"><use href="#plate-rect"/></g>
+              <g transform="translate(0, 6) scale(1, 0.5) rotate(45)"><use href="#plate-rect"/></g>
+              <g transform="translate(0, 5) scale(1, 0.5) rotate(45)"><use href="#plate-rect"/></g>
+              <g transform="translate(0, 4) scale(1, 0.5) rotate(45)"><use href="#plate-rect"/></g>
+              <g transform="translate(0, 3) scale(1, 0.5) rotate(45)"><use href="#plate-rect"/></g>
+              <g transform="translate(0, 2) scale(1, 0.5) rotate(45)"><use href="#plate-rect"/></g>
+              <g transform="translate(0, 1) scale(1, 0.5) rotate(45)"><use href="#plate-rect"/></g>
             </g>
-            <text x="180" y="406" text-anchor="middle" font-size="13" font-weight="800" letter-spacing="0.3" fill="#8b95a0">PivotOS</text>
-          </g>
-          <!-- PivotAI (middle) -->
-          <g>
-            <path d="M35 225 L35 241 L180 317 L180 301 Z" fill="#157f68"/>
-            <path d="M325 225 L325 241 L180 317 L180 301 Z" fill="#1b8f79"/>
-            <path d="M180 165 L325 225 L180 285 L35 225 Z" fill="url(#hmg)"/>
-            <g transform="translate(180,211)" fill="#fff">
-              <path d="M0 -12 C1.2 -4.8 4.8 -1.2 12 0 C4.8 1.2 1.2 4.8 0 12 C-1.2 4.8 -4.8 1.2 -12 0 C-4.8 -1.2 -1.2 -4.8 0 -12 Z"/>
+            <g transform="scale(1, 0.5) rotate(45)">
+              <use href="#plate-rect" fill="#222d3a"/>
+              <g fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <ellipse cx="0" cy="-12" rx="18" ry="6"/>
+                <path d="M -18 -12 v 12 c 0 5 36 5 36 0 v -12"/>
+                <path d="M -18 0 v 12 c 0 5 36 5 36 0 v -12"/>
+              </g>
             </g>
-            <text x="180" y="251" text-anchor="middle" font-size="13" font-weight="800" letter-spacing="0.3" fill="#ffffff">PivotAI</text>
           </g>
-          <!-- Platforms (top) -->
-          <g>
-            <path d="M35 70 L35 86 L180 162 L180 146 Z" fill="#e7ebe6"/>
-            <path d="M325 70 L325 86 L180 162 L180 146 Z" fill="#eff2ee"/>
-            <path d="M180 10 L325 70 L180 130 L35 70 Z" fill="#ffffff" stroke="#dfe3df" stroke-width="1"/>
-            <g transform="translate(180,56)" fill="none" stroke="#10161d" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="-14" y="-11" width="28" height="17" rx="2"/>
-              <path d="M-5 11 H5 M0 6 V11"/>
+          <!-- ===== MIDDLE PLATE (PivotAI) ===== -->
+          <g transform="translate(180, 240)">
+            <g fill="#167a6a">
+              <g transform="translate(0, 12) scale(1, 0.5) rotate(45)"><use href="#plate-rect"/></g>
+              <g transform="translate(0, 11) scale(1, 0.5) rotate(45)"><use href="#plate-rect"/></g>
+              <g transform="translate(0, 10) scale(1, 0.5) rotate(45)"><use href="#plate-rect"/></g>
+              <g transform="translate(0, 9) scale(1, 0.5) rotate(45)"><use href="#plate-rect"/></g>
+              <g transform="translate(0, 8) scale(1, 0.5) rotate(45)"><use href="#plate-rect"/></g>
+              <g transform="translate(0, 7) scale(1, 0.5) rotate(45)"><use href="#plate-rect"/></g>
+              <g transform="translate(0, 6) scale(1, 0.5) rotate(45)"><use href="#plate-rect"/></g>
+              <g transform="translate(0, 5) scale(1, 0.5) rotate(45)"><use href="#plate-rect"/></g>
+              <g transform="translate(0, 4) scale(1, 0.5) rotate(45)"><use href="#plate-rect"/></g>
+              <g transform="translate(0, 3) scale(1, 0.5) rotate(45)"><use href="#plate-rect"/></g>
+              <g transform="translate(0, 2) scale(1, 0.5) rotate(45)"><use href="#plate-rect"/></g>
+              <g transform="translate(0, 1) scale(1, 0.5) rotate(45)"><use href="#plate-rect"/></g>
             </g>
-            <text x="180" y="96" text-anchor="middle" font-size="12.5" font-weight="700" letter-spacing="0.3" fill="#6b7280">Platforms</text>
+            <g transform="scale(1, 0.5) rotate(45)">
+              <use href="#plate-rect" fill="url(#brand-grad)"/>
+              <path d="M 0 -26 C 2 -9 9 -2 26 0 C 9 2 2 9 0 26 C -2 9 -9 2 -26 0 C -9 -2 -2 -9 0 -26 Z" fill="#ffffff"/>
+            </g>
           </g>
+          <!-- ===== TOP PLATE (Platforms) ===== -->
+          <g transform="translate(180, 120)">
+            <g fill="#dfe3df">
+              <g transform="translate(0, 12) scale(1, 0.5) rotate(45)"><use href="#plate-rect"/></g>
+              <g transform="translate(0, 11) scale(1, 0.5) rotate(45)"><use href="#plate-rect"/></g>
+              <g transform="translate(0, 10) scale(1, 0.5) rotate(45)"><use href="#plate-rect"/></g>
+              <g transform="translate(0, 9) scale(1, 0.5) rotate(45)"><use href="#plate-rect"/></g>
+              <g transform="translate(0, 8) scale(1, 0.5) rotate(45)"><use href="#plate-rect"/></g>
+              <g transform="translate(0, 7) scale(1, 0.5) rotate(45)"><use href="#plate-rect"/></g>
+              <g transform="translate(0, 6) scale(1, 0.5) rotate(45)"><use href="#plate-rect"/></g>
+              <g transform="translate(0, 5) scale(1, 0.5) rotate(45)"><use href="#plate-rect"/></g>
+              <g transform="translate(0, 4) scale(1, 0.5) rotate(45)"><use href="#plate-rect"/></g>
+              <g transform="translate(0, 3) scale(1, 0.5) rotate(45)"><use href="#plate-rect"/></g>
+              <g transform="translate(0, 2) scale(1, 0.5) rotate(45)"><use href="#plate-rect"/></g>
+              <g transform="translate(0, 1) scale(1, 0.5) rotate(45)"><use href="#plate-rect"/></g>
+            </g>
+            <g transform="scale(1, 0.5) rotate(45)">
+              <use href="#plate-rect" fill="#ffffff"/>
+              <g transform="translate(-32, -32)">
+                <rect x="-14" y="-14" width="28" height="28" rx="4" fill="none" stroke="#7f8a86" stroke-width="2.5" stroke-linejoin="round"/>
+                <line x1="-14" y1="-2" x2="14" y2="-2" stroke="#7f8a86" stroke-width="2.5" stroke-linecap="round"/>
+                <line x1="-2" y1="-2" x2="-2" y2="14" stroke="#7f8a86" stroke-width="2.5" stroke-linecap="round"/>
+              </g>
+              <g transform="translate(32, -32)">
+                <rect x="-12" y="-15" width="24" height="30" rx="3" fill="none" stroke="#7f8a86" stroke-width="2.5" stroke-linejoin="round"/>
+                <line x1="-6" y1="-6" x2="6" y2="-6" stroke="#7f8a86" stroke-width="2.5" stroke-linecap="round"/>
+                <line x1="-6" y1="0" x2="6" y2="0" stroke="#7f8a86" stroke-width="2.5" stroke-linecap="round"/>
+                <line x1="-6" y1="6" x2="1" y2="6" stroke="#7f8a86" stroke-width="2.5" stroke-linecap="round"/>
+              </g>
+              <g transform="translate(32, 32)">
+                <path d="M -9 -9 L -9 0 L 0 0 M 0 0 L 0 9 L 9 9" fill="none" stroke="#7f8a86" stroke-width="2.5" stroke-linejoin="round"/>
+                <circle cx="-9" cy="-9" r="3.5" fill="#ffffff" stroke="#7f8a86" stroke-width="2.5"/>
+                <circle cx="0" cy="0" r="3.5" fill="#ffffff" stroke="#7f8a86" stroke-width="2.5"/>
+                <circle cx="9" cy="9" r="3.5" fill="#ffffff" stroke="#7f8a86" stroke-width="2.5"/>
+              </g>
+              <g transform="translate(-32, 32)">
+                <circle cx="-3" cy="-3" r="8" fill="none" stroke="#7f8a86" stroke-width="2.5"/>
+                <line x1="3" y1="3" x2="11" y2="11" stroke="#7f8a86" stroke-width="2.5" stroke-linecap="round"/>
+              </g>
+            </g>
+          </g>
+          <!-- ===== TIER LABELS (right-margin, aligned to plate centres) ===== -->
+          <text x="292" y="125" text-anchor="start" font-size="13" font-weight="700" letter-spacing="0.2" fill="#e6e9ec">Platforms</text>
+          <text x="292" y="245" text-anchor="start" font-size="13" font-weight="700" letter-spacing="0.2" fill="#e6e9ec">PivotAI</text>
+          <text x="292" y="365" text-anchor="start" font-size="13" font-weight="700" letter-spacing="0.2" fill="#e6e9ec">PivotOS</text>
         </svg>
         <div>
           <h2 class="section-title" style="margin-bottom:var(--sp-4)">Seven platforms. One foundation.</h2>
