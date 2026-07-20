@@ -17,7 +17,7 @@
 
   var CONFIG = {
     GA4_MEASUREMENT_ID:          "G-9KWG1J0669",   // GA4 → Admin ▸ Data Streams ▸ Web
-    GOOGLE_ADS_ID:               "AW-XXXXXXXXXX",  // Google Ads ▸ Goals ▸ Conversions ▸ tag
+    GOOGLE_ADS_ID:               "AW-6780614429",  // Google Ads acct 678-061-4429 ▸ Goals ▸ Conversions ▸ Google tag
     GOOGLE_ADS_CONVERSION_LABEL: "XxXxXxXxXxXxXxXxXx", // the conversion action's label
     BING_UET_TAG_ID:             "XXXXXXXX"         // Microsoft Advertising ▸ UET tag
   };
