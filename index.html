@@ -5,103 +5,121 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <title>Pivot Path: The Pharma Operations Platform Company</title>
-  <meta name="description" content="Pivot Path, the pharma operations platform company: safety, quality, manufacturing and talent, run as one from molecule to launch." />
+  <meta name="description" content="Pivot Path runs regulated pharma operations: seven software platforms with AI at the core, implemented and run by 450+ pharma-native operators." />
   <link rel="preconnect" href="https://cdn.jsdelivr.net" />
   <link rel="preload" href="pp.css?v=50" as="style" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
   <link rel="stylesheet" href="pp.css?v=50" />
   <link rel="icon" type="image/png" href="assets/chevron.png" />
-  <script type="application/ld+json">
-  {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": "https://pivotpath.com/#organization",
-      "name": "Pivot Path",
-      "url": "https://pivotpath.com/",
-      "logo": "https://pivotpath.com/pp-logo-black.svg",
-      "description": "Pivot Path is a Pharma Operations Platform company: seven software platforms, AI at the core, implemented and run by 450+ pharma-native operators.",
-      "email": "info@pivotpath.com",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Bengaluru",
-        "addressRegion": "Karnataka",
-        "addressCountry": "IN"
-      },
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "contactType": "sales",
-        "email": "info@pivotpath.com",
-        "areaServed": "Worldwide"
-      }
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://pivotpath.com/#website",
-      "url": "https://pivotpath.com/",
-      "name": "Pivot Path",
-      "publisher": {
-        "@id": "https://pivotpath.com/#organization"
-      }
-    },
-    {
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "What is Pivot Path?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "A Pharma Operations Platform company, born out of a 35-year-old pharma group: seven software platforms with AI at the core, implemented and run by 450+ pharma-native operators."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Are your platforms validated and compliant?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "They're built for GxP environments; NoteIQ is 21 CFR Part 11 and EU Annex 11 compliant, and validation follows a risk-based CSA approach aligned to GAMP 5."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How do we get started?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Bring us the problem and we'll scope the path, then map it to the right capability or platform."
-          }
-        }
-      ]
+  <style>
+    /* ==== EDITORIAL STORY LAYOUT (page-scoped; pp.css untouched) ==== */
+
+    /* Chapter: title left, prose right */
+    .ch-grid{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);column-gap:var(--sp-7);row-gap:var(--sp-4);align-items:start}
+    .ch-grid h2.section-title{margin-bottom:0;max-width:14ch}
+    .prose p{font-size:var(--fs-lead);line-height:1.75;color:var(--pp-ink);max-width:62ch;margin:0 0 var(--sp-4)}
+    .prose p:last-child{margin-bottom:0}
+    .chapter{border-top:1px solid var(--pp-line)}
+
+    /* Big standalone statement */
+    .statement{font-size:var(--fs-display);font-weight:800;line-height:1.1;letter-spacing:-.015em;color:var(--pp-ink);max-width:22ch;margin:0 0 var(--sp-5)}
+
+    /* Icon tiles */
+    .pic48{flex:none;width:48px;height:48px;border-radius:var(--r-md);background:var(--pp-accent);display:flex;align-items:center;justify-content:center;margin-bottom:var(--sp-3)}
+    .pic48 svg{width:24px;height:24px;fill:none;stroke:#fff;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+    .pic48.grad{background:var(--pp-grad)}
+    .pic48.ink{background:var(--pp-ink)}
+
+    /* Engagement triad strip */
+    .pic40{flex:none;width:40px;height:40px;border-radius:var(--r-md);background:var(--pp-accent);display:flex;align-items:center;justify-content:center}
+    .pic40 svg{width:20px;height:20px;fill:none;stroke:#fff;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+    .triad{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--sp-4);border-top:1px solid var(--pp-line);margin-top:var(--sp-6);padding-top:var(--sp-5)}
+    .triad .t{display:flex;align-items:center;gap:var(--sp-3)}
+    .triad h3{font-size:var(--fs-h5);font-weight:800;margin:0;text-transform:none}
+    .triad p{margin:0;color:var(--pp-muted);font-size:var(--fs-sm)}
+
+    /* Dense number strip */
+    .numrow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--pp-line);border-bottom:1px solid var(--pp-line);margin-top:var(--sp-6)}
+    .numrow .c{padding:var(--sp-4);border-left:1px solid var(--pp-line)}
+    .numrow .c:first-child{border-left:0;padding-left:0}
+    .numrow .n{font-size:1.6rem;font-weight:800;color:var(--pp-ink);line-height:1.1;font-variant-numeric:tabular-nums}
+    .numrow .l{font-size:var(--fs-sm);color:var(--pp-muted);margin-top:4px}
+    .numcap{font-size:var(--fs-sm);color:var(--pp-muted);margin-top:var(--sp-3)}
+
+    /* Six practices cells */
+    .svc-c h3{font-size:var(--fs-h4);font-weight:700;margin:var(--sp-3) 0 var(--sp-1);text-transform:none}
+    .svc-c p{color:var(--pp-muted);font-size:var(--fs-body);line-height:1.6;margin:0 0 var(--sp-2)}
+    a.pl-link{display:inline-block;font-size:var(--fs-sm);font-weight:700;color:var(--pp-accent);text-decoration:none}
+    a.pl-link:hover{text-decoration:underline}
+
+    /* Molecule-to-market journey rail */
+    .hscroll:has(> .chain-wrap){overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+    .hscroll:has(> .chain-wrap)::-webkit-scrollbar{display:none}
+    .chain-wrap{min-width:960px}
+    .chain-terms{display:flex;justify-content:space-between;font-size:var(--fs-cap);letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--pp-muted);margin-bottom:var(--sp-2)}
+    .chain{position:relative;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:var(--sp-4);padding-top:var(--sp-4)}
+    .chain::before{content:"";position:absolute;top:calc(var(--sp-4) + 7px);left:8px;right:8px;height:2px;background:var(--pp-grad);opacity:.6}
+    .cl{display:block;text-decoration:none}
+    .cl .dot{display:block;width:16px;height:16px;border-radius:50%;background:var(--pp-grad);margin-bottom:var(--sp-3)}
+    .cl h3{font-size:var(--fs-h5);font-weight:800;color:var(--pp-ink);margin:0 0 var(--sp-1);text-transform:none}
+    .cl p{font-size:var(--fs-sm);color:var(--pp-muted);margin:0;line-height:1.55}
+    .cl:hover h3{color:var(--pp-accent)}
+
+    /* Outcome stat moments */
+    .out3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:var(--sp-6)}
+    .out3 .o{padding:0 var(--sp-5);border-left:1px solid var(--pp-line)}
+    .out3 .o:first-child{border-left:0;padding-left:0}
+    .out3 .o:last-child{padding-right:0}
+    .out3 .m{font-size:var(--fs-h3);font-weight:800;line-height:1.25;margin:0 0 var(--sp-3)}
+    .out3 p{color:var(--pp-muted);font-size:var(--fs-body);line-height:1.65;margin:0 0 var(--sp-3)}
+
+    /* Dark punctuation bands */
+    .band{background:var(--pp-section);color:#fff}
+    .band h2.section-title{color:#fff}
+    .band .prose p{color:rgba(255,255,255,.82)}
+    .band a{color:#fff}
+    a.chip-dark{text-decoration:none;text-transform:none;letter-spacing:.02em}
+    a.chip-dark:hover{background:rgba(255,255,255,.12)}
+
+    /* Foundation band: iso + prose */
+    .arch{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:var(--sp-6) var(--sp-7);align-items:center}
+    .iso{display:block;width:100%;max-width:340px;height:auto;margin-inline:auto}
+
+    /* View toggle */
+
+    @media (max-width:991.98px){
+      .ch-grid{grid-template-columns:1fr}
+      .ch-grid h2.section-title{max-width:none;margin-bottom:var(--sp-3)}
+      .triad{grid-template-columns:1fr;gap:var(--sp-3)}
+      .numrow{grid-template-columns:1fr 1fr}
+      .numrow .c:nth-child(odd){border-left:0;padding-left:0}
+      .numrow .c:nth-child(n+3){border-top:1px solid var(--pp-line)}
+      .out3{grid-template-columns:1fr}
+      .out3 .o{border-left:0;padding:var(--sp-4) 0;border-top:1px solid var(--pp-line)}
+      .out3 .o:first-child{border-top:0;padding-top:0}
+      .out3 .o:last-child{padding-bottom:0}
+      .arch{grid-template-columns:1fr}
+      .iso{max-width:280px}
     }
-  ]
+  </style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Pivot Path — The Pharma Operations Platform Company",
+  "description": "Pivot Path is a pharma operations platform company: seven software platforms, AI at the core, implemented and run by 450+ pharma-native operators.",
+  "url": "https://pivotpath.com/",
+  "provider": {
+    "@type": "Organization",
+    "@id": "https://pivotpath.com/#organization",
+    "name": "Pivot Path",
+    "url": "https://pivotpath.com/"
+  }
 }
   </script>
   <script src="pp-consent.js?v=51" defer></script>
   <script src="pp-analytics.js?v=50" defer></script>
   <script src="pp-crm.js?v=51" defer></script>
-  <!-- Mobile first-paint lean pass (page-scoped, review artifact — desktop untouched) -->
-  <style>
-    @media(max-width:768px){
-      /* De-duplicate competing labels on first paint: keep one message per block */
-      .lean-hide-mobile{display:none!important}
-
-      /* Hero: match the desktop green. The mobile pass stacks a 2nd rgba(0,0,0,.30)
-         overlay on top of the .28 already baked into --pp-grad-bg, over-darkening the
-         gradient. Drop the extra overlay so mobile == desktop hero. */
-      .hero-single::before{display:none}
-
-      /* Decompress the services block: the title + pills were pulled tight into the
-         first-paint fold. Give the header room and let the cards move down. */
-      #services.pad60{padding-top:var(--sp-5)}
-      #services .text-center:has(> .section-title){margin-bottom:var(--sp-4)!important}
-    }
-
-    /* Client logo strip ~30% bigger on small phones (was 14px / 64px). */
-    @media(max-width:575px){
-      .wordmark-logo{height:18px;max-width:84px}
-    }
-  </style>
 </head>
 <body class="brand-v2">
   <div class="pp-topbar"></div>
@@ -213,14 +231,14 @@
     </div>
   </header>
 
-  <!-- ============ HERO (single) ============ -->
-  <section class="hero-single" id="about">
-    <div class="container hero-single-inner text-center">
-      <h1 class="reveal">The Pharma <br class="d-md-none">Operations Platform</h1>
-      <p class="hero-sub reveal" style="white-space:normal;max-width:760px">We run your operations, with technology and AI.</p>
-      <div class="hero-ctas reveal">
-        <a href="#contact" class="btn-pill btn-pill-light">Talk to our experts</a>
-        <a href="#platforms" class="btn-pill btn-pill-ghost">Explore our platforms</a>
+  <!-- ============ PAGE HERO ============ -->
+  <section class="page-hero pad80" id="about">
+    <div class="container">
+      <h1>The pharma operations<br>platform company.</h1>
+      <p class="lead">Pivot Path runs regulated pharma operations: seven software platforms with AI at the core, implemented and run by 450+ pharma-native operators.</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btns2 solid-light">Talk to our experts</a>
+        <a href="pivotpath-platforms.html" class="btns-line">Explore our platforms</a>
       </div>
     </div>
   </section>
@@ -228,7 +246,6 @@
   <!-- ============ SOCIAL PROOF — WORDMARK STRIP ============ -->
   <section class="wordmark-strip" id="clients" aria-label="Trusted by pharma leaders">
     <div class="container">
-      <h3 class="reveal lean-hide-mobile" style="text-align:center;font-weight:800;color:#000;font-size:var(--fs-h2);line-height:1.15;margin:0 0 1.1rem">Built and delivered <span class="grad-text">by a pharma-native team.</span></h3>
       <p class="wordmark-eyebrow">Trusted by pharma leaders</p>
       <div class="wordmark-marquee reveal">
         <div class="wordmark-track">
@@ -299,122 +316,130 @@
     </div>
   </section>
 
-  <!-- ============ CAPABILITY PILL-TABS ============ -->
-  <section class="pad60" id="services">
+  <!-- ============ CH 1 — THE OFFER ============ -->
+  <section class="pad80" id="value">
     <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="section-title reveal">One <span class="grad-text">Accountable Partner</span></h2>
-        <p class="reveal offer-eyebrow" style="margin:0;white-space:nowrap">Consulting. Operations. Technology.</p>
-      </div>
-
-      <div class="hscroll reveal">
-        <div class="cap-tabs" role="tablist" aria-label="Capabilities">
-          <button class="cap-tab" role="tab" id="ct-1" aria-controls="cp-1" aria-selected="true"  tabindex="0">Patient Safety</button>
-          <button class="cap-tab" role="tab" id="ct-2" aria-controls="cp-2" aria-selected="false" tabindex="-1">Quality &amp; Digital Compliance</button>
-          <button class="cap-tab" role="tab" id="ct-3" aria-controls="cp-3" aria-selected="false" tabindex="-1">Digital Transformation</button>
-          <button class="cap-tab" role="tab" id="ct-4" aria-controls="cp-4" aria-selected="false" tabindex="-1">Intellectual Property</button>
-          <button class="cap-tab" role="tab" id="ct-5" aria-controls="cp-5" aria-selected="false" tabindex="-1">Clinical Operations</button>
-          <button class="cap-tab" role="tab" id="ct-6" aria-controls="cp-6" aria-selected="false" tabindex="-1">Human Capital</button>
+      <p class="statement reveal">Born in pharma. <span class="grad-text">Built to run it.</span></p>
+      <div class="ch-grid reveal">
+        <div>
+          <h2 class="section-title">One accountable partner.</h2>
+        </div>
+        <div class="prose">
+          <p>Consulting, operations and technology, separately contractable and compounding when combined, with one partner accountable across all three. We do not advise from the outside; we run the work.</p>
+          <p>Every practice is led by people who have held the accountability themselves, and every one of them can be contracted on its own.</p>
         </div>
       </div>
-
-      <div class="cap-panels reveal">
-        <div class="cap-panel" role="tabpanel" id="cp-1" aria-labelledby="ct-1" tabindex="0">
-          <h3 class="cap-panel-h">End-to-end pharmacovigilance you can hand over.</h3>
-          <p class="cap-panel-p"><span class="d-none d-md-inline">We run the whole of patient safety, from case intake and processing to aggregate reporting, signal management and QPPV, as one accountable partner.</span><span class="d-md-none">Intake, case processing, aggregate reporting, signals and QPPV, run as one accountable partner.</span></p>
-          <div class="cap-foot">
-            <a href="pivotpath-drug-safety.html" class="cap-explore">Explore Patient Safety <span aria-hidden="true">→</span></a>
+      <div class="hscroll reveal" id="services" style="margin-top:var(--sp-6)">
+        <div class="row g-4 gy-5">
+          <div class="col-md-6 col-lg-4">
+            <div class="svc-c">
+              <div class="pic48 grad"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3.5 8-7 10-3.5-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
+              <h3>Patient Safety</h3>
+              <p>End-to-end pharmacovigilance you can hand over.</p>
+              <a href="pivotpath-drug-safety.html" class="pl-link">Explore Patient Safety →</a>
+            </div>
           </div>
-        </div>
-        <div class="cap-panel" role="tabpanel" id="cp-2" aria-labelledby="ct-2" tabindex="0" hidden>
-          <h3 class="cap-panel-h">Prepared for inspection at all times.</h3>
-          <p class="cap-panel-p">Quality assurance across corporate, IT, medical affairs and pharmacovigilance, with risk-based validation from facility to software.</p>
-          <div class="cap-foot">
-            <a href="pivotpath-quality-compliance.html" class="cap-explore">Explore Quality &amp; Digital Compliance <span aria-hidden="true">→</span></a>
+          <div class="col-md-6 col-lg-4">
+            <div class="svc-c">
+              <div class="pic48 grad"><svg viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1M9 13l2 2 4-4"/></svg></div>
+              <h3>Quality &amp; Digital Compliance</h3>
+              <p>Prepared for inspection at all times.</p>
+              <a href="pivotpath-quality-compliance.html" class="pl-link">Explore Quality &amp; Digital Compliance →</a>
+            </div>
           </div>
-        </div>
-        <div class="cap-panel" role="tabpanel" id="cp-3" aria-labelledby="ct-3" tabindex="0" hidden>
-          <h3 class="cap-panel-h">One backbone for the digital plant.</h3>
-          <p class="cap-panel-p">Manufacturing systems, IT and OT implemented and operated together, for reliable plants and usable data.</p>
-          <div class="cap-foot">
-            <a href="pivotpath-digital-innovation.html" class="cap-explore">Explore Digital Transformation <span aria-hidden="true">→</span></a>
+          <div class="col-md-6 col-lg-4">
+            <div class="svc-c">
+              <div class="pic48 grad"><svg viewBox="0 0 24 24"><path d="M3 21h18M4 21V10l5 3v-3l5 3V5h6v16"/></svg></div>
+              <h3>Digital Transformation</h3>
+              <p>One backbone for the digital plant.</p>
+              <a href="pivotpath-digital-innovation.html" class="pl-link">Explore Digital Transformation →</a>
+            </div>
           </div>
-        </div>
-        <div class="cap-panel" role="tabpanel" id="cp-4" aria-labelledby="ct-4" tabindex="0" hidden>
-          <h3 class="cap-panel-h">IP strategy from ideation to launch.</h3>
-          <p class="cap-panel-p">A strategic IP partner integrating science, technology and legal strategy, from patent landscape and freedom to operate through protection, enforcement and commercialisation.</p>
-          <div class="cap-foot">
-            <a href="pivotpath-svc-ip-consulting.html" class="cap-explore">Explore Intellectual Property <span aria-hidden="true">→</span></a>
+          <div class="col-md-6 col-lg-4">
+            <div class="svc-c">
+              <div class="pic48 grad"><svg viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 1 4 10.5c-.8.7-1 1.5-1 2.5h-6c0-1-.2-1.8-1-2.5A6 6 0 0 1 12 3z"/></svg></div>
+              <h3>Intellectual Property</h3>
+              <p>IP strategy from ideation to launch.</p>
+              <a href="pivotpath-svc-ip-consulting.html" class="pl-link">Explore Intellectual Property →</a>
+            </div>
           </div>
-        </div>
-        <div class="cap-panel" role="tabpanel" id="cp-5" aria-labelledby="ct-5" tabindex="0" hidden>
-          <h3 class="cap-panel-h">Evidence generated faster, decisions made clearer.</h3>
-          <p class="cap-panel-p">Clinical operations from preclinical to clinical studies, led by medically trained experts, PhD scientists and registered nurses.</p>
-          <div class="cap-foot">
-            <a href="pivotpath-svc-clinical-operations.html" class="cap-explore">Explore Clinical Operations <span aria-hidden="true">→</span></a>
+          <div class="col-md-6 col-lg-4">
+            <div class="svc-c">
+              <div class="pic48 grad"><svg viewBox="0 0 24 24"><path d="M3 12h4l2-6 4 12 2-6h6"/></svg></div>
+              <h3>Clinical Operations</h3>
+              <p>Evidence faster, decisions clearer.</p>
+              <a href="pivotpath-svc-clinical-operations.html" class="pl-link">Explore Clinical Operations →</a>
+            </div>
           </div>
-        </div>
-        <div class="cap-panel" role="tabpanel" id="cp-6" aria-labelledby="ct-6" tabindex="0" hidden>
-          <h3 class="cap-panel-h">The right people, without delay.</h3>
-          <p class="cap-panel-p">Workforce planning, HR digitisation and talent acquisition for regulated roles.</p>
-          <div class="cap-foot">
-            <a href="pivotpath-human-capital.html" class="cap-explore">Explore Human Capital <span aria-hidden="true">→</span></a>
+          <div class="col-md-6 col-lg-4">
+            <div class="svc-c">
+              <div class="pic48 grad"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M16 4.5a3.5 3.5 0 0 1 0 7M21 20c0-2.6-1.6-4.8-4-5.6"/></svg></div>
+              <h3>Human Capital</h3>
+              <p>The right people, without delay.</p>
+              <a href="pivotpath-human-capital.html" class="pl-link">Explore Human Capital →</a>
+            </div>
           </div>
         </div>
       </div>
+      <div class="numrow reveal">
+        <div class="c"><div class="n">450+</div><div class="l">Pharma-native experts</div></div>
+        <div class="c"><div class="n">70+</div><div class="l">Clients</div></div>
+        <div class="c"><div class="n">50+</div><div class="l">Countries</div></div>
+        <div class="c"><div class="n">1000+</div><div class="l">Projects delivered</div></div>
+      </div>
+      <p class="numcap reveal">Born out of a 35-year-old pharma group; an independent company since 2019.</p>
     </div>
   </section>
 
-  <!-- ============ ORIGIN / SCALE STAT BAND (v2 concept) ============ -->
-  <section class="pad80 stat-band" id="why">
+
+  <!-- ============ CH 3 — THE VALUE CHAIN ============ -->
+  <section class="pad80" id="value-chain">
     <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="section-title text-white reveal">Born out of a <span class="grad-text">35-year-old pharma group.</span></h2>
+      <div class="ch-grid reveal">
+        <div>
+          <h2 class="section-title">From molecule to market.</h2>
+        </div>
+        <div class="prose">
+          <p>We work as the operations layer beneath the pharma value chain. Wherever your products are in their lifecycle, the work lands on the same accountable team.</p>
+        </div>
       </div>
-      <div class="row g-4">
-        <div class="col-6 col-lg-3 reveal"><div class="bult-box"><div class="bult-number"><span class="count" data-to="450">0</span>+</div><p>Pharma-native experts</p></div></div>
-        <div class="col-6 col-lg-3 reveal"><div class="bult-box"><div class="bult-number"><span class="count" data-to="70">0</span>+</div><p>Clients</p></div></div>
-        <div class="col-6 col-lg-3 reveal"><div class="bult-box"><div class="bult-number"><span class="count" data-to="50">0</span>+</div><p>Countries</p></div></div>
-        <div class="col-6 col-lg-3 reveal"><div class="bult-box"><div class="bult-number"><span class="count" data-to="1000">0</span>+</div><p>Projects delivered</p></div></div>
+      <div class="hscroll reveal" style="margin-top:var(--sp-6)">
+        <div class="chain-wrap">
+          <div class="chain-terms"><span>Molecule</span><span>Market</span></div>
+          <div class="chain">
+            <a class="cl" href="pivotpath-svc-ip-consulting.html"><span class="dot"></span><h3>Discovery</h3><p>IP strategy &amp; portfolio</p></a>
+            <a class="cl" href="pivotpath-svc-clinical-operations.html"><span class="dot"></span><h3>Clinical</h3><p>Preclinical to clinical operations</p></a>
+            <a class="cl" href="pivotpath-digital-innovation.html"><span class="dot"></span><h3>Manufacturing</h3><p>Digital factory, plant IT &amp; quality</p></a>
+            <a class="cl" href="pivotpath-inlumin.html"><span class="dot"></span><h3>Supply chain</h3><p>Procurement &amp; serialisation</p></a>
+            <a class="cl" href="pivotpath-golanzar.html"><span class="dot"></span><h3>Launch</h3><p>Launch management &amp; readiness</p></a>
+            <a class="cl" href="pivotpath-drug-safety.html"><span class="dot"></span><h3>Patient Safety</h3><p>End-to-end pharmacovigilance</p></a>
+          </div>
+        </div>
       </div>
+      <div class="triad reveal">
+        <div class="t">
+          <span class="pic40"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></svg></span>
+          <div><h3>Consulting</h3><p>Audits, assessments, strategy.</p></div>
+        </div>
+        <div class="t">
+          <span class="pic40"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M19.1 4.9l-2.8 2.8M7.7 16.3l-2.8 2.8"/></svg></span>
+          <div><h3>Operations</h3><p>We run the work.</p></div>
+        </div>
+        <div class="t">
+          <span class="pic40"><svg viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></svg></span>
+          <div><h3>Technology</h3><p>Seven AI-native platforms.</p></div>
+        </div>
+      </div>
+      <p class="numcap reveal"><a href="pivotpath-how-we-operate.html" class="pl-link">See how we operate →</a></p>
       <div class="divider_line"><img src="assets/divider-mark.svg" alt="" width="101" height="101" loading="lazy"></div>
     </div>
   </section>
 
-  <!-- ============ VALUE CHAIN ============ -->
-  <section class="pad80" id="value-chain">
+  <!-- ============ BAND — THE PLATFORM STACK ============ -->
+  <section class="pad80 band" id="platforms">
     <div class="container">
-      <div class="text-center"><h2 class="section-title reveal">How we operate, <span class="grad-text">from molecule to market</span></h2></div>
-      <div class="hscroll reveal">
-        <div class="vc-flow">
-          <span class="vc-term start">Molecule</span>
-          <span class="vc-term end">Market</span>
-          <div class="vc-spine" aria-hidden="true"></div>
-          <div class="vc-strip">
-            <a class="vc-cellink vc-d1" href="pivotpath-svc-ip-consulting.html"><span class="vc-node" aria-hidden="true"></span><span class="vc-txt"><b>Discovery</b><span class="vc-desc">IP strategy &amp; portfolio</span></span></a>
-            <a class="vc-cellink vc-d1" href="pivotpath-svc-clinical-operations.html"><span class="vc-node" aria-hidden="true"></span><span class="vc-txt"><b>Clinical</b><span class="vc-desc">Preclinical to clinical operations &amp; submissions</span></span></a>
-            <a class="vc-cellink vc-d2" href="pivotpath-digital-innovation.html"><span class="vc-node" aria-hidden="true"></span><span class="vc-txt"><b>Manufacturing</b><span class="vc-desc">Digital factory, plant IT &amp; quality</span></span></a>
-            <a class="vc-cellink vc-d2" href="pivotpath-inlumin.html"><span class="vc-node" aria-hidden="true"></span><span class="vc-txt"><b>Supply chain</b><span class="vc-desc">Procurement &amp; serialisation</span></span></a>
-            <a class="vc-cellink vc-d3" href="pivotpath-golanzar.html"><span class="vc-node" aria-hidden="true"></span><span class="vc-txt"><b>Launch</b><span class="vc-desc">Launch management &amp; readiness</span></span></a>
-            <a class="vc-cellink vc-d3" href="pivotpath-drug-safety.html"><span class="vc-node" aria-hidden="true"></span><span class="vc-txt"><b>Patient Safety</b><span class="vc-desc">End-to-end pharmacovigilance</span></span></a>
-          </div>
-        </div>
-      </div>
-      <div class="text-center mt-4">
-        <a href="pivotpath-how-we-operate.html" class="btn-pill btn-pill-dark reveal">See how we operate <span aria-hidden="true">&rarr;</span></a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ FEATURED PRODUCTS (4) ============ -->
-  <section class="pad80 section-teal" id="platforms">
-    <div class="container">
-      <div class="d-flex flex-wrap justify-content-between align-items-end mb-5 gap-3">
-        <h2 class="section-title text-white reveal mb-0">The Platform Stack: <span class="grad-text">AI at the Core, Built on PivotOS</span></h2>
-        <a href="pivotpath-platforms.html" class="see-all see-all-light reveal">See all platforms <span aria-hidden="true">→</span></a>
-      </div>
-      <div class="found-grid reveal">
-        <svg class="found-iso" viewBox="0 0 360 480" role="img" aria-label="Platforms on the PivotAI intelligence layer, on the PivotOS foundation" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Roboto,Arial,sans-serif">
+      <div class="arch reveal">
+        <svg class="iso" viewBox="0 0 360 480" role="img" aria-label="Seven platforms on the PivotAI intelligence layer, on the PivotOS foundation" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Roboto,Arial,sans-serif">
           <defs>
             <rect id="plate-rect" x="-75" y="-75" width="150" height="150" rx="16" />
             <linearGradient id="brand-grad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -520,78 +545,104 @@
           <text x="292" y="365" text-anchor="start" font-size="13" font-weight="700" letter-spacing="0.2" fill="#e6e9ec">PivotOS</text>
         </svg>
         <div>
-          <p class="found-quote">Every platform on one <a href="pivotpath-pivotos.html">validated foundation</a>. One compliant framework and one <a href="pivotpath-pivotai.html">AI layer</a>.</p>
-          <div class="found-cards">
-            <a class="fc" href="pivotpath-noteiq.html"><img src="assets/fp-noteiq.png" alt="NoteIQ" loading="lazy"><span>Validation, documents and training. 21 CFR Part 11 &amp; EU Annex 11 compliant.</span></a>
-            <a class="fc" href="pivotpath-novavigil.html"><img src="assets/fp-novavigil.png" alt="NovaVigil" loading="lazy"><span>Automates literature screening, case intake and signal detection, human-in-the-loop.</span></a>
-            <a class="fc" href="pivotpath-anomiq.html"><img src="assets/fp-anomiq.png" alt="AnomIQ" loading="lazy"><span>Flags drift across CDS and Non-CDS systems before it escalates.</span></a>
-            <a class="fc" href="pivotpath-investigationiq.html"><img src="assets/fp-investigationiq.png" alt="InvestigationIQ" loading="lazy"><span>Cuts investigation cycle time 40&ndash;60%.</span></a>
+          <h2 class="section-title" style="margin-bottom:var(--sp-4)">Seven platforms. One foundation.</h2>
+          <div class="prose">
+            <p>Every platform is AI-native and every one of them runs on <a href="pivotpath-pivotos.html">PivotOS</a>, our validated, GxP-ready cloud environment, with <a href="pivotpath-pivotai.html">PivotAI</a> as the intelligence layer. Assess the foundation once and the assessment holds across the stack.</p>
+            <div style="margin-top:var(--sp-4)">
+              <a class="chip-dark" href="pivotpath-novavigil.html">NovaVigil</a>
+              <a class="chip-dark" href="pivotpath-noteiq.html">NoteIQ</a>
+              <a class="chip-dark" href="pivotpath-anomiq.html">AnomIQ</a>
+              <a class="chip-dark" href="pivotpath-investigationiq.html">InvestigationIQ</a>
+              <a class="chip-dark" href="pivotpath-golanzar.html">GoLanzar</a>
+              <a class="chip-dark" href="pivotpath-inlumin.html">InLumin</a>
+              <a class="chip-dark" href="pivotpath-arete.html">Arete</a>
+            </div>
+            <p style="margin-top:var(--sp-4)"><a href="pivotpath-platforms.html" class="btns-line">See all platforms</a></p>
           </div>
         </div>
       </div>
-      <div class="divider_line"><img src="assets/divider-mark.svg" alt="" width="101" height="101" loading="lazy"></div>
     </div>
   </section>
 
-  <!-- ============ CUSTOMER STORIES ============ -->
+  <!-- ============ CH 4 — OUTCOMES ============ -->
   <section class="pad80" id="stories">
     <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="section-title reveal">Featured <span class="grad-text">Outcomes</span></h2>
-      </div>
-      <div class="hscroll">
-      <div class="row g-4">
-        <div class="col-md-4 reveal">
-          <a href="pivotpath-zero-touch-it.html" class="story-card">
-            <span class="story-tag">Zero-Touch IT · Leading Indian CDMO</span>
-            <span class="story-metric">2× output, same 35-person team</span>
-            <span class="story-cap">As a leading Indian CDMO doubled production across four sites, we ran its manufacturing IT so automation absorbed the growth without a single new hire.</span>
-            <span class="story-go">Read the story <span aria-hidden="true">→</span></span>
-          </a>
+      <div class="ch-grid reveal">
+        <div>
+          <h2 class="section-title">Outcomes from the field.</h2>
         </div>
-        <div class="col-md-4 reveal">
-          <a href="pivotpath-pharma-4-0.html" class="story-card">
-            <span class="story-tag">Pharma 4.0 · European Injectable Plant</span>
-            <span class="story-metric">Plant migrated in 60 days, fully remote</span>
-            <span class="story-cap">We moved a European injectable plant onto a modern, validated systems stack without a single site visit, and without stopping production.</span>
-            <span class="story-go">Read the story <span aria-hidden="true">→</span></span>
-          </a>
-        </div>
-        <div class="col-md-4 reveal">
-          <a href="pivotpath-identity-user-management.html" class="story-card">
-            <span class="story-tag">Identity &amp; User Management · IT Automation</span>
-            <span class="story-metric">One automated identity lifecycle</span>
-            <span class="story-cap">We standardise user management across onboarding, access changes and exit: HRMS-triggered, ticket-approved and BOT-automated, keeping every change audit-ready.</span>
-            <span class="story-go">Read the story <span aria-hidden="true">→</span></span>
-          </a>
+        <div class="prose">
+          <p>The proof is operational, measured in running plants, submitted cases and audit-ready records.</p>
         </div>
       </div>
+      <div class="out3 reveal">
+        <div class="o">
+          <p class="m grad-text">2&times; output,<br>same 35-person team</p>
+          <p>As a leading Indian CDMO doubled production across four sites, we ran its manufacturing IT so automation absorbed the growth without a single new hire.</p>
+          <a href="pivotpath-zero-touch-it.html" class="pl-link">Read the case →</a>
+        </div>
+        <div class="o">
+          <p class="m grad-text">Migrated in 60 days,<br>fully remote</p>
+          <p>A European injectable plant moved onto a modern, validated systems stack without a single site visit, and without stopping production.</p>
+          <a href="pivotpath-pharma-4-0.html" class="pl-link">Read the case →</a>
+        </div>
+        <div class="o">
+          <p class="m grad-text">One automated<br>identity lifecycle</p>
+          <p>User management standardised across onboarding, access changes and exit: HRMS-triggered, ticket-approved and audit-ready.</p>
+          <a href="pivotpath-identity-user-management.html" class="pl-link">Read the case →</a>
+        </div>
       </div>
-      <div class="text-center mt-5 reveal"><a href="pivotpath-insights.html" class="btns-line dark">View all insights &rarr;</a></div>
+      <p class="numcap reveal"><a href="pivotpath-insights.html" class="pl-link">View all insights →</a></p>
     </div>
   </section>
 
-    <!-- ============ FAQ ============ -->
+  <!-- ============ BAND — REGULATED BY DESIGN ============ -->
+  <section class="pad80 band" id="trust">
+    <div class="container">
+      <div class="ch-grid reveal">
+        <div>
+          <h2 class="section-title">Built for regulated use.</h2>
+        </div>
+        <div class="prose">
+          <p>The AI across our platforms is assistive and governed: outputs are recommendations, never decisions, and nothing critical is released without a human reviewer in the chain. Every action lands in an audit trail designed for inspection.</p>
+          <div style="margin-top:var(--sp-4)">
+            <span class="chip-dark">21 CFR Part 11</span>
+            <span class="chip-dark">EU Annex 11</span>
+            <span class="chip-dark">GAMP 5</span>
+            <span class="chip-dark">CSV / CSA</span>
+            <span class="chip-dark">ISO 27001</span>
+            <span class="chip-dark">ISO 27701</span>
+          </div>
+          <p style="margin-top:var(--sp-4)">How we govern AI, in full, in the <a href="pivotpath-ai-trust.html">AI Trust Centre</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
   <section class="pad80 grey" id="faq">
     <div class="container">
-      <div class="row g-5 align-items-start">
-        <div class="col-lg-4">
-          <h2 class="section-title reveal">Frequently <span class="grad-text">Asked</span></h2>
-          <p class="reveal text-muted mt-3" style="line-height:1.7">Straight answers on how we work and how to get started.</p>
-        </div>
-        <div class="col-lg-8">
-          <div class="accordion faq-acc reveal" id="faqHome">
+      <div class="text-center mb-5">
+        <h2 class="section-title reveal">Frequently <span class="grad-text">Asked</span></h2>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-9">
+          <div class="accordion reveal" id="faqAcc">
             <div class="accordion-item">
-              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#hq1">What is Pivot Path?</button></h2>
-              <div id="hq1" class="accordion-collapse collapse" data-bs-parent="#faqHome"><div class="accordion-body">A Pharma Operations Platform company, born out of a 35-year-old pharma group: seven software platforms with AI at the core, implemented and run by 450+ pharma-native operators.</div></div>
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q1">What is Pivot Path?</button></h2>
+              <div id="q1" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">A Pharma Operations Platform company, born out of a 35-year-old pharma group: seven software platforms with AI at the core, implemented and run by 450+ pharma-native operators.</div></div>
             </div>
             <div class="accordion-item">
-              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#hq3">Are your platforms validated and compliant?</button></h2>
-              <div id="hq3" class="accordion-collapse collapse" data-bs-parent="#faqHome"><div class="accordion-body">They’re built for GxP environments; NoteIQ is 21 CFR Part 11 and EU Annex 11 compliant, and validation follows a risk-based CSA approach aligned to GAMP 5.</div></div>
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2">What are PivotOS and PivotAI?</button></h2>
+              <div id="q2" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">The names for how we build: <a href="pivotpath-pivotos.html">PivotOS</a> is the validated, GxP-ready cloud environment every platform runs on, and <a href="pivotpath-pivotai.html">PivotAI</a> is the AI layer inside it. Neither is bought separately; you buy a platform and the foundation comes with it.</div></div>
             </div>
             <div class="accordion-item">
-              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#hq6">How do we get started?</button></h2>
-              <div id="hq6" class="accordion-collapse collapse" data-bs-parent="#faqHome"><div class="accordion-body">Bring us the problem and we’ll scope the path, then map it to the right capability or platform.</div></div>
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q3">Are your platforms validated and compliant?</button></h2>
+              <div id="q3" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">They are built for GxP environments; NoteIQ is 21 CFR Part 11 and EU Annex 11 compliant, and validation follows a risk-based CSA approach aligned to GAMP 5.</div></div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q4">How do we get started?</button></h2>
+              <div id="q4" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Bring us the problem and we will scope the path, then map it to the right capability or platform.</div></div>
             </div>
           </div>
         </div>
@@ -602,16 +653,16 @@
   <!-- ============ FINAL CTA ============ -->
   <section class="pad80 final-cta cta-photo text-center" id="contact">
     <div class="container">
-      <h2 class="section-title text-white reveal mb-3">Bring Us the Problem.<br><span class="grad-text">We’ll Build and Run the Answer.</span></h2>
+      <h2 class="section-title text-white reveal mb-3">Bring Us the Problem.<br><span class="grad-text">We'll Build and Run the Answer.</span></h2>
       <div class="hero-ctas justify-content-center reveal">
-        <a href="mailto:info@pivotpath.com" class="btn-pill btn-pill-light">Talk to our experts</a>
-        <a href="#platforms" class="btn-pill btn-pill-ghost">Explore our platforms</a>
+        <a href="mailto:info@pivotpath.com" class="btns2 solid-light">Talk to our experts</a>
+        <a href="pivotpath-platforms.html" class="btns-line">Explore our platforms</a>
       </div>
     </div>
   </section>
 
-  <!-- ver-switch: base/narrative review toggle -->
-  <div style="position:fixed;left:18px;bottom:18px;z-index:1050;display:inline-flex;align-items:center;gap:2px;background:#10161d;border-radius:999px;padding:4px;box-shadow:0 8px 24px rgba(0,0,0,.28)"><span style="padding:.5rem .95rem;border-radius:999px;background:#fff;color:#10161d;font-size:.72rem;font-weight:800">base-page</span><a href="pivotpath-home-editorial.html" style="padding:.5rem .95rem;border-radius:999px;color:#cfd6dd;font-size:.72rem;font-weight:700;text-decoration:none">narrative-page</a></div>
+  <a class="view-toggle" href="index.html">View current homepage</a>
+
 
   <!-- ============ FOOTER ============ -->
 
@@ -672,63 +723,9 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous" defer></script>
   <script>
-    // ---- Capability pill-tabs (accessible) ----
+    // ---- Reveal on scroll ----
     (function(){
-      var tabs=Array.prototype.slice.call(document.querySelectorAll('.cap-tab'));
-      if(!tabs.length)return;
-      var panels=tabs.map(function(t){return document.getElementById(t.getAttribute('aria-controls'));});
-      function select(idx,focus){
-        tabs.forEach(function(t,i){
-          var on=i===idx;
-          t.setAttribute('aria-selected',on?'true':'false');
-          t.tabIndex=on?0:-1;
-          if(panels[i])panels[i].hidden=!on;
-        });
-        if(focus&&tabs[idx])tabs[idx].focus();
-      }
-      tabs.forEach(function(tab,i){
-        tab.addEventListener('click',function(){select(i,false);});
-        tab.addEventListener('keydown',function(e){
-          var n;
-          if(e.key==='ArrowRight'||e.key==='ArrowDown')n=(i+1)%tabs.length;
-          else if(e.key==='ArrowLeft'||e.key==='ArrowUp')n=(i-1+tabs.length)%tabs.length;
-          else if(e.key==='Home')n=0;
-          else if(e.key==='End')n=tabs.length-1;
-          else return;
-          e.preventDefault();select(n,true);
-        });
-      });
-      select(0,false);
-    })();
-
-    // ---- Count-up stat band (animates once on view, never stuck at 0) ----
-    (function(){
-      var counted=false;
-      var band=document.querySelector('.stat-band');
-      function animate(){
-        if(counted)return;counted=true;
-        document.querySelectorAll('.count').forEach(function(el){
-          var to=parseFloat(el.dataset.to), dec=parseInt(el.dataset.dec||'0',10);
-          var start=null,dur=1600;
-          function step(ts){
-            if(!start)start=ts;
-            var p=Math.min((ts-start)/dur,1);
-            var val=to*(0.5-Math.cos(p*Math.PI)/2); // easeInOut
-            el.textContent= dec ? val.toFixed(dec) : Math.round(val).toLocaleString();
-            if(p<1)requestAnimationFrame(step); else el.textContent= dec ? to.toFixed(dec) : to.toLocaleString();
-          }
-          requestAnimationFrame(step);
-        });
-      }
-      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)animate();});},{threshold:.4});
-      if(band)io.observe(band);
-    })();
-
-    // ---- Reveal on scroll (AOS-style) ----
-    (function(){
-      var io=new IntersectionObserver(function(es){
-        es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
-      },{threshold:.15});
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
       document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
     })();
   </script>

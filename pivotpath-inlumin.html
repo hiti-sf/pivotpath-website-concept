@@ -4,52 +4,107 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
-  <title>InLumin: Procure-to-Pay (P2P) Platform | Pivot Path</title>
-  <meta name="description" content="InLumin is Pivot Path's procure-to-pay platform for procurement and SCM: AI-driven 3-way matching and real-time ERP integration, closing the ERP gap." />
+  <title>InLumin: Procure-to-Pay that Runs Alongside Your ERP | Pivot Path</title>
+  <meta name="description" content="InLumin is Pivot Path's procure-to-pay platform. It runs alongside your ERP, closes the loop from PO to payment, brings vendors onto the platform, and matches PO, ASN and GRN with AI on PivotAI." />
   <link rel="preconnect" href="https://cdn.jsdelivr.net" />
   <link rel="preload" href="pp.css?v=50" as="style" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
   <link rel="stylesheet" href="pp.css?v=50" />
   <link rel="icon" type="image/png" href="assets/chevron.png" />
+  <style>
+    /* ==== EDITORIAL STORY LAYOUT (page-scoped; pp.css untouched) ==== */
+    .ch-grid{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);column-gap:var(--sp-7);row-gap:var(--sp-4);align-items:start}
+    .ch-grid h2.section-title{margin-bottom:0;max-width:14ch}
+    .prose p{font-size:var(--fs-lead);line-height:1.75;color:var(--pp-ink);max-width:62ch;margin:0 0 var(--sp-4)}
+    .prose p:last-child{margin-bottom:0}
+    .chapter{border-top:1px solid var(--pp-line)}
+
+    .statement{font-size:var(--fs-display);font-weight:800;line-height:1.1;letter-spacing:-.015em;color:var(--pp-ink);max-width:24ch;margin:0 0 var(--sp-5)}
+
+    .pic48{flex:none;width:48px;height:48px;border-radius:var(--r-md);background:var(--pp-accent);display:flex;align-items:center;justify-content:center;margin-bottom:var(--sp-3)}
+    .pic48 svg{width:24px;height:24px;fill:none;stroke:#fff;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+    .pic48.grad{background:var(--pp-grad)}
+
+    .val3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:var(--sp-6)}
+    .val3 .v{padding:0 var(--sp-5);border-left:1px solid var(--pp-line)}
+    .val3 .v:first-child{border-left:0;padding-left:0}
+    .val3 .v:last-child{padding-right:0}
+    .val3 h3{font-size:var(--fs-h4);font-weight:700;margin:0 0 var(--sp-2);text-transform:none}
+    .val3 p{margin:0;color:var(--pp-muted);font-size:var(--fs-body);line-height:1.65}
+
+    /* Two-pillar duo (extended capabilities) */
+    .duo{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-7);margin-top:var(--sp-6)}
+    .duo .d{padding-left:var(--sp-5);border-left:1px solid var(--pp-line)}
+    .duo .d:first-child{border-left:0;padding-left:0}
+    .duo h3{font-size:var(--fs-h4);font-weight:700;margin:.75rem 0 var(--sp-2);text-transform:none}
+    .duo p{margin:0;color:var(--pp-muted);font-size:var(--fs-body);line-height:1.7}
+
+    .numrow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--pp-line);border-bottom:1px solid var(--pp-line);margin-top:var(--sp-6)}
+    .numrow .c{padding:var(--sp-4);border-left:1px solid var(--pp-line)}
+    .numrow .c:first-child{border-left:0;padding-left:0}
+    .numrow .n{font-size:1.6rem;font-weight:800;color:var(--pp-ink);line-height:1.1}
+    .numrow .l{font-size:var(--fs-sm);color:var(--pp-muted);margin-top:4px}
+    .numcap{font-size:var(--fs-sm);color:var(--pp-muted);margin-top:var(--sp-3)}
+
+    /* Manual-way vs InLumin contrast table */
+    .fromto{max-width:820px;margin:var(--sp-6) auto 0}
+    .fromto .r{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:var(--sp-4);padding:var(--sp-4) 0;border-top:1px solid var(--pp-line)}
+    .fromto .r:last-child{border-bottom:1px solid var(--pp-line)}
+    .fromto .from{color:var(--pp-muted);text-align:right;font-size:var(--fs-h5);font-weight:600}
+    .fromto .to{font-weight:800;color:var(--pp-ink);font-size:var(--fs-h5)}
+    .fromto .ar{color:var(--pp-accent);font-size:var(--fs-h4);font-weight:800;line-height:1}
+    .fromto .hd{padding-top:0;padding-bottom:var(--sp-2);border-top:0}
+    .fromto .hfrom,.fromto .hto{font-size:var(--fs-sm);font-weight:800;letter-spacing:.02em}
+    .fromto .hfrom{text-align:right;color:var(--pp-muted)}
+    .fromto .hto{color:var(--pp-accent)}
+
+    .tt-none{text-transform:none}
+
+    .band{background:var(--pp-section);color:#fff}
+    .band h2.section-title{color:#fff}
+    .band .prose p{color:rgba(255,255,255,.82)}
+    .band a{color:#fff}
+
+    .rule-line{font-size:var(--fs-h4);font-weight:700;color:var(--pp-ink);border-top:1px solid var(--pp-line);padding-top:var(--sp-4);margin-top:var(--sp-6)}
+
+    .shot-cap{font-size:var(--fs-sm);color:var(--pp-muted);text-align:center;margin-top:var(--sp-3)}
+
+    @media (max-width:991.98px){
+      .ch-grid{grid-template-columns:1fr}
+      .ch-grid h2.section-title{max-width:none;margin-bottom:var(--sp-3)}
+      .val3,.duo{grid-template-columns:1fr}
+      .val3 .v,.duo .d{border-left:0;padding:var(--sp-4) 0}
+      .val3 .v:first-child,.duo .d:first-child{padding-top:0}
+      .val3 .v{border-top:1px solid var(--pp-line)}
+      .val3 .v:first-child{border-top:0}
+      .numrow{grid-template-columns:1fr 1fr}
+      .numrow .c:nth-child(odd){border-left:0;padding-left:0}
+      .numrow .c:nth-child(n+3){border-top:1px solid var(--pp-line)}
+      .fromto .from,.fromto .to{font-size:var(--fs-body)}
+    }
+  </style>
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "SoftwareApplication",
+      "@type": "WebPage",
       "name": "InLumin",
-      "description": "InLumin is Pivot Path's Procure-to-Pay platform for Procurement and SCM teams. AI-driven 3-way matching, real-time ERP data integration and built-in accountability, closing the gap your ERP leaves.",
-      "applicationCategory": "BusinessApplication",
-      "operatingSystem": "Web",
+      "description": "InLumin is Pivot Path's procure-to-pay platform. It runs alongside your ERP, closes the loop from PO to payment, and brings vendors onto the platform.",
+      "url": "https://pivotpath.com/pivotpath-inlumin.html",
       "provider": {
         "@type": "Organization",
         "@id": "https://pivotpath.com/#organization",
         "name": "Pivot Path",
         "url": "https://pivotpath.com/"
-      },
-      "url": "https://pivotpath.com/pivotpath-inlumin.html"
+      }
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://pivotpath.com/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Products",
-          "item": "https://pivotpath.com/#platforms"
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "name": "InLumin",
-          "item": "https://pivotpath.com/pivotpath-inlumin.html"
-        }
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pivotpath.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://pivotpath.com/#platforms" },
+        { "@type": "ListItem", "position": 3, "name": "InLumin", "item": "https://pivotpath.com/pivotpath-inlumin.html" }
       ]
     },
     {
@@ -60,15 +115,15 @@
           "name": "What does InLumin do?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "A Procure-to-Pay platform running the cycle end-to-end: AI-driven 3-way matching, real-time ERP data integration, built-in accountability."
+            "text": "InLumin is a procure-to-pay platform that runs alongside your ERP. It closes the loop from purchase request and PO through matching to payment, and brings your vendors onto the same platform."
           }
         },
         {
           "@type": "Question",
-          "name": "What does 3-way matching cover?",
+          "name": "Does InLumin replace my ERP?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "It matches purchase order (PO), advance shipment notice (ASN) and goods receipt note (GRN) automatically, AI-driven, flagging exceptions and cutting reconciliation."
+            "text": "No. It runs alongside your ERP as a companion system, picking up POs from it, so you close the procure-to-pay loop without starting another ERP project."
           }
         },
         {
@@ -76,7 +131,31 @@
           "name": "Does it sync with SAP?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. It syncs with SAP in real time, with no duplicate entry and one source of truth."
+            "text": "Yes. InLumin uses real-time ERP data integration, with SAP HANA/ECC as the named example, so there is no duplicate entry and one source of truth."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does 3-way matching cover?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It matches the purchase order, the advance shipment note (ASN) and the goods receipt note (GRN). The routine clears automatically on PivotAI and exceptions are flagged for a person."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do vendors participate?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Vendors log in and upload their own shipment and invoice documents, and communications are automated. InLumin also pushes the latest material spec from LIMS or your data warehouse, so the vendor works to the current version."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can InLumin help me choose vendors?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, as an extended capability. A vendor scorecard draws on regulatory signals such as FDA warning letters and Form 483 observations, and you can run configurable vendor qualification and requalification forms inside the platform."
           }
         },
         {
@@ -84,15 +163,7 @@
           "name": "Who uses InLumin?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Procurement and Supply Chain Management (SCM) teams, alongside finance and department stakeholders, each with clear ownership and controls across the cycle."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How does it differ from our ERP?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "It doesn't replace your ERP. It's a purpose-built Procure-to-Pay layer with built-in accountability, sitting alongside SAP to close the gap it leaves."
+            "text": "Procurement and Supply Chain Management teams, and finance, through the built-in Accounts Payable DMS."
           }
         },
         {
@@ -222,45 +293,75 @@
     </div>
   </header>
 
-  <!-- ============ PAGE HERO ============ -->
+  <!-- ============ PAGE HERO — define before you narrate ============ -->
   <section class="page-hero pad80" id="overview">
     <div class="container">
-      <div class="crumb"><a href="pivotpath-home.html">Home</a> &nbsp;/&nbsp; <a href="pivotpath-home.html#platforms">Products</a> &nbsp;/&nbsp; InLumin</div>
-      <h1>Procurement made clear,<br>compliant, and effortless.</h1>
-      <p class="lead">A unified Procure-to-Pay platform connecting Procurement and SCM teams with vendors, closing the gap your ERP leaves.</p>
+      <div class="crumb"><a href="pivotpath-home.html">Home</a> &nbsp;/&nbsp; <a href="pivotpath-home.html#platforms">Products</a> &nbsp;/&nbsp; <span class="tt-none">InLumin</span></div>
+      <h1>InLumin: procure-to-pay that runs<br>alongside your ERP.</h1>
+      <p class="lead">InLumin is Pivot Path's procure-to-pay platform. It runs alongside your ERP and closes the loop from PO to payment, with vendors on the same platform.</p>
       <div class="hero-ctas">
         <a href="#contact" class="btns2 solid-light">Book an InLumin demo</a>
+        <a href="pivotpath-how-we-operate.html" class="btns-line">See how we operate</a>
       </div>
     </div>
   </section>
 
-  <!-- ============ STICKY ANCHOR NAV ============ -->
-  <nav class="anchor-nav">
+  <!-- ============ CH 1 — THE VALUE (value first) ============ -->
+  <section class="pad80" id="value">
     <div class="container">
-      <div class="inner">
-        <span class="anchor-brand">InLumin</span>
-        <a href="#overview" class="active">Overview</a>
-        <a href="#preview">Preview</a>
-        <a href="#challenge">The Challenge</a>
-        <a href="#what">Capabilities</a>
-        <a href="#flow">How It Works</a>
-        <a href="#numbers">Why InLumin</a>
-        <a href="#proof">Proof</a>
-        <a href="#faq">FAQ</a>
+      <p class="statement reveal">Your ERP stops at the PO. <span class="grad-text">InLumin closes the loop.</span></p>
+      <div class="ch-grid reveal">
+        <div>
+          <h2 class="section-title">What InLumin changes.</h2>
+        </div>
+        <div class="prose">
+          <p>Your ERP raises the purchase order and then goes quiet. What happens next, the matching, the vendor documents, the approvals and the payment, still runs on email and spreadsheets. InLumin runs alongside the ERP and closes that loop, with your vendors on the same platform. Three things follow.</p>
+        </div>
       </div>
+      <div class="val3 reveal m-acc">
+        <div class="v">
+          <div class="pic48"><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg></div>
+          <h3>Closes the loop ERP leaves open</h3>
+          <p>From purchase request and PO through matching to payment, InLumin covers the steps your ERP does not.</p>
+        </div>
+        <div class="v">
+          <div class="pic48"><svg viewBox="0 0 24 24"><circle cx="7" cy="8" r="3"/><circle cx="17" cy="8" r="3"/><path d="M2 20c0-3 2.2-5 5-5s5 2 5 5M12 20c0-3 2.2-5 5-5s5 2 5 5"/></svg></div>
+          <h3>Vendors on the platform, not in your inbox</h3>
+          <p>Vendors upload their own shipment and invoice documents, so your team stops collating paperwork from email.</p>
+        </div>
+        <div class="v">
+          <div class="pic48"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/><path d="M8 4v16" opacity="0"/><circle cx="9" cy="7" r="1.6" fill="#fff" stroke="none"/><circle cx="15" cy="12" r="1.6" fill="#fff" stroke="none"/><circle cx="7" cy="17" r="1.6" fill="#fff" stroke="none"/></svg></div>
+          <h3>The volume, matched automatically</h3>
+          <p>AI 3-way matching clears the routine PO, ASN and GRN checks, so people handle only the exceptions.</p>
+        </div>
+      </div>
+      <div class="numrow reveal">
+        <div class="c"><div class="n">Alongside</div><div class="l">Your ERP</div></div>
+        <div class="c"><div class="n">3-way match</div><div class="l">On PivotAI</div></div>
+        <div class="c"><div class="n">Role-based</div><div class="l">Access + audit</div></div>
+        <div class="c"><div class="n">AP DMS</div><div class="l">Built in</div></div>
+      </div>
+      <p class="numcap reveal">One platform bridging your buyers and vendors, alongside the ERP you already run.</p>
     </div>
-  </nav>
+  </section>
 
-  <!-- ============ PRODUCT PREVIEW ============ -->
-  <section class="pad80 grey" id="preview">
+  <!-- ============ CH 2 — A WORKING VIEW (hero screenshot placeholder) ============ -->
+  <!-- SWAP TARGET: replace this inline-SVG .shot with a clean demo-data screenshot in a .pshot frame
+       once available (client-data screenshot must not be published; no Strides/Arcolab/real PO data). -->
+  <section class="pad80 grey chapter" id="preview">
     <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="section-title reveal">A Working View of the Platform</h2>
+      <div class="ch-grid reveal">
+        <div>
+          <h2 class="section-title">The whole procurement picture, in one place.</h2>
+        </div>
+        <div class="prose">
+          <p>Purchase orders, matches, exceptions and payments in one view, drawn from the ERP you already run, so procurement and finance work from the same picture instead of chasing it across systems.</p>
+        </div>
       </div>
-      <div class="reveal" style="max-width:1000px;margin-inline:auto">
+      <div class="reveal" style="max-width:1000px;margin:var(--sp-6) auto 0">
         <div class="shot">
           <div class="bar"><i class="d1"></i><i class="d2"></i><i class="d3"></i><span class="addr">app.pivotpath.com/inlumin</span></div>
-          <svg viewBox="0 0 1120 640" role="img" aria-label="Representative InLumin dashboard" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Roboto,Arial,sans-serif">
+          <svg viewBox="0 0 1120 640" role="img" aria-label="Representative InLumin procure-to-pay dashboard" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Roboto,Arial,sans-serif">
             <defs><linearGradient id="nvgA" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#71bf44"/><stop offset=".55" stop-color="#20a676"/><stop offset="1" stop-color="#1b91a3"/></linearGradient></defs>
             <rect width="1120" height="640" fill="#f6f7f9"/>
             <rect width="236" height="640" fill="#0f141b"/>
@@ -287,7 +388,7 @@
             <text x="840" y="134" fill="#11151c" font-size="30" font-weight="800">18</text>
             <text x="840" y="162" fill="#6b6b6b" font-size="12.5">Exceptions</text>
             <rect x="264" y="212" width="560" height="196" rx="10" fill="#fff" stroke="#e8eaed"/>
-            <text x="288" y="246" fill="#11151c" font-size="14" font-weight="700">Invoices matched — last 8 weeks</text>
+            <text x="288" y="246" fill="#11151c" font-size="14" font-weight="700">Invoices matched, last 8 weeks</text>
             <line x1="288" y1="384" x2="800" y2="384" stroke="#e8eaed"/>
             <g fill="url(#nvgA)">
               <rect x="300" y="324" width="38" height="60" rx="3"/>
@@ -309,7 +410,7 @@
             <text x="288" y="456" fill="#11151c" font-size="14" font-weight="700">Recent matches</text>
             <line x1="264" y1="476" x2="1088" y2="476" stroke="#eef0f2"/>
             <g font-size="12.5">
-              <text x="288" y="508" fill="#11151c">PO-9241</text><text x="430" y="508" fill="#6b6b6b">ASN vs GRN — qty variance</text><text x="860" y="508" fill="#6b6b6b">Finance</text>
+              <text x="288" y="508" fill="#11151c">PO-9241</text><text x="430" y="508" fill="#6b6b6b">ASN vs GRN, qty variance</text><text x="860" y="508" fill="#6b6b6b">Finance</text>
               <rect x="980" y="494" width="84" height="22" rx="11" fill="#fff3d6"/><text x="1022" y="509" fill="#9a7400" text-anchor="middle" font-size="11" font-weight="700">Exception</text>
               <text x="288" y="548" fill="#11151c">PO-9240</text><text x="430" y="548" fill="#6b6b6b">3-way match complete</text><text x="860" y="548" fill="#6b6b6b">Procurement</text>
               <rect x="980" y="534" width="84" height="22" rx="11" fill="#e8f6f1"/><text x="1022" y="549" fill="#1b8f73" text-anchor="middle" font-size="11" font-weight="700">Matched</text>
@@ -320,227 +421,176 @@
           <span class="tag">Representative UI</span>
         </div>
       </div>
+      <p class="shot-cap reveal">A representative view of the procure-to-pay dashboard.</p>
     </div>
   </section>
 
-
-  <!-- ============ HIGHLIGHTS ============ -->
-  <section class="pad60">
+  <!-- ============ CH 3 — SYNC, MATCH, STAY ACCOUNTABLE ============ -->
+  <section class="pad80 chapter" id="what">
     <div class="container">
-      <div class="row g-4 align-items-center">
-        <div class="col-lg-5 reveal">
-          <h2 class="section-title">Procure-to-Pay, Closed and Accountable</h2>
+      <div class="ch-grid reveal">
+        <div>
+          <h2 class="section-title">Sync, match, stay accountable.</h2>
         </div>
-        <div class="col-lg-7">
-          <div class="row g-4">
-            <div class="col-6 col-md-4 reveal"><div class="hl"><div class="n">3-Way Match</div><div class="l">AI-Driven</div></div></div>
-            <div class="col-6 col-md-4 reveal"><div class="hl"><div class="n">Real-Time</div><div class="l">ERP Integration</div></div></div>
-            <div class="col-6 col-md-4 reveal"><div class="hl"><div class="n">Controls</div><div class="l">Process Governance</div></div></div>
-          </div>
+        <div class="prose">
+          <p>Three things, in order. InLumin syncs with the systems you already run, matches the paperwork automatically, and keeps every step accountable.</p>
+        </div>
+      </div>
+      <div class="val3 reveal m-acc">
+        <div class="v">
+          <div class="pic48 grad"><svg viewBox="0 0 24 24"><path d="M4 8a8 8 0 0 1 13-2l3 2M20 16a8 8 0 0 1-13 2l-3-2"/><path d="M17 3v3h-3M7 21v-3h3"/></svg></div>
+          <h3>Sync</h3>
+          <p>Picks up POs from your ERP (SAP HANA/ECC) and pulls the latest material spec from LIMS or your data warehouse, so the vendor always works to the current version.</p>
+        </div>
+        <div class="v">
+          <div class="pic48 grad"><svg viewBox="0 0 24 24"><path d="M4 7h7M4 12h7M4 17h5"/><path d="M15 12l3 3 5-6"/></svg></div>
+          <h3>Match</h3>
+          <p>AI-driven 3-way matching across PO, ASN and GRN clears the routine automatically and flags the exceptions for a person.</p>
+        </div>
+        <div class="v">
+          <div class="pic48 grad"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3.5 8-7 10-3.5-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
+          <h3>Stay accountable</h3>
+          <p>Role-based access, a full audit trail and a built-in Accounts Payable DMS, with request, approval and execution configured to your process.</p>
+        </div>
+      </div>
+      <p class="rule-line reveal">Nothing critical is released without a human reviewer in the chain.</p>
+      <p class="numcap reveal">InLumin's 3-way matching runs on <a href="pivotpath-pivotai.html">PivotAI</a>; the platform is built and run on <a href="pivotpath-pivotos.html">PivotOS</a>, the validated GxP cloud foundation.</p>
+    </div>
+  </section>
+
+  <!-- ============ CH 4 — VENDOR PARTICIPATION ============ -->
+  <section class="pad80 grey chapter" id="vendors">
+    <div class="container">
+      <div class="ch-grid reveal">
+        <div>
+          <h2 class="section-title">The vendor is on the platform, not in your inbox.</h2>
+        </div>
+        <div class="prose">
+          <p>InLumin bridges your buyers and vendors on one platform. Vendors do their part inside it, and your team stops chasing paperwork through email.</p>
+        </div>
+      </div>
+      <div class="val3 reveal m-acc">
+        <div class="v">
+          <div class="pic48"><svg viewBox="0 0 24 24"><path d="M6 3h9l5 5v13H6z"/><path d="M15 3v5h5"/><path d="M12 18v-6M9 15l3 3 3-3"/></svg></div>
+          <h3>Vendors upload documents</h3>
+          <p>Shipment notes, invoices and more go straight onto the platform, attached to the right order.</p>
+        </div>
+        <div class="v">
+          <div class="pic48"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H8l-4 4z"/><path d="M8 9h8M8 12h5"/></svg></div>
+          <h3>Communications, automated</h3>
+          <p>The back-and-forth with vendors runs through InLumin, so requests and updates are tracked, not lost in a thread.</p>
+        </div>
+        <div class="v">
+          <div class="pic48"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16l2 2 4-4"/></svg></div>
+          <h3>Always the current spec</h3>
+          <p>The latest material spec from LIMS or the data warehouse is pushed to the vendor, so nobody builds to an old version.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ CHALLENGE ============ -->
-  <section class="pad80 grey" id="challenge">
+  <!-- ============ CH 5 — EXTENDED CAPABILITIES ============ -->
+  <section class="pad80 chapter" id="extend">
     <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="section-title reveal">Where the ERP Stops Short</h2>
+      <div class="ch-grid reveal">
+        <div>
+          <h2 class="section-title">Beyond the transaction.</h2>
+        </div>
+        <div class="prose">
+          <p>The same platform can carry the decisions around the transaction, configured to how you qualify and choose vendors.</p>
+        </div>
       </div>
-      <div class="hscroll">
-<div class="row g-4">
-        <div class="col-md-6 col-lg-4 reveal"><div class="pain"><div class="x">▣</div><h5>ERPs leave procurement gaps</h5><p>ERPs run the ledger, not the daily procurement workflow.</p></div></div>
-        <div class="col-md-6 col-lg-4 reveal"><div class="pain"><div class="x">⏱</div><h5>Manual matching is slow</h5><p>Reconciling PO, ASN and GRN by hand invites error.</p></div></div>
-        <div class="col-md-6 col-lg-4 reveal"><div class="pain"><div class="x">?</div><h5>No ownership, no visibility</h5><p>Exceptions stall and approvals drift.</p></div></div>
+      <div class="duo reveal m-acc">
+        <div class="d">
+          <div class="pic48 grad"><svg viewBox="0 0 24 24"><path d="M12 3l2.5 5 5.5.8-4 3.9.9 5.5L12 15.5 7.1 18.1l.9-5.5-4-3.9L9.5 8z"/></svg></div>
+          <h3>Supplier intelligence</h3>
+          <p>A vendor scorecard built from regulatory signals, such as FDA warning letters and Form 483 observations, so buying decisions are informed. It can draw on RegIntel, Pivot Path's regulatory-intelligence capability.</p>
+        </div>
+        <div class="d">
+          <div class="pic48 grad"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12l1.5 1.5L13 11M9 16l1.5 1.5L13 15"/></svg></div>
+          <h3>Vendor qualification</h3>
+          <p>Qualification and requalification assessment forms, configured to your process and completed inside the platform, so vendor due diligence lives with the rest of the record.</p>
+        </div>
       </div>
-</div>
+      <p class="numcap reveal">Extended capabilities, configured per engagement.</p>
     </div>
   </section>
 
-  <!-- ============ CAPABILITIES ============ -->
-  <section class="pad80" id="what">
+  <!-- ============ CH 6 — THE LOOP, CLOSED (from -> to) ============ -->
+  <section class="pad80 grey chapter" id="compare">
     <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="section-title reveal">Sync, Match, and Stay Accountable</h2>
+      <div class="ch-grid reveal">
+        <div>
+          <h2 class="section-title">The loop, closed.</h2>
+        </div>
+        <div class="prose">
+          <p>Where procurement runs on the ERP alone, the work after the PO falls to email and spreadsheets. InLumin changes that.</p>
+        </div>
       </div>
-      <div class="hscroll">
-<div class="row g-4">
-        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
-          <h4>Real-Time ERP Data Integration</h4>
-          <ul><li>Live sync with ERPs such as SAP HANA/ECC</li><li>No duplicate entry</li><li>One source of truth</li></ul>
-        </div></div>
-        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
-          <h4>AI-Driven 3-Way Matching</h4>
-          <ul><li>PO, ASN and GRN matched automatically</li><li>Exceptions flagged for review</li><li>Runs on <a href="pivotpath-pivotai.html">PivotAI</a>, the AI layer inside PivotOS</li></ul>
-        </div></div>
-        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
-          <h4>Built-In Accountability</h4>
-          <ul><li>Process governance with built-in controls</li><li>Clear ownership at every stage</li><li>Approvals routed and logged</li></ul>
-        </div></div>
+      <div class="fromto reveal">
+        <div class="r hd"><div class="hfrom">The manual way today</div><div class="ar"></div><div class="hto">With InLumin</div></div>
+        <div class="r"><div class="from">ERP stops at the PO</div><div class="ar">&rarr;</div><div class="to">Closed through to payment</div></div>
+        <div class="r"><div class="from">Documents chased in email</div><div class="ar">&rarr;</div><div class="to">Vendors upload on the platform</div></div>
+        <div class="r"><div class="from">Manual 3-way matching</div><div class="ar">&rarr;</div><div class="to">Matched automatically</div></div>
+        <div class="r"><div class="from">Another ERP project</div><div class="ar">&rarr;</div><div class="to">Runs alongside your ERP</div></div>
       </div>
-</div>
-      <div class="divider_line"><img src="assets/divider-mark.svg" alt="" width="101" height="101" loading="lazy"></div>
     </div>
   </section>
 
-  <!-- ============ HOW IT WORKS ============ -->
-  <section class="pad80 grey" id="flow">
+  <!-- ============ CH 7 — ON THE RECORD (dark conviction band) ============ -->
+  <section class="pad80 band" id="assurance">
     <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="section-title reveal">From PO to Payment</h2>
-      </div>
-      <div class="proc reveal m-acc">
-        <div class="proc-step">
-          <div class="pic"><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg></div>
-          <div class="pk">Initiate</div>
-          <h5>PO Created</h5>
-          <p>A purchase order is raised and given an owner.</p>
+      <div class="ch-grid reveal">
+        <div>
+          <h2 class="section-title">When finance asks who approved what, the answer is on the record.</h2>
         </div>
-        <div class="proc-step">
-          <div class="pic"><svg viewBox="0 0 24 24"><rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 4V3h6v1M9 11h6M9 15h4"/></svg></div>
-          <div class="pk">Receive</div>
-          <h5>ASN and GRN Logged</h5>
-          <p>The supplier’s shipment notice and goods receipt are logged against the order.</p>
-        </div>
-        <div class="proc-step">
-          <div class="pic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg></div>
-          <div class="pk">Match</div>
-          <h5>AI 3-Way Match</h5>
-          <p>AI reconciles PO, ASN and GRN; a reviewer clears exceptions.</p>
-        </div>
-        <div class="proc-step">
-          <div class="pic"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18M7 15h4"/></svg></div>
-          <div class="pk">Settle</div>
-          <h5>Pay</h5>
-          <p>Approved invoices move to payment, synced to SAP.</p>
+        <div class="prose">
+          <p>Every request, approval, match and payment is role-based and captured on the audit trail, with the documents attached. The answer to a finance or audit question is already in the system, not scattered across inboxes.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ WHY INLUMIN ============ -->
-  <section class="pad80 stat-band" id="numbers">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="section-title text-white reveal">Why InLumin</h2>
-      </div>
-      <div class="row text-center g-4 justify-content-center">
-        <div class="col-md-6 col-lg-3 reveal"><div class="num text-white" style="font-weight:800;font-size:var(--fs-h3);line-height:1.2">Three-way matching, automated.</div></div>
-        <div class="col-md-6 col-lg-3 reveal"><div class="num text-white" style="font-weight:800;font-size:var(--fs-h3);line-height:1.2">Every role, accountable.</div></div>
-        <div class="col-md-6 col-lg-3 reveal"><div class="num text-white" style="font-weight:800;font-size:var(--fs-h3);line-height:1.2">Clear from PO to payment.</div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ PROOF ============ -->
-  <section class="pad80" id="proof">
-    <div class="container">
-      <div class="row align-items-center g-5">
-        <div class="col-lg-5 reveal">
-          <h2 class="section-title">Proven in Operation</h2>
-        </div>
-        <div class="col-lg-7">
-          <div class="hscroll">
-<div class="row g-4">
-            <div class="col-12 reveal"><div class="proof-card"><div class="big">P2P transformation at a pharma CDMO</div><div class="cap">A documented, full-cycle procurement transformation.</div></div></div>
-          </div>
-</div>
-        </div>
-      </div>
-      <div class="divider_line"><img src="assets/divider-mark.svg" alt="" width="101" height="101" loading="lazy"></div>
-    </div>
-  </section>
-
-  <!-- ============ A CLOSER LOOK ============ -->
-  <section class="pad80" id="closer">
-    <div class="container">
-      <div class="row align-items-center g-5">
-        <div class="col-lg-5 reveal">
-          <h2 class="section-title">The 3-Way Match Queue</h2>
-        </div>
-        <div class="col-lg-7 reveal">
-          <div class="shot">
-            <div class="bar"><i class="d1"></i><i class="d2"></i><i class="d3"></i><span class="addr">app.pivotpath.com/inlumin/match</span></div>
-            <svg viewBox="0 0 1120 560" role="img" aria-label="Representative InLumin 3-way match queue" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Roboto,Arial,sans-serif">
-              <defs><linearGradient id="nvgB" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#71bf44"/><stop offset=".55" stop-color="#20a676"/><stop offset="1" stop-color="#1b91a3"/></linearGradient></defs>
-              <rect width="1120" height="560" fill="#fff"/>
-              <text x="40" y="56" fill="#11151c" font-size="20" font-weight="700">3-Way Match</text>
-              <rect x="300" y="34" width="100" height="30" rx="15" fill="#eef0f2"/><text x="350" y="54" fill="#6b6b6b" font-size="12" text-anchor="middle">All vendors</text>
-              <rect x="412" y="34" width="104" height="30" rx="15" fill="#eef0f2"/><text x="464" y="54" fill="#6b6b6b" font-size="12" text-anchor="middle">Exceptions</text>
-              <rect x="900" y="32" width="180" height="34" rx="6" fill="url(#nvgB)"/><text x="990" y="54" fill="#fff" font-size="13" font-weight="700" text-anchor="middle">Resolve +</text>
-              <rect x="40" y="84" width="1040" height="40" rx="6" fill="#f4f6f8"/>
-              <g fill="#8a929b" font-size="11.5" font-weight="700" letter-spacing="1">
-                <text x="60" y="109">PO ID</text>
-                <text x="220" y="109">VENDOR</text>
-                <text x="560" y="109">TYPE</text>
-                <text x="760" y="109">MATCH</text>
-                <text x="940" y="109">STATUS</text>
-              </g>
-              <g font-size="13" fill="#11151c">
-                <text x="60" y="166">PO-9241</text><text x="220" y="166" fill="#6b6b6b">Acme Labs</text><text x="560" y="166" fill="#6b6b6b">PO·ASN·GRN</text>
-                <rect x="760" y="152" width="120" height="8" rx="4" fill="#eef0f2"/><rect x="760" y="152" width="60" height="8" rx="4" fill="url(#nvgB)"/>
-                <rect x="940" y="150" width="92" height="24" rx="12" fill="#fff3d6"/><text x="986" y="166" fill="#9a7400" font-size="11.5" font-weight="700" text-anchor="middle">Exception</text>
-                <line x1="40" y1="188" x2="1080" y2="188" stroke="#eef0f2"/>
-                <text x="60" y="226">PO-9240</text><text x="220" y="226" fill="#6b6b6b">BioReagents</text><text x="560" y="226" fill="#6b6b6b">PO·ASN·GRN</text>
-                <rect x="760" y="212" width="120" height="8" rx="4" fill="#eef0f2"/><rect x="760" y="212" width="120" height="8" rx="4" fill="url(#nvgB)"/>
-                <rect x="940" y="210" width="92" height="24" rx="12" fill="#e8f6f1"/><text x="986" y="226" fill="#1b8f73" font-size="11.5" font-weight="700" text-anchor="middle">Matched</text>
-                <line x1="40" y1="248" x2="1080" y2="248" stroke="#eef0f2"/>
-                <text x="60" y="286">PO-9239</text><text x="220" y="286" fill="#6b6b6b">Solvent Co</text><text x="560" y="286" fill="#6b6b6b">PO·ASN·GRN</text>
-                <rect x="760" y="272" width="120" height="8" rx="4" fill="#eef0f2"/><rect x="760" y="272" width="120" height="8" rx="4" fill="url(#nvgB)"/>
-                <rect x="940" y="270" width="92" height="24" rx="12" fill="#eaf6e3"/><text x="986" y="286" fill="#4c8f2e" font-size="11.5" font-weight="700" text-anchor="middle">Paid</text>
-                <line x1="40" y1="308" x2="1080" y2="308" stroke="#eef0f2"/>
-                <text x="60" y="346">PO-9238</text><text x="220" y="346" fill="#6b6b6b">LabWare Ltd</text><text x="560" y="346" fill="#6b6b6b">PO·ASN·GRN</text>
-                <rect x="760" y="332" width="120" height="8" rx="4" fill="#eef0f2"/><rect x="760" y="332" width="92" height="8" rx="4" fill="url(#nvgB)"/>
-                <rect x="940" y="330" width="92" height="24" rx="12" fill="#e8f6f1"/><text x="986" y="346" fill="#1b8f73" font-size="11.5" font-weight="700" text-anchor="middle">Matched</text>
-                <line x1="40" y1="368" x2="1080" y2="368" stroke="#eef0f2"/>
-                <text x="60" y="406">PO-9237</text><text x="220" y="406" fill="#6b6b6b">Acme Labs</text><text x="560" y="406" fill="#6b6b6b">PO·ASN·GRN</text>
-                <rect x="760" y="392" width="120" height="8" rx="4" fill="#eef0f2"/><rect x="760" y="392" width="72" height="8" rx="4" fill="url(#nvgB)"/>
-                <rect x="940" y="390" width="92" height="24" rx="12" fill="#fff3d6"/><text x="986" y="406" fill="#9a7400" font-size="11.5" font-weight="700" text-anchor="middle">Pending</text>
-                <line x1="40" y1="428" x2="1080" y2="428" stroke="#eef0f2"/>
-                <text x="60" y="466">PO-9236</text><text x="220" y="466" fill="#6b6b6b">Cold Chain Inc</text><text x="560" y="466" fill="#6b6b6b">PO·ASN·GRN</text>
-                <rect x="760" y="452" width="120" height="8" rx="4" fill="#eef0f2"/><rect x="760" y="452" width="120" height="8" rx="4" fill="url(#nvgB)"/>
-                <rect x="940" y="450" width="92" height="24" rx="12" fill="#eaf6e3"/><text x="986" y="466" fill="#4c8f2e" font-size="11.5" font-weight="700" text-anchor="middle">Paid</text>
-              </g>
-            </svg>
-            <span class="tag">Representative UI</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-    <!-- ============ FAQ ============ -->
-  <section class="pad80" id="faq">
+  <!-- ============ FAQ (backstory lives here) ============ -->
+  <section class="pad80 grey" id="faq">
     <div class="container">
       <div class="text-center mb-5">
-        <h2 class="section-title reveal">Common questions about InLumin</h2>
+        <h2 class="section-title reveal">InLumin, <span class="grad-text">Explained</span></h2>
       </div>
       <div class="row justify-content-center">
         <div class="col-lg-9">
           <div class="accordion reveal" id="faqAcc">
             <div class="accordion-item">
               <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q1">What does InLumin do?</button></h2>
-              <div id="q1" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">A Procure-to-Pay platform running the cycle end-to-end: AI-driven 3-way matching, real-time ERP data integration, built-in accountability.</div></div>
+              <div id="q1" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">InLumin is a procure-to-pay platform that runs alongside your ERP. It closes the loop from purchase request and PO through matching to payment, and brings your vendors onto the same platform.</div></div>
             </div>
             <div class="accordion-item">
-              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2">What does 3-way matching cover?</button></h2>
-              <div id="q2" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">It matches purchase order (PO), advance shipment notice (ASN) and goods receipt note (GRN) automatically, AI-driven, flagging exceptions and cutting reconciliation.</div></div>
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2">Does InLumin replace my ERP?</button></h2>
+              <div id="q2" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">No. It runs alongside your ERP as a companion system, picking up POs from it, so you close the procure-to-pay loop without starting another ERP project.</div></div>
             </div>
             <div class="accordion-item">
               <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q3">Does it sync with SAP?</button></h2>
-              <div id="q3" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Yes. It syncs with SAP in real time, with no duplicate entry and one source of truth.</div></div>
+              <div id="q3" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Yes. InLumin uses real-time ERP data integration, with SAP HANA/ECC as the named example, so there is no duplicate entry and one source of truth.</div></div>
             </div>
             <div class="accordion-item">
-              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q4">Who uses InLumin?</button></h2>
-              <div id="q4" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Procurement and Supply Chain Management (SCM) teams, alongside finance and department stakeholders, each with clear ownership and controls across the cycle.</div></div>
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q4">What does 3-way matching cover?</button></h2>
+              <div id="q4" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">It matches the purchase order, the advance shipment note (ASN) and the goods receipt note (GRN). The routine clears automatically on PivotAI and exceptions are flagged for a person.</div></div>
             </div>
             <div class="accordion-item">
-              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q5">How does it differ from our ERP?</button></h2>
-              <div id="q5" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">It doesn’t replace your ERP. It’s a purpose-built Procure-to-Pay layer with built-in accountability, sitting alongside SAP to close the gap it leaves.</div></div>
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q5">How do vendors participate?</button></h2>
+              <div id="q5" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Vendors log in and upload their own shipment and invoice documents, and communications are automated. InLumin also pushes the latest material spec from LIMS or your data warehouse, so the vendor works to the current version.</div></div>
             </div>
             <div class="accordion-item">
-              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q6">How does Pivot Path use AI responsibly and safely?</button></h2>
-              <div id="q6" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">AI here is assistive and human-reviewed. It drafts, summarises and retrieves, but a qualified person reviews and approves every regulated decision. Outputs are grounded in your approved content, fully audit-trailed, and your data is never used to train foundation models. These capabilities run on <a href="pivotpath-pivotai.html">PivotAI</a>, the AI layer every Pivot Path platform runs on. See our <a href="pivotpath-ai-trust.html">AI Trust Centre</a> for how we use AI responsibly.</div></div>
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q6">Can InLumin help me choose vendors?</button></h2>
+              <div id="q6" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Yes, as an extended capability. A vendor scorecard draws on regulatory signals such as FDA warning letters and Form 483 observations, and you can run configurable vendor qualification and requalification forms inside the platform.</div></div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q7">Who uses InLumin?</button></h2>
+              <div id="q7" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Procurement and Supply Chain Management teams, and finance, through the built-in Accounts Payable DMS.</div></div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q8">How does Pivot Path use AI responsibly and safely?</button></h2>
+              <div id="q8" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">AI here is assistive and human-reviewed. It drafts, summarises and retrieves, but a qualified person reviews and approves every regulated decision. Outputs are grounded in your approved content, fully audit-trailed, and your data is never used to train foundation models. These capabilities run on <a href="pivotpath-pivotai.html">PivotAI</a>, the AI layer every Pivot Path platform runs on. See our <a href="pivotpath-ai-trust.html">AI Trust Centre</a> for how we use AI responsibly.</div></div>
             </div>
           </div>
         </div>
@@ -551,16 +601,15 @@
   <!-- ============ FINAL CTA ============ -->
   <section class="pad80 final-cta text-center" id="contact">
     <div class="container">
-      <h2 class="section-title text-white reveal mb-3">Close Your Procure-to-Pay Loop with InLumin.</h2>
-      <p class="text-white-50 reveal mb-4" style="max-width:640px;margin-inline:auto">See it running on your own purchase orders.</p>
+      <h2 class="section-title text-white reveal mb-3">Close your <span class="grad-text">procure-to-pay loop.</span></h2>
+      <p class="text-white-50 reveal mb-4" style="max-width:640px;margin-inline:auto">See it running on your own purchase orders, alongside the ERP you already have.</p>
       <div class="hero-ctas justify-content-center reveal">
         <a href="mailto:info@pivotpath.com" class="btns2 solid-light">Book an InLumin demo</a>
+        <a href="pivotpath-how-we-operate.html" class="btns-line">See how we operate</a>
       </div>
     </div>
   </section>
 
-  <!-- ver-switch: base/narrative review toggle -->
-  <div style="position:fixed;left:18px;bottom:18px;z-index:1050;display:inline-flex;align-items:center;gap:2px;background:#10161d;border-radius:999px;padding:4px;box-shadow:0 8px 24px rgba(0,0,0,.28)"><span style="padding:.5rem .95rem;border-radius:999px;background:#fff;color:#10161d;font-size:.72rem;font-weight:800">base-page</span><a href="pivotpath-inlumin-editorial.html" style="padding:.5rem .95rem;border-radius:999px;color:#cfd6dd;font-size:.72rem;font-weight:700;text-decoration:none">narrative-page</a></div>
 
   <!-- ============ FOOTER ============ -->
 
@@ -621,42 +670,10 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous" defer></script>
   <script>
-    // ---- Count-up stat band ----
-    (function(){
-      function run(scope){
-        scope.querySelectorAll('.count').forEach(function(el){
-          if(el.dataset.done)return;el.dataset.done="1";
-          var to=parseFloat(el.dataset.to), dec=parseInt(el.dataset.dec||'0',10);
-          if(to===0){el.textContent="0";return;}
-          var start=null,dur=1600;
-          function step(ts){if(!start)start=ts;var p=Math.min((ts-start)/dur,1);
-            var val=to*(0.5-Math.cos(p*Math.PI)/2);
-            el.textContent=dec?val.toFixed(dec):Math.round(val).toLocaleString();
-            if(p<1)requestAnimationFrame(step);else el.textContent=dec?to.toFixed(dec):to.toLocaleString();}
-          requestAnimationFrame(step);
-        });
-      }
-      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)run(e.target);});},{threshold:.3});
-      document.querySelectorAll('.stat-band').forEach(function(b){io.observe(b);});
-    })();
-
     // ---- Reveal on scroll ----
     (function(){
       var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
       document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
-    })();
-
-    // ---- Active anchor-nav highlight ----
-    (function(){
-      var links=[].slice.call(document.querySelectorAll('.anchor-nav a'));
-      var map=links.map(function(a){return {a:a,el:document.querySelector(a.getAttribute('href'))};}).filter(function(x){return x.el;});
-      function onScroll(){
-        var y=window.scrollY+120,cur=map[0];
-        map.forEach(function(x){if(x.el.offsetTop<=y)cur=x;});
-        links.forEach(function(a){a.classList.remove('active');});
-        if(cur)cur.a.classList.add('active');
-      }
-      window.addEventListener('scroll',onScroll,{passive:true});onScroll();
     })();
   </script>
   <script src="pp-mobile.js?v=50" defer></script>

@@ -4,58 +4,144 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
-  <title>NoteIQ VMS: Validation Management System | Pivot Path</title>
-  <meta name="description" content="NoteIQ VMS digitises the validation lifecycle, URS to periodic review, with auto-generated deliverables and a self-building traceability matrix." />
+  <title>NoteIQ: Validation Management, Digitised End to End | Pivot Path</title>
+  <meta name="description" content="NoteIQ runs the whole validation lifecycle, from URS to periodic review, on one audit-ready system, with AI-drafted deliverables, a self-building traceability matrix and 21 CFR Part 11 and EU Annex 11 audit trails." />
   <link rel="preconnect" href="https://cdn.jsdelivr.net" />
   <link rel="preload" href="pp.css?v=50" as="style" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
   <link rel="stylesheet" href="pp.css?v=50" />
   <link rel="icon" type="image/png" href="assets/chevron.png" />
+  <style>
+    /* ==== EDITORIAL STORY LAYOUT (page-scoped; pp.css untouched) ==== */
+
+    /* Chapter: title left, prose right */
+    .ch-grid{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);column-gap:var(--sp-7);row-gap:var(--sp-4);align-items:start}
+    .ch-grid h2.section-title{margin-bottom:0;max-width:14ch}
+    .prose p{font-size:var(--fs-lead);line-height:1.75;color:var(--pp-ink);max-width:62ch;margin:0 0 var(--sp-4)}
+    .prose p:last-child{margin-bottom:0}
+    .chapter{border-top:1px solid var(--pp-line)}
+
+    /* Big standalone statement + pull quote */
+    .statement{font-size:var(--fs-display);font-weight:800;line-height:1.1;letter-spacing:-.015em;color:var(--pp-ink);max-width:24ch;margin:0 0 var(--sp-5)}
+    .pull{font-size:var(--fs-h3);font-weight:800;line-height:1.25;max-width:24ch;margin:0 0 var(--sp-4)}
+
+    /* Icon tiles */
+    .pic48{flex:none;width:48px;height:48px;border-radius:var(--r-md);background:var(--pp-accent);display:flex;align-items:center;justify-content:center;margin-bottom:var(--sp-3)}
+    .pic48 svg{width:24px;height:24px;fill:none;stroke:#fff;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+    .pic48.grad{background:var(--pp-grad)}
+    .pic48.ink{background:var(--pp-ink)}
+    .pic40{flex:none;width:40px;height:40px;border-radius:var(--r-md);background:var(--pp-grad);display:flex;align-items:center;justify-content:center}
+    .pic40 svg{width:20px;height:20px;fill:none;stroke:#fff;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+
+    /* Value triptych: three hairline columns with icons */
+    .val3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:var(--sp-6)}
+    .val3 .v{padding:0 var(--sp-5);border-left:1px solid var(--pp-line)}
+    .val3 .v:first-child{border-left:0;padding-left:0}
+    .val3 .v:last-child{padding-right:0}
+    .val3 h3{font-size:var(--fs-h4);font-weight:700;margin:0 0 var(--sp-2);text-transform:none}
+    .val3 p{margin:0;color:var(--pp-muted);font-size:var(--fs-body);line-height:1.65}
+
+    /* Four-column variant: adoption / scale points */
+    .val4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:var(--sp-6)}
+    .val4 .v{padding:0 var(--sp-4);border-left:1px solid var(--pp-line)}
+    .val4 .v:first-child{border-left:0;padding-left:0}
+    .val4 .v:last-child{padding-right:0}
+    .val4 h3{font-size:var(--fs-h5);font-weight:700;margin:0 0 var(--sp-2);text-transform:none}
+    .val4 p{margin:0;color:var(--pp-muted);font-size:var(--fs-sm);line-height:1.6}
+
+    /* Caption line under a chapter's structured content */
+    .numcap{font-size:var(--fs-sm);color:var(--pp-muted);margin-top:var(--sp-3)}
+
+    /* Validation lifecycle — horizontal gradient-spine timeline */
+    .vlife{position:relative;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));margin-top:var(--sp-6)}
+    .vlife::before{content:"";position:absolute;top:23px;left:calc(100%/14);right:calc(100%/14);height:2px;background:var(--pp-grad);border-radius:2px}
+    .vl{position:relative;text-align:center;padding:0 6px}
+    .vl .vp{width:48px;height:48px;border-radius:50%;background:var(--pp-grad);display:flex;align-items:center;justify-content:center;margin:0 auto var(--sp-3);position:relative;z-index:1}
+    .vl .vp svg{width:22px;height:22px;fill:none;stroke:#fff;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+    .vl h3{font-size:var(--fs-h5);font-weight:800;margin:0;text-transform:none}
+    .vl span{display:block;font-size:var(--fs-sm);color:var(--pp-muted);margin-top:2px}
+
+    /* Real product screenshots */
+    .pshot{border:1px solid var(--pp-line);border-radius:14px;overflow:hidden;box-shadow:0 14px 34px rgba(0,0,0,.09);background:#fff;margin-inline:auto}
+    .pshot picture{display:block}
+    .pshot img{display:block;width:100%;height:auto}
+    .shot-hero{max-width:1000px;margin-top:var(--sp-6)}
+    .shot-cap{font-size:var(--fs-sm);color:var(--pp-muted);text-align:center;margin-top:var(--sp-3)}
+
+    /* "NoteIQ, at work" feature carousel: one feature per slide (swipe / arrows / dots) */
+    .cwrap{position:relative;margin-top:var(--sp-7)}
+    .ctrack{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+    .ctrack::-webkit-scrollbar{display:none}
+    .cslide{flex:0 0 100%;min-width:0;scroll-snap-align:start}
+    .cslide-in{max-width:1040px;margin-inline:auto;width:100%}
+    .cslide h3{font-size:var(--fs-h4);font-weight:700;margin:0 0 var(--sp-2);text-transform:none}
+    .cslide p{margin:0 0 var(--sp-4);color:var(--pp-muted);font-size:var(--fs-body);line-height:1.7;max-width:64ch}
+    .cslide .pshot{width:100%}
+    .cctrls{display:flex;align-items:center;justify-content:center;gap:var(--sp-3);margin-top:var(--sp-5)}
+    .cbtn{width:40px;height:40px;border-radius:50%;border:1px solid var(--pp-line);background:#fff;color:var(--pp-ink);font-size:1.3rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:border-color .15s,color .15s}
+    .cbtn:hover{border-color:var(--pp-accent);color:var(--pp-accent)}
+    .cdots{display:flex;align-items:center;gap:8px}
+    .cdot{width:8px;height:8px;padding:0;border:0;border-radius:50%;background:var(--pp-line);cursor:pointer;transition:width .2s,background .2s}
+    .cdot.active{width:22px;border-radius:5px;background:var(--pp-accent)}
+
+    /* Module teaser link */
+    a.pl-link{display:inline-block;font-size:var(--fs-sm);font-weight:700;color:var(--pp-accent);text-decoration:none;margin-top:var(--sp-3)}
+    a.pl-link:hover{text-decoration:underline}
+
+    .tt-none{text-transform:none}
+
+    /* Dark punctuation bands */
+    .band{background:var(--pp-section);color:#fff}
+    .band h2.section-title{color:#fff}
+    .band .prose p{color:rgba(255,255,255,.82)}
+    .band a{color:#fff}
+
+    /* Closing rule line */
+    .rule-line{font-size:var(--fs-h4);font-weight:700;color:var(--pp-ink);border-top:1px solid var(--pp-line);padding-top:var(--sp-4);margin-top:var(--sp-6)}
+
+    @media (max-width:991.98px){
+      .ch-grid{grid-template-columns:1fr}
+      .ch-grid h2.section-title{max-width:none;margin-bottom:var(--sp-3)}
+      .val3{grid-template-columns:1fr}
+      .val3 .v{border-left:0;padding:var(--sp-4) 0;border-top:1px solid var(--pp-line)}
+      .val3 .v:first-child{border-top:0;padding-top:0}
+      .val3 .v:last-child{padding-bottom:0}
+      .val4{grid-template-columns:1fr}
+      .val4 .v{border-left:0;padding:var(--sp-4) 0;border-top:1px solid var(--pp-line)}
+      .val4 .v:first-child{border-top:0;padding-top:0}
+      .val4 .v:last-child{padding-bottom:0}
+      /* Horizontal scroll strip: keeps the lifecycle rail, short height, next-node peek */
+      .vlife{display:flex;overflow-x:auto;align-items:flex-start;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;scrollbar-width:none;margin-top:var(--sp-5)}
+      .vlife::-webkit-scrollbar{display:none}
+      .vlife::before{display:none}
+      .vl{flex:0 0 84px;scroll-snap-align:start;padding:0}
+      .vl::after{content:"";position:absolute;top:23px;left:50%;width:100%;height:2px;background:var(--pp-grad);z-index:0}
+      .vl:last-child::after{display:none}
+    }
+  </style>
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "SoftwareApplication",
-      "name": "VMS",
-      "description": "NoteIQ VMS digitises the validation lifecycle, from URS to periodic review, with auto-generated deliverables, a self-building traceability matrix and 21 CFR Part 11 and EU Annex 11 audit trails.",
-      "applicationCategory": "BusinessApplication",
-      "operatingSystem": "Web",
+      "@type": "WebPage",
+      "name": "NoteIQ",
+      "description": "NoteIQ runs the whole validation lifecycle, from URS to periodic review, on one audit-ready system.",
+      "url": "https://pivotpath.com/pivotpath-noteiq-vms.html",
       "provider": {
         "@type": "Organization",
         "@id": "https://pivotpath.com/#organization",
         "name": "Pivot Path",
         "url": "https://pivotpath.com/"
-      },
-      "url": "https://pivotpath.com/pivotpath-noteiq-vms.html"
+      }
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://pivotpath.com/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Products",
-          "item": "https://pivotpath.com/#platforms"
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "name": "NoteIQ",
-          "item": "https://pivotpath.com/pivotpath-noteiq.html"
-        },
-        {
-          "@type": "ListItem",
-          "position": 4,
-          "name": "VMS",
-          "item": "https://pivotpath.com/pivotpath-noteiq-vms.html"
-        }
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pivotpath.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://pivotpath.com/#platforms" },
+        { "@type": "ListItem", "position": 3, "name": "NoteIQ", "item": "https://pivotpath.com/pivotpath-noteiq.html" },
+        { "@type": "ListItem", "position": 4, "name": "Validation", "item": "https://pivotpath.com/pivotpath-noteiq-vms.html" }
       ]
     },
     {
@@ -63,7 +149,15 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "What does NoteIQ VMS manage?",
+          "name": "What problem does NoteIQ solve?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Validation generates a mountain of manual paperwork: protocols authored by hand, traceability cross-referenced across documents, evidence scattered across systems. NoteIQ runs the whole lifecycle on one system, so deliverables are drafted, the matrix builds itself, and every record stays audit-ready, without moving a qualification decision off a qualified person's desk."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does NoteIQ manage?",
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "The full validation lifecycle on one system: URS, risk assessment, IQ, OQ, PQ, release and periodic review. Deliverables auto-generate, the matrix self-builds, and everything is version-controlled and audit-trailed."
@@ -79,10 +173,10 @@
         },
         {
           "@type": "Question",
-          "name": "Where does AI fit into validation work in NoteIQ VMS?",
+          "name": "Where does AI fit into validation work in NoteIQ?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "It scans documents for missing steps and inconsistencies before execution, auto-generates IQ, OQ and PQ protocols and reports from templates, authoring in minutes rather than days, and summarises them for reviewers."
+            "text": "It scans documents for missing steps and inconsistencies before execution, drafts IQ, OQ and PQ protocols and reports from approved templates, authoring in minutes rather than days, and summarises them for reviewers. A qualified person reviews and approves every deliverable."
           }
         },
         {
@@ -90,12 +184,12 @@
           "name": "What is Split & PDF execution?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "It divides a protocol across executors to run in parallel, then auto-merges the parts. Executions run via Word, PDF or VMS."
+            "text": "It divides a protocol across executors to run in parallel, then auto-merges the parts. Executions run via Word, PDF or NoteIQ."
           }
         },
         {
           "@type": "Question",
-          "name": "Is NoteIQ VMS audit-ready?",
+          "name": "Is NoteIQ audit-ready?",
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Yes. Immutable audit trails, 21 CFR Part 11 and EU Annex 11 compliant, records instantly accessible. Every deliverable, discrepancy and deviation is tracked to closure, inspection-ready by default."
@@ -228,188 +322,94 @@
     </div>
   </header>
 
-  <!-- ============ PAGE HERO ============ -->
+  <!-- ============ PAGE HERO — define before you narrate ============ -->
   <section class="page-hero pad80" id="overview">
     <div class="container">
-      <div class="crumb"><a href="pivotpath-home.html">Home</a> &nbsp;/&nbsp; <a href="pivotpath-home.html#platforms">Products</a> &nbsp;/&nbsp; <a href="pivotpath-noteiq.html">NoteIQ</a> &nbsp;/&nbsp; VMS</div>
-      <h1>Validation management,<br>digitised end to end.</h1>
-      <p class="lead">NoteIQ VMS digitises the validation lifecycle, generating deliverables and traceability on one audit-ready system.</p>
+      <div class="crumb"><a href="pivotpath-home.html">Home</a> &nbsp;/&nbsp; <a href="pivotpath-home.html#platforms">Products</a> &nbsp;/&nbsp; <a href="pivotpath-noteiq.html" class="tt-none">NoteIQ</a> &nbsp;/&nbsp; Validation</div>
+      <h1>NoteIQ: validation management,<br>digitised end to end.</h1>
+      <p class="lead">NoteIQ runs the whole validation lifecycle, from URS to periodic review, on one audit-ready system.</p>
       <div class="hero-ctas">
-        <a href="#contact" class="btns2 solid-light">Book a VMS demo</a>
-        <a href="pivotpath-noteiq.html" class="btns-line">Back to NoteIQ platform</a>
+        <a href="#contact" class="btns2 solid-light">Book a <span class="tt-none">NoteIQ</span> demo</a>
+        <a href="pivotpath-noteiq.html" class="btns-line">Back to <span class="tt-none">NoteIQ</span> platform</a>
       </div>
     </div>
   </section>
 
-  <!-- ============ STICKY ANCHOR NAV ============ -->
-  <nav class="anchor-nav">
+  <!-- ============ CH 1 — THE VALUE (value first) ============ -->
+  <section class="pad80" id="value">
     <div class="container">
-      <div class="inner">
-        <span class="anchor-brand">NoteIQ VMS</span>
-        <a href="#overview" class="active">Overview</a>
-        <a href="#preview">Preview</a>
-        <a href="#why">Why VMS</a>
-        <a href="#features">Key Features</a>
-        <a href="#coverage">Validation Coverage</a>
-        <a href="#flow">How It Works</a>
-        <a href="#ai">NoteIQ AI</a>
-        <a href="#more">More Modules</a>
-        <a href="#faq">FAQ</a>
+      <p class="statement reveal">A validation is only as good as the record behind it. <span class="grad-text">NoteIQ builds that record as the work happens.</span></p>
+      <div class="ch-grid reveal">
+        <div>
+          <h2 class="section-title">What NoteIQ changes.</h2>
+        </div>
+        <div class="prose">
+          <p>It takes the manual assembly out of validation, the authoring, the cross-referencing, the evidence-gathering, without moving a single qualification decision off a qualified person's desk. For the teams that run on it, three things follow.</p>
+        </div>
       </div>
-    </div>
-  </nav>
-
-  <!-- ============ PRODUCT PREVIEW ============ -->
-  <section class="pad80 grey" id="preview">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="section-title reveal">A Working View of the Platform</h2>
-      </div>
-      <div class="reveal" style="max-width:1000px;margin-inline:auto">
-        <div class="shot">
-          <div class="bar"><i class="d1"></i><i class="d2"></i><i class="d3"></i><span class="addr">app.pivotpath.com/noteiq/vms</span></div>
-          <svg viewBox="0 0 1120 640" role="img" aria-label="Representative NoteIQ VMS dashboard" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Roboto,Arial,sans-serif">
-            <defs><linearGradient id="nvgA" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#71bf44"/><stop offset=".55" stop-color="#20a676"/><stop offset="1" stop-color="#1b91a3"/></linearGradient></defs>
-            <rect width="1120" height="640" fill="#f6f7f9"/>
-            <rect width="236" height="640" fill="#0f141b"/>
-            <rect x="28" y="30" width="20" height="20" rx="5" fill="url(#nvgA)"/>
-            <text x="58" y="45" fill="#fff" font-size="17" font-weight="700">NoteIQ VMS</text>
-            <rect x="16" y="84" width="204" height="38" rx="8" fill="#ffffff1a"/>
-            <text x="40" y="108" fill="#fff" font-size="13" font-weight="600">Dashboard</text>
-            <text x="40" y="156" fill="#8b95a0" font-size="13">Protocols</text>
-            <text x="40" y="196" fill="#8b95a0" font-size="13">Risk Assessment</text>
-            <text x="40" y="236" fill="#8b95a0" font-size="13">Execution</text>
-            <text x="40" y="276" fill="#8b95a0" font-size="13">Traceability</text>
-            <text x="40" y="316" fill="#8b95a0" font-size="13">Settings</text>
-            <text x="264" y="52" fill="#11151c" font-size="20" font-weight="700">Validation Management</text>
-            <rect x="812" y="32" width="196" height="34" rx="17" fill="#fff" stroke="#e3e6ea"/>
-            <text x="832" y="54" fill="#9aa3ab" font-size="12">Search…</text>
-            <circle cx="1058" cy="49" r="18" fill="url(#nvgA)"/>
-            <rect x="264" y="84" width="252" height="104" rx="10" fill="#fff" stroke="#e8eaed"/>
-            <text x="288" y="134" fill="#11151c" font-size="30" font-weight="800">128</text>
-            <text x="288" y="162" fill="#6b6b6b" font-size="12.5">Active protocols</text>
-            <rect x="540" y="84" width="252" height="104" rx="10" fill="#fff" stroke="#e8eaed"/>
-            <text x="564" y="134" fill="#11151c" font-size="30" font-weight="800">100%</text>
-            <text x="564" y="162" fill="#6b6b6b" font-size="12.5">Traceability</text>
-            <rect x="816" y="84" width="252" height="104" rx="10" fill="#fff" stroke="#e8eaed"/>
-            <text x="840" y="134" fill="#11151c" font-size="30" font-weight="800">5</text>
-            <text x="840" y="162" fill="#6b6b6b" font-size="12.5">Validation types</text>
-            <rect x="264" y="212" width="560" height="196" rx="10" fill="#fff" stroke="#e8eaed"/>
-            <text x="288" y="246" fill="#11151c" font-size="14" font-weight="700">Protocols executed, last 8 weeks</text>
-            <line x1="288" y1="384" x2="800" y2="384" stroke="#e8eaed"/>
-            <g fill="url(#nvgA)">
-              <rect x="300" y="324" width="38" height="60" rx="3"/>
-              <rect x="362" y="298" width="38" height="86" rx="3"/>
-              <rect x="424" y="330" width="38" height="54" rx="3"/>
-              <rect x="486" y="280" width="38" height="104" rx="3"/>
-              <rect x="548" y="306" width="38" height="78" rx="3"/>
-              <rect x="610" y="264" width="38" height="120" rx="3"/>
-              <rect x="672" y="292" width="38" height="92" rx="3"/>
-              <rect x="734" y="274" width="38" height="110" rx="3"/>
-            </g>
-            <rect x="840" y="212" width="248" height="196" rx="10" fill="#fff" stroke="#e8eaed"/>
-            <text x="864" y="246" fill="#11151c" font-size="14" font-weight="700">By stage</text>
-            <circle cx="870" cy="284" r="5" fill="#1b91a3"/><text x="886" y="289" fill="#6b6b6b" font-size="12.5">Drafting</text><text x="1064" y="289" fill="#11151c" font-size="12.5" font-weight="700" text-anchor="end">22</text>
-            <circle cx="870" cy="318" r="5" fill="#20a676"/><text x="886" y="323" fill="#6b6b6b" font-size="12.5">In execution</text><text x="1064" y="323" fill="#11151c" font-size="12.5" font-weight="700" text-anchor="end">31</text>
-            <circle cx="870" cy="352" r="5" fill="#71bf44"/><text x="886" y="357" fill="#6b6b6b" font-size="12.5">Approved</text><text x="1064" y="357" fill="#11151c" font-size="12.5" font-weight="700" text-anchor="end">240</text>
-            <circle cx="870" cy="386" r="5" fill="#febc2e"/><text x="886" y="391" fill="#6b6b6b" font-size="12.5">Discrepancies</text><text x="1064" y="391" fill="#11151c" font-size="12.5" font-weight="700" text-anchor="end">5</text>
-            <rect x="264" y="424" width="824" height="188" rx="10" fill="#fff" stroke="#e8eaed"/>
-            <text x="288" y="456" fill="#11151c" font-size="14" font-weight="700">Recent protocols</text>
-            <line x1="264" y1="476" x2="1088" y2="476" stroke="#eef0f2"/>
-            <g font-size="12.5">
-              <text x="288" y="508" fill="#11151c">IQ-0142</text><text x="430" y="508" fill="#6b6b6b">IQ · HPLC #12</text><text x="860" y="508" fill="#6b6b6b">A. Rao</text>
-              <rect x="980" y="494" width="84" height="22" rx="11" fill="#e8f6f1"/><text x="1022" y="509" fill="#1b8f73" text-anchor="middle" font-size="11" font-weight="700">Execution</text>
-              <text x="288" y="548" fill="#11151c">OQ-0141</text><text x="430" y="548" fill="#6b6b6b">OQ · Autoclave</text><text x="860" y="548" fill="#6b6b6b">S. Iyer</text>
-              <rect x="980" y="534" width="84" height="22" rx="11" fill="#eaf6e3"/><text x="1022" y="549" fill="#4c8f2e" text-anchor="middle" font-size="11" font-weight="700">Approved</text>
-              <text x="288" y="588" fill="#11151c">PQ-0140</text><text x="430" y="588" fill="#6b6b6b">PQ · Fill line</text><text x="860" y="588" fill="#6b6b6b">A. Rao</text>
-              <rect x="980" y="574" width="84" height="22" rx="11" fill="#fff3d6"/><text x="1022" y="589" fill="#9a7400" text-anchor="middle" font-size="11" font-weight="700">Discrepancy</text>
-            </g>
-          </svg>
-          <span class="tag">Representative UI</span>
+      <div class="val3 reveal m-acc">
+        <div class="v">
+          <div class="pic48"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="4" rx="1.5"/><rect x="4" y="10" width="16" height="4" rx="1.5"/><rect x="4" y="16" width="10" height="4" rx="1.5"/></svg></div>
+          <h3>Deliverables in minutes, not days</h3>
+          <p>AI drafts IQ, OQ and PQ protocols and reports from your approved templates, ready for review.</p>
+        </div>
+        <div class="v">
+          <div class="pic48"><svg viewBox="0 0 24 24"><path d="M4 6h6v6H4zM14 6h6v6h-6zM9 18h6M12 12v6"/></svg></div>
+          <h3>Traceability that builds itself</h3>
+          <p>The matrix assembles as validation progresses, so nothing is cross-referenced by hand.</p>
+        </div>
+        <div class="v">
+          <div class="pic48"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3.5 8-7 10-3.5-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
+          <h3>Evidence you can defend</h3>
+          <p>Every step, signature and discrepancy is timestamped, aligned to 21 CFR Part 11 and EU Annex 11.</p>
         </div>
       </div>
     </div>
   </section>
 
-
-  <!-- ============ HIGHLIGHTS ============ -->
-  <section class="pad60">
+  <!-- ============ CH 2 — THE WORKSPACE (hero screenshot) ============ -->
+  <section class="pad80 grey chapter" id="workspace">
     <div class="container">
-      <div class="row g-4 align-items-center">
-        <div class="col-lg-5 reveal">
-          <h2 class="section-title">What VMS Changes</h2>
+      <div class="ch-grid reveal">
+        <div>
+          <h2 class="section-title">Where every deliverable is built.</h2>
         </div>
-        <div class="col-lg-7">
-          <div class="row g-4">
-            <div class="col-6 col-md-4 reveal"><div class="hl"><div class="n">Days → Minutes</div><div class="l">Deliverable Authoring</div></div></div>
-            <div class="col-6 col-md-4 reveal"><div class="hl"><div class="n">Auto-Built</div><div class="l">Traceability Matrix</div></div></div>
-            <div class="col-6 col-md-4 reveal"><div class="hl"><div class="n">21 CFR Part 11</div><div class="l">Immutable Audit Trails</div></div></div>
-          </div>
+        <div class="prose">
+          <p>Each protocol lives in one workspace: its metadata, its workflow and an AI-powered draft, with verify-mapping and dry-run checks before anything is executed.</p>
         </div>
       </div>
+      <div class="pshot shot-hero reveal">
+        <picture>
+          <source media="(max-width:991.98px)" srcset="assets/vms-shot-document-sm.png" />
+          <img src="assets/vms-shot-document.png" alt="NoteIQ document workspace: document metadata, an AI-powered document button, and verify-mapping, dry-run and authoring actions" loading="lazy" />
+        </picture>
+      </div>
+      <p class="shot-cap reveal">The NoteIQ document workspace: metadata, AI-assisted authoring and every action in one place.</p>
     </div>
   </section>
 
-  <!-- ============ WHY VMS ============ -->
-  <section class="pad80 grey" id="why">
+  <!-- ============ CH 3 — THE VALIDATION LIFECYCLE ============ -->
+  <section class="pad80 chapter" id="lifecycle">
     <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="section-title reveal">Why NoteIQ VMS</h2>
+      <div class="ch-grid reveal">
+        <div>
+          <h2 class="section-title">The validation lifecycle, on one system.</h2>
+        </div>
+        <div class="prose">
+          <p>From the first requirement to the periodic review that keeps a system validated, every stage runs in NoteIQ, with the evidence carried forward from one step to the next.</p>
+        </div>
       </div>
-      <div class="hscroll">
-<div class="row g-4">
-        <div class="col-md-4 reveal"><div class="cap-card">
-          <h4>Accelerate Validation Cycles</h4>
-          <ul><li>Deliverables and matrix generated automatically</li></ul>
-        </div></div>
-        <div class="col-md-4 reveal"><div class="cap-card">
-          <h4>Audit Ready, Always</h4>
-          <ul><li>21 CFR Part 11 and EU Annex 11 audit trails</li></ul>
-        </div></div>
-        <div class="col-md-4 reveal"><div class="cap-card">
-          <h4>Consistency Across Sites</h4>
-          <ul><li>Binding documents for every site</li></ul>
-        </div></div>
+      <div class="vlife reveal">
+        <div class="vl"><div class="vp"><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg></div><h3>URS</h3><span>Requirements</span></div>
+        <div class="vl"><div class="vp"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg></div><h3>Risk</h3><span>Assessment</span></div>
+        <div class="vl"><div class="vp"><svg viewBox="0 0 24 24"><rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 4V3h6v1M9 11h6M9 15h4"/></svg></div><h3>IQ</h3><span>Installation</span></div>
+        <div class="vl"><div class="vp"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg></div><h3>OQ</h3><span>Operational</span></div>
+        <div class="vl"><div class="vp"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg></div><h3>PQ</h3><span>Performance</span></div>
+        <div class="vl"><div class="vp"><svg viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg></div><h3>Release</h3><span>For use</span></div>
+        <div class="vl"><div class="vp"><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 14-5l2 2M20 12a8 8 0 0 1-14 5l-2-2"/><path d="M18 4v5h-5M6 20v-5h5"/></svg></div><h3>Review</h3><span>Periodic</span></div>
       </div>
-</div>
-    </div>
-  </section>
-
-  <!-- ============ KEY FEATURES ============ -->
-  <section class="pad80" id="features">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="section-title reveal">Key Features</h2>
-      </div>
-      <div class="hscroll">
-<div class="row g-4">
-        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
-          <h4>Unified Operations</h4>
-          <ul><li>All validation teams, one secure instance</li><li>Configurable workflows, role-based access</li></ul>
-        </div></div>
-        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
-          <h4>Traceability Matrix</h4>
-          <ul><li>Built automatically as validation progresses</li></ul>
-        </div></div>
-        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
-          <h4>Split &amp; PDF Execution</h4>
-          <ul><li>Protocols split across executors, then auto-merged</li><li>Run via Word, PDF or VMS</li></ul>
-        </div></div>
-        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
-          <h4>Discrepancy Management</h4>
-          <ul><li>Step-level discrepancies audit-trailed to closure</li></ul>
-        </div></div>
-      </div>
-</div>
-      <div class="divider_line"><img src="assets/divider-mark.svg" alt="" width="101" height="101" loading="lazy"></div>
-    </div>
-  </section>
-
-  <!-- ============ VALIDATION COVERAGE ============ -->
-  <section class="pad80 grey" id="coverage">
-    <div class="container text-center">
-      <h2 class="section-title reveal mb-4">Validation Coverage</h2>
-      <div class="reveal">
+      <div class="reveal" style="margin-top:var(--sp-6)">
+        <p class="numcap" style="margin:0 0 var(--sp-2)">One system for every validation type your teams run.</p>
         <span class="chip-light">Computerized System Validation</span>
         <span class="chip-light">Equipment Qualification</span>
         <span class="chip-light">Utility Qualification</span>
@@ -419,200 +419,166 @@
     </div>
   </section>
 
-  <!-- ============ HOW IT WORKS ============ -->
-  <section class="pad80" id="flow">
+  <!-- ============ CH 3.5 — NoteIQ, AT WORK (real product screenshots) ============ -->
+  <section class="pad80 grey chapter" id="closer">
     <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="section-title reveal">The Validation Lifecycle</h2>
-      </div>
-      <div class="tline reveal">
-        <div class="tl">
-          <div class="pic"><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg></div>
-          <div class="pk">Define</div>
-          <h5>User Requirements Specification</h5>
-          <p>Captures requirements and regulatory expectations for later stages.</p>
+      <div class="ch-grid reveal">
+        <div>
+          <h2 class="section-title">NoteIQ, at work.</h2>
         </div>
-        <div class="tl">
-          <div class="pic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg></div>
-          <div class="pk">Assess</div>
-          <h5>Risk Assessment</h5>
-          <p>Scores requirements by risk to focus validation effort.</p>
-        </div>
-        <div class="tl">
-          <div class="pic"><svg viewBox="0 0 24 24"><rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 4V3h6v1M9 11h6M9 15h4"/></svg></div>
-          <div class="pk">Qualify</div>
-          <h5>Installation Qualification</h5>
-          <p>Verifies the system is installed and configured as specified.</p>
-        </div>
-        <div class="tl">
-          <div class="pic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg></div>
-          <div class="pk">Qualify</div>
-          <h5>Operational Qualification</h5>
-          <p>Proves function across operating ranges, including error handling.</p>
-        </div>
-        <div class="tl">
-          <div class="pic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg></div>
-          <div class="pk">Qualify</div>
-          <h5>Performance Qualification</h5>
-          <p>Confirms reliable performance under real production conditions.</p>
-        </div>
-        <div class="tl">
-          <div class="pic"><svg viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg></div>
-          <div class="pk">Release</div>
-          <h5>Release for Use</h5>
-          <p>Reviews evidence and traceability, then authorises use.</p>
-        </div>
-        <div class="tl">
-          <div class="pic"><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 14-5l2 2M20 12a8 8 0 0 1-14 5l-2-2"/><path d="M18 4v5h-5M6 20v-5h5"/></svg></div>
-          <div class="pk">Sustain</div>
-          <h5>Periodic Review</h5>
-          <p>Re-evaluates at set intervals so the system stays validated.</p>
+        <div class="prose">
+          <p>The same system, across the work: a task assigned to the right executor with the record started, and a protocol executed and signed off step by step.</p>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ============ NoteIQ AI ============ -->
-  <section class="pad80 grey" id="ai">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="section-title reveal">NoteIQ AI</h2>
-      </div>
-      <div class="hscroll">
-<div class="row g-4">
-        <div class="col-md-4 reveal"><div class="cap-card">
-          <h4>Error &amp; Gap Detection</h4>
-          <ul><li>Scans documents for gaps and inconsistencies before execution</li></ul>
-        </div></div>
-        <div class="col-md-4 reveal"><div class="cap-card">
-          <h4>Deliverable Generation</h4>
-          <ul><li>IQ, OQ and PQ deliverables drafted from templates</li></ul>
-        </div></div>
-        <div class="col-md-4 reveal"><div class="cap-card">
-          <h4>Content Summarisation</h4>
-          <ul><li>Reviewer-ready protocol and report summaries</li></ul>
-        </div></div>
-      </div>
-</div>
-      <p class="text-center reveal mt-4 mb-0">NoteIQ AI runs on <a href="pivotpath-pivotai.html">PivotAI</a>, the AI layer inside PivotOS.</p>
-      <div class="divider_line"><img src="assets/divider-mark.svg" alt="" width="101" height="101" loading="lazy"></div>
-    </div>
-  </section>
-
-  <!-- ============ MORE MODULES ============ -->
-  <section class="pad80" id="more">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="section-title reveal">More Modules</h2>
-      </div>
-      <div class="hscroll">
-<div class="row g-4">
-        <div class="col-md-4 reveal"><a class="mod-link" href="pivotpath-noteiq-dms.html"><div class="cap-card">
-          <h4>DMS · Document Management</h4>
-          <span class="go">Explore →</span>
-        </div></a></div>
-        <div class="col-md-4 reveal"><a class="mod-link" href="pivotpath-noteiq-tms.html"><div class="cap-card">
-          <h4>TMS · Training Management</h4>
-          <span class="go">Explore →</span>
-        </div></a></div>
-        <div class="col-md-4 reveal"><a class="mod-link" href="pivotpath-noteiq-regintel.html"><div class="cap-card">
-          <h4>Regulatory Intelligence</h4>
-          <span class="go">Explore →</span>
-        </div></a></div>
-      </div>
-</div>
-    </div>
-  </section>
-
-  <!-- ============ A CLOSER LOOK ============ -->
-  <section class="pad80" id="closer">
-    <div class="container">
-      <div class="row align-items-center g-5">
-        <div class="col-lg-5 reveal">
-          <h2 class="section-title">The Validation Protocol Workspace</h2>
-        </div>
-        <div class="col-lg-7 reveal">
-          <div class="shot">
-            <div class="bar"><i class="d1"></i><i class="d2"></i><i class="d3"></i><span class="addr">app.pivotpath.com/noteiq/vms/protocols</span></div>
-            <svg viewBox="0 0 1120 560" role="img" aria-label="Representative NoteIQ VMS protocol workspace" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Roboto,Arial,sans-serif">
-              <defs><linearGradient id="nvgB" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#71bf44"/><stop offset=".55" stop-color="#20a676"/><stop offset="1" stop-color="#1b91a3"/></linearGradient></defs>
-              <rect width="1120" height="560" fill="#fff"/>
-              <text x="40" y="56" fill="#11151c" font-size="20" font-weight="700">Protocols</text>
-              <rect x="300" y="34" width="100" height="30" rx="15" fill="#eef0f2"/><text x="350" y="54" fill="#6b6b6b" font-size="12" text-anchor="middle">All types</text>
-              <rect x="412" y="34" width="104" height="30" rx="15" fill="#eef0f2"/><text x="464" y="54" fill="#6b6b6b" font-size="12" text-anchor="middle">In execution</text>
-              <rect x="900" y="32" width="180" height="34" rx="6" fill="url(#nvgB)"/><text x="990" y="54" fill="#fff" font-size="13" font-weight="700" text-anchor="middle">New protocol +</text>
-              <rect x="40" y="84" width="1040" height="40" rx="6" fill="#f4f6f8"/>
-              <g fill="#8a929b" font-size="11.5" font-weight="700" letter-spacing="1">
-                <text x="60" y="109">PROTOCOL</text>
-                <text x="220" y="109">TYPE</text>
-                <text x="560" y="109">SYSTEM</text>
-                <text x="760" y="109">PROGRESS</text>
-                <text x="940" y="109">STATUS</text>
-              </g>
-              <g font-size="13" fill="#11151c">
-                <text x="60" y="166">IQ-0142</text><text x="220" y="166" fill="#6b6b6b">IQ</text><text x="560" y="166" fill="#6b6b6b">HPLC #12</text>
-                <rect x="760" y="152" width="120" height="8" rx="4" fill="#eef0f2"/><rect x="760" y="152" width="104" height="8" rx="4" fill="url(#nvgB)"/>
-                <rect x="940" y="150" width="92" height="24" rx="12" fill="#e8f6f1"/><text x="986" y="166" fill="#1b8f73" font-size="11.5" font-weight="700" text-anchor="middle">In execution</text>
-                <line x1="40" y1="188" x2="1080" y2="188" stroke="#eef0f2"/>
-                <text x="60" y="226">OQ-0141</text><text x="220" y="226" fill="#6b6b6b">OQ</text><text x="560" y="226" fill="#6b6b6b">Autoclave</text>
-                <rect x="760" y="212" width="120" height="8" rx="4" fill="#eef0f2"/><rect x="760" y="212" width="120" height="8" rx="4" fill="url(#nvgB)"/>
-                <rect x="940" y="210" width="92" height="24" rx="12" fill="#eaf6e3"/><text x="986" y="226" fill="#4c8f2e" font-size="11.5" font-weight="700" text-anchor="middle">Approved</text>
-                <line x1="40" y1="248" x2="1080" y2="248" stroke="#eef0f2"/>
-                <text x="60" y="286">PQ-0140</text><text x="220" y="286" fill="#6b6b6b">PQ</text><text x="560" y="286" fill="#6b6b6b">Fill line</text>
-                <rect x="760" y="272" width="120" height="8" rx="4" fill="#eef0f2"/><rect x="760" y="272" width="72" height="8" rx="4" fill="url(#nvgB)"/>
-                <rect x="940" y="270" width="92" height="24" rx="12" fill="#fff3d6"/><text x="986" y="286" fill="#9a7400" font-size="11.5" font-weight="700" text-anchor="middle">Discrepancy</text>
-                <line x1="40" y1="308" x2="1080" y2="308" stroke="#eef0f2"/>
-                <text x="60" y="346">CSV-0139</text><text x="220" y="346" fill="#6b6b6b">CSV</text><text x="560" y="346" fill="#6b6b6b">LIMS</text>
-                <rect x="760" y="332" width="120" height="8" rx="4" fill="#eef0f2"/><rect x="760" y="332" width="92" height="8" rx="4" fill="url(#nvgB)"/>
-                <rect x="940" y="330" width="92" height="24" rx="12" fill="#e8f6f1"/><text x="986" y="346" fill="#1b8f73" font-size="11.5" font-weight="700" text-anchor="middle">In execution</text>
-                <line x1="40" y1="368" x2="1080" y2="368" stroke="#eef0f2"/>
-                <text x="60" y="406">PV-0138</text><text x="220" y="406" fill="#6b6b6b">Process</text><text x="560" y="406" fill="#6b6b6b">Granulation</text>
-                <rect x="760" y="392" width="120" height="8" rx="4" fill="#eef0f2"/><rect x="760" y="392" width="120" height="8" rx="4" fill="url(#nvgB)"/>
-                <rect x="940" y="390" width="92" height="24" rx="12" fill="#eaf6e3"/><text x="986" y="406" fill="#4c8f2e" font-size="11.5" font-weight="700" text-anchor="middle">Approved</text>
-                <line x1="40" y1="428" x2="1080" y2="428" stroke="#eef0f2"/>
-                <text x="60" y="466">CV-0137</text><text x="220" y="466" fill="#6b6b6b">Cleaning</text><text x="560" y="466" fill="#6b6b6b">Reactor R2</text>
-                <rect x="760" y="452" width="120" height="8" rx="4" fill="#eef0f2"/><rect x="760" y="452" width="60" height="8" rx="4" fill="url(#nvgB)"/>
-                <rect x="940" y="450" width="92" height="24" rx="12" fill="#fff3d6"/><text x="986" y="466" fill="#9a7400" font-size="11.5" font-weight="700" text-anchor="middle">Drafting</text>
-              </g>
-            </svg>
-            <span class="tag">Representative UI</span>
+      <!-- Feature carousel: one feature per slide (swipe / arrows / dots). Every shot is responsive:
+           <picture> serves a zoomed mobile/tablet variant (assets/<name>-sm.png) at <=991.98px and
+           the full desktop crop (<name>.png) above. Adding a shot = one more .cslide (dot auto-generates). -->
+      <div class="cwrap reveal">
+        <div class="ctrack" id="closerTrack">
+          <div class="cslide">
+            <div class="cslide-in">
+              <h3>Assigned to the right person, the record started</h3>
+              <p>A task captures its type, entity, document, target date and reviewer up front, then routes to a user, a group or self, with the task's identifiers carried through.</p>
+              <div class="pshot"><picture><source media="(max-width:991.98px)" srcset="assets/vms-shot-task-sm.png" /><img src="assets/vms-shot-task.png" alt="NoteIQ assign-task screen: task type, entity, document type, target date, CCR number and assign-to roles, beside a task details panel" loading="lazy" /></picture></div>
+            </div>
+          </div>
+          <div class="cslide">
+            <div class="cslide-in">
+              <h3>Executed step by step, signed and timestamped</h3>
+              <p>Each step carries its test procedure, expected and actual result, a pass or fail verdict, and the executor's electronic signature with a date and time.</p>
+              <div class="pshot"><picture><source media="(max-width:991.98px)" srcset="assets/vms-shot-execution-sm.png" /><img src="assets/vms-shot-execution.png" alt="NoteIQ execution test table: step, test procedure, expected and actual result, a green Pass verdict, and an executed-by signature with timestamp" loading="lazy" /></picture></div>
+            </div>
           </div>
         </div>
+        <div class="cctrls">
+          <button class="cbtn" type="button" data-cdir="-1" aria-label="Previous feature">&lsaquo;</button>
+          <div class="cdots" id="closerDots" aria-label="Feature slides"></div>
+          <button class="cbtn" type="button" data-cdir="1" aria-label="Next feature">&rsaquo;</button>
+        </div>
       </div>
     </div>
   </section>
-    <!-- ============ FAQ ============ -->
+
+  <!-- ============ CH 3.75 — ADOPTION & SCALE (easy to run and grow) ============ -->
+  <section class="pad80 chapter" id="adopt">
+    <div class="container">
+      <div class="ch-grid reveal">
+        <div>
+          <h2 class="section-title">Quick to deploy, and built to grow.</h2>
+        </div>
+        <div class="prose">
+          <p>NoteIQ is cloud-native, so it goes live quickly and runs the same way at every site. Workflows, roles and templates are set up through configuration, and new workflows are added as your operation grows, without custom development.</p>
+        </div>
+      </div>
+      <div class="val4 reveal m-acc">
+        <div class="v">
+          <div class="pic48"><svg viewBox="0 0 24 24"><path d="M5 15a4 4 0 0 1 1-7.9A5 5 0 0 1 16 6a4 4 0 0 1 2.5 7.2"/><path d="M12 12v8M9 15l3-3 3 3"/></svg></div>
+          <h3>Quick to deploy</h3>
+          <p>Cloud-native, so it goes live without a lengthy infrastructure build.</p>
+        </div>
+        <div class="v">
+          <div class="pic48"><svg viewBox="0 0 24 24"><path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2.4"/><circle cx="9" cy="17" r="2.4"/></svg></div>
+          <h3>Configured, not coded</h3>
+          <p>Workflows, roles and templates are set up through configuration, not custom development.</p>
+        </div>
+        <div class="v">
+          <div class="pic48"><svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.3"/><circle cx="18" cy="6" r="2.3"/><circle cx="12" cy="18" r="2.3"/><path d="M8 6h8M7.4 8 11 15.6M16.6 8 13 15.6"/></svg></div>
+          <h3>Consistent across sites</h3>
+          <p>One platform extends from a single site to a global network, with the same controls everywhere.</p>
+        </div>
+        <div class="v">
+          <div class="pic48"><svg viewBox="0 0 24 24"><path d="M5 4v10a3 3 0 0 0 3 3h6"/><path d="M12 14l3 3-3 3"/><path d="M18 4v6M15 7h6"/></svg></div>
+          <h3>Extends as you grow</h3>
+          <p>Add new validation workflows on the same platform as your operation grows.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CH 4 — HOW WE USE AI (division of labour) ============ -->
+  <section class="pad80 grey chapter" id="ai">
+    <div class="container">
+      <div class="ch-grid reveal">
+        <div>
+          <h2 class="section-title">AI drafts the validation. Your people approve it.</h2>
+        </div>
+        <div class="prose">
+          <p>NoteIQ scans documents for gaps before execution, drafts IQ, OQ and PQ deliverables from your approved templates, and summarises them for review. Every qualification decision stays with a qualified person. The AI capabilities run on <a href="pivotpath-pivotai.html">PivotAI</a>, the AI layer inside <a href="pivotpath-pivotos.html">PivotOS</a>.</p>
+          <p>Your content stays yours: it is never used to train foundation models and stays isolated to your organisation.</p>
+        </div>
+      </div>
+      <div class="val3 reveal m-acc">
+        <div class="v">
+          <div class="pic48"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></div>
+          <h3>AI does the drafting</h3>
+          <p>Gap detection, deliverable generation and reviewer-ready summaries, from your approved content.</p>
+        </div>
+        <div class="v">
+          <div class="pic48"><svg viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></div>
+          <h3>People make the calls</h3>
+          <p>Every qualification decision is reviewed and signed off by a qualified person.</p>
+        </div>
+        <div class="v">
+          <div class="pic48"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16l2 2 4-4"/></svg></div>
+          <h3>Grounded, not guessing</h3>
+          <p>Drafts are generated from your templates and controlled content, not invented.</p>
+        </div>
+      </div>
+      <p class="rule-line reveal">Nothing critical is released without a human reviewer in the chain.</p>
+    </div>
+  </section>
+
+  <!-- ============ CH 5 — THE AUDITOR MOMENT (dark conviction band) ============ -->
+  <section class="pad80 band" id="assurance">
+    <div class="container">
+      <div class="ch-grid reveal">
+        <div>
+          <h2 class="section-title">When the inspector asks, the evidence is already assembled.</h2>
+        </div>
+        <div class="prose">
+          <p>Every deliverable, signature and discrepancy is timestamped and traceable, tracked to closure and ready to show on demand. That is the difference between validation that is fast and validation you can stake an inspection on.</p>
+          <p><a href="pivotpath-ai-trust.html">Read the AI Trust Centre</a> for how we govern AI in regulated work.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ (backstory lives here) ============ -->
   <section class="pad80 grey" id="faq">
     <div class="container">
       <div class="text-center mb-5">
-        <h2 class="section-title reveal">Common questions about NoteIQ VMS</h2>
+        <h2 class="section-title reveal"><span class="tt-none">NoteIQ</span>, <span class="grad-text">explained</span></h2>
       </div>
       <div class="row justify-content-center">
         <div class="col-lg-9">
           <div class="accordion reveal" id="faqAcc">
             <div class="accordion-item">
-              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q1">What does NoteIQ VMS manage?</button></h2>
-              <div id="q1" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">The full validation lifecycle on one system: URS, risk assessment, IQ, OQ, PQ, release and periodic review. Deliverables auto-generate, the matrix self-builds, and everything is version-controlled and audit-trailed.</div></div>
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q1">What problem does NoteIQ solve?</button></h2>
+              <div id="q1" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Validation generates a mountain of manual paperwork: protocols authored by hand, traceability cross-referenced across documents, evidence scattered across systems. NoteIQ runs the whole lifecycle on one system, so deliverables are drafted, the matrix builds itself, and every record stays audit-ready, without moving a qualification decision off a qualified person's desk.</div></div>
             </div>
             <div class="accordion-item">
-              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2">Which validation types does it support?</button></h2>
-              <div id="q2" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Every validation type your organisation needs: Computerized System Validation (IT), Equipment Qualification and Utility Qualification (Engineering), Process Validation (Production) and Quality Risk Assessments (CFT).</div></div>
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2">What does NoteIQ manage?</button></h2>
+              <div id="q2" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">The full validation lifecycle on one system: URS, risk assessment, IQ, OQ, PQ, release and periodic review. Deliverables auto-generate, the matrix self-builds, and everything is version-controlled and audit-trailed.</div></div>
             </div>
             <div class="accordion-item">
-              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q3">Where does AI fit into validation work in NoteIQ VMS?</button></h2>
-              <div id="q3" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">It scans documents for missing steps and inconsistencies before execution, auto-generates IQ, OQ and PQ protocols and reports from templates, authoring in minutes rather than days, and summarises them for reviewers.</div></div>
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q3">Which validation types does it support?</button></h2>
+              <div id="q3" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Every validation type your organisation needs: Computerized System Validation (IT), Equipment Qualification and Utility Qualification (Engineering), Process Validation (Production) and Quality Risk Assessments (CFT).</div></div>
             </div>
             <div class="accordion-item">
-              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q4">What is Split &amp; PDF execution?</button></h2>
-              <div id="q4" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">It divides a protocol across executors to run in parallel, then auto-merges the parts. Executions run via Word, PDF or VMS.</div></div>
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q4">Where does AI fit into validation work in NoteIQ?</button></h2>
+              <div id="q4" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">It scans documents for missing steps and inconsistencies before execution, drafts IQ, OQ and PQ protocols and reports from approved templates, authoring in minutes rather than days, and summarises them for reviewers. A qualified person reviews and approves every deliverable.</div></div>
             </div>
             <div class="accordion-item">
-              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q5">Is NoteIQ VMS audit-ready?</button></h2>
-              <div id="q5" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Yes. Immutable audit trails, 21 CFR Part 11 and EU Annex 11 compliant, records instantly accessible. Every deliverable, discrepancy and deviation is tracked to closure, inspection-ready by default.</div></div>
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q5">What is Split &amp; PDF execution?</button></h2>
+              <div id="q5" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">It divides a protocol across executors to run in parallel, then auto-merges the parts. Executions run via Word, PDF or NoteIQ.</div></div>
             </div>
             <div class="accordion-item">
-              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q6">How does Pivot Path use AI responsibly and safely?</button></h2>
-              <div id="q6" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">AI here is assistive and human-reviewed. It drafts, summarises and retrieves, but a qualified person reviews and approves every regulated decision. Outputs are grounded in your approved content, fully audit-trailed, and your data is never used to train foundation models. These capabilities run on <a href="pivotpath-pivotai.html">PivotAI</a>, the AI layer every Pivot Path platform runs on. See our <a href="pivotpath-ai-trust.html">AI Trust Centre</a> for how we use AI responsibly.</div></div>
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q6">Is NoteIQ audit-ready?</button></h2>
+              <div id="q6" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Yes. Immutable audit trails, 21 CFR Part 11 and EU Annex 11 compliant, records instantly accessible. Every deliverable, discrepancy and deviation is tracked to closure, inspection-ready by default.</div></div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q7">How does Pivot Path use AI responsibly and safely?</button></h2>
+              <div id="q7" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">AI here is assistive and human-reviewed. It drafts, summarises and retrieves, but a qualified person reviews and approves every regulated decision. Outputs are grounded in your approved content, fully audit-trailed, and your data is never used to train foundation models. These capabilities run on <a href="pivotpath-pivotai.html">PivotAI</a>, the AI layer every Pivot Path platform runs on. See our <a href="pivotpath-ai-trust.html">AI Trust Centre</a> for how we use AI responsibly.</div></div>
             </div>
           </div>
         </div>
@@ -623,17 +589,15 @@
   <!-- ============ FINAL CTA ============ -->
   <section class="pad80 final-cta text-center" id="contact">
     <div class="container">
-      <h2 class="section-title text-white reveal mb-3">See NoteIQ VMS on Your Own Validation Workload.</h2>
-      <p class="text-white-50 reveal mb-4" style="max-width:640px;margin-inline:auto">Deliverables auto-generate and every record stays audit-ready.</p>
+      <h2 class="section-title text-white reveal mb-3">See <span class="tt-none">NoteIQ</span> <span class="grad-text">on your own validation workload.</span></h2>
+      <p class="text-white-50 reveal mb-4" style="max-width:640px;margin-inline:auto">We will show authoring, execution and the audit trail on your own protocols.</p>
       <div class="hero-ctas justify-content-center reveal">
-        <a href="mailto:info@pivotpath.com" class="btns2 solid-light">Book a VMS demo</a>
-        <a href="pivotpath-noteiq.html" class="btns-line">Back to NoteIQ platform</a>
+        <a href="mailto:info@pivotpath.com" class="btns2 solid-light">Book a <span class="tt-none">NoteIQ</span> demo</a>
+        <a href="pivotpath-noteiq.html" class="btns-line">Back to <span class="tt-none">NoteIQ</span> platform</a>
       </div>
     </div>
   </section>
 
-  <!-- ver-switch: base/narrative review toggle -->
-  <div style="position:fixed;left:18px;bottom:18px;z-index:1050;display:inline-flex;align-items:center;gap:2px;background:#10161d;border-radius:999px;padding:4px;box-shadow:0 8px 24px rgba(0,0,0,.28)"><span style="padding:.5rem .95rem;border-radius:999px;background:#fff;color:#10161d;font-size:.72rem;font-weight:800">base-page</span><a href="pivotpath-noteiq-vms-editorial.html" style="padding:.5rem .95rem;border-radius:999px;color:#cfd6dd;font-size:.72rem;font-weight:700;text-decoration:none">narrative-page</a></div>
 
   <!-- ============ FOOTER ============ -->
 
@@ -694,42 +658,40 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous" defer></script>
   <script>
-    // ---- Count-up stat band ----
-    (function(){
-      function run(scope){
-        scope.querySelectorAll('.count').forEach(function(el){
-          if(el.dataset.done)return;el.dataset.done="1";
-          var to=parseFloat(el.dataset.to), dec=parseInt(el.dataset.dec||'0',10);
-          if(to===0){el.textContent="0";return;}
-          var start=null,dur=1600;
-          function step(ts){if(!start)start=ts;var p=Math.min((ts-start)/dur,1);
-            var val=to*(0.5-Math.cos(p*Math.PI)/2);
-            el.textContent=dec?val.toFixed(dec):Math.round(val).toLocaleString();
-            if(p<1)requestAnimationFrame(step);else el.textContent=dec?to.toFixed(dec):to.toLocaleString();}
-          requestAnimationFrame(step);
-        });
-      }
-      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)run(e.target);});},{threshold:.3});
-      document.querySelectorAll('.stat-band').forEach(function(b){io.observe(b);});
-    })();
-
     // ---- Reveal on scroll ----
     (function(){
       var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
       document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
     })();
 
-    // ---- Active anchor-nav highlight ----
+    // ---- "NoteIQ, at work" feature carousel (framework-free: arrows + dots + swipe) ----
     (function(){
-      var links=[].slice.call(document.querySelectorAll('.anchor-nav a'));
-      var map=links.map(function(a){return {a:a,el:document.querySelector(a.getAttribute('href'))};}).filter(function(x){return x.el;});
-      function onScroll(){
-        var y=window.scrollY+120,cur=map[0];
-        map.forEach(function(x){if(x.el.offsetTop<=y)cur=x;});
-        links.forEach(function(a){a.classList.remove('active');});
-        if(cur)cur.a.classList.add('active');
-      }
-      window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+      var track=document.getElementById('closerTrack');
+      var dotsWrap=document.getElementById('closerDots');
+      if(!track||!dotsWrap)return;
+      var slides=[].slice.call(track.children);
+      var wrap=track.closest('.cwrap');
+      slides.forEach(function(s,i){
+        var d=document.createElement('button');
+        d.type='button';d.className='cdot'+(i===0?' active':'');
+        d.setAttribute('aria-label','Go to feature '+(i+1));
+        d.addEventListener('click',function(){track.scrollTo({left:i*track.clientWidth,behavior:'smooth'});});
+        dotsWrap.appendChild(d);
+      });
+      var dots=[].slice.call(dotsWrap.children);
+      wrap.querySelectorAll('[data-cdir]').forEach(function(b){
+        b.addEventListener('click',function(){
+          track.scrollBy({left:parseInt(b.getAttribute('data-cdir'),10)*track.clientWidth,behavior:'smooth'});
+        });
+      });
+      var raf=0;
+      track.addEventListener('scroll',function(){
+        if(raf)return;
+        raf=requestAnimationFrame(function(){raf=0;
+          var idx=Math.round(track.scrollLeft/track.clientWidth);
+          dots.forEach(function(d,i){d.classList.toggle('active',i===idx);});
+        });
+      },{passive:true});
     })();
   </script>
   <script src="pp-mobile.js?v=50" defer></script>

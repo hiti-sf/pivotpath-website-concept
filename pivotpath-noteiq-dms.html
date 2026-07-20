@@ -4,58 +4,115 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
-  <title>NoteIQ DMS: Document Management System | Pivot Path</title>
-  <meta name="description" content="NoteIQ DMS puts the controlled document lifecycle in one audit-ready system, with event-based printing, reprint traceability and a secure data room." />
+  <title>NoteIQ: Document Management, Controlled End to End | Pivot Path</title>
+  <meta name="description" content="NoteIQ document management controls the whole lifecycle, from authoring and review to controlled event-based printing and archival. Configurable, with a Virtual Data Room for regulators, native training integration and SAP/QMS integration, on one audit-ready system." />
   <link rel="preconnect" href="https://cdn.jsdelivr.net" />
   <link rel="preload" href="pp.css?v=50" as="style" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
   <link rel="stylesheet" href="pp.css?v=50" />
   <link rel="icon" type="image/png" href="assets/chevron.png" />
+  <style>
+    /* ==== EDITORIAL STORY LAYOUT (page-scoped; pp.css untouched) ==== */
+
+    .ch-grid{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);column-gap:var(--sp-7);row-gap:var(--sp-4);align-items:start}
+    .ch-grid h2.section-title{margin-bottom:0;max-width:14ch}
+    .prose p{font-size:var(--fs-lead);line-height:1.75;color:var(--pp-ink);max-width:62ch;margin:0 0 var(--sp-4)}
+    .prose p:last-child{margin-bottom:0}
+    .chapter{border-top:1px solid var(--pp-line)}
+
+    .statement{font-size:var(--fs-display);font-weight:800;line-height:1.1;letter-spacing:-.015em;color:var(--pp-ink);max-width:24ch;margin:0 0 var(--sp-5)}
+
+    .pic48{flex:none;width:48px;height:48px;border-radius:var(--r-md);background:var(--pp-accent);display:flex;align-items:center;justify-content:center;margin-bottom:var(--sp-3)}
+    .pic48 svg{width:24px;height:24px;fill:none;stroke:#fff;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+    .pic48.grad{background:var(--pp-grad)}
+
+    .val3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:var(--sp-6)}
+    .val3 .v{padding:0 var(--sp-5);border-left:1px solid var(--pp-line)}
+    .val3 .v:first-child{border-left:0;padding-left:0}
+    .val3 .v:last-child{padding-right:0}
+    .val3 h3{font-size:var(--fs-h4);font-weight:700;margin:0 0 var(--sp-2);text-transform:none}
+    .val3 p{margin:0;color:var(--pp-muted);font-size:var(--fs-body);line-height:1.65}
+
+    /* Event-based printing flow — horizontal gradient-spine (6 nodes) */
+    .vlife{position:relative;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));margin-top:var(--sp-6)}
+    .vlife::before{content:"";position:absolute;top:23px;left:calc(100%/12);right:calc(100%/12);height:2px;background:var(--pp-grad);border-radius:2px}
+    .vl{position:relative;text-align:center;padding:0 6px}
+    .vl .vp{width:48px;height:48px;border-radius:50%;background:var(--pp-grad);display:flex;align-items:center;justify-content:center;margin:0 auto var(--sp-3);position:relative;z-index:1}
+    .vl .vp svg{width:22px;height:22px;fill:none;stroke:#fff;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+    .vl h3{font-size:var(--fs-h5);font-weight:800;margin:0;text-transform:none}
+    .vl span{display:block;font-size:var(--fs-sm);color:var(--pp-muted);margin-top:2px}
+
+    .numcap{font-size:var(--fs-sm);color:var(--pp-muted);margin-top:var(--sp-3)}
+
+    .pshot{border:1px solid var(--pp-line);border-radius:14px;overflow:hidden;box-shadow:0 14px 34px rgba(0,0,0,.09);background:#fff;margin-inline:auto}
+    .pshot picture{display:block}
+    .pshot img{display:block;width:100%;height:auto}
+    .shot-hero{max-width:1000px;margin-top:var(--sp-6)}
+    .shot-cap{font-size:var(--fs-sm);color:var(--pp-muted);text-align:center;margin-top:var(--sp-3)}
+
+    /* "NoteIQ, at work" feature carousel */
+    .cwrap{position:relative;margin-top:var(--sp-7)}
+    .ctrack{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+    .ctrack::-webkit-scrollbar{display:none}
+    .cslide{flex:0 0 100%;min-width:0;scroll-snap-align:start}
+    .cslide-in{max-width:1040px;margin-inline:auto;width:100%}
+    .cslide h3{font-size:var(--fs-h4);font-weight:700;margin:0 0 var(--sp-2);text-transform:none}
+    .cslide p{margin:0 0 var(--sp-4);color:var(--pp-muted);font-size:var(--fs-body);line-height:1.7;max-width:64ch}
+    .cslide .pshot{width:100%}
+    .cctrls{display:flex;align-items:center;justify-content:center;gap:var(--sp-3);margin-top:var(--sp-5)}
+    .cbtn{width:40px;height:40px;border-radius:50%;border:1px solid var(--pp-line);background:#fff;color:var(--pp-ink);font-size:1.3rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:border-color .15s,color .15s}
+    .cbtn:hover{border-color:var(--pp-accent);color:var(--pp-accent)}
+    .cdots{display:flex;align-items:center;gap:8px}
+    .cdot{width:8px;height:8px;padding:0;border:0;border-radius:50%;background:var(--pp-line);cursor:pointer;transition:width .2s,background .2s}
+    .cdot.active{width:22px;border-radius:5px;background:var(--pp-accent)}
+
+    .tt-none{text-transform:none}
+
+    .band{background:var(--pp-section);color:#fff}
+    .band h2.section-title{color:#fff}
+    .band .prose p{color:rgba(255,255,255,.82)}
+    .band a{color:#fff}
+
+    .rule-line{font-size:var(--fs-h4);font-weight:700;color:var(--pp-ink);border-top:1px solid var(--pp-line);padding-top:var(--sp-4);margin-top:var(--sp-6)}
+
+    @media (max-width:991.98px){
+      .ch-grid{grid-template-columns:1fr}
+      .ch-grid h2.section-title{max-width:none;margin-bottom:var(--sp-3)}
+      .val3{grid-template-columns:1fr}
+      .val3 .v{border-left:0;padding:var(--sp-4) 0;border-top:1px solid var(--pp-line)}
+      .val3 .v:first-child{border-top:0;padding-top:0}
+      .val3 .v:last-child{padding-bottom:0}
+      .vlife{display:flex;overflow-x:auto;align-items:flex-start;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;scrollbar-width:none;margin-top:var(--sp-5)}
+      .vlife::-webkit-scrollbar{display:none}
+      .vlife::before{display:none}
+      .vl{flex:0 0 104px;scroll-snap-align:start;padding:0}
+      .vl::after{content:"";position:absolute;top:23px;left:50%;width:100%;height:2px;background:var(--pp-grad);z-index:0}
+      .vl:last-child::after{display:none}
+    }
+  </style>
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "SoftwareApplication",
-      "name": "DMS",
-      "description": "NoteIQ DMS puts the controlled document lifecycle in one audit-ready system, with event-based printing, full reprint traceability and a secure Virtual Data Room.",
-      "applicationCategory": "BusinessApplication",
-      "operatingSystem": "Web",
+      "@type": "WebPage",
+      "name": "NoteIQ Document Management",
+      "description": "NoteIQ document management controls the whole document lifecycle, from authoring and review to controlled event-based printing and archival, on one audit-ready system.",
+      "url": "https://pivotpath.com/pivotpath-noteiq-dms.html",
       "provider": {
         "@type": "Organization",
         "@id": "https://pivotpath.com/#organization",
         "name": "Pivot Path",
         "url": "https://pivotpath.com/"
-      },
-      "url": "https://pivotpath.com/pivotpath-noteiq-dms.html"
+      }
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://pivotpath.com/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Products",
-          "item": "https://pivotpath.com/#platforms"
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "name": "NoteIQ",
-          "item": "https://pivotpath.com/pivotpath-noteiq.html"
-        },
-        {
-          "@type": "ListItem",
-          "position": 4,
-          "name": "DMS",
-          "item": "https://pivotpath.com/pivotpath-noteiq-dms.html"
-        }
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pivotpath.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://pivotpath.com/#platforms" },
+        { "@type": "ListItem", "position": 3, "name": "NoteIQ", "item": "https://pivotpath.com/pivotpath-noteiq.html" },
+        { "@type": "ListItem", "position": 4, "name": "Document Management", "item": "https://pivotpath.com/pivotpath-noteiq-dms.html" }
       ]
     },
     {
@@ -63,18 +120,18 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "What does NoteIQ DMS manage?",
+          "name": "What does NoteIQ document management cover?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The controlled document lifecycle end to end: template creation, authoring, review, approval, release, revision and archive. Every document lives in one system, an audit-ready source of truth."
+            "text": "The whole document lifecycle on one system: template and authoring, review and approval, controlled release, controlled printing, revision, retirement and archival, all versioned and audit-trailed."
           }
         },
         {
           "@type": "Question",
-          "name": "What is event-based printing?",
+          "name": "What is event-based printing, and why does it matter?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Automates batch and packaging document generation through ERP integration, while capturing all print and reprint activity, maintaining print-to-execute-to-scan traceability so each copy is accounted for and executed records are archived electronically."
+            "text": "It is what sets NoteIQ apart from a typical document system. Batch and package printing is triggered by an event, such as a production order, and every printed copy and privileged reprint is tied to a full audit log, with executed records scanned back in. Printing becomes a controlled, traceable event rather than an afterthought."
           }
         },
         {
@@ -82,23 +139,39 @@
           "name": "What is the Virtual Data Room?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "A secure, structured space for sharing documents externally with auditors and stakeholders at inspection. It gives controlled, audit-friendly access that never exposes internal systems."
+            "text": "A secure space to share selected documents with regulators or customers for online or onsite review, through the platform, without giving them a licence or an account. Access is controlled and the sharing is audit-trailed."
           }
         },
         {
           "@type": "Question",
-          "name": "How does AI support authoring and review in NoteIQ DMS?",
+          "name": "How configurable is it, and how quickly does it deploy?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Three ways: authoring (compliant, structured drafts from templates), proofreading (flagging inconsistencies and compliance risks with context-aware suggestions), and summarisation (concise summaries for faster review)."
+            "text": "It is fully configurable, with templates you own. Any number of processes can be added, each with its own template and review-and-approval workflow, and it configures and deploys without a lengthy build."
           }
         },
         {
           "@type": "Question",
-          "name": "Does DMS link to training?",
+          "name": "Does it have a built-in document editor?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. Document approval can auto-create the matching training in NoteIQ TMS, so releasing a document picks up who needs training without a manual hand-off."
+            "text": "Yes. A built-in word processor supports template-based and free-form authoring, with AI proofreading and summarisation to help reviewers."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does it link to training?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Native integration with the NoteIQ training module: when a document such as an SOP is approved or a new version is released, the training item is created automatically, so employees are trained on the current version."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does it integrate with our other systems?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Native integration with the NoteIQ training module, plus enterprise systems such as SAP, QMS and LIMS."
           }
         },
         {
@@ -106,7 +179,7 @@
           "name": "How does Pivot Path use AI responsibly and safely?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "AI here is assistive and human-reviewed. It drafts, summarises and retrieves, but a qualified person reviews and approves every regulated decision. Outputs are grounded in your approved content, fully audit-trailed, and your data is never used to train foundation models. These capabilities run on PivotAI, the AI layer every Pivot Path platform runs on. See our AI Trust Centre for how we use AI responsibly."
+            "text": "AI here is assistive and human-reviewed. It drafts, proofreads and summarises, but a qualified person reviews and approves every regulated decision. Outputs are grounded in your approved content, fully audit-trailed, and your data is never used to train foundation models. These capabilities run on PivotAI, the AI layer every Pivot Path platform runs on. See our AI Trust Centre for how we use AI responsibly."
           }
         }
       ]
@@ -228,367 +301,275 @@
     </div>
   </header>
 
-  <!-- ============ PAGE HERO ============ -->
+  <!-- ============ PAGE HERO — define before you narrate ============ -->
   <section class="page-hero pad80" id="overview">
     <div class="container">
-      <div class="crumb"><a href="pivotpath-home.html">Home</a> &nbsp;/&nbsp; <a href="pivotpath-home.html#platforms">Products</a> &nbsp;/&nbsp; <a href="pivotpath-noteiq.html">NoteIQ</a> &nbsp;/&nbsp; DMS</div>
-      <h1>Controlled Document<br>Lifecycle Management.</h1>
-      <p class="lead">NoteIQ DMS puts the controlled document lifecycle in one audit-ready system, with event-based printing and reprint traceability.</p>
+      <div class="crumb"><a href="pivotpath-home.html">Home</a> &nbsp;/&nbsp; <a href="pivotpath-home.html#platforms">Products</a> &nbsp;/&nbsp; <a href="pivotpath-noteiq.html" class="tt-none">NoteIQ</a> &nbsp;/&nbsp; Document Management</div>
+      <h1>NoteIQ: document management,<br>controlled end to end.</h1>
+      <p class="lead">NoteIQ controls the whole document lifecycle, from authoring and review to controlled printing and archival, on one audit-ready system.</p>
       <div class="hero-ctas">
-        <a href="#contact" class="btns2 solid-light">Book a DMS demo</a>
-        <a href="pivotpath-noteiq.html" class="btns-line">Back to NoteIQ platform</a>
+        <a href="#contact" class="btns2 solid-light">Book a <span class="tt-none">NoteIQ</span> demo</a>
+        <a href="pivotpath-noteiq.html" class="btns-line">Back to <span class="tt-none">NoteIQ</span> platform</a>
       </div>
     </div>
   </section>
 
-  <!-- ============ STICKY ANCHOR NAV ============ -->
-  <nav class="anchor-nav">
+  <!-- ============ CH 1 — THE VALUE (framed for a buyer who already has a DMS) ============ -->
+  <section class="pad80" id="value">
     <div class="container">
-      <div class="inner">
-        <span class="anchor-brand">NoteIQ DMS</span>
-        <a href="#overview" class="active">Overview</a>
-        <a href="#preview">Preview</a>
-        <a href="#why">Why DMS</a>
-        <a href="#features">Key Features</a>
-        <a href="#flow">How It Works</a>
-        <a href="#ai">NoteIQ AI</a>
-        <a href="#more">More Modules</a>
-        <a href="#faq">FAQ</a>
-      </div>
-    </div>
-  </nav>
-
-  <!-- ============ PRODUCT PREVIEW ============ -->
-  <section class="pad80 grey" id="preview">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="section-title reveal">A Working View of the Platform</h2>
-      </div>
-      <div class="reveal" style="max-width:1000px;margin-inline:auto">
-        <div class="shot">
-          <div class="bar"><i class="d1"></i><i class="d2"></i><i class="d3"></i><span class="addr">app.pivotpath.com/noteiq/dms</span></div>
-          <svg viewBox="0 0 1120 640" role="img" aria-label="Representative NoteIQ DMS dashboard" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Roboto,Arial,sans-serif">
-            <defs><linearGradient id="nvgA" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#71bf44"/><stop offset=".55" stop-color="#20a676"/><stop offset="1" stop-color="#1b91a3"/></linearGradient></defs>
-            <rect width="1120" height="640" fill="#f6f7f9"/>
-            <rect width="236" height="640" fill="#0f141b"/>
-            <rect x="28" y="30" width="20" height="20" rx="5" fill="url(#nvgA)"/>
-            <text x="58" y="45" fill="#fff" font-size="17" font-weight="700">NoteIQ DMS</text>
-            <rect x="16" y="84" width="204" height="38" rx="8" fill="#ffffff1a"/>
-            <text x="40" y="108" fill="#fff" font-size="13" font-weight="600">Dashboard</text>
-            <text x="40" y="156" fill="#8b95a0" font-size="13">Documents</text>
-            <text x="40" y="196" fill="#8b95a0" font-size="13">Templates</text>
-            <text x="40" y="236" fill="#8b95a0" font-size="13">Workflows</text>
-            <text x="40" y="276" fill="#8b95a0" font-size="13">Data Room</text>
-            <text x="40" y="316" fill="#8b95a0" font-size="13">Settings</text>
-            <text x="264" y="52" fill="#11151c" font-size="20" font-weight="700">Document Management</text>
-            <rect x="812" y="32" width="196" height="34" rx="17" fill="#fff" stroke="#e3e6ea"/>
-            <text x="832" y="54" fill="#9aa3ab" font-size="12">Search…</text>
-            <circle cx="1058" cy="49" r="18" fill="url(#nvgA)"/>
-            <rect x="264" y="84" width="252" height="104" rx="10" fill="#fff" stroke="#e8eaed"/>
-            <text x="288" y="134" fill="#11151c" font-size="30" font-weight="800">4,210</text>
-            <text x="288" y="162" fill="#6b6b6b" font-size="12.5">Controlled docs</text>
-            <rect x="540" y="84" width="252" height="104" rx="10" fill="#fff" stroke="#e8eaed"/>
-            <text x="564" y="134" fill="#11151c" font-size="30" font-weight="800">100%</text>
-            <text x="564" y="162" fill="#6b6b6b" font-size="12.5">Versioned</text>
-            <rect x="816" y="84" width="252" height="104" rx="10" fill="#fff" stroke="#e8eaed"/>
-            <text x="840" y="134" fill="#11151c" font-size="30" font-weight="800">38</text>
-            <text x="840" y="162" fill="#6b6b6b" font-size="12.5">In review</text>
-            <rect x="264" y="212" width="560" height="196" rx="10" fill="#fff" stroke="#e8eaed"/>
-            <text x="288" y="246" fill="#11151c" font-size="14" font-weight="700">Documents released · last 8 weeks</text>
-            <line x1="288" y1="384" x2="800" y2="384" stroke="#e8eaed"/>
-            <g fill="url(#nvgA)">
-              <rect x="300" y="324" width="38" height="60" rx="3"/>
-              <rect x="362" y="298" width="38" height="86" rx="3"/>
-              <rect x="424" y="330" width="38" height="54" rx="3"/>
-              <rect x="486" y="280" width="38" height="104" rx="3"/>
-              <rect x="548" y="306" width="38" height="78" rx="3"/>
-              <rect x="610" y="264" width="38" height="120" rx="3"/>
-              <rect x="672" y="292" width="38" height="92" rx="3"/>
-              <rect x="734" y="274" width="38" height="110" rx="3"/>
-            </g>
-            <rect x="840" y="212" width="248" height="196" rx="10" fill="#fff" stroke="#e8eaed"/>
-            <text x="864" y="246" fill="#11151c" font-size="14" font-weight="700">By lifecycle</text>
-            <circle cx="870" cy="284" r="5" fill="#1b91a3"/><text x="886" y="289" fill="#6b6b6b" font-size="12.5">Draft</text><text x="1064" y="289" fill="#11151c" font-size="12.5" font-weight="700" text-anchor="end">64</text>
-            <circle cx="870" cy="318" r="5" fill="#20a676"/><text x="886" y="323" fill="#6b6b6b" font-size="12.5">In review</text><text x="1064" y="323" fill="#11151c" font-size="12.5" font-weight="700" text-anchor="end">38</text>
-            <circle cx="870" cy="352" r="5" fill="#71bf44"/><text x="886" y="357" fill="#6b6b6b" font-size="12.5">Released</text><text x="1064" y="357" fill="#11151c" font-size="12.5" font-weight="700" text-anchor="end">3,980</text>
-            <circle cx="870" cy="386" r="5" fill="#febc2e"/><text x="886" y="391" fill="#6b6b6b" font-size="12.5">Retired</text><text x="1064" y="391" fill="#11151c" font-size="12.5" font-weight="700" text-anchor="end">128</text>
-            <rect x="264" y="424" width="824" height="188" rx="10" fill="#fff" stroke="#e8eaed"/>
-            <text x="288" y="456" fill="#11151c" font-size="14" font-weight="700">Recent documents</text>
-            <line x1="264" y1="476" x2="1088" y2="476" stroke="#eef0f2"/>
-            <g font-size="12.5">
-              <text x="288" y="508" fill="#11151c">SOP-114</text><text x="430" y="508" fill="#6b6b6b">Cleaning procedure</text><text x="860" y="508" fill="#6b6b6b">K. Shah</text>
-              <rect x="980" y="494" width="84" height="22" rx="11" fill="#e8f6f1"/><text x="1022" y="509" fill="#1b8f73" text-anchor="middle" font-size="11" font-weight="700">In review</text>
-              <text x="288" y="548" fill="#11151c">BMR-022</text><text x="430" y="548" fill="#6b6b6b">Batch record</text><text x="860" y="548" fill="#6b6b6b">R. Menon</text>
-              <rect x="980" y="534" width="84" height="22" rx="11" fill="#eaf6e3"/><text x="1022" y="549" fill="#4c8f2e" text-anchor="middle" font-size="11" font-weight="700">Released</text>
-              <text x="288" y="588" fill="#11151c">POL-007</text><text x="430" y="588" fill="#6b6b6b">Data integrity policy</text><text x="860" y="588" fill="#6b6b6b">K. Shah</text>
-              <rect x="980" y="574" width="84" height="22" rx="11" fill="#fff3d6"/><text x="1022" y="589" fill="#9a7400" text-anchor="middle" font-size="11" font-weight="700">Draft</text>
-            </g>
-          </svg>
-          <span class="tag">Representative UI</span>
+      <p class="statement reveal">Storing documents is easy. <span class="grad-text">Keeping them controlled is the hard part.</span></p>
+      <div class="ch-grid reveal">
+        <div>
+          <h2 class="section-title">What NoteIQ changes.</h2>
+        </div>
+        <div class="prose">
+          <p>You already have somewhere to keep documents. The harder problem is keeping them controlled: one versioned source of truth, every change and approval on the record, and every copy, share and linked training tied back to it. From authoring to archival, that is what NoteIQ is built to do.</p>
         </div>
       </div>
     </div>
   </section>
 
-
-  <!-- ============ HIGHLIGHTS ============ -->
-  <section class="pad60">
+  <!-- ============ CH 2 — THE DIFFERENTIATOR: EVENT-BASED PRINTING (front and centre) ============ -->
+  <section class="pad80 grey chapter" id="printing">
     <div class="container">
-      <div class="row g-4 align-items-center">
-        <div class="col-lg-5 reveal">
-          <h2 class="section-title">Audit-Ready Document Control</h2>
+      <div class="ch-grid reveal">
+        <div>
+          <h2 class="section-title">Printing is where most systems lose control.</h2>
         </div>
-        <div class="col-lg-7">
-          <div class="row g-4">
-            <div class="col-6 col-md-3 reveal"><div class="hl"><div class="n">Single Source</div><div class="l">of Truth</div></div></div>
-            <div class="col-6 col-md-3 reveal"><div class="hl"><div class="n">Event-Based</div><div class="l">Print &amp; Reprint Traceability</div></div></div>
-            <div class="col-6 col-md-3 reveal"><div class="hl"><div class="n">Virtual Data Room</div><div class="l">Secure External Sharing</div></div></div>
-            <div class="col-6 col-md-3 reveal"><div class="hl"><div class="n">100% Configurable</div><div class="l">Customer-Owned Templates</div></div></div>
+        <div class="prose">
+          <p>This is the difference from the document system you already run. In NoteIQ a printout is a controlled, traceable event: the package is built and printed against a trigger, and every copy and reprint is logged. A printed record is as governed as the one on screen.</p>
+        </div>
+      </div>
+      <div class="vlife reveal">
+        <div class="vl"><div class="vp"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v10l-8 4-8-4V7z"/><path d="M4 7l8 4 8-4M12 11v10"/></svg></div><h3>Create package</h3><span>BMR + RDS</span></div>
+        <div class="vl"><div class="vp"><svg viewBox="0 0 24 24"><path d="M3 12h4l2-6 4 12 2-6h6"/></svg></div><h3>Log event</h3><span>External system</span></div>
+        <div class="vl"><div class="vp"><svg viewBox="0 0 24 24"><path d="M9 15l6-6"/><path d="M11 6l1-1a3.5 3.5 0 0 1 5 5l-1 1M13 18l-1 1a3.5 3.5 0 0 1-5-5l1-1"/></svg></div><h3>Link event</h3><span>To the package</span></div>
+        <div class="vl"><div class="vp"><svg viewBox="0 0 24 24"><path d="M6 9V4h12v5"/><rect x="4" y="9" width="16" height="8" rx="2"/><path d="M8 15h8v5H8z"/></svg></div><h3>Controlled print</h3><span>Every copy logged</span></div>
+        <div class="vl"><div class="vp"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></div><h3>Privileged reprint</h3><span>Permission-gated</span></div>
+        <div class="vl"><div class="vp"><svg viewBox="0 0 24 24"><path d="M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3"/><path d="M8 12l3 3 5-6"/></svg></div><h3>Execute &amp; scan</h3><span>Scanned back</span></div>
+      </div>
+      <p class="numcap reveal">Event-based printing with end-to-end traceability, our key differentiator.</p>
+    </div>
+  </section>
+
+  <!-- ============ CH 3 — THE LIBRARY (hero screenshot) ============ -->
+  <section class="pad80 chapter" id="library">
+    <div class="container">
+      <div class="ch-grid reveal">
+        <div>
+          <h2 class="section-title">One controlled library for every document.</h2>
+        </div>
+        <div class="prose">
+          <p>Every document lives in one place, versioned and access-controlled, with its status, history and workflow on the record. What is effective, what is superseded and who owns it is never in doubt.</p>
+        </div>
+      </div>
+      <div class="pshot shot-hero reveal">
+        <picture>
+          <source media="(max-width:991.98px)" srcset="assets/dms-shot-library-sm.png" />
+          <img src="assets/dms-shot-library.png" alt="NoteIQ document library: a folder tree of controlled documents beside a document record showing status Effective, version, owner, history and workflow details" loading="lazy" />
+        </picture>
+      </div>
+      <p class="shot-cap reveal">The document library: status, version, history and workflow, on one record.</p>
+    </div>
+  </section>
+
+  <!-- ============ CH 3.5 — NoteIQ, AT WORK (real product screenshots) ============ -->
+  <section class="pad80 grey chapter" id="closer">
+    <div class="container">
+      <div class="ch-grid reveal">
+        <div>
+          <h2 class="section-title">NoteIQ, at work.</h2>
+        </div>
+        <div class="prose">
+          <p>The same platform, three views: authoring in a built-in editor, moving a document through review and approval, and tracking the tasks that carry it to effective.</p>
+        </div>
+      </div>
+      <!-- Feature carousel: one feature per slide (swipe / arrows / dots). Every shot is responsive:
+           <picture> serves a zoomed mobile/tablet variant (assets/<name>-sm.png) at <=991.98px and
+           the full desktop crop (<name>.png) above. Adding a shot = one more .cslide. -->
+      <div class="cwrap reveal">
+        <div class="ctrack" id="closerTrack">
+          <div class="cslide">
+            <div class="cslide-in">
+              <h3>Author in a built-in editor</h3>
+              <p>A full word processor inside the platform: template-based or free-form authoring, revision history, and AI proofreading and summarisation on hand.</p>
+              <div class="pshot"><picture><source media="(max-width:991.98px)" srcset="assets/dms-shot-editor-sm.png" /><img src="assets/dms-shot-editor.png" alt="NoteIQ built-in document editor: a full word-processor ribbon and an SOP document with revision-history table in draft" loading="lazy" /></picture></div>
+            </div>
+          </div>
+          <div class="cslide">
+            <div class="cslide-in">
+              <h3>Move it through review and approval</h3>
+              <p>Each process runs its own workflow, from author sign-off through QA approval to effective, with coordinator, due date and every decision on the record.</p>
+              <div class="pshot"><picture><source media="(max-width:991.98px)" srcset="assets/dms-shot-workflow-sm.png" /><img src="assets/dms-shot-workflow.png" alt="NoteIQ document workflow progress from started through author sign-off and QA approval to effective, with workflow and document details" loading="lazy" /></picture></div>
+            </div>
+          </div>
+          <div class="cslide">
+            <div class="cslide-in">
+              <h3>Track the tasks that carry it</h3>
+              <p>Every review, approval and lifecycle action is a task with a site, department and status, so nothing waits unseen.</p>
+              <div class="pshot"><picture><source media="(max-width:991.98px)" srcset="assets/dms-shot-tasks-sm.png" /><img src="assets/dms-shot-tasks.png" alt="NoteIQ tasks board with accept, in-progress and completed tabs, and document and template tasks showing approved, rejected and lifecycle-activated statuses" loading="lazy" /></picture></div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ WHY DMS ============ -->
-  <section class="pad80 grey" id="why">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="section-title reveal">Why NoteIQ DMS</h2>
-      </div>
-      <div class="hscroll">
-<div class="row g-4">
-        <div class="col-md-4 reveal"><div class="cap-card">
-          <h4>Reduce Compliance Risk</h4>
-          <ul><li>Controlled, standardised, audit-ready documentation</li></ul>
-        </div></div>
-        <div class="col-md-4 reveal"><div class="cap-card">
-          <h4>Stay Inspection Ready</h4>
-          <ul><li>Instant retrieval, no pre-audit scramble</li></ul>
-        </div></div>
-        <div class="col-md-4 reveal"><div class="cap-card">
-          <h4>Increase Team Productivity</h4>
-          <ul><li>Intuitive interface, minimal training</li></ul>
-        </div></div>
-      </div>
-</div>
-    </div>
-  </section>
-
-  <!-- ============ KEY FEATURES ============ -->
-  <section class="pad80" id="features">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="section-title reveal">Key Features</h2>
-      </div>
-      <div class="hscroll">
-<div class="row g-4">
-        <div class="col-md-6 col-lg-3 reveal"><div class="cap-card">
-          <h4>Lifecycle Controls</h4>
-          <ul><li>Template &amp; document authoring</li><li>Controlled versioning</li><li>Multi-level review workflows</li></ul>
-        </div></div>
-        <div class="col-md-6 col-lg-3 reveal"><div class="cap-card">
-          <h4>Event-Based Printing &amp; Reprints</h4>
-          <ul><li>Automated batch &amp; package printing</li><li>Controlled, audit-logged reprints</li><li>Electronic archival of executed records</li></ul>
-        </div></div>
-        <div class="col-md-6 col-lg-3 reveal"><div class="cap-card">
-          <h4>Integration &amp; Access</h4>
-          <ul><li>TMS training auto-created on approval</li><li>AD/SSO access control</li></ul>
-        </div></div>
-        <div class="col-md-6 col-lg-3 reveal"><div class="cap-card">
-          <h4>Virtual Data Room</h4>
-          <ul><li>Secure sharing with auditors and stakeholders</li></ul>
-        </div></div>
-      </div>
-</div>
-      <div class="divider_line"><img src="assets/divider-mark.svg" alt="" width="101" height="101" loading="lazy"></div>
-    </div>
-  </section>
-
-  <!-- ============ HOW IT WORKS ============ -->
-  <section class="pad80 grey" id="flow">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="section-title reveal">The Document Lifecycle</h2>
-      </div>
-      <div class="proc cols-5 reveal m-acc">
-        <div class="proc-step">
-          <div class="pic"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 9h16M9 9v11"/></svg></div>
-          <div class="pk">Set Up</div>
-          <h5>Template Approval</h5>
-          <p>Every document starts from an approved template.</p>
-        </div>
-        <div class="proc-step">
-          <div class="pic"><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg></div>
-          <div class="pk">Author</div>
-          <h5>Document Creation</h5>
-          <p>Authors draft from templates or free-form, capturing metadata throughout.</p>
-        </div>
-        <div class="proc-step">
-          <div class="pic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg></div>
-          <div class="pk">Approve</div>
-          <h5>Review &amp; Approval</h5>
-          <p>Configurable review routes audit-trail every decision and signature.</p>
-        </div>
-        <div class="proc-step">
-          <div class="pic"><svg viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg></div>
-          <div class="pk">Release</div>
-          <h5>Controlled Release</h5>
-          <p>Release is immediate or scheduled, triggering event-based printing where required.</p>
-        </div>
-        <div class="proc-step">
-          <div class="pic"><svg viewBox="0 0 24 24"><path d="M3 7h18v4H3z"/><path d="M5 11v8h14v-8M9 15h6"/></svg></div>
-          <div class="pk">Maintain</div>
-          <h5>Revision &amp; Archive</h5>
-          <p>Revisions, retirement and archive stay under version control.</p>
+        <div class="cctrls">
+          <button class="cbtn" type="button" data-cdir="-1" aria-label="Previous feature">&lsaquo;</button>
+          <div class="cdots" id="closerDots" aria-label="Feature slides"></div>
+          <button class="cbtn" type="button" data-cdir="1" aria-label="Next feature">&rsaquo;</button>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ NOTEIQ AI ============ -->
-  <section class="pad80 grey" id="ai">
+  <!-- ============ CH 4 — BUILT TO FIT (configurable, any process) ============ -->
+  <section class="pad80 chapter" id="fit">
     <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="section-title reveal">Smarter, Faster Document Management</h2>
-      </div>
-      <div class="hscroll">
-<div class="row g-4">
-        <div class="col-md-4 reveal"><div class="cap-card">
-          <h4>Authoring</h4>
-          <ul><li>Compliant, structured drafts from templates</li></ul>
-        </div></div>
-        <div class="col-md-4 reveal"><div class="cap-card">
-          <h4>Proofreading</h4>
-          <ul><li>Flags inconsistencies and compliance risks</li></ul>
-        </div></div>
-        <div class="col-md-4 reveal"><div class="cap-card">
-          <h4>Summarisation</h4>
-          <ul><li>Concise summaries preserving critical detail</li></ul>
-        </div></div>
-      </div>
-</div>
-      <div class="text-center mt-4 reveal">
-        <p class="mb-0">NoteIQ AI runs on <a href="pivotpath-pivotai.html">PivotAI</a>, the AI layer inside PivotOS.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ MORE MODULES ============ -->
-  <section class="pad80" id="more">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="section-title reveal">More NoteIQ Modules</h2>
-      </div>
-      <div class="hscroll">
-<div class="row g-4">
-        <div class="col-md-6 col-lg-4 reveal"><a class="mod-link" href="pivotpath-noteiq-vms.html"><div class="cap-card">
-          <h4>VMS · Validation Management</h4>
-          <span class="go">Explore →</span>
-        </div></a></div>
-        <div class="col-md-6 col-lg-4 reveal"><a class="mod-link" href="pivotpath-noteiq-tms.html"><div class="cap-card">
-          <h4>TMS · Training Management</h4>
-          <span class="go">Explore →</span>
-        </div></a></div>
-        <div class="col-md-6 col-lg-4 reveal"><a class="mod-link" href="pivotpath-noteiq-regintel.html"><div class="cap-card">
-          <h4>Regulatory Intelligence</h4>
-          <span class="go">Explore →</span>
-        </div></a></div>
-      </div>
-</div>
-      <div class="divider_line"><img src="assets/divider-mark.svg" alt="" width="101" height="101" loading="lazy"></div>
-    </div>
-  </section>
-
-  <!-- ============ A CLOSER LOOK ============ -->
-  <section class="pad80" id="closer">
-    <div class="container">
-      <div class="row align-items-center g-5">
-        <div class="col-lg-5 reveal">
-          <h2 class="section-title">The Document Control Workspace</h2>
+      <div class="ch-grid reveal">
+        <div>
+          <h2 class="section-title">Built to fit the way you already work.</h2>
         </div>
-        <div class="col-lg-7 reveal">
-          <div class="shot">
-            <div class="bar"><i class="d1"></i><i class="d2"></i><i class="d3"></i><span class="addr">app.pivotpath.com/noteiq/dms/documents</span></div>
-            <svg viewBox="0 0 1120 560" role="img" aria-label="Representative NoteIQ DMS document workspace" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Roboto,Arial,sans-serif">
-              <defs><linearGradient id="nvgB" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#71bf44"/><stop offset=".55" stop-color="#20a676"/><stop offset="1" stop-color="#1b91a3"/></linearGradient></defs>
-              <rect width="1120" height="560" fill="#fff"/>
-              <text x="40" y="56" fill="#11151c" font-size="20" font-weight="700">Documents</text>
-              <rect x="300" y="34" width="100" height="30" rx="15" fill="#eef0f2"/><text x="350" y="54" fill="#6b6b6b" font-size="12" text-anchor="middle">All types</text>
-              <rect x="412" y="34" width="104" height="30" rx="15" fill="#eef0f2"/><text x="464" y="54" fill="#6b6b6b" font-size="12" text-anchor="middle">In review</text>
-              <rect x="900" y="32" width="180" height="34" rx="6" fill="url(#nvgB)"/><text x="990" y="54" fill="#fff" font-size="13" font-weight="700" text-anchor="middle">New document +</text>
-              <rect x="40" y="84" width="1040" height="40" rx="6" fill="#f4f6f8"/>
-              <g fill="#8a929b" font-size="11.5" font-weight="700" letter-spacing="1">
-                <text x="60" y="109">DOC ID</text>
-                <text x="220" y="109">TITLE</text>
-                <text x="560" y="109">TYPE</text>
-                <text x="760" y="109">LIFECYCLE</text>
-                <text x="940" y="109">STATUS</text>
-              </g>
-              <g font-size="13" fill="#11151c">
-                <text x="60" y="166">SOP-114</text><text x="220" y="166" fill="#6b6b6b">Cleaning procedure</text><text x="560" y="166" fill="#6b6b6b">SOP</text>
-                <rect x="760" y="152" width="120" height="8" rx="4" fill="#eef0f2"/><rect x="760" y="152" width="104" height="8" rx="4" fill="url(#nvgB)"/>
-                <rect x="940" y="150" width="92" height="24" rx="12" fill="#e8f6f1"/><text x="986" y="166" fill="#1b8f73" font-size="11.5" font-weight="700" text-anchor="middle">In review</text>
-                <line x1="40" y1="188" x2="1080" y2="188" stroke="#eef0f2"/>
-                <text x="60" y="226">BMR-022</text><text x="220" y="226" fill="#6b6b6b">Batch record</text><text x="560" y="226" fill="#6b6b6b">BMR</text>
-                <rect x="760" y="212" width="120" height="8" rx="4" fill="#eef0f2"/><rect x="760" y="212" width="120" height="8" rx="4" fill="url(#nvgB)"/>
-                <rect x="940" y="210" width="92" height="24" rx="12" fill="#eaf6e3"/><text x="986" y="226" fill="#4c8f2e" font-size="11.5" font-weight="700" text-anchor="middle">Released</text>
-                <line x1="40" y1="248" x2="1080" y2="248" stroke="#eef0f2"/>
-                <text x="60" y="286">POL-007</text><text x="220" y="286" fill="#6b6b6b">Data integrity policy</text><text x="560" y="286" fill="#6b6b6b">Policy</text>
-                <rect x="760" y="272" width="120" height="8" rx="4" fill="#eef0f2"/><rect x="760" y="272" width="60" height="8" rx="4" fill="url(#nvgB)"/>
-                <rect x="940" y="270" width="92" height="24" rx="12" fill="#fff3d6"/><text x="986" y="286" fill="#9a7400" font-size="11.5" font-weight="700" text-anchor="middle">Draft</text>
-                <line x1="40" y1="308" x2="1080" y2="308" stroke="#eef0f2"/>
-                <text x="60" y="346">WI-058</text><text x="220" y="346" fill="#6b6b6b">Sampling instruction</text><text x="560" y="346" fill="#6b6b6b">Work Instr.</text>
-                <rect x="760" y="332" width="120" height="8" rx="4" fill="#eef0f2"/><rect x="760" y="332" width="92" height="8" rx="4" fill="url(#nvgB)"/>
-                <rect x="940" y="330" width="92" height="24" rx="12" fill="#e8f6f1"/><text x="986" y="346" fill="#1b8f73" font-size="11.5" font-weight="700" text-anchor="middle">In review</text>
-                <line x1="40" y1="368" x2="1080" y2="368" stroke="#eef0f2"/>
-                <text x="60" y="406">SOP-113</text><text x="220" y="406" fill="#6b6b6b">Gowning procedure</text><text x="560" y="406" fill="#6b6b6b">SOP</text>
-                <rect x="760" y="392" width="120" height="8" rx="4" fill="#eef0f2"/><rect x="760" y="392" width="120" height="8" rx="4" fill="url(#nvgB)"/>
-                <rect x="940" y="390" width="92" height="24" rx="12" fill="#eaf6e3"/><text x="986" y="406" fill="#4c8f2e" font-size="11.5" font-weight="700" text-anchor="middle">Released</text>
-                <line x1="40" y1="428" x2="1080" y2="428" stroke="#eef0f2"/>
-                <text x="60" y="466">FRM-204</text><text x="220" y="466" fill="#6b6b6b">Deviation form</text><text x="560" y="466" fill="#6b6b6b">Form</text>
-                <rect x="760" y="452" width="120" height="8" rx="4" fill="#eef0f2"/><rect x="760" y="452" width="72" height="8" rx="4" fill="url(#nvgB)"/>
-                <rect x="940" y="450" width="92" height="24" rx="12" fill="#fff3d6"/><text x="986" y="466" fill="#9a7400" font-size="11.5" font-weight="700" text-anchor="middle">Retired</text>
-              </g>
-            </svg>
-            <span class="tag">Representative UI</span>
-          </div>
+        <div class="prose">
+          <p>Move any number of processes onto NoteIQ, and give each one its own template and review-and-approval workflow. The system bends to your SOPs, not the other way round.</p>
+        </div>
+      </div>
+      <div class="val3 reveal m-acc">
+        <div class="v">
+          <div class="pic48 grad"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="6" height="6" rx="1"/><rect x="14" y="3" width="6" height="6" rx="1"/><rect x="9" y="15" width="6" height="6" rx="1"/><path d="M7 9v3h10V9M12 12v3"/></svg></div>
+          <h3>Any process, its own workflow</h3>
+          <p>Each process you add gets its own template and its own review-and-approval workflow.</p>
+        </div>
+        <div class="v">
+          <div class="pic48 grad"><svg viewBox="0 0 24 24"><path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2.4"/><circle cx="9" cy="17" r="2.4"/></svg></div>
+          <h3>Configured, and owned by you</h3>
+          <p>Fully configurable, with templates you own, not templates locked to a vendor.</p>
+        </div>
+        <div class="v">
+          <div class="pic48 grad"><svg viewBox="0 0 24 24"><path d="M5 15a4 4 0 0 1 1-7.9A5 5 0 0 1 16 6a4 4 0 0 1 2.5 7.2"/><path d="M12 12v8M9 15l3-3 3 3"/></svg></div>
+          <h3>Fast to configure and deploy</h3>
+          <p>It stands up without a lengthy build, so you are live in a matter of weeks, not quarters.</p>
         </div>
       </div>
     </div>
   </section>
-    <!-- ============ FAQ ============ -->
+
+  <!-- ============ CH 5 — CONNECTED & SHAREABLE ============ -->
+  <section class="pad80 grey chapter" id="connect">
+    <div class="container">
+      <div class="ch-grid reveal">
+        <div>
+          <h2 class="section-title">Connected to your systems, and safe to share.</h2>
+        </div>
+        <div class="prose">
+          <p>Documents do not live in isolation. NoteIQ pushes approved documents into training, connects to the systems you already run, and lets you open a controlled window to outsiders without handing over the keys.</p>
+        </div>
+      </div>
+      <div class="val3 reveal m-acc">
+        <div class="v">
+          <div class="pic48"><svg viewBox="0 0 24 24"><path d="M3 8l9-4 9 4-9 4z"/><path d="M7 10v5c0 1.3 2.7 2.5 5 2.5s5-1.2 5-2.5v-5"/></svg></div>
+          <h3>Training, kept current</h3>
+          <p>Native integration with the NoteIQ training module: when a document or a new version is approved, the training item is created automatically, so employees are trained on the current version.</p>
+        </div>
+        <div class="v">
+          <div class="pic48"><svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.4"/><circle cx="18" cy="18" r="2.4"/><path d="M6 8.4V14a4 4 0 0 0 4 4h5.6"/></svg></div>
+          <h3>Integrated with your enterprise</h3>
+          <p>Connects to the systems you run on, including SAP, QMS and LIMS, so documents move with your operation.</p>
+        </div>
+        <div class="v">
+          <div class="pic48"><svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/><circle cx="12" cy="15" r="1.4"/></svg></div>
+          <h3>Virtual Data Room</h3>
+          <p>Share selected documents with regulators or customers for online or onsite review, through the platform, without giving them a licence.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CH 6 — HOW WE USE AI (division of labour) ============ -->
+  <section class="pad80 chapter" id="ai">
+    <div class="container">
+      <div class="ch-grid reveal">
+        <div>
+          <h2 class="section-title">AI does the volume. People make the calls.</h2>
+        </div>
+        <div class="prose">
+          <p>NoteIQ drafts documents from your templates, proofreads them for inconsistencies and compliance risks, and summarises them for review. A qualified person reviews and approves. The AI capabilities run on <a href="pivotpath-pivotai.html">PivotAI</a>, the AI layer inside <a href="pivotpath-pivotos.html">PivotOS</a>.</p>
+          <p>Your content stays yours: it is never used to train foundation models and stays isolated to your organisation.</p>
+        </div>
+      </div>
+      <div class="val3 reveal m-acc">
+        <div class="v">
+          <div class="pic48"><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-8"/><path d="M18 3l3 3-7 7-3 1 1-3z"/></svg></div>
+          <h3>Authoring</h3>
+          <p>Drafts compliant, structured documents from your configured templates.</p>
+        </div>
+        <div class="v">
+          <div class="pic48"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12l2 2 4-4"/></svg></div>
+          <h3>Proofreading</h3>
+          <p>Flags inconsistencies and compliance risks and suggests improvements.</p>
+        </div>
+        <div class="v">
+          <div class="pic48"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></div>
+          <h3>Summarisation</h3>
+          <p>Creates concise summaries so reviewers grasp a document quickly.</p>
+        </div>
+      </div>
+      <p class="rule-line reveal">Nothing critical is released without a human reviewer in the chain.</p>
+    </div>
+  </section>
+
+  <!-- ============ CH 7 — THE AUDITOR MOMENT (dark conviction band) ============ -->
+  <section class="pad80 band" id="assurance">
+    <div class="container">
+      <div class="ch-grid reveal">
+        <div>
+          <h2 class="section-title">When the inspector asks, the record is complete.</h2>
+        </div>
+        <div class="prose">
+          <p>Every version, approval, printout, reprint and executed record is timestamped and traceable, aligned to ALCOA+ and 21 CFR Part 11. The paper trail and the system are the same trail.</p>
+          <p><a href="pivotpath-ai-trust.html">Read the AI Trust Centre</a> for how we govern AI in regulated work.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ (backstory lives here) ============ -->
   <section class="pad80 grey" id="faq">
     <div class="container">
       <div class="text-center mb-5">
-        <h2 class="section-title reveal">Common questions about NoteIQ DMS</h2>
+        <h2 class="section-title reveal"><span class="tt-none">NoteIQ</span> document management, <span class="grad-text">explained</span></h2>
       </div>
       <div class="row justify-content-center">
         <div class="col-lg-9">
           <div class="accordion reveal" id="faqAcc">
             <div class="accordion-item">
-              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q1">What does NoteIQ DMS manage?</button></h2>
-              <div id="q1" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">The controlled document lifecycle end to end: template creation, authoring, review, approval, release, revision and archive. Every document lives in one system, an audit-ready source of truth.</div></div>
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q1">What does NoteIQ document management cover?</button></h2>
+              <div id="q1" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">The whole document lifecycle on one system: template and authoring, review and approval, controlled release, controlled printing, revision, retirement and archival, all versioned and audit-trailed.</div></div>
             </div>
             <div class="accordion-item">
-              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2">What is event-based printing?</button></h2>
-              <div id="q2" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Automates batch and packaging document generation through ERP integration, while capturing all print and reprint activity, maintaining print-to-execute-to-scan traceability so each copy is accounted for and executed records are archived electronically.</div></div>
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2">What is event-based printing, and why does it matter?</button></h2>
+              <div id="q2" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">It is what sets NoteIQ apart from a typical document system. Batch and package printing is triggered by an event, such as a production order, and every printed copy and privileged reprint is tied to a full audit log, with executed records scanned back in. Printing becomes a controlled, traceable event rather than an afterthought.</div></div>
             </div>
             <div class="accordion-item">
               <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q3">What is the Virtual Data Room?</button></h2>
-              <div id="q3" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">A secure, structured space for sharing documents externally with auditors and stakeholders at inspection. It gives controlled, audit-friendly access that never exposes internal systems.</div></div>
+              <div id="q3" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">A secure space to share selected documents with regulators or customers for online or onsite review, through the platform, without giving them a licence or an account. Access is controlled and the sharing is audit-trailed.</div></div>
             </div>
             <div class="accordion-item">
-              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q4">How does AI support authoring and review in NoteIQ DMS?</button></h2>
-              <div id="q4" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Three ways: authoring (compliant, structured drafts from templates), proofreading (flagging inconsistencies and compliance risks with context-aware suggestions), and summarisation (concise summaries for faster review).</div></div>
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q4">How configurable is it, and how quickly does it deploy?</button></h2>
+              <div id="q4" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">It is fully configurable, with templates you own. Any number of processes can be added, each with its own template and review-and-approval workflow, and it configures and deploys without a lengthy build.</div></div>
             </div>
             <div class="accordion-item">
-              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q5">Does DMS link to training?</button></h2>
-              <div id="q5" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Yes. Document approval can auto-create the matching training in NoteIQ TMS, so releasing a document picks up who needs training without a manual hand-off.</div></div>
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q5">Does it have a built-in document editor?</button></h2>
+              <div id="q5" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Yes. A built-in word processor supports template-based and free-form authoring, with AI proofreading and summarisation to help reviewers.</div></div>
             </div>
             <div class="accordion-item">
-              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q6">How does Pivot Path use AI responsibly and safely?</button></h2>
-              <div id="q6" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">AI here is assistive and human-reviewed. It drafts, summarises and retrieves, but a qualified person reviews and approves every regulated decision. Outputs are grounded in your approved content, fully audit-trailed, and your data is never used to train foundation models. These capabilities run on <a href="pivotpath-pivotai.html">PivotAI</a>, the AI layer every Pivot Path platform runs on. See our <a href="pivotpath-ai-trust.html">AI Trust Centre</a> for how we use AI responsibly.</div></div>
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q6">Does it link to training?</button></h2>
+              <div id="q6" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Yes. Native integration with the NoteIQ training module: when a document such as an SOP is approved or a new version is released, the training item is created automatically, so employees are trained on the current version.</div></div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q7">Does it integrate with our other systems?</button></h2>
+              <div id="q7" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Yes. Native integration with the NoteIQ training module, plus enterprise systems such as SAP, QMS and LIMS.</div></div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q8">How does Pivot Path use AI responsibly and safely?</button></h2>
+              <div id="q8" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">AI here is assistive and human-reviewed. It drafts, proofreads and summarises, but a qualified person reviews and approves every regulated decision. Outputs are grounded in your approved content, fully audit-trailed, and your data is never used to train foundation models. These capabilities run on <a href="pivotpath-pivotai.html">PivotAI</a>, the AI layer every Pivot Path platform runs on. See our <a href="pivotpath-ai-trust.html">AI Trust Centre</a> for how we use AI responsibly.</div></div>
             </div>
           </div>
         </div>
@@ -599,17 +580,15 @@
   <!-- ============ FINAL CTA ============ -->
   <section class="pad80 final-cta text-center" id="contact">
     <div class="container">
-      <h2 class="section-title text-white reveal mb-3">See NoteIQ DMS on Your Own Documents.</h2>
-      <p class="text-white-50 reveal mb-4" style="max-width:640px;margin-inline:auto">See event-based printing and reprint traceability on your documents.</p>
+      <h2 class="section-title text-white reveal mb-3">See <span class="tt-none">NoteIQ</span> <span class="grad-text">on your own documents.</span></h2>
+      <p class="text-white-50 reveal mb-4" style="max-width:640px;margin-inline:auto">We will show controlled printing, the Virtual Data Room and training integration on your own SOPs.</p>
       <div class="hero-ctas justify-content-center reveal">
-        <a href="mailto:info@pivotpath.com" class="btns2 solid-light">Book a DMS demo</a>
-        <a href="pivotpath-noteiq.html" class="btns-line">Back to NoteIQ platform</a>
+        <a href="mailto:info@pivotpath.com" class="btns2 solid-light">Book a <span class="tt-none">NoteIQ</span> demo</a>
+        <a href="pivotpath-noteiq.html" class="btns-line">Back to <span class="tt-none">NoteIQ</span> platform</a>
       </div>
     </div>
   </section>
 
-  <!-- ver-switch: base/narrative review toggle -->
-  <div style="position:fixed;left:18px;bottom:18px;z-index:1050;display:inline-flex;align-items:center;gap:2px;background:#10161d;border-radius:999px;padding:4px;box-shadow:0 8px 24px rgba(0,0,0,.28)"><span style="padding:.5rem .95rem;border-radius:999px;background:#fff;color:#10161d;font-size:.72rem;font-weight:800">base-page</span><a href="pivotpath-noteiq-dms-editorial.html" style="padding:.5rem .95rem;border-radius:999px;color:#cfd6dd;font-size:.72rem;font-weight:700;text-decoration:none">narrative-page</a></div>
 
   <!-- ============ FOOTER ============ -->
 
@@ -670,42 +649,40 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous" defer></script>
   <script>
-    // ---- Count-up stat band ----
-    (function(){
-      function run(scope){
-        scope.querySelectorAll('.count').forEach(function(el){
-          if(el.dataset.done)return;el.dataset.done="1";
-          var to=parseFloat(el.dataset.to), dec=parseInt(el.dataset.dec||'0',10);
-          if(to===0){el.textContent="0";return;}
-          var start=null,dur=1600;
-          function step(ts){if(!start)start=ts;var p=Math.min((ts-start)/dur,1);
-            var val=to*(0.5-Math.cos(p*Math.PI)/2);
-            el.textContent=dec?val.toFixed(dec):Math.round(val).toLocaleString();
-            if(p<1)requestAnimationFrame(step);else el.textContent=dec?to.toFixed(dec):to.toLocaleString();}
-          requestAnimationFrame(step);
-        });
-      }
-      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)run(e.target);});},{threshold:.3});
-      document.querySelectorAll('.stat-band').forEach(function(b){io.observe(b);});
-    })();
-
     // ---- Reveal on scroll ----
     (function(){
       var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
       document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
     })();
 
-    // ---- Active anchor-nav highlight ----
+    // ---- "NoteIQ, at work" feature carousel (framework-free: arrows + dots + swipe) ----
     (function(){
-      var links=[].slice.call(document.querySelectorAll('.anchor-nav a'));
-      var map=links.map(function(a){return {a:a,el:document.querySelector(a.getAttribute('href'))};}).filter(function(x){return x.el;});
-      function onScroll(){
-        var y=window.scrollY+120,cur=map[0];
-        map.forEach(function(x){if(x.el.offsetTop<=y)cur=x;});
-        links.forEach(function(a){a.classList.remove('active');});
-        if(cur)cur.a.classList.add('active');
-      }
-      window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+      var track=document.getElementById('closerTrack');
+      var dotsWrap=document.getElementById('closerDots');
+      if(!track||!dotsWrap)return;
+      var slides=[].slice.call(track.children);
+      var wrap=track.closest('.cwrap');
+      slides.forEach(function(s,i){
+        var d=document.createElement('button');
+        d.type='button';d.className='cdot'+(i===0?' active':'');
+        d.setAttribute('aria-label','Go to feature '+(i+1));
+        d.addEventListener('click',function(){track.scrollTo({left:i*track.clientWidth,behavior:'smooth'});});
+        dotsWrap.appendChild(d);
+      });
+      var dots=[].slice.call(dotsWrap.children);
+      wrap.querySelectorAll('[data-cdir]').forEach(function(b){
+        b.addEventListener('click',function(){
+          track.scrollBy({left:parseInt(b.getAttribute('data-cdir'),10)*track.clientWidth,behavior:'smooth'});
+        });
+      });
+      var raf=0;
+      track.addEventListener('scroll',function(){
+        if(raf)return;
+        raf=requestAnimationFrame(function(){raf=0;
+          var idx=Math.round(track.scrollLeft/track.clientWidth);
+          dots.forEach(function(d,i){d.classList.toggle('active',i===idx);});
+        });
+      },{passive:true});
     })();
   </script>
   <script src="pp-mobile.js?v=50" defer></script>

@@ -4,52 +4,162 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
-  <title>AnomIQ: Anomaly &amp; Audit-Trail Monitoring Platform | Pivot Path</title>
-  <meta name="description" content="AnomIQ monitors audit trails across CDS and Non-CDS systems continuously, so compliance risks surface early and life sciences teams stay inspection-ready." />
+  <title>AnomIQ: Continuous Audit-Trail Monitoring | Pivot Path</title>
+  <meta name="description" content="AnomIQ is Pivot Path's audit-trail monitoring platform for CDS and Non-CDS systems. It reviews continuously and acts on anomalies through configurable business rules, so risk is caught and contained before it moves downstream." />
   <link rel="preconnect" href="https://cdn.jsdelivr.net" />
   <link rel="preload" href="pp.css?v=50" as="style" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
   <link rel="stylesheet" href="pp.css?v=50" />
   <link rel="icon" type="image/png" href="assets/chevron.png" />
+  <style>
+    /* ==== EDITORIAL STORY LAYOUT (page-scoped; pp.css untouched) ==== */
+
+    /* Chapter: title left, prose right */
+    .ch-grid{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);column-gap:var(--sp-7);row-gap:var(--sp-4);align-items:start}
+    .ch-grid h2.section-title{margin-bottom:0;max-width:14ch}
+    .prose p{font-size:var(--fs-lead);line-height:1.75;color:var(--pp-ink);max-width:62ch;margin:0 0 var(--sp-4)}
+    .prose p:last-child{margin-bottom:0}
+    .chapter{border-top:1px solid var(--pp-line)}
+
+    /* Big standalone statement + pull quote */
+    .statement{font-size:var(--fs-display);font-weight:800;line-height:1.1;letter-spacing:-.015em;color:var(--pp-ink);max-width:24ch;margin:0 0 var(--sp-5)}
+    .pull{font-size:var(--fs-h3);font-weight:800;line-height:1.25;max-width:24ch;margin:0 0 var(--sp-4)}
+
+    /* Icon tiles */
+    .pic48{flex:none;width:48px;height:48px;border-radius:var(--r-md);background:var(--pp-accent);display:flex;align-items:center;justify-content:center;margin-bottom:var(--sp-3)}
+    .pic48 svg{width:24px;height:24px;fill:none;stroke:#fff;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+    .pic48.grad{background:var(--pp-grad)}
+    .pic48.ink{background:var(--pp-ink)}
+
+    /* Value triptych: three hairline columns with icons */
+    .val3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:var(--sp-6)}
+    .val3 .v{padding:0 var(--sp-5);border-left:1px solid var(--pp-line)}
+    .val3 .v:first-child{border-left:0;padding-left:0}
+    .val3 .v:last-child{padding-right:0}
+    .val3 h3{font-size:var(--fs-h4);font-weight:700;margin:0 0 var(--sp-2);text-transform:none}
+    .val3 p{margin:0;color:var(--pp-muted);font-size:var(--fs-body);line-height:1.65}
+
+    /* Dense number strip */
+    .numrow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--pp-line);border-bottom:1px solid var(--pp-line);margin-top:var(--sp-6)}
+    .numrow .c{padding:var(--sp-4);border-left:1px solid var(--pp-line)}
+    .numrow .c:first-child{border-left:0;padding-left:0}
+    .numrow .n{font-size:1.6rem;font-weight:800;color:var(--pp-ink);line-height:1.1;font-variant-numeric:tabular-nums}
+    .numrow .l{font-size:var(--fs-sm);color:var(--pp-muted);margin-top:4px}
+    .numcap{font-size:var(--fs-sm);color:var(--pp-muted);margin-top:var(--sp-3)}
+
+    /* From -> to contrast rows (vs traditional review) */
+    .fromto{max-width:760px;margin:var(--sp-6) auto 0}
+    .fromto .r{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:var(--sp-4);padding:var(--sp-4) 0;border-top:1px solid var(--pp-line)}
+    .fromto .r:last-child{border-bottom:1px solid var(--pp-line)}
+    .fromto .from{color:var(--pp-muted);text-align:right;font-size:var(--fs-h5);font-weight:600}
+    .fromto .to{font-weight:800;color:var(--pp-ink);font-size:var(--fs-h5)}
+    .fromto .ar{color:var(--pp-accent);font-size:var(--fs-h4);font-weight:800;line-height:1}
+    .fromto .hd{padding-top:0;padding-bottom:var(--sp-2);border-top:0}
+    .fromto .hfrom,.fromto .hto{font-size:var(--fs-sm);font-weight:800;letter-spacing:.02em}
+    .fromto .hfrom{text-align:right;color:var(--pp-muted)}
+    .fromto .hto{color:var(--pp-accent)}
+
+    /* Continuous-vs-periodic timeline (same anomaly, two outcomes) */
+    .tlfig{max-width:900px;margin:var(--sp-6) auto var(--sp-3)}
+    .tl-lane{display:grid;grid-template-columns:180px minmax(0,1fr);gap:var(--sp-5);align-items:center;padding:var(--sp-5) 0}
+    .tl-lane + .tl-lane{border-top:1px solid var(--pp-line)}
+    .tl-lab h3{font-size:var(--fs-h5);font-weight:800;margin:0;text-transform:none}
+    .tl-lab p{font-size:var(--fs-sm);color:var(--pp-muted);margin:2px 0 0}
+    .tl-track{position:relative;height:72px}
+    .tl-line{position:absolute;left:0;right:0;top:24px;height:0;border-top:2px dashed var(--pp-line)}
+    .tl-bar{position:absolute;left:0;right:0;top:19px;height:12px;border-radius:6px;background:var(--pp-grad)}
+    .tl-tick{position:absolute;top:16px;width:2px;height:18px;background:var(--pp-muted);opacity:.45;transform:translateX(-50%)}
+    .tl-gap{position:absolute;top:21px;height:8px;border-radius:4px;background:rgba(214,120,60,.16)}
+    .tl-mark{position:absolute;top:25px;transform:translate(-50%,-50%);z-index:2}
+    .tl-dot{display:block;width:16px;height:16px;border-radius:50%;border:3px solid #fff;box-shadow:0 0 0 1.5px rgba(0,0,0,.12)}
+    .tl-dot.warn{background:#d6783c}
+    .tl-dot.ok{background:#20a676}
+    .tl-cap{position:absolute;top:44px;transform:translateX(-50%);font-size:12px;font-weight:700;white-space:nowrap;color:var(--pp-muted)}
+    .tl-cap.warn{color:#c26a30}
+    .tl-cap.ok{color:var(--pp-accent)}
+    .tl-cap-end{left:auto!important;right:0;transform:none;text-align:right}
+
+    /* Capabilities: three grouped columns with per-capability icons */
+    .capgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:var(--sp-6)}
+    .capgrid .cg{padding:0 var(--sp-5);border-left:1px solid var(--pp-line)}
+    .capgrid .cg:first-child{border-left:0;padding-left:0}
+    .capgrid .cg:last-child{padding-right:0}
+    .capgrid .cg > h3{font-size:var(--fs-h4);font-weight:700;margin:0 0 var(--sp-3);text-transform:none}
+    .cap-i{display:grid;grid-template-columns:20px minmax(0,1fr);column-gap:12px;padding:var(--sp-3) 0;border-top:1px solid var(--pp-line);align-items:start}
+    .cap-i svg{width:18px;height:18px;margin-top:3px;fill:none;stroke:var(--pp-accent);stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+    .cap-i h4{font-size:var(--fs-h5);font-weight:700;margin:0 0 2px;text-transform:none}
+    .cap-i p{margin:0;color:var(--pp-muted);font-size:var(--fs-sm);line-height:1.6}
+
+    .tt-none{text-transform:none}
+
+    /* Dark punctuation bands */
+    .band{background:var(--pp-section);color:#fff}
+    .band h2.section-title{color:#fff}
+    .band .prose p{color:rgba(255,255,255,.82)}
+    .band a{color:#fff}
+
+    /* Closing rule line */
+    .rule-line{font-size:var(--fs-h4);font-weight:700;color:var(--pp-ink);border-top:1px solid var(--pp-line);padding-top:var(--sp-4);margin-top:var(--sp-6)}
+
+    /* Real product screenshots */
+    .pshot{border:1px solid var(--pp-line);border-radius:14px;overflow:hidden;box-shadow:0 14px 34px rgba(0,0,0,.09);background:#fff;margin-inline:auto}
+    .pshot picture{display:block}
+    .pshot img{display:block;width:100%;height:auto}
+    .shot-hero{max-width:1000px;margin-top:var(--sp-6)}
+    .shot-cap{font-size:var(--fs-sm);color:var(--pp-muted);text-align:center;margin-top:var(--sp-3)}
+    /* "At work" feature carousel: one feature per slide (swipe / arrows / dots).
+       Fixed section height, so adding more screenshots does not lengthen the page. */
+    .cwrap{position:relative;margin-top:var(--sp-7)}
+    .ctrack{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+    .ctrack::-webkit-scrollbar{display:none}
+    .cslide{flex:0 0 100%;min-width:0;scroll-snap-align:start}
+    .cslide-in{max-width:1040px;margin-inline:auto;width:100%}
+    .cslide h3{font-size:var(--fs-h4);font-weight:700;margin:0 0 var(--sp-2);text-transform:none}
+    .cslide p{margin:0 0 var(--sp-4);color:var(--pp-muted);font-size:var(--fs-body);line-height:1.7;max-width:64ch}
+    .cslide .pshot{width:100%}
+    .cctrls{display:flex;align-items:center;justify-content:center;gap:var(--sp-3);margin-top:var(--sp-5)}
+    .cbtn{width:40px;height:40px;border-radius:50%;border:1px solid var(--pp-line);background:#fff;color:var(--pp-ink);font-size:1.3rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:border-color .15s,color .15s}
+    .cbtn:hover{border-color:var(--pp-accent);color:var(--pp-accent)}
+    .cdots{display:flex;align-items:center;gap:8px}
+    .cdot{width:8px;height:8px;padding:0;border:0;border-radius:50%;background:var(--pp-line);cursor:pointer;transition:width .2s,background .2s}
+    .cdot.active{width:22px;border-radius:5px;background:var(--pp-accent)}
+
+    @media (max-width:991.98px){
+      .ch-grid{grid-template-columns:1fr}
+      .ch-grid h2.section-title{max-width:none;margin-bottom:var(--sp-3)}
+      .val3,.capgrid{grid-template-columns:1fr}
+      .val3 .v,.capgrid .cg{border-left:0;padding:var(--sp-4) 0;border-top:1px solid var(--pp-line)}
+      .val3 .v:first-child,.capgrid .cg:first-child{border-top:0;padding-top:0}
+      .val3 .v:last-child,.capgrid .cg:last-child{padding-bottom:0}
+      .numrow{grid-template-columns:1fr 1fr}
+      .numrow .c:nth-child(odd){border-left:0;padding-left:0}
+      .numrow .c:nth-child(n+3){border-top:1px solid var(--pp-line)}
+      .fromto .from,.fromto .to{font-size:var(--fs-body)}
+      .tl-lane{grid-template-columns:1fr;gap:var(--sp-2);padding:var(--sp-4) 0}
+    }
+  </style>
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "SoftwareApplication",
+      "@type": "WebPage",
       "name": "AnomIQ",
-      "description": "AnomIQ monitors audit trails across CDS and Non-CDS systems continuously, so compliance risks surface early and life sciences teams stay inspection-ready.",
-      "applicationCategory": "BusinessApplication",
-      "operatingSystem": "Web",
+      "description": "AnomIQ is Pivot Path's audit-trail monitoring platform for CDS and Non-CDS systems. It reviews continuously and acts on anomalies through configurable business rules, before the data moves downstream.",
+      "url": "https://pivotpath.com/pivotpath-anomiq.html",
       "provider": {
         "@type": "Organization",
         "@id": "https://pivotpath.com/#organization",
         "name": "Pivot Path",
         "url": "https://pivotpath.com/"
-      },
-      "url": "https://pivotpath.com/pivotpath-anomiq.html"
+      }
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://pivotpath.com/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Products",
-          "item": "https://pivotpath.com/#platforms"
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "name": "AnomIQ",
-          "item": "https://pivotpath.com/pivotpath-anomiq.html"
-        }
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pivotpath.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://pivotpath.com/#platforms" },
+        { "@type": "ListItem", "position": 3, "name": "AnomIQ", "item": "https://pivotpath.com/pivotpath-anomiq.html" }
       ]
     },
     {
@@ -57,10 +167,10 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "What does AnomIQ monitor?",
+          "name": "What problem does AnomIQ solve?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Anomalies and audit trails across your CDS and Non-CDS systems, the signals that matter to quality and compliance, continuously."
+            "text": "Audit trails across CDS and Non-CDS systems hold the evidence of data integrity, but they are reviewed manually and in samples, so problems surface at inspection. AnomIQ reviews them continuously and acts on anomalies through your configured rules, before the data moves downstream."
           }
         },
         {
@@ -68,7 +178,15 @@
           "name": "How does it differ from periodic audit-trail review?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Conventional review is manual and sampled at intervals. AnomIQ reviews continuously, so issues surface early, not at the next cycle or audit."
+            "text": "Conventional review is manual and samples the audit trail weeks later, so an anomaly becomes a finding at inspection. AnomIQ reviews every entry as it happens and can act on it immediately, for example holding a batch before it moves to production."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which systems does AnomIQ monitor?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "CDS and Non-CDS systems across your operation. It works alongside systems such as LIMS, Empower, TrackWise Digital and manufacturing historians, bringing their audit-trail activity into one view."
           }
         },
         {
@@ -76,15 +194,15 @@
           "name": "Does it bridge IT operations and quality?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. AnomIQ bridges IT operations and quality oversight, so signals reach the teams who need them instead of staying siloed."
+            "text": "Yes. AnomIQ brings IT operations and quality oversight together, so detections reach the teams who need them instead of staying siloed."
           }
         },
         {
           "@type": "Question",
-          "name": "Is detection configurable?",
+          "name": "Can AnomIQ act on other systems automatically?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. Anomaly rules and workflows are configurable, tuning detection to your processes and reducing noise so signals stand out."
+            "text": "Yes. Through configurable business rules, a detection can trigger a response on a target system, for example placing a hold on a batch in SAP after an out-of-specification result so it cannot move to production. The action is automatic and protective; releasing a hold stays with a qualified reviewer."
           }
         },
         {
@@ -93,14 +211,6 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Access is role-based, review is controlled and every step is traceable end to end, giving defensible records for regulated, validated use."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What benefits does AnomIQ provide to leadership teams?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Site-wide compliance visibility in one place: the manufacturing and quality compliance status across sites, with executive dashboards and oversight so leaders can see risk early and direct attention where it matters."
           }
         },
         {
@@ -230,390 +340,331 @@
     </div>
   </header>
 
-  <!-- ============ PAGE HERO ============ -->
+  <!-- ============ PAGE HERO — define before you narrate ============ -->
   <section class="page-hero pad80" id="overview">
     <div class="container">
-      <div class="crumb"><a href="pivotpath-home.html">Home</a> &nbsp;/&nbsp; <a href="pivotpath-home.html#platforms">Products</a> &nbsp;/&nbsp; AnomIQ</div>
-      <h1>From audit-trail data to<br>compliance intelligence.</h1>
-      <p class="lead">AnomIQ monitors audit trails across CDS and Non-CDS systems continuously, surfacing risks early.</p>
+      <div class="crumb"><a href="pivotpath-home.html">Home</a> &nbsp;/&nbsp; <a href="pivotpath-home.html#platforms">Products</a> &nbsp;/&nbsp; <span class="tt-none">AnomIQ</span></div>
+      <h1>AnomIQ: continuous audit-trail monitoring<br>across your CDS and Non-CDS systems.</h1>
+      <p class="lead">AnomIQ is Pivot Path's audit-trail monitoring platform. It reviews your CDS and Non-CDS systems continuously and acts on anomalies through business rules you configure.</p>
       <div class="hero-ctas">
         <a href="#contact" class="btns2 solid-light">Book an AnomIQ demo</a>
-        <a href="pivotpath-quality-compliance.html" class="btns-line">See Quality &amp; Compliance services</a>
+        <a href="pivotpath-quality-compliance.html" class="btns-line">Explore Quality &amp; Compliance services</a>
       </div>
     </div>
   </section>
 
-  <!-- ============ STICKY ANCHOR NAV ============ -->
-  <nav class="anchor-nav">
+  <!-- ============ CH 1 — THE VALUE (value first) ============ -->
+  <section class="pad80" id="value">
     <div class="container">
-      <div class="inner">
-        <span class="anchor-brand">AnomIQ</span>
-        <a href="#overview" class="active">Overview</a>
-        <a href="#preview">Preview</a>
-        <a href="#challenge">The Challenge</a>
-        <a href="#what">Capabilities</a>
-        <a href="#flow">How It Works</a>
-        <a href="#compare">vs Traditional</a>
-        <a href="#numbers">Why AnomIQ</a>
-        <a href="#proof">Proof</a>
-        <a href="#systems">Integrations</a>
-        <a href="#faq">FAQ</a>
+      <p class="statement reveal">From audit-trail data to <span class="grad-text">compliance intelligence.</span></p>
+      <div class="ch-grid reveal">
+        <div>
+          <h2 class="section-title">What AnomIQ changes.</h2>
+        </div>
+        <div class="prose">
+          <p>It turns the audit trails your systems already produce into a live signal your quality and IT teams can act on, before an inspector finds the gap. Three things follow.</p>
+        </div>
       </div>
+      <div class="val3 reveal m-acc">
+        <div class="v">
+          <div class="pic48"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg></div>
+          <h3>Caught as it happens</h3>
+          <p>Continuous review flags a data-integrity issue the moment it appears, not weeks later at the next audit cycle.</p>
+        </div>
+        <div class="v">
+          <div class="pic48"><svg viewBox="0 0 24 24"><path d="M8 3h8l5 5v8l-5 5H8l-5-5V8z"/><path d="M9 12h6"/></svg></div>
+          <h3>Stopped before it spreads</h3>
+          <p>A configured business rule can act on the spot, placing a hold on the batch in SAP so an out-of-specification result never reaches production.</p>
+        </div>
+        <div class="v">
+          <div class="pic48"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3.5 8-7 10-3.5-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
+          <h3>Defensible on the record</h3>
+          <p>Every detection, action and release is role-based and traceable end to end, ready to show in inspection.</p>
+        </div>
+      </div>
+      <div class="numrow reveal">
+        <div class="c"><div class="n">60–70%</div><div class="l">Less manual effort</div></div>
+        <div class="c"><div class="n">85%</div><div class="l">Faster detection</div></div>
+        <div class="c"><div class="n">Continuous</div><div class="l">Not sampled</div></div>
+        <div class="c"><div class="n">Rule-based</div><div class="l">Automated action</div></div>
+      </div>
+      <p class="numcap reveal">Reductions compared with periodic, sampled audit-trail review.</p>
     </div>
-  </nav>
+  </section>
 
-  <!-- ============ PRODUCT PREVIEW ============ -->
-  <section class="pad80 grey" id="preview">
+  <!-- ============ CH 2 — ONE VIEW (hero screenshot) ============ -->
+  <section class="pad80 grey chapter" id="dashboard">
     <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="section-title reveal">A Working View of the Platform</h2>
+      <div class="ch-grid reveal">
+        <div>
+          <h2 class="section-title">Every system's status, in one view.</h2>
+        </div>
+        <div class="prose">
+          <p>AnomIQ brings the compliance status of your CDS and Non-CDS systems into a single dashboard, ranked by severity, so leaders can see where risk is building and direct attention to it.</p>
+        </div>
       </div>
-      <div class="reveal" style="max-width:1000px;margin-inline:auto">
-        <div class="shot">
-          <div class="bar"><i class="d1"></i><i class="d2"></i><i class="d3"></i><span class="addr">app.pivotpath.com/anomiq</span></div>
-          <svg viewBox="0 0 1120 640" role="img" aria-label="Representative AnomIQ dashboard" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Roboto,Arial,sans-serif">
-            <defs><linearGradient id="nvgA" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#71bf44"/><stop offset=".55" stop-color="#20a676"/><stop offset="1" stop-color="#1b91a3"/></linearGradient></defs>
-            <rect width="1120" height="640" fill="#f6f7f9"/>
-            <rect width="236" height="640" fill="#0f141b"/>
-            <rect x="28" y="30" width="20" height="20" rx="5" fill="url(#nvgA)"/>
-            <text x="58" y="45" fill="#fff" font-size="17" font-weight="700">AnomIQ</text>
-            <rect x="16" y="84" width="204" height="38" rx="8" fill="#ffffff1a"/>
-            <text x="40" y="108" fill="#fff" font-size="13" font-weight="600">Dashboard</text>
-            <text x="40" y="156" fill="#8b95a0" font-size="13">Anomalies</text>
-            <text x="40" y="196" fill="#8b95a0" font-size="13">Audit Trails</text>
-            <text x="40" y="236" fill="#8b95a0" font-size="13">Detection Rules</text>
-            <text x="40" y="276" fill="#8b95a0" font-size="13">Reports</text>
-            <text x="40" y="316" fill="#8b95a0" font-size="13">Settings</text>
-            <text x="264" y="52" fill="#11151c" font-size="20" font-weight="700">Anomaly Monitoring</text>
-            <rect x="812" y="32" width="196" height="34" rx="17" fill="#fff" stroke="#e3e6ea"/>
-            <text x="832" y="54" fill="#9aa3ab" font-size="12">Search…</text>
-            <circle cx="1058" cy="49" r="18" fill="url(#nvgA)"/>
-            <rect x="264" y="84" width="252" height="104" rx="10" fill="#fff" stroke="#e8eaed"/>
-            <text x="288" y="134" fill="#11151c" font-size="30" font-weight="800">37</text>
-            <text x="288" y="162" fill="#6b6b6b" font-size="12.5">Open anomalies</text>
-            <rect x="540" y="84" width="252" height="104" rx="10" fill="#fff" stroke="#e8eaed"/>
-            <text x="564" y="134" fill="#11151c" font-size="30" font-weight="800">99.2%</text>
-            <text x="564" y="162" fill="#6b6b6b" font-size="12.5">Trails monitored</text>
-            <rect x="816" y="84" width="252" height="104" rx="10" fill="#fff" stroke="#e8eaed"/>
-            <text x="840" y="134" fill="#11151c" font-size="30" font-weight="800">4</text>
-            <text x="840" y="162" fill="#6b6b6b" font-size="12.5">Critical alerts</text>
-            <rect x="264" y="212" width="560" height="196" rx="10" fill="#fff" stroke="#e8eaed"/>
-            <text x="288" y="246" fill="#11151c" font-size="14" font-weight="700">Anomalies detected · last 8 weeks</text>
-            <line x1="288" y1="384" x2="800" y2="384" stroke="#e8eaed"/>
-            <g fill="url(#nvgA)">
-              <rect x="300" y="324" width="38" height="60" rx="3"/>
-              <rect x="362" y="298" width="38" height="86" rx="3"/>
-              <rect x="424" y="330" width="38" height="54" rx="3"/>
-              <rect x="486" y="280" width="38" height="104" rx="3"/>
-              <rect x="548" y="306" width="38" height="78" rx="3"/>
-              <rect x="610" y="264" width="38" height="120" rx="3"/>
-              <rect x="672" y="292" width="38" height="92" rx="3"/>
-              <rect x="734" y="274" width="38" height="110" rx="3"/>
-            </g>
-            <rect x="840" y="212" width="248" height="196" rx="10" fill="#fff" stroke="#e8eaed"/>
-            <text x="864" y="246" fill="#11151c" font-size="14" font-weight="700">By status</text>
-            <circle cx="870" cy="284" r="5" fill="#1b91a3"/><text x="886" y="289" fill="#6b6b6b" font-size="12.5">Investigating</text><text x="1064" y="289" fill="#11151c" font-size="12.5" font-weight="700" text-anchor="end">14</text>
-            <circle cx="870" cy="318" r="5" fill="#20a676"/><text x="886" y="323" fill="#6b6b6b" font-size="12.5">Under review</text><text x="1064" y="323" fill="#11151c" font-size="12.5" font-weight="700" text-anchor="end">9</text>
-            <circle cx="870" cy="352" r="5" fill="#71bf44"/><text x="886" y="357" fill="#6b6b6b" font-size="12.5">Closed</text><text x="1064" y="357" fill="#11151c" font-size="12.5" font-weight="700" text-anchor="end">312</text>
-            <circle cx="870" cy="386" r="5" fill="#febc2e"/><text x="886" y="391" fill="#6b6b6b" font-size="12.5">Critical</text><text x="1064" y="391" fill="#11151c" font-size="12.5" font-weight="700" text-anchor="end">4</text>
-            <rect x="264" y="424" width="824" height="188" rx="10" fill="#fff" stroke="#e8eaed"/>
-            <text x="288" y="456" fill="#11151c" font-size="14" font-weight="700">Recent anomalies</text>
-            <line x1="264" y1="476" x2="1088" y2="476" stroke="#eef0f2"/>
-            <g font-size="12.5">
-              <text x="288" y="508" fill="#11151c">ANM-4471</text><text x="430" y="508" fill="#6b6b6b">Empower · audit-trail gap</text><text x="860" y="508" fill="#6b6b6b">K. Shah</text>
-              <rect x="980" y="494" width="84" height="22" rx="11" fill="#e8f6f1"/><text x="1022" y="509" fill="#1b8f73" text-anchor="middle" font-size="11" font-weight="700">Open</text>
-              <text x="288" y="548" fill="#11151c">ANM-4470</text><text x="430" y="548" fill="#6b6b6b">LIMS · backdated entry</text><text x="860" y="548" fill="#6b6b6b">R. Menon</text>
-              <rect x="980" y="534" width="84" height="22" rx="11" fill="#eaf6e3"/><text x="1022" y="549" fill="#4c8f2e" text-anchor="middle" font-size="11" font-weight="700">Closed</text>
-              <text x="288" y="588" fill="#11151c">ANM-4469</text><text x="430" y="588" fill="#6b6b6b">MES · parameter excursion</text><text x="860" y="588" fill="#6b6b6b">K. Shah</text>
-              <rect x="980" y="574" width="84" height="22" rx="11" fill="#fff3d6"/><text x="1022" y="589" fill="#9a7400" text-anchor="middle" font-size="11" font-weight="700">Critical</text>
-            </g>
-          </svg>
-          <span class="tag">Representative UI</span>
+      <div class="pshot shot-hero reveal">
+        <picture>
+          <source media="(max-width:991.98px)" srcset="assets/aq-shot-dashboard-sm.png" />
+          <img src="assets/aq-shot-dashboard.png" alt="AnomIQ admin dashboard: anomaly status per system, each showing severity and the count of total, in-progress and closed anomalies" loading="lazy" />
+        </picture>
+      </div>
+      <p class="shot-cap reveal">The AnomIQ dashboard: anomaly status across every connected system, by severity.</p>
+    </div>
+  </section>
+
+  <!-- ============ CH 3 — IT ACTS (configurable closed-loop action) ============ -->
+  <section class="pad80 chapter" id="respond">
+    <div class="container">
+      <div class="ch-grid reveal">
+        <div>
+          <h2 class="section-title">It finds the anomaly, then acts on it.</h2>
+        </div>
+        <div class="prose">
+          <p>Detection is only half the job. When a signal matches one of your business rules, AnomIQ takes the response you configured, from raising an alert to placing a protective hold on the target system. An out-of-specification result in a CDS system can block that batch in SAP before it moves to production.</p>
+          <p>The rules are yours to set, versioned and specific to each system and process. The action is automatic. Releasing a hold stays with a qualified reviewer.</p>
+        </div>
+      </div>
+      <div class="val3 reveal m-acc">
+        <div class="v">
+          <div class="pic48 grad"><svg viewBox="0 0 24 24"><path d="M4 6h9M17 6h3"/><circle cx="15" cy="6" r="2"/><path d="M4 12h3M11 12h9"/><circle cx="9" cy="12" r="2"/><path d="M4 18h9M17 18h3"/><circle cx="15" cy="18" r="2"/></svg></div>
+          <h3>You set the rule</h3>
+          <p>Define which anomaly, on which system, triggers which response. No code, and every rule is versioned.</p>
+        </div>
+        <div class="v">
+          <div class="pic48 grad"><svg viewBox="0 0 24 24"><path d="M8 3h8l5 5v8l-5 5H8l-5-5V8z"/><path d="M9 12h6"/></svg></div>
+          <h3>AnomIQ takes the action</h3>
+          <p>From an alert or routed task to a hold on the target system, for example blocking a batch in SAP the moment the rule matches.</p>
+        </div>
+        <div class="v">
+          <div class="pic48 grad"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M4 20c0-3.3 2.4-5.5 5-5.5"/><path d="M14 14l2.2 2.2L21 11.4"/></svg></div>
+          <h3>A person releases it</h3>
+          <p>Automated actions are protective and fail-safe. Lifting a hold and closing the anomaly stay with your reviewers, and every step is logged.</p>
         </div>
       </div>
     </div>
   </section>
 
-
-  <!-- ============ HIGHLIGHTS ============ -->
-  <section class="pad60">
+  <!-- ============ CH 4 — THE PILLARS ============ -->
+  <section class="pad80 grey chapter" id="what">
     <div class="container">
-      <div class="row g-4 align-items-center">
-        <div class="col-lg-5 reveal">
-          <h2 class="section-title">AnomIQ at a Glance</h2>
+      <div class="ch-grid reveal">
+        <div>
+          <h2 class="section-title">Three pillars, one continuous watch.</h2>
         </div>
-        <div class="col-lg-7">
-          <div class="row g-4">
-            <div class="col-6 col-md-3 reveal"><div class="hl"><div class="n">60–70%</div><div class="l">Less Manual Effort</div></div></div>
-            <div class="col-6 col-md-3 reveal"><div class="hl"><div class="n">85%</div><div class="l">Faster Detection</div></div></div>
-            <div class="col-6 col-md-3 reveal"><div class="hl"><div class="n">Audit-Trail</div><div class="l">Continuous Monitoring</div></div></div>
-            <div class="col-6 col-md-3 reveal"><div class="hl"><div class="n">Role-Based</div><div class="l">Access Control</div></div></div>
+        <div class="prose">
+          <p>AnomIQ detects, governs and reviews on one platform, so a signal becomes a defensible record without leaving the system it started in.</p>
+        </div>
+      </div>
+      <div class="val3 reveal m-acc">
+        <div class="v">
+          <div class="pic48 grad"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h10M4 18h6"/><circle cx="18" cy="16" r="3"/></svg></div>
+          <h3>Configurable detection and workflow</h3>
+          <p>Set business rules for which anomaly triggers which response, from an alert to a hold on the target system. Noise falls away.</p>
+        </div>
+        <div class="v">
+          <div class="pic48 grad"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></div>
+          <h3>Traceability and access control</h3>
+          <p>Role-based access and end-to-end traceability produce records you can defend in an inspection.</p>
+        </div>
+        <div class="v">
+          <div class="pic48 grad"><svg viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></div>
+          <h3>Continuous monitoring and intelligent review</h3>
+          <p>Audit trails are watched continuously, not sampled, with triage that bridges IT operations and quality.</p>
+        </div>
+      </div>
+      <div class="reveal" style="margin-top:var(--sp-6)">
+        <p class="numcap" style="margin:0 0 var(--sp-2)">Works alongside systems such as</p>
+        <span class="chip-light">LIMS (LabWare)</span>
+        <span class="chip-light">Empower</span>
+        <span class="chip-light">TIAMO</span>
+        <span class="chip-light">SAP</span>
+        <span class="chip-light">TrackWise Digital</span>
+        <span class="chip-light">Historian / MES</span>
+        <span class="chip-light tt-none">and a growing list of systems</span>
+      </div>
+      <div class="reveal" style="margin-top:var(--sp-4)">
+        <p class="numcap" style="margin:0 0 var(--sp-2)">Built for validated, regulated use</p>
+        <span class="chip-light">21 CFR Part 11</span>
+        <span class="chip-light">EU Annex 11</span>
+        <span class="chip-light">ALCOA+</span>
+        <span class="chip-light">ISO 27001 &amp; 27701</span>
+      </div>
+      <p class="numcap reveal" style="margin-top:var(--sp-4)">AnomIQ is built and run on <a href="pivotpath-pivotos.html">PivotOS</a>, the validated GxP cloud foundation.</p>
+    </div>
+  </section>
+
+  <!-- ============ CH 4 — CONTINUOUS, NOT PERIODIC (from -> to) ============ -->
+  <section class="pad80 chapter" id="compare">
+    <div class="container">
+      <div class="ch-grid reveal">
+        <div>
+          <h2 class="section-title">Continuous, not periodic.</h2>
+        </div>
+        <div class="prose">
+          <p>Periodic review reads a sample of the audit trail weeks after the fact, so an anomaly becomes a finding at your next inspection. By then the batch has moved. AnomIQ reads every entry as it happens, and acts before the data goes anywhere.</p>
+        </div>
+      </div>
+      <div class="tlfig reveal">
+        <div class="tl-lane">
+          <div class="tl-lab"><h3>Periodic review</h3><p>Sampled, weeks apart</p></div>
+          <div class="tl-track">
+            <div class="tl-line"></div>
+            <span class="tl-tick" style="left:12%"></span>
+            <span class="tl-tick" style="left:40%"></span>
+            <span class="tl-tick" style="left:68%"></span>
+            <span class="tl-gap" style="left:26%;right:6%"></span>
+            <span class="tl-mark" style="left:26%"><span class="tl-dot warn"></span></span>
+            <span class="tl-cap warn" style="left:26%">Anomaly appears</span>
+            <span class="tl-mark" style="left:94%"><span class="tl-dot warn"></span></span>
+            <span class="tl-cap warn tl-cap-end">Found at audit</span>
+          </div>
+        </div>
+        <div class="tl-lane">
+          <div class="tl-lab"><h3>AnomIQ</h3><p>Continuous, every entry</p></div>
+          <div class="tl-track">
+            <div class="tl-bar"></div>
+            <span class="tl-mark" style="left:26%"><span class="tl-dot ok"></span></span>
+            <span class="tl-cap ok" style="left:26%">Caught and held</span>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ============ CHALLENGE ============ -->
-  <section class="pad80 grey" id="challenge">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="section-title reveal">Issues Surface at Audit Time</h2>
-      </div>
-      <div class="hscroll">
-<div class="row g-4">
-        <div class="col-md-6 col-lg-4 reveal"><div class="pain"><div class="x">⏱</div><h5>Anomalies found too late</h5><p>Sampled review finds issues only at audit.</p></div></div>
-        <div class="col-md-6 col-lg-4 reveal"><div class="pain"><div class="x">⊟</div><h5>IT and quality in silos</h5><p>Teams work apart, so signals never cross.</p></div></div>
-        <div class="col-md-6 col-lg-4 reveal"><div class="pain"><div class="x">⚠</div><h5>Traceability gaps</h5><p>Uncontrolled access leaves records hard to defend.</p></div></div>
-      </div>
-</div>
-    </div>
-  </section>
-
-  <!-- ============ CAPABILITIES ============ -->
-  <section class="pad80" id="what">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="section-title reveal">Three Pillars of Confident Compliance</h2>
-      </div>
-      <div class="hscroll">
-<div class="row g-4">
-        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
-          <h4>Configurable Detection &amp; Workflow</h4>
-          <ul><li>Configurable anomaly rules</li><li>Routed response workflows</li><li>Reduced alert noise</li></ul>
-        </div></div>
-        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
-          <h4>Advanced Traceability &amp; Access Control</h4>
-          <ul><li>End-to-end traceability</li><li>Role-based access</li><li>Defensible records</li></ul>
-        </div></div>
-        <div class="col-md-6 col-lg-4 reveal"><div class="cap-card">
-          <h4>Continuous Monitoring &amp; Intelligent Review</h4>
-          <ul><li>Continuous, not sampled</li><li>Intelligent triage</li><li>Bridges IT and quality</li></ul>
-        </div></div>
-      </div>
-</div>
-      <div class="divider_line"><img src="assets/divider-mark.svg" alt="" width="101" height="101" loading="lazy"></div>
-    </div>
-  </section>
-
-  <!-- ============ HOW IT WORKS ============ -->
-  <section class="pad80 grey" id="flow">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="section-title reveal">From Signal to Confident Review</h2>
-      </div>
-      <div class="proc reveal m-acc">
-        <div class="proc-step">
-          <div class="pic"><svg viewBox="0 0 24 24"><path d="M9 15l6-6M10 6l1-1a4 4 0 0 1 6 6l-1 1M14 18l-1 1a4 4 0 0 1-6-6l1-1"/></svg></div>
-          <div class="pk">Setup</div>
-          <h5>Connect Systems</h5>
-          <p>Links CDS and Non-CDS systems and applies your anomaly rules.</p>
-        </div>
-        <div class="proc-step">
-          <div class="pic"><svg viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></div>
-          <div class="pk">Live</div>
-          <h5>Monitor and Alert</h5>
-          <p>Audit trails are watched continuously; signals reach reviewers.</p>
-        </div>
-        <div class="proc-step">
-          <div class="pic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg></div>
-          <div class="pk">Review</div>
-          <h5>Intelligent Review</h5>
-          <p>Reviewers assess flagged events with evidence and history.</p>
-        </div>
-        <div class="proc-step">
-          <div class="pic"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
-          <div class="pk">Assurance</div>
-          <h5>Audit Trail</h5>
-          <p>Detections and decisions are captured in traceable records.</p>
-        </div>
+      <p class="shot-cap reveal">The same anomaly: found weeks later at audit, or caught and held the moment it appears.</p>
+      <div class="fromto reveal">
+        <div class="r hd"><div class="hfrom">The manual way today</div><div class="ar"></div><div class="hto">With AnomIQ</div></div>
+        <div class="r"><div class="from">Sampled, weeks apart</div><div class="ar">&rarr;</div><div class="to">Continuous, every entry</div></div>
+        <div class="r"><div class="from">Found at the next audit</div><div class="ar">&rarr;</div><div class="to">Caught the moment it happens</div></div>
+        <div class="r"><div class="from">Detects only</div><div class="ar">&rarr;</div><div class="to">Detects and acts</div></div>
+        <div class="r"><div class="from">IT and quality siloed</div><div class="ar">&rarr;</div><div class="to">IT and quality unified</div></div>
       </div>
     </div>
   </section>
 
-  <!-- ============ WHY ANOMIQ VS TRADITIONAL ============ -->
-  <section class="pad80" id="compare">
+  <!-- ============ CH 5 — A CLOSER LOOK (real product screenshots) ============ -->
+  <section class="pad80 grey chapter" id="closer">
     <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="section-title reveal">Versus Traditional Review</h2>
+      <div class="ch-grid reveal">
+        <div>
+          <h2 class="section-title">AnomIQ, at work.</h2>
+        </div>
+        <div class="prose">
+          <p>Two views from the platform: every anomaly tracked from detection to close, and the sites, systems and access governed behind it.</p>
+        </div>
       </div>
-      <div class="row justify-content-center">
-        <div class="col-lg-9">
-          <div class="row reveal align-items-end pb-2 border-bottom border-dark small text-uppercase fw-bold" style="letter-spacing:.08em">
-            <div class="col-5 text-muted">Traditional</div>
-            <div class="col-2"></div>
-            <div class="col-5" style="color:var(--pp-accent)">With AnomIQ</div>
+      <!-- Feature carousel: one feature per slide (swipe / arrows / dots). Fixed height, so more
+           screenshots can be added as new .cslide blocks without lengthening the page.
+           Every shot is responsive: <picture> serves a zoomed mobile/tablet variant
+           (assets/<name>-sm.png) at <=991.98px and the full desktop crop (<name>.png) above. -->
+      <div class="cwrap reveal">
+        <div class="ctrack" id="closerTrack">
+          <div class="cslide">
+            <div class="cslide-in">
+              <h3>Every anomaly, tracked to close</h3>
+              <p>Each detection becomes a record with a code, severity, owner and status, moving from assigned through review to closed, with the source system on every row.</p>
+              <div class="pshot"><picture><source media="(max-width:991.98px)" srcset="assets/aq-shot-anomalies-sm.png" /><img src="assets/aq-shot-anomalies.png" alt="AnomIQ anomaly records: each row shows the anomaly code, category, severity, owner, created date and status" loading="lazy" /></picture></div>
+            </div>
           </div>
-          <div class="row reveal align-items-center py-4 border-bottom">
-            <div class="col-5 text-muted">Sampled</div>
-            <div class="col-2 text-center" style="color:var(--pp-accent);font-size:var(--fs-h4)">→</div>
-            <div class="col-5 fw-bold">Continuous</div>
-          </div>
-          <div class="row reveal align-items-center py-4 border-bottom">
-            <div class="col-5 text-muted">Manual</div>
-            <div class="col-2 text-center" style="color:var(--pp-accent);font-size:var(--fs-h4)">→</div>
-            <div class="col-5 fw-bold">Automated</div>
-          </div>
-          <div class="row reveal align-items-center py-4">
-            <div class="col-5 text-muted">Siloed</div>
-            <div class="col-2 text-center" style="color:var(--pp-accent);font-size:var(--fs-h4)">→</div>
-            <div class="col-5 fw-bold">Unified</div>
+          <div class="cslide">
+            <div class="cslide-in">
+              <h3>Governed access, configured per site</h3>
+              <p>Sites, systems and organisations are configured centrally, and every change is stamped with who made it and when, so oversight stays controlled and recorded.</p>
+              <div class="pshot"><picture><source media="(max-width:991.98px)" srcset="assets/aq-shot-sites-sm.png" /><img src="assets/aq-shot-sites.png" alt="AnomIQ site manager: sites with their code, organisation, active state, and the user and date they were created and updated" loading="lazy" /></picture></div>
+            </div>
           </div>
         </div>
+        <div class="cctrls">
+          <button class="cbtn" type="button" data-cdir="-1" aria-label="Previous feature">&lsaquo;</button>
+          <div class="cdots" id="closerDots" aria-label="Feature slides"></div>
+          <button class="cbtn" type="button" data-cdir="1" aria-label="Next feature">&rsaquo;</button>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ WHY ANOMIQ ============ -->
-  <section class="pad80 stat-band" id="numbers">
+  <!-- ============ CH 6 — DIVISION OF LABOUR ============ -->
+  <section class="pad80 chapter" id="ai">
+    <div class="container">
+      <div class="ch-grid reveal">
+        <div>
+          <h2 class="section-title">AI does the volume. People make the calls.</h2>
+        </div>
+        <div class="prose">
+          <p>AnomIQ reviews audit-trail activity at a scale no team can watch by hand and flags what matters. Your configured rules decide the response, and your reviewers assess and release every hold. The detection runs on <a href="pivotpath-pivotai.html">PivotAI</a>, the AI layer inside <a href="pivotpath-pivotos.html">PivotOS</a>.</p>
+          <p>Your data stays isolated, never shared across customers, and is never used to train foundation models.</p>
+        </div>
+      </div>
+      <div class="val3 reveal m-acc">
+        <div class="v">
+          <div class="pic48"><svg viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></div>
+          <h3>AI watches the volume</h3>
+          <p>Continuous monitoring across every connected system, far beyond periodic sampling.</p>
+        </div>
+        <div class="v">
+          <div class="pic48"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+          <h3>People make the calls</h3>
+          <p>Every flagged anomaly is assessed and closed by your qualified reviewers.</p>
+        </div>
+        <div class="v">
+          <div class="pic48"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16l2 2 4-4"/></svg></div>
+          <h3>Grounded and recorded</h3>
+          <p>Each detection carries its source and evidence, captured in a traceable record.</p>
+        </div>
+      </div>
+      <p class="rule-line reveal">Nothing critical is released without a human reviewer in the chain.</p>
+    </div>
+  </section>
+
+  <!-- ============ CH 7 — THE AUDITOR MOMENT (dark conviction band) ============ -->
+  <section class="pad80 band" id="assurance">
+    <div class="container">
+      <div class="ch-grid reveal">
+        <div>
+          <h2 class="section-title">When the inspector asks, the answer is already in the record.</h2>
+        </div>
+        <div class="prose">
+          <p>Every anomaly AnomIQ detects and every decision your reviewers make is timestamped and logged, ready to show on demand. That is the difference between finding a gap at audit and having already closed it.</p>
+          <p><a href="pivotpath-ai-trust.html">Read the AI Trust Centre</a> for how we govern AI in regulated work.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ (backstory lives here) ============ -->
+  <section class="pad80 grey" id="faq">
     <div class="container">
       <div class="text-center mb-5">
-        <h2 class="section-title text-white reveal">Risk, Caught Early</h2>
-      </div>
-      <div class="row text-center g-4 justify-content-center">
-        <div class="col-md-6 col-lg-3 reveal"><div class="text-white" style="font-weight:800;font-size:var(--fs-h3);line-height:1.2">Prevent data-integrity observations.</div></div>
-        <div class="col-md-6 col-lg-3 reveal"><div class="text-white" style="font-weight:800;font-size:var(--fs-h3);line-height:1.2">Close inspection-readiness gaps.</div></div>
-        <div class="col-md-6 col-lg-3 reveal"><div class="text-white" style="font-weight:800;font-size:var(--fs-h3);line-height:1.2">Detect unauthorised changes faster.</div></div>
-        <div class="col-md-6 col-lg-3 reveal"><div class="text-white" style="font-weight:800;font-size:var(--fs-h3);line-height:1.2">Improve audit defensibility.</div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ PROOF ============ -->
-  <section class="pad80" id="proof">
-    <div class="container">
-      <div class="row align-items-center g-5">
-        <div class="col-lg-5 reveal">
-          <h2 class="section-title">What Compliance Teams Gain</h2>
-        </div>
-        <div class="col-lg-7">
-          <div class="hscroll">
-<div class="row g-4">
-            <div class="col-sm-6 reveal"><div class="proof-card"><div class="big">60–70% less manual effort</div><div class="cap">Automated detection replaces manual review.</div></div></div>
-            <div class="col-sm-6 reveal"><div class="proof-card"><div class="big">85% faster detection</div><div class="cap">Responses take hours, not weeks.</div></div></div>
-          </div>
-</div>
-        </div>
-      </div>
-      <div class="divider_line"><img src="assets/divider-mark.svg" alt="" width="101" height="101" loading="lazy"></div>
-    </div>
-  </section>
-
-  <!-- ============ INTEGRATIONS & COMPLIANCE ============ -->
-  <section class="pad80 stat-band" id="systems">
-    <div class="container text-center">
-      <h2 class="section-title text-white reveal mb-4">Built for Regulated Operations</h2>
-      <p class="text-white-50 reveal mb-4">Works alongside</p>
-      <div class="reveal mb-5">
-        <span class="chip-dark">LIMS (LabWare)</span>
-        <span class="chip-dark">Empower</span>
-        <span class="chip-dark">TrackWise Digital</span>
-        <span class="chip-dark">Historian / MES</span>
-      </div>
-      <p class="text-white-50 reveal mb-4">Compliance frameworks</p>
-      <div class="reveal">
-        <span class="chip-dark">21 CFR Part 11</span>
-        <span class="chip-dark">EU Annex 11</span>
-        <span class="chip-dark">ALCOA+</span>
-        <span class="chip-dark">ISO 27001 &amp; 27701</span>
-      </div>
-      <p class="text-white-50 reveal mt-4 mb-0" style="max-width:640px;margin-inline:auto">AnomIQ is built and run on <a href="pivotpath-pivotos.html" class="link-light">PivotOS</a>, the validated GxP cloud foundation.</p>
-    </div>
-  </section>
-
-  <!-- ============ A CLOSER LOOK ============ -->
-  <section class="pad80" id="closer">
-    <div class="container">
-      <div class="row align-items-center g-5">
-        <div class="col-lg-5 reveal">
-          <h2 class="section-title">The Anomaly Review Queue</h2>
-        </div>
-        <div class="col-lg-7 reveal">
-          <div class="shot">
-            <div class="bar"><i class="d1"></i><i class="d2"></i><i class="d3"></i><span class="addr">app.pivotpath.com/anomiq/queue</span></div>
-            <svg viewBox="0 0 1120 560" role="img" aria-label="Representative AnomIQ anomaly queue" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Roboto,Arial,sans-serif">
-              <defs><linearGradient id="nvgB" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#71bf44"/><stop offset=".55" stop-color="#20a676"/><stop offset="1" stop-color="#1b91a3"/></linearGradient></defs>
-              <rect width="1120" height="560" fill="#fff"/>
-              <text x="40" y="56" fill="#11151c" font-size="20" font-weight="700">Anomaly Queue</text>
-              <rect x="300" y="34" width="100" height="30" rx="15" fill="#eef0f2"/><text x="350" y="54" fill="#6b6b6b" font-size="12" text-anchor="middle">All systems</text>
-              <rect x="412" y="34" width="104" height="30" rx="15" fill="#eef0f2"/><text x="464" y="54" fill="#6b6b6b" font-size="12" text-anchor="middle">Critical</text>
-              <rect x="900" y="32" width="180" height="34" rx="6" fill="url(#nvgB)"/><text x="990" y="54" fill="#fff" font-size="13" font-weight="700" text-anchor="middle">Assign +</text>
-              <rect x="40" y="84" width="1040" height="40" rx="6" fill="#f4f6f8"/>
-              <g fill="#8a929b" font-size="11.5" font-weight="700" letter-spacing="1">
-                <text x="60" y="109">ANOMALY ID</text>
-                <text x="220" y="109">SOURCE</text>
-                <text x="560" y="109">SYSTEM</text>
-                <text x="760" y="109">SEVERITY</text>
-                <text x="940" y="109">STATUS</text>
-              </g>
-              <g font-size="13" fill="#11151c">
-                <text x="60" y="166">ANM-4471</text><text x="220" y="166" fill="#6b6b6b">Empower</text><text x="560" y="166" fill="#6b6b6b">CDS</text>
-                <rect x="760" y="152" width="120" height="8" rx="4" fill="#eef0f2"/><rect x="760" y="152" width="104" height="8" rx="4" fill="url(#nvgB)"/>
-                <rect x="940" y="150" width="92" height="24" rx="12" fill="#e8f6f1"/><text x="986" y="166" fill="#1b8f73" font-size="11.5" font-weight="700" text-anchor="middle">Investigating</text>
-                <line x1="40" y1="188" x2="1080" y2="188" stroke="#eef0f2"/>
-                <text x="60" y="226">ANM-4470</text><text x="220" y="226" fill="#6b6b6b">LIMS</text><text x="560" y="226" fill="#6b6b6b">Non-CDS</text>
-                <rect x="760" y="212" width="120" height="8" rx="4" fill="#eef0f2"/><rect x="760" y="212" width="120" height="8" rx="4" fill="url(#nvgB)"/>
-                <rect x="940" y="210" width="92" height="24" rx="12" fill="#fff3d6"/><text x="986" y="226" fill="#9a7400" font-size="11.5" font-weight="700" text-anchor="middle">Critical</text>
-                <line x1="40" y1="248" x2="1080" y2="248" stroke="#eef0f2"/>
-                <text x="60" y="286">ANM-4469</text><text x="220" y="286" fill="#6b6b6b">MES historian</text><text x="560" y="286" fill="#6b6b6b">Mfg</text>
-                <rect x="760" y="272" width="120" height="8" rx="4" fill="#eef0f2"/><rect x="760" y="272" width="72" height="8" rx="4" fill="url(#nvgB)"/>
-                <rect x="940" y="270" width="92" height="24" rx="12" fill="#eaf6e3"/><text x="986" y="286" fill="#4c8f2e" font-size="11.5" font-weight="700" text-anchor="middle">Closed</text>
-                <line x1="40" y1="308" x2="1080" y2="308" stroke="#eef0f2"/>
-                <text x="60" y="346">ANM-4468</text><text x="220" y="346" fill="#6b6b6b">TrackWise</text><text x="560" y="346" fill="#6b6b6b">Quality</text>
-                <rect x="760" y="332" width="120" height="8" rx="4" fill="#eef0f2"/><rect x="760" y="332" width="92" height="8" rx="4" fill="url(#nvgB)"/>
-                <rect x="940" y="330" width="92" height="24" rx="12" fill="#e8f6f1"/><text x="986" y="346" fill="#1b8f73" font-size="11.5" font-weight="700" text-anchor="middle">Investigating</text>
-                <line x1="40" y1="368" x2="1080" y2="368" stroke="#eef0f2"/>
-                <text x="60" y="406">ANM-4467</text><text x="220" y="406" fill="#6b6b6b">Delta-V</text><text x="560" y="406" fill="#6b6b6b">Mfg</text>
-                <rect x="760" y="392" width="120" height="8" rx="4" fill="#eef0f2"/><rect x="760" y="392" width="120" height="8" rx="4" fill="url(#nvgB)"/>
-                <rect x="940" y="390" width="92" height="24" rx="12" fill="#eaf6e3"/><text x="986" y="406" fill="#4c8f2e" font-size="11.5" font-weight="700" text-anchor="middle">Closed</text>
-                <line x1="40" y1="428" x2="1080" y2="428" stroke="#eef0f2"/>
-                <text x="60" y="466">ANM-4466</text><text x="220" y="466" fill="#6b6b6b">Empower</text><text x="560" y="466" fill="#6b6b6b">CDS</text>
-                <rect x="760" y="452" width="120" height="8" rx="4" fill="#eef0f2"/><rect x="760" y="452" width="60" height="8" rx="4" fill="url(#nvgB)"/>
-                <rect x="940" y="450" width="92" height="24" rx="12" fill="#fff3d6"/><text x="986" y="466" fill="#9a7400" font-size="11.5" font-weight="700" text-anchor="middle">Critical</text>
-              </g>
-            </svg>
-            <span class="tag">Representative UI</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-    <!-- ============ FAQ ============ -->
-  <section class="pad80" id="faq">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="section-title reveal">Common questions about AnomIQ</h2>
+        <h2 class="section-title reveal">AnomIQ, <span class="grad-text">Explained</span></h2>
       </div>
       <div class="row justify-content-center">
         <div class="col-lg-9">
           <div class="accordion reveal" id="faqAcc">
             <div class="accordion-item">
-              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q1">What does AnomIQ monitor?</button></h2>
-              <div id="q1" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Anomalies and audit trails across your CDS and Non-CDS systems, the signals that matter to quality and compliance, continuously.</div></div>
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q1">What problem does AnomIQ solve?</button></h2>
+              <div id="q1" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Audit trails across CDS and Non-CDS systems hold the evidence of data integrity, but they are reviewed manually and in samples, so problems surface at inspection. AnomIQ reviews them continuously and acts on anomalies through your configured rules, before the data moves downstream.</div></div>
             </div>
             <div class="accordion-item">
               <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2">How does it differ from periodic audit-trail review?</button></h2>
-              <div id="q2" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Conventional review is manual and sampled at intervals. AnomIQ reviews continuously, so issues surface early, not at the next cycle or audit.</div></div>
+              <div id="q2" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Conventional review is manual and samples the audit trail weeks later, so an anomaly becomes a finding at inspection. AnomIQ reviews every entry as it happens and can act on it immediately, for example holding a batch before it moves to production.</div></div>
             </div>
             <div class="accordion-item">
-              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q3">Does it bridge IT operations and quality?</button></h2>
-              <div id="q3" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Yes. AnomIQ bridges IT operations and quality oversight, so signals reach the teams who need them instead of staying siloed.</div></div>
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q3">Which systems does AnomIQ monitor?</button></h2>
+              <div id="q3" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">CDS and Non-CDS systems across your operation. It works alongside systems such as LIMS, Empower, TrackWise Digital and manufacturing historians, bringing their audit-trail activity into one view.</div></div>
             </div>
             <div class="accordion-item">
-              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q4">Is detection configurable?</button></h2>
-              <div id="q4" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Yes. Anomaly rules and workflows are configurable, tuning detection to your processes and reducing noise so signals stand out.</div></div>
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q4">Does it bridge IT operations and quality?</button></h2>
+              <div id="q4" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Yes. AnomIQ brings IT operations and quality oversight together, so detections reach the teams who need them instead of staying siloed.</div></div>
             </div>
             <div class="accordion-item">
-              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q5">How does it handle access control and traceability?</button></h2>
-              <div id="q5" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Access is role-based, review is controlled and every step is traceable end to end, giving defensible records for regulated, validated use.</div></div>
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q5">Can AnomIQ act on other systems automatically?</button></h2>
+              <div id="q5" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Yes. Through configurable business rules, a detection can trigger a response on a target system, for example placing a hold on a batch in SAP after an out-of-specification result so it cannot move to production. The action is automatic and protective; releasing a hold stays with a qualified reviewer.</div></div>
             </div>
             <div class="accordion-item">
-              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q7">What benefits does AnomIQ provide to leadership teams?</button></h2>
-              <div id="q7" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Site-wide compliance visibility in one place: the manufacturing and quality compliance status across sites, with executive dashboards and oversight so leaders can see risk early and direct attention where it matters.</div></div>
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q6">How does it handle access control and traceability?</button></h2>
+              <div id="q6" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Access is role-based, review is controlled and every step is traceable end to end, giving defensible records for regulated, validated use.</div></div>
             </div>
             <div class="accordion-item">
-              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q6">How does Pivot Path use AI responsibly and safely?</button></h2>
-              <div id="q6" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">AI here is assistive and human-reviewed. It drafts, summarises and retrieves, but a qualified person reviews and approves every regulated decision. Outputs are grounded in your approved content, fully audit-trailed, and your data is never used to train foundation models. These capabilities run on <a href="pivotpath-pivotai.html">PivotAI</a>, the AI layer every Pivot Path platform runs on. See our <a href="pivotpath-ai-trust.html">AI Trust Centre</a> for how we use AI responsibly.</div></div>
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q7">How does Pivot Path use AI responsibly and safely?</button></h2>
+              <div id="q7" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">AI here is assistive and human-reviewed. It drafts, summarises and retrieves, but a qualified person reviews and approves every regulated decision. Outputs are grounded in your approved content, fully audit-trailed, and your data is never used to train foundation models. These capabilities run on <a href="pivotpath-pivotai.html">PivotAI</a>, the AI layer every Pivot Path platform runs on. See our <a href="pivotpath-ai-trust.html">AI Trust Centre</a> for how we use AI responsibly.</div></div>
             </div>
           </div>
         </div>
@@ -624,8 +675,8 @@
   <!-- ============ FINAL CTA ============ -->
   <section class="pad80 final-cta text-center" id="contact">
     <div class="container">
-      <h2 class="section-title text-white reveal mb-3">See AnomIQ Watching Your Audit Trails.</h2>
-      <p class="text-white-50 reveal mb-4" style="max-width:640px;margin-inline:auto">See continuous detection on your audit trails.</p>
+      <h2 class="section-title text-white reveal mb-3">See AnomIQ <span class="grad-text">on your own audit trails.</span></h2>
+      <p class="text-white-50 reveal mb-4" style="max-width:640px;margin-inline:auto">We will show continuous detection and the audit trail on your own systems.</p>
       <div class="hero-ctas justify-content-center reveal">
         <a href="mailto:info@pivotpath.com" class="btns2 solid-light">Book an AnomIQ demo</a>
         <a href="pivotpath-quality-compliance.html" class="btns-line">Explore Quality &amp; Compliance services</a>
@@ -633,8 +684,6 @@
     </div>
   </section>
 
-  <!-- ver-switch: base/narrative review toggle -->
-  <div style="position:fixed;left:18px;bottom:18px;z-index:1050;display:inline-flex;align-items:center;gap:2px;background:#10161d;border-radius:999px;padding:4px;box-shadow:0 8px 24px rgba(0,0,0,.28)"><span style="padding:.5rem .95rem;border-radius:999px;background:#fff;color:#10161d;font-size:.72rem;font-weight:800">base-page</span><a href="pivotpath-anomiq-editorial.html" style="padding:.5rem .95rem;border-radius:999px;color:#cfd6dd;font-size:.72rem;font-weight:700;text-decoration:none">narrative-page</a></div>
 
   <!-- ============ FOOTER ============ -->
 
@@ -695,42 +744,40 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous" defer></script>
   <script>
-    // ---- Count-up stat band ----
-    (function(){
-      function run(scope){
-        scope.querySelectorAll('.count').forEach(function(el){
-          if(el.dataset.done)return;el.dataset.done="1";
-          var to=parseFloat(el.dataset.to), dec=parseInt(el.dataset.dec||'0',10);
-          if(to===0){el.textContent="0";return;}
-          var start=null,dur=1600;
-          function step(ts){if(!start)start=ts;var p=Math.min((ts-start)/dur,1);
-            var val=to*(0.5-Math.cos(p*Math.PI)/2);
-            el.textContent=dec?val.toFixed(dec):Math.round(val).toLocaleString();
-            if(p<1)requestAnimationFrame(step);else el.textContent=dec?to.toFixed(dec):to.toLocaleString();}
-          requestAnimationFrame(step);
-        });
-      }
-      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)run(e.target);});},{threshold:.3});
-      document.querySelectorAll('.stat-band').forEach(function(b){io.observe(b);});
-    })();
-
     // ---- Reveal on scroll ----
     (function(){
       var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
       document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
     })();
 
-    // ---- Active anchor-nav highlight ----
+    // ---- "At work" feature carousel (framework-free: arrows + dots + swipe) ----
     (function(){
-      var links=[].slice.call(document.querySelectorAll('.anchor-nav a'));
-      var map=links.map(function(a){return {a:a,el:document.querySelector(a.getAttribute('href'))};}).filter(function(x){return x.el;});
-      function onScroll(){
-        var y=window.scrollY+120,cur=map[0];
-        map.forEach(function(x){if(x.el.offsetTop<=y)cur=x;});
-        links.forEach(function(a){a.classList.remove('active');});
-        if(cur)cur.a.classList.add('active');
-      }
-      window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+      var track=document.getElementById('closerTrack');
+      var dotsWrap=document.getElementById('closerDots');
+      if(!track||!dotsWrap)return;
+      var slides=[].slice.call(track.children);
+      var wrap=track.closest('.cwrap');
+      slides.forEach(function(s,i){
+        var d=document.createElement('button');
+        d.type='button';d.className='cdot'+(i===0?' active':'');
+        d.setAttribute('aria-label','Go to feature '+(i+1));
+        d.addEventListener('click',function(){track.scrollTo({left:i*track.clientWidth,behavior:'smooth'});});
+        dotsWrap.appendChild(d);
+      });
+      var dots=[].slice.call(dotsWrap.children);
+      wrap.querySelectorAll('[data-cdir]').forEach(function(b){
+        b.addEventListener('click',function(){
+          track.scrollBy({left:parseInt(b.getAttribute('data-cdir'),10)*track.clientWidth,behavior:'smooth'});
+        });
+      });
+      var raf=0;
+      track.addEventListener('scroll',function(){
+        if(raf)return;
+        raf=requestAnimationFrame(function(){raf=0;
+          var idx=Math.round(track.scrollLeft/track.clientWidth);
+          dots.forEach(function(d,i){d.classList.toggle('active',i===idx);});
+        });
+      },{passive:true});
     })();
   </script>
   <script src="pp-mobile.js?v=50" defer></script>
