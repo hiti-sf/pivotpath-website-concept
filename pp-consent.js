@@ -43,7 +43,8 @@
     return m ? decodeURIComponent(m[1]) : null;
   }
   function cookieSet(n, v) {
-    document.cookie = n + "=" + encodeURIComponent(v) + ";max-age=" + MAX_AGE + ";path=/;SameSite=Lax";
+    var secure = location.protocol === "https:" ? ";Secure" : "";
+    document.cookie = n + "=" + encodeURIComponent(v) + ";max-age=" + MAX_AGE + ";path=/;SameSite=Lax" + secure;
   }
   function cookieDel(n) {
     var host = location.hostname, root = host.replace(/^www\./, "");
@@ -189,12 +190,16 @@
     m.setAttribute("aria-hidden", "true");
     var rows = ROWS.map(function (r) {
       var checked = r.locked ? "checked disabled" : "";
+      var desc = r.desc;
+      if (r.key === "marketing" && gpc) {
+        desc += " Your browser is sending a Global Privacy Control (Do Not Sell or Share) signal, so this stays off unless you turn it on.";
+      }
       return '<div class="pp-cc-row">' +
         '<label class="pp-cc-toggle">' +
           '<input type="checkbox" data-cat="' + r.key + '" ' + checked + '>' +
           '<span class="pp-cc-track" aria-hidden="true"></span>' +
         '</label>' +
-        '<div class="pp-cc-rowtext"><strong>' + r.title + '</strong><p>' + r.desc + '</p></div>' +
+        '<div class="pp-cc-rowtext"><strong>' + r.title + '</strong><p>' + desc + '</p></div>' +
       '</div>';
     }).join("");
     m.innerHTML =
@@ -225,7 +230,7 @@
     return m;
   }
   function syncModal() {
-    var st = readState() || { functional: false, analytics: false, marketing: gpc ? false : false };
+    var st = readState() || { functional: false, analytics: false, marketing: false };
     modalEl.querySelectorAll("input[data-cat]").forEach(function (inp) {
       var c = inp.getAttribute("data-cat");
       if (c === "necessary") { inp.checked = true; return; }
