@@ -7,14 +7,12 @@
 
    Categories:
      necessary  — always on, locked (this file, Bootstrap, the pp-crm modal)
-     functional — Freshworks live chat  (//in.fw-cdn.com/...)
      analytics  — Microsoft Clarity  (+ GA4, self-loaded by pp-analytics.js)
-     marketing  — Google Ads + Bing UET (self-loaded by pp-analytics.js),
-                  Freshmarketer behavioural events (gated in pp-crm.js)
+     marketing  — Google Ads + Bing UET (self-loaded by pp-analytics.js)
 
    GA4 / Ads / Bing IDs live in pp-analytics.js; it reads window.ppConsent and
-   boots each tag only for a granted category. This file injects Clarity and the
-   Freshworks widget directly (they have no dedicated file).
+   boots each tag only for a granted category. This file injects Clarity
+   directly (it has no dedicated file).
 
    Public API (window.ppConsent):
      .open()        open the preferences modal (footer "Cookie preferences" link)
@@ -30,7 +28,7 @@
   var POLICY_VERSION = 1;                 // bump to force re-consent after policy changes
   var STORE_KEY = "pp_consent";
   var MAX_AGE = 60 * 60 * 24 * 365;       // 12 months, seconds
-  var CATS = ["functional", "analytics", "marketing"];   // non-essential
+  var CATS = ["analytics", "marketing"];   // non-essential
   var loaded = {};                        // idempotency guard for direct loaders
   var listeners = [];
   var bannerEl = null, modalEl = null;
@@ -80,14 +78,6 @@
   }
 
   // ---- loaders (only run when their category is granted) --------------------
-  function loadFunctional() {
-    if (loaded.functional) return; loaded.functional = true;
-    var s = document.createElement("script");
-    s.src = "//in.fw-cdn.com/32228802/1191962.js";
-    s.setAttribute("chat", "true");
-    s.async = true;
-    document.head.appendChild(s);
-  }
   function loadAnalytics() {
     if (loaded.analytics) return; loaded.analytics = true;
     // Microsoft Clarity (moved here from the page <head> so it is consent-gated)
@@ -101,7 +91,6 @@
   // Ads + Bing (marketing) are booted by pp-analytics.js; no direct loader needed here.
 
   function applyGrants(st) {
-    if (st.functional) loadFunctional();
     if (st.analytics) loadAnalytics();
     // marketing tags self-boot in pp-analytics via onChange/boot
     fireChange(st);
@@ -114,7 +103,6 @@
   function decide(vals) {
     var prev = readState() || {};
     var next = {
-      functional: !!vals.functional,
       analytics: !!vals.analytics,
       marketing: !!vals.marketing
     };
@@ -177,8 +165,6 @@
   var ROWS = [
     { key: "necessary", locked: true, title: "Strictly necessary",
       desc: "Required for the site to work (security, page rendering, saving your cookie choices). Always on." },
-    { key: "functional", locked: false, title: "Functional",
-      desc: "Enables the live-chat widget so you can talk to our team. Off unless you allow it." },
     { key: "analytics", locked: false, title: "Analytics",
       desc: "Helps us understand how the site is used so we can improve it (Microsoft Clarity, Google Analytics)." },
     { key: "marketing", locked: false, title: "Marketing",
@@ -230,7 +216,7 @@
     return m;
   }
   function syncModal() {
-    var st = readState() || { functional: false, analytics: false, marketing: false };
+    var st = readState() || { analytics: false, marketing: false };
     modalEl.querySelectorAll("input[data-cat]").forEach(function (inp) {
       var c = inp.getAttribute("data-cat");
       if (c === "necessary") { inp.checked = true; return; }
@@ -260,8 +246,8 @@
     open: function () { openModal(); },
     get: function (cat) { if (cat === "necessary") return true; var st = readState(); return !!(st && st[cat]); },
     state: function () { return readState(); },
-    acceptAll: function () { decide({ functional: true, analytics: true, marketing: true }); },
-    rejectAll: function () { decide({ functional: false, analytics: false, marketing: false }); },
+    acceptAll: function () { decide({ analytics: true, marketing: true }); },
+    rejectAll: function () { decide({ analytics: false, marketing: false }); },
     onChange: function (fn) { if (typeof fn === "function") listeners.push(fn); }
   };
   window.ppConsent = api;

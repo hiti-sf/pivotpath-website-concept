@@ -1,16 +1,9 @@
 /* =============================================================================
-   Pivot Path — CTA → Freshsales (Freshworks CRM) lead capture
+   Pivot Path — CTA → lead capture
    -----------------------------------------------------------------------------
-   A bare CTA click carries no email, and fwcrm.identify() needs one — so clicking
-   a lead CTA opens a small capture form. On submit we:
-     • fwcrm.identify(email, {First name, Last name, Email, company})  → create contact
-     • fwcrm.set({page + which CTA they clicked, phone})               → attach context
-     • window.ppTrackLead(cta, page)                                   → fire GA4/Ads/Bing
-   `fwcrm` is provided by the Freshworks widget already loaded in <head>. If it isn't
-   present (e.g. before go-live) the form still validates and closes gracefully.
-
-   NOTE: the two context fields ("Last CTA clicked", "CTA source page") and "CTA page
-   title" must exist as custom Contact fields in Freshsales for fwcrm.set to store them.
+   A bare CTA click carries no details, so clicking a lead CTA opens a small
+   capture form. On submit we fire window.ppTrackLead(cta, page) → GA4/Ads/Bing
+   conversion, then show a thank-you confirmation. (No CRM transport is wired up.)
    ============================================================================= */
 (function () {
   "use strict";
@@ -72,7 +65,6 @@
   function openModal(label) {
     if (!modal) modal = build();
     ctx = { cta: label, page: location.pathname + location.search, title: document.title };
-    fmEvent("CTA Clicked", { "cta": ctx.cta, "page": ctx.page, "page title": ctx.title });
     var title = /book a[n]? .*demo/i.test(label) ? "Book a demo"
               : /submit rfp/i.test(label) ? "Submit an RFP" : "Talk to our experts";
     modal.querySelector("#pp-lead-title").textContent = title;
@@ -91,43 +83,16 @@
     if (modal) { modal.classList.remove("open"); modal.setAttribute("aria-hidden", "true"); }
   }
 
-  function pushToCrm(email, contact, props) {
-    try {
-      if (typeof fwcrm !== "undefined" && fwcrm.identify) {
-        fwcrm.identify(email, contact);
-        if (fwcrm.set && props) fwcrm.set(props);
-      }
-    } catch (e) { /* no-op */ }
-  }
-
-  // Freshmarketer behavioural custom event (timeline / journeys / segmentation).
-  // Marketing-category tracking — only fires with marketing consent, and only if
-  // FM is present (the Freshworks widget loads under functional consent).
-  function fmEvent(name, props) {
-    try {
-      if (window.ppConsent && !ppConsent.get("marketing")) return;
-      if (typeof FM !== "undefined" && FM.trackCustomEvent) FM.trackCustomEvent(name, props || {});
-    } catch (e) { /* no-op */ }
-  }
-
   function onSubmit(e) {
     e.preventDefault();
     var f = e.target;
-    var first = f.first.value.trim(), last = f.last.value.trim(), email = f.email.value.trim(),
-        company = f.company.value.trim(), phone = f.phone.value.trim();
+    var first = f.first.value.trim(), last = f.last.value.trim(), email = f.email.value.trim();
     var err = modal.querySelector(".pp-lead-err");
     if (!first || !last || !isEmail(email)) {
       err.textContent = "Please enter your name and a valid work email.";
       return;
     }
-    var contact = { "First name": first, "Last name": last, "Email": email };
-    if (company) contact.company = { "Name": company };
-    var props = { "Last CTA clicked": ctx.cta, "CTA source page": ctx.page, "CTA page title": ctx.title };
-    if (phone) props["Mobile"] = phone;
 
-    pushToCrm(email, contact, props);
-    fmEvent("Lead Captured", { "email": email, "cta": ctx.cta, "page": ctx.page,
-                               "page title": ctx.title, "company": company });
     if (window.ppTrackLead) window.ppTrackLead(ctx.cta, ctx.page);   // GA4 / Ads / Bing conversion
 
     f.hidden = true;
