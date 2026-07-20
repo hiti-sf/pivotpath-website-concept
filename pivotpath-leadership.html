@@ -63,7 +63,7 @@
   .vm-intro{max-width:760px;margin-bottom:var(--sp-6)}
   .vm-intro p{font-size:var(--fs-lead);color:var(--pp-ink);line-height:1.55;margin:0}
   .vm-grid{display:grid;grid-template-columns:.82fr 1.18fr;gap:var(--sp-6);align-items:center}
-  .vm-img{width:100%;border-radius:var(--r-md);display:block}
+  .vm-img{width:100%;height:auto;max-height:440px;object-fit:cover;object-position:center;border-radius:var(--r-md);display:block}
   .vm-block{margin-bottom:var(--sp-5)}
   .vm-block:last-child{margin-bottom:0}
   .vm-head{display:flex;align-items:center;gap:.6rem;margin-bottom:.55rem}
@@ -75,7 +75,7 @@
   .vm-enablers li::before{content:"";position:absolute;left:0;top:.5em;width:8px;height:8px;border-radius:50%;background:var(--pp-accent)}
   @media(max-width:860px){.vm-grid{grid-template-columns:1fr;gap:var(--sp-5)}}
 
-  .epic-wordmark{display:block;max-width:720px;width:100%;margin:0 auto var(--sp-6)}
+  .epic-wordmark{display:block;max-width:720px;width:100%;height:auto;margin:0 auto var(--sp-6)}
   .epic-values{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--sp-4)}
   .epic-val{border-top:2px solid var(--pp-accent);padding-top:1rem}
   .epic-val .el{font-size:2.4rem;font-weight:800;line-height:1;display:block;margin-bottom:.35rem}
