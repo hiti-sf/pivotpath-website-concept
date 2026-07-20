@@ -141,21 +141,5 @@
   document.addEventListener("click", function (e) {
     var a = e.target && e.target.closest ? e.target.closest("a") : null;
     if (a && isLeadCta(a)) { e.preventDefault(); openModal((a.textContent || "CTA").trim()); return; }
-
-    // Newsletter subscribe = email-only identify.
-    var btn = e.target && e.target.closest ? e.target.closest(".newsletter button, .newsletter .btns2") : null;
-    if (btn) {
-      e.preventDefault();
-      var grp = btn.closest(".newsletter");
-      var inp = grp && grp.querySelector('input[type="email"]');
-      var email = inp && inp.value.trim();
-      if (email && isEmail(email)) {
-        pushToCrm(email, { "Email": email },
-                  { "Last CTA clicked": "Newsletter subscribe", "CTA source page": location.pathname });
-        fmEvent("Newsletter Subscribed", { "email": email, "page": location.pathname });
-        if (window.ppTrackLead) window.ppTrackLead("Newsletter subscribe", location.pathname);
-        inp.value = ""; inp.placeholder = "Subscribed ✓";
-      } else if (inp) { inp.focus(); }
-    }
   });
 })();

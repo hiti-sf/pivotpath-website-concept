@@ -206,7 +206,6 @@
     .footer h6{color:#fff;text-transform:uppercase;font-size:.78rem;letter-spacing:.12em;margin-bottom:1rem}
     .footer a{color:#cfcfcf;text-decoration:none;display:block;padding:.2rem 0}
     .footer a:hover{color:#fff}
-    .footer .newsletter input{background:#1c1c1c;border:1px solid #333;color:#fff}
     .footer-bottom{border-top:1px solid #2a2a2a;font-size:.78rem;color:#8a8a8a}
 
     /* #17: no blanket AOS-style reveal — content is visible by default.
@@ -969,7 +968,3 @@ body.brand-v2 .story-tag{
   .pp-cc-ghost{order:3;flex-basis:100%}
   .pp-cc-card{margin:0;min-height:100%;border-radius:0}
 }
-
-/* Footer newsletter privacy note */
-.footer .nl-privacy{font-size:.72rem;line-height:1.45;color:rgba(255,255,255,.55);margin:8px 0 0;max-width:340px}
-.footer .nl-privacy a{color:rgba(255,255,255,.8);text-decoration:underline}
