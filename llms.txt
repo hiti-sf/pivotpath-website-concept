@@ -1,0 +1,42 @@
+# Pivot Path
+
+> Pivot Path is a life sciences consulting and technology company that runs regulated pharma operations end to end, from molecule to launch. It combines consulting, operations and technology across patient safety, quality and compliance, clinical operations, intellectual property, digital transformation and human capital, delivered by pharma-native teams and a suite of validated GxP software platforms.
+
+Pivot Path was formerly known as Arcolab. The offer is always structured as three separately contractable parts: Consulting, Operations and Technology. All AI features are assistive and human-reviewed: nothing critical is released without a human reviewer in the chain.
+
+## Services
+- [Patient Safety](https://pivotpath.com/pivotpath-drug-safety.html): end-to-end pharmacovigilance, from case processing and literature surveillance to signal and risk management, PSMF and QPPV.
+- [Intellectual Property](https://pivotpath.com/pivotpath-svc-ip-consulting.html): patent landscaping, freedom-to-operate, 505(b)(2) and Para IV strategy, portfolio management and litigation support.
+- [Clinical Operations](https://pivotpath.com/pivotpath-svc-clinical-operations.html): study design and feasibility, CRO oversight, pre-clinical and toxicology studies, and medical writing.
+- [Quality & Digital Compliance](https://pivotpath.com/pivotpath-quality-compliance.html): corporate, IT, medical affairs and pharmacovigilance QA, integrated validation (CSV/CSA/CQV) and operational excellence.
+- [Digital Transformation](https://pivotpath.com/pivotpath-digital-innovation.html): manufacturing systems, IT and OT, from strategy to steady state, with compliance built in.
+- [Human Capital](https://pivotpath.com/pivotpath-human-capital.html): organisation effectiveness, talent, performance and rewards, HR digital services and culture.
+
+## Platforms (run on PivotOS, powered by PivotAI)
+- [PivotOS](https://pivotpath.com/pivotpath-pivotos.html): the GxP-ready cloud foundation every platform runs on.
+- [PivotAI](https://pivotpath.com/pivotpath-pivotai.html): the compliant AI layer inside PivotOS, human-in-the-loop.
+- [NovaVigil](https://pivotpath.com/pivotpath-novavigil.html): AI-native pharmacovigilance.
+- [NoteIQ](https://pivotpath.com/pivotpath-noteiq.html): digital compliance, covering validation, document, training and regulatory-intelligence management.
+- [InvestigationIQ](https://pivotpath.com/pivotpath-investigationiq.html): AI assistant for root-cause analysis and CAPA.
+- [AnomIQ](https://pivotpath.com/pivotpath-anomiq.html): continuous audit-trail monitoring.
+- [GoLanzar](https://pivotpath.com/pivotpath-golanzar.html): pharmaceutical launch management.
+- [InLumin](https://pivotpath.com/pivotpath-inlumin.html): procure-to-pay that runs alongside your ERP.
+- [Arete](https://pivotpath.com/pivotpath-arete.html): recruitment platform behind Talent Acquisition.
+
+## How we operate
+- [How We Operate](https://pivotpath.com/pivotpath-how-we-operate.html): the operating model across the pharma value chain.
+- [AI Trust Centre](https://pivotpath.com/pivotpath-ai-trust.html): how AI is used responsibly in GxP-regulated life sciences.
+
+## Company
+- [About & Leadership](https://pivotpath.com/pivotpath-leadership.html)
+- [Insights](https://pivotpath.com/pivotpath-insights.html)
+- [Careers](https://pivotpath.com/pivotpath-careers.html)
+- [Europe (pharmacovigilance)](https://pivotpath.com/pivotpath-pharmacovigilance-europe.html): EEA-resident QPPV, EudraVigilance and GVP-aligned operations.
+
+## Legal
+- [Privacy Policy](https://pivotpath.com/pivotpath-privacy-policy.html)
+- [Terms of Use](https://pivotpath.com/pivotpath-terms-of-use.html)
+
+## Contact
+- Email: info@pivotpath.com
+- Locations: Bengaluru, Hyderabad, Mysuru (India)

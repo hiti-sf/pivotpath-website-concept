@@ -1,4 +1,77 @@
+# robots.txt for pivotpath.com
+
+# Standard search crawlers (Googlebot, Bingbot, etc.)
 User-agent: *
 Allow: /
+
+# ------------------------------------------------------------------
+# AI assistants — answer / search & user-initiated fetches: ALLOWED
+# (these drive citations and referral traffic in AI search results)
+# ------------------------------------------------------------------
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+# ------------------------------------------------------------------
+# AI training / bulk-scraping crawlers: DISALLOWED
+# (site content is not made available for model training)
+# ------------------------------------------------------------------
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: Applebot-Extended
+Disallow: /
+
+User-agent: meta-externalagent
+Disallow: /
+
+User-agent: Meta-ExternalAgent
+Disallow: /
+
+User-agent: cohere-ai
+Disallow: /
+
+User-agent: Diffbot
+Disallow: /
+
+User-agent: Omgilibot
+Disallow: /
+
+# Google-Extended is one combined switch for using content in Gemini
+# training AND for Google AI Overviews grounding. It is DISALLOWED here to
+# honour the "no training" policy. NOTE: this also removes the site from AI
+# Overviews grounding. Switch to "Allow: /" if AI Overviews visibility is
+# preferred over the no-training stance.
+User-agent: Google-Extended
+Disallow: /
 
 Sitemap: https://pivotpath.com/sitemap.xml
