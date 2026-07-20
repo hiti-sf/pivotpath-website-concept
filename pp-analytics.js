@@ -5,7 +5,7 @@
    manager (window.ppConsent, from pp-consent.js) and boots each tag only for a
    category the visitor has granted:
        analytics → GA4
-       marketing → Google Ads + Bing UET
+       marketing → Google Ads + Bing UET + LinkedIn Insight
    If pp-consent.js is absent, NOTHING loads (fail-safe = no tracking).
 
    GO-LIVE: paste your real IDs into CONFIG below. Until you do, a tag stays inert
@@ -19,7 +19,9 @@
     GA4_MEASUREMENT_ID:          "G-9KWG1J0669",   // GA4 → Admin ▸ Data Streams ▸ Web
     GOOGLE_ADS_ID:               "AW-6780614429",  // Google Ads acct 678-061-4429 ▸ Goals ▸ Conversions ▸ Google tag
     GOOGLE_ADS_CONVERSION_LABEL: "XxXxXxXxXxXxXxXxXx", // the conversion action's label
-    BING_UET_TAG_ID:             "XXXXXXXX"         // Microsoft Advertising ▸ UET tag
+    BING_UET_TAG_ID:             "XXXXXXXX",        // Microsoft Advertising ▸ UET tag
+    LINKEDIN_PARTNER_ID:         "9661252",         // LinkedIn Campaign Manager ▸ Insight Tag
+    LINKEDIN_CONVERSION_ID:      "XXXXXXX"          // LinkedIn conversion action id (for lead events)
   };
 
   // A value is "real" only if it still isn't the placeholder (placeholders use 'X').
@@ -28,6 +30,7 @@
   var gaOn  = isSet(CONFIG.GA4_MEASUREMENT_ID);   // analytics category
   var adsOn = isSet(CONFIG.GOOGLE_ADS_ID);        // marketing category
   var uetOn = isSet(CONFIG.BING_UET_TAG_ID);      // marketing category
+  var liOn  = isSet(CONFIG.LINKEDIN_PARTNER_ID);  // marketing category
 
   var analyticsBooted = false, marketingBooted = false;
 
@@ -75,6 +78,22 @@
         i = d.getElementsByTagName(t)[0]; i.parentNode.insertBefore(n, i);
       })(window, document, "script", "//bat.bing.com/bat.js", "uetq");
     }
+    if (liOn) {
+      window._linkedin_partner_id = CONFIG.LINKEDIN_PARTNER_ID;
+      window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+      window._linkedin_data_partner_ids.push(CONFIG.LINKEDIN_PARTNER_ID);
+      (function (l) {
+        if (!l) {
+          window.lintrk = function (a, b) { window.lintrk.q.push([a, b]); };
+          window.lintrk.q = [];
+        }
+        var s = document.getElementsByTagName("script")[0];
+        var b = document.createElement("script");
+        b.type = "text/javascript"; b.async = true;
+        b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+        s.parentNode.insertBefore(b, s);
+      })(window.lintrk);
+    }
   }
 
   window.ppAnalytics = { initAnalytics: initAnalytics, initMarketing: initMarketing };
@@ -96,6 +115,9 @@
       }
       if (window.uetq && uetOn && okM) {
         window.uetq.push("event", "submit_lead_form", { event_category: "cta", event_label: label });
+      }
+      if (window.lintrk && liOn && okM && isSet(CONFIG.LINKEDIN_CONVERSION_ID)) {
+        window.lintrk("track", { conversion_id: CONFIG.LINKEDIN_CONVERSION_ID });
       }
     } catch (e) { /* no-op */ }
   };
