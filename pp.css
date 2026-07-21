@@ -207,6 +207,8 @@
     .footer a{color:#cfcfcf;text-decoration:none;display:block;padding:.2rem 0}
     .footer a:hover{color:#fff}
     .footer-bottom{border-top:1px solid #2a2a2a;font-size:.78rem;color:#8a8a8a}
+    /* Legal links sit inline in one separator-joined line, unlike the block column links */
+    .footer .footer-bottom a{display:inline;padding:0}
 
     /* #17: no blanket AOS-style reveal — content is visible by default.
        (A scoped, tasteful entrance can be reintroduced on a few key elements later.) */

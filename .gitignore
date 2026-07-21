@@ -22,3 +22,6 @@ screenshots/
 
 # Playwright MCP session artifacts
 .playwright-mcp/
+
+# Developer handover package (local only, never deploy)
+handover/
