@@ -217,6 +217,8 @@
     :root{--pp-grad:linear-gradient(120deg,#71bf44 0%,#20a676 55%,#1b91a3 100%);--pp-accent:#0e8e86}
     .pp-topbar{height:4px;background:var(--pp-grad)}
     .pp-logo{height:38px;width:auto;display:block}
+    .navbar-brand{display:inline-flex;flex-direction:column;align-items:flex-start;line-height:1}
+    .pp-brand-sub{margin-top:4px;font-size:9.5px;letter-spacing:.005em;font-weight:500;color:var(--pp-muted);white-space:nowrap;text-transform:none}
     .pp-logo-footer{height:60px;width:auto;margin-bottom:1rem}
     .pillar:hover,.cap-card:hover{border-color:var(--pp-accent)}
     .proof-card,.hl,.outcome{border-left-color:var(--pp-accent)}
@@ -519,6 +521,7 @@
   /* Slimmer mobile bar: logo + header padding ~30% smaller (frees room at the hero top).
      !important overrides Bootstrap's .py-3 utility, which is itself !important. */
   .pp-logo{height:27px}
+  .pp-brand-sub{font-size:7.5px;margin-top:2px}
   .grey-header.navbar{padding-top:.7rem!important;padding-bottom:.7rem!important}
   /* Hero: match the interior page-hero height (top clears the shorter bar) */
   .hero-single-inner{padding:60px 0 36px}
