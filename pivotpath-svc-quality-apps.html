@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <title>Quality Apps: Pivot Path GxP Quality Application Services</title>
-  <meta name="description" content="Vendor-agnostic GxP quality-application services from Pivot Path: selection, validated implementation (IQ/OQ/PQ) and 24/7 operations for QMS, LMS, LIMS." />
+  <meta name="description" content="Vendor-agnostic GxP quality-application services from Pivot Path: selection, validated implementation and 24/7 operations for QMS, DMS, LMS and LIMS, plus laboratory applications." />
   <link rel="preconnect" href="https://cdn.jsdelivr.net" />
   <link rel="preload" href="pp.css?v=54" as="style" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
@@ -47,10 +47,20 @@
     .fl .fl-svcs a:hover{text-decoration:underline}
     .flow-close{margin-top:var(--sp-5);padding-top:var(--sp-4);border-top:1px solid var(--pp-line);font-weight:600;color:var(--pp-ink);max-width:72ch}
 
-    /* NoteIQ spotlight additions (dark section) */
-    .spotlight .dd-link{color:rgba(255,255,255,.75);font-size:var(--fs-sm);margin-top:var(--sp-4);border-top:1px solid rgba(255,255,255,.22);padding-top:var(--sp-3)}
-    .spotlight .dd-link a{color:#fff;font-weight:700;text-decoration:none}
-    .spotlight .dd-link a:hover{text-decoration:underline}
+    /* What we deliver — two application groups (left-aligned, hairline) */
+    .deliver-h{font-size:var(--fs-h4);font-weight:700;margin-bottom:var(--sp-2)}
+    .deliver-sub{color:var(--pp-muted);margin-bottom:var(--sp-4);max-width:54ch}
+    .app-list{list-style:none;margin:0;padding:0}
+    .app-list li{padding:var(--sp-3) 0;border-top:1px solid var(--pp-line);font-weight:600;color:var(--pp-ink)}
+    .app-list li:first-child{border-top:0}
+
+    /* How we deliver — vertical numbered stages */
+    .stage{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:var(--sp-4);padding:var(--sp-5) 0;border-top:1px solid var(--pp-line)}
+    .stage:first-child{border-top:0}
+    .stage .st-n{font-size:var(--fs-h3);font-weight:800;color:var(--pp-accent);font-variant-numeric:tabular-nums;line-height:1}
+    .stage h3{font-size:var(--fs-h4);font-weight:700;margin:0 0 var(--sp-2)}
+    .stage p{color:var(--pp-muted);margin:0;max-width:72ch}
+    @media (max-width:575.98px){.stage{grid-template-columns:1fr;row-gap:var(--sp-2)}}
 
     /* Ways to engage — three hairline columns, not cards */
     .engage-grid{display:grid;grid-template-columns:repeat(3,1fr)}
@@ -94,7 +104,7 @@
       "@type": "Service",
       "name": "Quality Apps",
       "serviceType": "Enterprise & Quality Application Implementation",
-      "description": "Vendor-agnostic selection, implementation, configuration, validation and operations for GxP quality and enterprise applications — such as QMS, LMS, DMS, LIMS and VMS — across TrackWise, ComplianceWire, Biovia, LabWare, ValGenesis, NewGen and Pivot Path's NoteIQ platform, with an end-to-end validation package.",
+      "description": "Vendor-agnostic selection, implementation, configuration, validation and operations for GxP quality and laboratory applications such as QMS, DMS, LMS and LIMS, across TrackWise, ComplianceWire, Biovia, LabWare, NewGen and MODA, with an end-to-end validation package.",
       "provider": {
         "@type": "Organization",
         "@id": "https://pivotpath.com/#organization",
@@ -122,7 +132,7 @@
           "name": "Which quality systems do you implement?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Quality applications across the GxP landscape — most commonly QMS (Quality Management), LMS (Learning Management), DMS (Document Management), LIMS (Laboratory Information Management) and VMS (Validation Management) — including configuration, integration, validation and ongoing operations. If a system type isn't named here, ask: the delivery model is the same."
+            "text": "Quality applications across the GxP landscape, most commonly QMS (Quality Management), DMS (Document Management), LMS (Learning Management) and LIMS (Laboratory Information Management), including configuration, integration, validation and ongoing operations. If a system type isn't named here, ask: the delivery model is the same."
           }
         },
         {
@@ -130,7 +140,7 @@
           "name": "Which platforms and products do you work with?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Across QMS (TrackWise and TrackWise Digital), LMS (ComplianceWire, Biovia ELMS and NoteIQ TMS), DMS (Biovia EDMS, NewGen and NoteIQ), LIMS (LabWare and Biovia OneLab) and VMS (ValGenesis and NoteIQ). NoteIQ is Pivot Path's own GxP platform, so we can deliver DMS, training and validation management on a platform we build and run."
+            "text": "Across QMS (TrackWise and TrackWise Digital), DMS (Biovia EDMS and NewGen), LMS (ComplianceWire and Biovia ELMS) and LIMS (LabWare and Biovia OneLab), plus quality and laboratory applications such as APQR/CPV, E-Harmony, Educe, Cleen/E-Residue and MODA."
           }
         },
         {
@@ -138,7 +148,7 @@
           "name": "What is your delivery lifecycle?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Our eight-step delivery lifecycle covers: process requirement and understanding, product selection, design and configuration, integration and development, validation of configurations (IQ/OQ/PQ with DS/CS documentation), implementation and rollout, operations (L1–L3, 24/7), and process standardisation and optimisation."
+            "text": "Our delivery lifecycle runs in five stages: discovery and assessment, solution design, build/configure and integrate, testing and validation, and deployment and managed support with 24/7 L1 to L3 operations."
           }
         },
         {
@@ -146,7 +156,7 @@
           "name": "Do you provide validation and operations for these systems?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes — an end-to-end validation package (IQ, OQ, PQ with design and configuration specifications) plus 24/7 L1, L2 and L3 operations, so each system is qualified at go-live and supported afterwards."
+            "text": "Yes. An end-to-end validation package with testing and validation documentation, plus 24/7 L1, L2 and L3 operations, so each system is qualified at go-live and supported afterwards."
           }
         },
         {
@@ -154,7 +164,7 @@
           "name": "How much quality-application experience does Pivot Path have?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Implementations and rollouts across the full range of quality-application types — QMS, LMS, DMS, LIMS, VMS and beyond — spanning Asia, Europe, North America and Africa, delivered by a dedicated SME bench and supported around the clock after go-live."
+            "text": "Implementations and rollouts across the full range of quality-application types (QMS, DMS, LMS, LIMS and beyond), spanning Asia, Europe, North America and Africa, delivered by a dedicated SME bench and supported around the clock after go-live."
           }
         }
       ]
@@ -281,8 +291,8 @@
   <section class="page-hero pad80" id="overview">
     <div class="container">
       <div class="crumb"><a href="pivotpath-home.html">Home</a> &nbsp;/&nbsp; <a href="pivotpath-home.html#services">Services</a> &nbsp;/&nbsp; <a href="pivotpath-digital-innovation.html">Digital Transformation</a> &nbsp;/&nbsp; Quality Apps</div>
-      <h1>Quality systems,<br>implemented and run.</h1>
-      <p class="lead">We select, validate and run GxP quality applications, from QMS to LIMS, kept compliant and current long after go-live.</p>
+      <h1>Quality system<br>implementation.</h1>
+      <p class="lead">Delivering trusted GxP quality application solutions for compliance, quality and business excellence.</p>
       <div class="hero-ctas">
         <a href="#contact" class="btns2 solid-light">Talk to our quality-apps team</a>
         <a href="#journey" class="btns-line">See how we deliver</a>
@@ -299,7 +309,6 @@
         <a href="#stack">What We Deliver</a>
         <a href="#assurance">Approach</a>
         <a href="#journey">How We Deliver</a>
-        <a href="#noteiq">NoteIQ</a>
         <a href="#engage">Ways to Engage</a>
         <a href="#leaders">Leader</a>
         <a href="#faq">FAQ</a>
@@ -313,9 +322,9 @@
       <div class="inner reveal">
         <div class="cell note">Selected for fit, validated to standard, run around the clock.</div>
         <div class="cell"><div class="n">Vendor-agnostic</div><div class="l">Best-fit recommendation across the leading platforms</div></div>
-        <div class="cell"><div class="n">IQ · OQ · PQ</div><div class="l">End-to-end validation package with DS/CS documentation</div></div>
+        <div class="cell"><div class="n">Validated</div><div class="l">End-to-end validation package with testing &amp; validation documentation</div></div>
         <div class="cell"><div class="n">24/7</div><div class="l">L1–L3 operations after go-live</div></div>
-        <div class="cell"><div class="n">GLP/GMP</div><div class="l">LIMS instrument integration with audit trails</div></div>
+        <div class="cell"><div class="n">Lab integration</div><div class="l">Comprehensive integration across all major laboratory instrument types</div></div>
       </div>
     </div>
   </section>
@@ -324,61 +333,32 @@
   <section class="pad80 grey" id="stack">
     <div class="container">
       <div class="text-center mb-5">
-        <h2 class="section-title reveal">Any Quality Application, Any Vendor</h2>
+        <h2 class="section-title reveal">What We Deliver</h2>
       </div>
-      <div class="cap-tabs reveal" role="tablist" aria-label="Quality application systems">
-        <button class="cap-tab" role="tab" id="qt-1" aria-controls="qp-1" aria-selected="true"  tabindex="0">QMS</button>
-        <button class="cap-tab" role="tab" id="qt-2" aria-controls="qp-2" aria-selected="false" tabindex="-1">DMS</button>
-        <button class="cap-tab" role="tab" id="qt-3" aria-controls="qp-3" aria-selected="false" tabindex="-1">LMS</button>
-        <button class="cap-tab" role="tab" id="qt-4" aria-controls="qp-4" aria-selected="false" tabindex="-1">LIMS</button>
-        <button class="cap-tab" role="tab" id="qt-5" aria-controls="qp-5" aria-selected="false" tabindex="-1">VMS</button>
-        <button class="cap-tab" role="tab" id="qt-6" aria-controls="qp-6" aria-selected="false" tabindex="-1">Validation &amp; Run</button>
-      </div>
-      <div class="cap-panels reveal">
-        <div class="cap-panel" role="tabpanel" id="qp-1" aria-labelledby="qt-1" tabindex="0">
-          <h3 class="cap-panel-h">Deviations, CAPA and change control — under control.</h3>
-          <p class="cap-panel-p">Quality management on TrackWise and TrackWise Digital: deviations, CAPA, change control, and audit and inspection management, configured to your process rather than around it.</p>
-          <div class="cap-foot">
-            <a href="#contact" class="cap-explore">Discuss your QMS <span aria-hidden="true">→</span></a>
-          </div>
+      <div class="row g-5 reveal">
+        <div class="col-md-6">
+          <h3 class="deliver-h">Quality Applications</h3>
+          <p class="deliver-sub">Streamline quality processes and ensure GxP compliance.</p>
+          <ul class="app-list">
+            <li>TrackWise / TrackWise Digital</li>
+            <li>APQR / CPV</li>
+            <li>E-Harmony</li>
+            <li>Educe</li>
+            <li>Cleen / E-Residue</li>
+            <li>NewGen DMS</li>
+          </ul>
         </div>
-        <div class="cap-panel" role="tabpanel" id="qp-2" aria-labelledby="qt-2" tabindex="0" hidden>
-          <h3 class="cap-panel-h">Every document controlled, every copy accounted for.</h3>
-          <p class="cap-panel-p">Document management on Biovia EDMS, NewGen and NoteIQ: controlled versioning with a full audit trail, and event-based printing with reprint traceability.</p>
-          <div class="cap-foot">
-            <a href="pivotpath-noteiq-dms.html" class="cap-explore">Explore NoteIQ DMS <span aria-hidden="true">→</span></a>
-          </div>
-        </div>
-        <div class="cap-panel" role="tabpanel" id="qp-3" aria-labelledby="qt-3" tabindex="0" hidden>
-          <h3 class="cap-panel-h">Training that follows the document.</h3>
-          <p class="cap-panel-p">Learning management on ComplianceWire, Biovia ELMS and NoteIQ TMS: document-to-training integration, competency management and SCORM e-learning.</p>
-          <div class="cap-foot">
-            <a href="pivotpath-noteiq-tms.html" class="cap-explore">Explore NoteIQ TMS <span aria-hidden="true">→</span></a>
-          </div>
-        </div>
-        <div class="cap-panel" role="tabpanel" id="qp-4" aria-labelledby="qt-4" tabindex="0" hidden>
-          <h3 class="cap-panel-h">The lab, connected to the record.</h3>
-          <p class="cap-panel-p">Laboratory information management on LabWare and Biovia OneLab: direct and file-based instrument integration, real-time data, audit trails and e-signatures.</p>
-          <div class="cap-foot">
-            <a href="#contact" class="cap-explore">Discuss your LIMS <span aria-hidden="true">→</span></a>
-          </div>
-        </div>
-        <div class="cap-panel" role="tabpanel" id="qp-5" aria-labelledby="qt-5" tabindex="0" hidden>
-          <h3 class="cap-panel-h">Validation as a lifecycle, not a scramble.</h3>
-          <p class="cap-panel-p">Validation management on ValGenesis and NoteIQ: the URS-to-PQ lifecycle with AI-driven risk assessment and auto-built traceability.</p>
-          <div class="cap-foot">
-            <a href="pivotpath-noteiq-vms.html" class="cap-explore">Explore NoteIQ VMS <span aria-hidden="true">→</span></a>
-          </div>
-        </div>
-        <div class="cap-panel" role="tabpanel" id="qp-6" aria-labelledby="qt-6" tabindex="0" hidden>
-          <h3 class="cap-panel-h">Qualified at go-live, supported ever after.</h3>
-          <p class="cap-panel-p">An end-to-end validation package — IQ, OQ and PQ with design and configuration specifications — then 24/7 L1–L3 operations, so each system stays as compliant as the day it launched.</p>
-          <div class="cap-foot">
-            <a href="pivotpath-svc-csv.html" class="cap-explore">See Computer System Validation <span aria-hidden="true">→</span></a>
-          </div>
+        <div class="col-md-6">
+          <h3 class="deliver-h">Laboratory Applications</h3>
+          <p class="deliver-sub">Digitise laboratory operations to streamline sample management, automate workflows, improve reporting accuracy and enable compliant, data-driven GxP laboratory processes.</p>
+          <ul class="app-list">
+            <li>LabWare LIMS</li>
+            <li>BIOVIA One Lab</li>
+            <li>MODA</li>
+          </ul>
         </div>
       </div>
-      <p class="flow-close reveal">QMS, DMS, LMS, LIMS and VMS are our most common engagements — the same select–implement–validate–run model covers the wider GxP application landscape.</p>
+      <p class="flow-close reveal">Selected for fit, configured to your process, validated to standard and supported after go-live, across the wider GxP application landscape.</p>
     </div>
   </section>
 
@@ -414,53 +394,43 @@
   <section class="pad80" id="journey">
     <div class="container">
       <div class="text-center mb-5">
-        <h2 class="section-title reveal">From Selection to Steady State</h2>
+        <h2 class="section-title reveal">How We Deliver</h2>
       </div>
-      <div class="flow4 reveal m-acc">
-        <div class="fl">
-          <div class="dot"></div>
-          <div class="ph">Select</div>
-          <p class="fl-note">Business and regulatory requirements defined; platforms evaluated and the best fit recommended.</p>
-          <p class="fl-svcs">Requirements · Product selection</p>
+      <div class="reveal">
+        <div class="stage">
+          <div class="st-n">1</div>
+          <div>
+            <h3>Discovery &amp; Assessment</h3>
+            <p>We work with your stakeholders to understand business goals, current processes, compliance requirements and operational challenges. Through process and gap assessments we identify improvement opportunities and define a clear project roadmap and implementation strategy.</p>
+          </div>
         </div>
-        <div class="fl">
-          <div class="dot"></div>
-          <div class="ph">Configure</div>
-          <p class="fl-note">Workflows, forms, roles and reports designed for compliance — integrated across systems and instruments.</p>
-          <p class="fl-svcs">Design &amp; configuration · Integration</p>
+        <div class="stage">
+          <div class="st-n">2</div>
+          <div>
+            <h3>Solution Design</h3>
+            <p>Based on the assessment outcomes, we design a fit-for-purpose solution architecture, workflows, data models and system configurations. The design aligns with your business processes, regulatory requirements and future scalability needs.</p>
+          </div>
         </div>
-        <div class="fl">
-          <div class="dot"></div>
-          <div class="ph">Validate</div>
-          <p class="fl-note">Configurations qualified with a complete IQ/OQ/PQ package, then deployed with training and support.</p>
-          <p class="fl-svcs">IQ/OQ/PQ with DS/CS · Rollout</p>
+        <div class="stage">
+          <div class="st-n">3</div>
+          <div>
+            <h3>Build, Configure &amp; Integrate</h3>
+            <p>Our team configures and customises the application to your specific business and technical requirements. We establish integrations with enterprise systems, laboratory instruments and other connected platforms for connected data flow and process automation.</p>
+          </div>
         </div>
-        <div class="fl">
-          <div class="dot"></div>
-          <div class="ph">Run</div>
-          <p class="fl-note">Round-the-clock L1–L3 operations, with continuous standardisation and optimisation.</p>
-          <p class="fl-svcs">24/7 operations · Optimisation</p>
+        <div class="stage">
+          <div class="st-n">4</div>
+          <div>
+            <h3>Testing &amp; Validation</h3>
+            <p>We run comprehensive testing and validation to verify system functionality, performance, compliance and data integrity, so the solution is fully validated and ready for regulated operational environments.</p>
+          </div>
         </div>
-      </div>
-      <p class="flow-close reveal">One team carries the system from selection through steady state — so nothing is lost between the people who chose it, the people who built it and the people who run it.</p>
-    </div>
-  </section>
-
-  <!-- ============ NOTEIQ — THE PLATFORM OPTION ============ -->
-  <section class="pad80 spotlight" id="noteiq">
-    <div class="container">
-      <div class="spot-head reveal">
-        <span class="logo-plate"><img src="assets/noteiq.png" alt="NoteIQ" class="prod-logo"></span>
-        <p class="spot-tagline">For document, training and validation management we can deploy NoteIQ — the AI-enabled GxP platform we build and run — so you get vendor and implementer in one team.</p>
-      </div>
-      <div class="row justify-content-center spot-body">
-        <div class="col-lg-8 reveal">
-          <ul class="vp-list">
-            <li class="vp"><span class="vp-ic">✓</span><div><div class="vp-t">NoteIQ DMS — controlled documents</div><div class="vp-d">Versioning, audit trail and event-based printing with reprint traceability.</div></div></li>
-            <li class="vp"><span class="vp-ic">✓</span><div><div class="vp-t">NoteIQ TMS — training management</div><div class="vp-d">Document-to-training integration, competency management and SCORM e-learning.</div></div></li>
-            <li class="vp"><span class="vp-ic">✓</span><div><div class="vp-t">NoteIQ VMS — validation lifecycle</div><div class="vp-d">URS-to-PQ with AI-driven risk assessment and auto-built traceability.</div></div></li>
-          </ul>
-          <p class="dd-link">NoteIQ is a Quality &amp; Compliance platform from Pivot Path — <a href="pivotpath-noteiq.html">explore the full platform</a>.</p>
+        <div class="stage">
+          <div class="st-n">5</div>
+          <div>
+            <h3>Deployment &amp; Managed Support</h3>
+            <p>After successful validation we deploy the solution into production and provide hypercare during stabilisation. Ongoing managed services and 24/7 support keep the system reliable, ensure business continuity and drive continuous improvement.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -479,11 +449,11 @@
         </div>
         <div class="engage-col">
           <h4>Operations</h4>
-          <p>Design, configuration, integration and validation, an IQ/OQ/PQ package with DS/CS documentation, deployed and embedded, then run with 24/7 L1-L3 support and optimisation.</p>
+          <p>Design, configuration, integration and validation, an end-to-end validation package with testing and validation documentation, deployed and embedded, then run with 24/7 L1-L3 support and optimisation.</p>
         </div>
         <div class="engage-col">
           <h4>Technology</h4>
-          <p>NoteIQ, our own GxP quality platform, alongside the applications we implement, operated and kept validated so every system stays compliant and current after go-live.</p>
+          <p>The quality and laboratory applications themselves, configured, integrated and validated as GxP systems, then operated and kept current so every system stays compliant after go-live.</p>
         </div>
       </div>
       <p class="engage-kicker reveal">Each engagement model is contractable independently. Begin with a defined scope and expand as your requirements evolve.</p>
@@ -523,23 +493,23 @@
           <div class="accordion reveal" id="faqAcc">
             <div class="accordion-item">
               <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q1">Which quality systems do you implement?</button></h2>
-              <div id="q1" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Quality applications across the GxP landscape — most commonly QMS (Quality Management), LMS (Learning Management), DMS (Document Management), LIMS (Laboratory Information Management) and VMS (Validation Management) — including configuration, integration, validation and ongoing operations. If a system type isn't named here, ask: the delivery model is the same.</div></div>
+              <div id="q1" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Quality applications across the GxP landscape, most commonly QMS (Quality Management), DMS (Document Management), LMS (Learning Management) and LIMS (Laboratory Information Management), including configuration, integration, validation and ongoing operations. If a system type isn't named here, ask: the delivery model is the same.</div></div>
             </div>
             <div class="accordion-item">
               <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2">Which platforms and products do you work with?</button></h2>
-              <div id="q2" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Across QMS (TrackWise and TrackWise Digital), LMS (ComplianceWire, Biovia ELMS and NoteIQ TMS), DMS (Biovia EDMS, NewGen and NoteIQ), LIMS (LabWare and Biovia OneLab) and VMS (ValGenesis and NoteIQ). NoteIQ is Pivot Path's own GxP platform, so we can deliver DMS, training and validation management on a platform we build and run.</div></div>
+              <div id="q2" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Across QMS (TrackWise and TrackWise Digital), DMS (Biovia EDMS and NewGen), LMS (ComplianceWire and Biovia ELMS) and LIMS (LabWare and Biovia OneLab), plus quality and laboratory applications such as APQR/CPV, E-Harmony, Educe, Cleen/E-Residue and MODA.</div></div>
             </div>
             <div class="accordion-item">
               <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q3">What is your delivery lifecycle?</button></h2>
-              <div id="q3" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Our eight-step delivery lifecycle covers: process requirement and understanding, product selection, design and configuration, integration and development, validation of configurations (IQ/OQ/PQ with DS/CS documentation), implementation and rollout, operations (L1–L3, 24/7), and process standardisation and optimisation.</div></div>
+              <div id="q3" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Our delivery lifecycle runs in five stages: discovery and assessment, solution design, build/configure and integrate, testing and validation, and deployment and managed support with 24/7 L1 to L3 operations.</div></div>
             </div>
             <div class="accordion-item">
               <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q4">Do you provide validation and operations for these systems?</button></h2>
-              <div id="q4" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Yes — an end-to-end validation package (IQ, OQ, PQ with design and configuration specifications) plus 24/7 L1, L2 and L3 operations, so each system is qualified at go-live and supported afterwards.</div></div>
+              <div id="q4" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Yes. An end-to-end validation package with testing and validation documentation, plus 24/7 L1, L2 and L3 operations, so each system is qualified at go-live and supported afterwards.</div></div>
             </div>
             <div class="accordion-item">
               <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q5">How much quality-application experience does Pivot Path have?</button></h2>
-              <div id="q5" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Implementations and rollouts across the full range of quality-application types — QMS, LMS, DMS, LIMS, VMS and beyond — spanning Asia, Europe, North America and Africa, delivered by a dedicated SME bench and supported around the clock after go-live.</div></div>
+              <div id="q5" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Implementations and rollouts across the full range of quality-application types (QMS, DMS, LMS, LIMS and beyond), spanning Asia, Europe, North America and Africa, delivered by a dedicated SME bench and supported around the clock after go-live.</div></div>
             </div>
           </div>
         </div>
@@ -551,7 +521,7 @@
   <section class="pad80 alt-cta text-center" id="contact">
     <div class="container">
       <h2 class="section-title text-white reveal mb-3">Implement Quality Systems<br>That Pass Inspection.</h2>
-      <p class="text-white-50 reveal mb-4" style="max-width:640px;margin-inline:auto">From QMS to LIMS — and the wider GxP application landscape — selected, configured, integrated, validated and run by a vendor-agnostic partner. Talk to our quality-apps team.</p>
+      <p class="text-white-50 reveal mb-4" style="max-width:640px;margin-inline:auto">From QMS to LIMS, and the wider GxP application landscape, selected, configured, integrated, validated and run by a vendor-agnostic partner. Talk to our quality-apps team.</p>
       <div class="hero-ctas justify-content-center reveal">
         <a href="mailto:info@pivotpath.com" class="btns2 solid-light">Talk to our quality-apps team</a>
         <a href="pivotpath-digital-innovation.html" class="btns-line">See the Digital Transformation pillar</a>
@@ -618,35 +588,6 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous" defer></script>
   <script>
-    // ---- Stack pill-tabs (accessible) ----
-    (function(){
-      var tabs=Array.prototype.slice.call(document.querySelectorAll('.cap-tab'));
-      if(!tabs.length)return;
-      var panels=tabs.map(function(t){return document.getElementById(t.getAttribute('aria-controls'));});
-      function select(idx,focus){
-        tabs.forEach(function(t,i){
-          var on=i===idx;
-          t.setAttribute('aria-selected',on?'true':'false');
-          t.tabIndex=on?0:-1;
-          if(panels[i])panels[i].hidden=!on;
-        });
-        if(focus&&tabs[idx])tabs[idx].focus();
-      }
-      tabs.forEach(function(tab,i){
-        tab.addEventListener('click',function(){select(i,false);});
-        tab.addEventListener('keydown',function(e){
-          var n;
-          if(e.key==='ArrowRight'||e.key==='ArrowDown')n=(i+1)%tabs.length;
-          else if(e.key==='ArrowLeft'||e.key==='ArrowUp')n=(i-1+tabs.length)%tabs.length;
-          else if(e.key==='Home')n=0;
-          else if(e.key==='End')n=tabs.length-1;
-          else return;
-          e.preventDefault();select(n,true);
-        });
-      });
-      select(0,false);
-    })();
-
     // ---- Reveal on scroll ----
     (function(){
       var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
