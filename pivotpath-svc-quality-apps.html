@@ -54,13 +54,19 @@
     .app-list li{padding:var(--sp-3) 0;border-top:1px solid var(--pp-line);font-weight:600;color:var(--pp-ink)}
     .app-list li:first-child{border-top:0}
 
-    /* How we deliver — vertical numbered stages */
-    .stage{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:var(--sp-4);padding:var(--sp-5) 0;border-top:1px solid var(--pp-line)}
-    .stage:first-child{border-top:0}
-    .stage .st-n{font-size:var(--fs-h3);font-weight:800;color:var(--pp-accent);font-variant-numeric:tabular-nums;line-height:1}
+    /* How we deliver — vertical timeline with a gradient spine */
+    .stages{position:relative}
+    .stages::before{content:"";position:absolute;left:19px;top:calc(var(--sp-4) + 20px);bottom:calc(var(--sp-4) + 20px);width:2px;background:var(--pp-grad);opacity:.5}
+    .stage{position:relative;display:grid;grid-template-columns:40px minmax(0,1fr);column-gap:var(--sp-4);align-items:start;padding:var(--sp-4) 0}
+    .stage .st-n{position:relative;z-index:1;width:40px;height:40px;border-radius:50%;background:var(--pp-grad);color:#fff;font-size:var(--fs-h5);font-weight:800;display:flex;align-items:center;justify-content:center;font-variant-numeric:tabular-nums;box-shadow:0 6px 16px rgba(0,0,0,.14)}
+    .stage > div:last-child{padding-top:7px}
     .stage h3{font-size:var(--fs-h4);font-weight:700;margin:0 0 var(--sp-2)}
-    .stage p{color:var(--pp-muted);margin:0;max-width:72ch}
-    @media (max-width:575.98px){.stage{grid-template-columns:1fr;row-gap:var(--sp-2)}}
+    .stage p{color:var(--pp-muted);margin:0;max-width:70ch}
+    @media (max-width:575.98px){
+      .stages::before{left:17px}
+      .stage{grid-template-columns:36px minmax(0,1fr);column-gap:var(--sp-3)}
+      .stage .st-n{width:36px;height:36px;font-size:var(--fs-sm)}
+    }
 
     /* Ways to engage — three hairline columns, not cards */
     .engage-grid{display:grid;grid-template-columns:repeat(3,1fr)}
@@ -396,7 +402,7 @@
       <div class="text-center mb-5">
         <h2 class="section-title reveal">How We Deliver</h2>
       </div>
-      <div class="reveal">
+      <div class="stages reveal">
         <div class="stage">
           <div class="st-n">1</div>
           <div>
